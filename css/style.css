@@ -1,11 +1,4 @@
-/*
-* Resume template
-* Created by : Ahmed Essa
-* website : www.ahmedessa.net
-*/
-
-
-/* Table of Content
+/* Table of Contents
 ==================================================
 	- Google fonts & font family -
 	- typography -
@@ -20,10 +13,8 @@
     - Responsive media queries -
 */
 
-
 /* Google fonts & font family
 ==================================================*/
-
 @import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i';
 @import 'https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet';
 /*
@@ -33,7 +24,12 @@ font-family: 'Open Sans', sans-serif;
 font-family: 'Major Mono Display', monospace;
 */
 
-
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  } 
 /* typography
 ==================================================*/
 
