@@ -19,9 +19,9 @@ var my = -1000;
 var repelFactor = 10000000;
 var maxAccel = 5;
 var friction = 0.90;
-var pullFactor = 1000000;
+var pullFactor = 50000;
 var pullDistance = 100;
-var mouseDown = false;
+var attractionTimer = 0;
 setup();
 function setup () {
 	//set the starting size
@@ -34,23 +34,17 @@ function setup () {
 	}
 	home.addEventListener("mousemove", onMouseMove, true);
 	c.addEventListener("mousemove", onMouseMove, true);
-	home.addEventListener("mousedown", onMouseDown, true);
-	c.addEventListener("mousedown", onMouseDown, true);
-	home.addEventListener("mouseup", onMouseUp, true);
-	c.addEventListener("mouseup", onMouseUp, true);
+	home.addEventListener("click", onMouseClick, true);
+	c.addEventListener("click", onMouseClick, true);
 }
 
 function onMouseMove (e) {
 	mx = e.clientX;
 	my = e.clientY+document.documentElement.scrollTop;
 } 
-function onMouseDown (e) {
-	console.log("a");
-	mouseDown = true;
-}
-function onMouseUp (e) {
-	console.log("a");
-	mouseDown = false;
+function onMouseClick (e) {
+	attractionTimer = 5;
+	
 }
 
 function onresize () {
@@ -68,6 +62,10 @@ function update () {
 	for (var i = 0; i < dots.length; i++) {
 		dots[i].update();
 	}
+	if (attractionTimer >= 0) {
+		attractionTimer --;
+	}
+	console.log(attractionTimer);
 	for (var i = 0; i < dots.length; i++) {
 		dots[i].draw();
 	}
@@ -90,24 +88,25 @@ function dot () {
 		//move
 		this.x += this.xvel;
 		this.y += this.yvel;
-		if (!mouseDown) {
+		
+		if (attractionTimer <= 0) {
 			//repel from mouse
 			var angle = getAngle(this.x, this.y, mx, my);
 			var force = repelFactor/Math.pow(dist(this.x, this.y, mx, my), 3);
 			if (force > maxAccel) {
 				force = maxAccel;
 			}
+			
 			this.applyForce(angle, -force);
 		} else {
 			//attract to mouse
-			if (dist(this.x, this.y, mx, my) < pullDistance) {
-				var angle = getAngle(this.x, this.y, mx, my);
-				var force = pullFactor/Math.pow(dist(this.x, this.y, mx, my), 2);
-					if (force > maxAccel * 5) {
-						force = maxAccel*5;
-					}
-				this.applyForce(angle, force)
+			var angle = getAngle(this.x, this.y, mx, my);
+			var force = pullFactor/Math.pow(dist(this.x, this.y, mx, my), 2)*(attractionTimer+5);
+			if (force > 100*maxAccel) {
+				force = maxAccel;
 			}
+			
+			this.applyForce(angle, force);
 		}
 		//repel from each other
 		for (var i = 0; i < dots.length; i++) {
