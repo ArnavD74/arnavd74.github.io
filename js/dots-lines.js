@@ -130,19 +130,19 @@ function dot () {
 			}
 		}
 		//bounce off walls
-		if (this.x < 0) {//x
+		if (this.x < -1*maxSize*2) {//x
 			this.xvel *= -1;
-			this.x = Math.abs(this.x);
-		} else if (this.x > cw) {
+			this.x = -1*maxSize*2+(this.x+maxSize*2);
+		} else if (this.x > cw+maxSize*2) {
 			this.xvel *= -1;
-			this.x = cw - (this.x-cw);
+			this.x = (cw+maxSize*2) - (this.x-(cw+maxSize*2));
 		}
-		if (this.y < 0) {//y
+		if (this.y < -1*maxSize*2) {//y
 			this.yvel *= -1;
-			this.y = Math.abs(this.y);
-		} else if (this.y > ch) {
+			this.y = -1*maxSize*2+(this.y+maxSize*2);
+		} else if (this.y > ch+maxSize*2) {
 			this.yvel *= -1;
-			this.y = ch - (this.y-ch);
+			this.y = (ch+maxSize*2) - (this.y-(ch+maxSize*2));
 		}
 	}
 	this.draw = function () {
