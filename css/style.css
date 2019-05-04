@@ -319,8 +319,8 @@ a.active { /*matches with bg-nav*/
     border: 10px solid #e09288;
     width: 400px;
     height: 400px;
-    top: 120px;
-    left: 120px;
+    top: 120px; /*up and down*/
+    left: 120px; /*left right*/
     z-index: 1
 }
 
