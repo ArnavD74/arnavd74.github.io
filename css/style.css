@@ -30,6 +30,7 @@ font-family: 'Major Mono Display', monospace;
     margin-right: auto;
     width: 50%;
   } 
+  
 /* typography
 ==================================================*/
 
@@ -323,7 +324,6 @@ a.active { /*matches with bg-nav*/
     left: 50px;
     z-index: 1
 }
-
 
 /* experience section
 ==================================================*/
