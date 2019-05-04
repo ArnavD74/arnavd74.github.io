@@ -6,7 +6,7 @@ var cw = 0;
 var ch = 0;
 var dots = [];
 var dotCount = 200;//on my normal screen
-var connectionDistance = 125;
+var connectionDistance = 110;
 var maxSize = 10;
 var minSize = 5;
 var minTransparency = 0.25;
@@ -109,7 +109,7 @@ function dot () {
 			//attract to mouse
 			var angle = getAngle(this.x, this.y, mx, my);
 			var force = pullFactor/Math.pow(dist(this.x, this.y, mx, my), 2)*(attractionTimer+pullLength);
-			if (force > 100*maxAccel) {
+			if (force > 10*maxAccel) {
 				force = maxAccel;
 			}
 			
@@ -150,9 +150,9 @@ function dot () {
 			if (dot !== this) {
 				var distance = dist(this.x, this.y, dot.x, dot.y);
 				if (distance <= connectionDistance+fadeOut) {
-					var transparency = (getLower(this.t, dot.t))*2*sigmoid(-6/(2*fadeOut)*(distance-(connectionDistance+fadeOut)))-1;
+					var transparency = this.t*2*sigmoid(-6/(2*fadeOut)*(distance-(connectionDistance+fadeOut)))-1;
 					ctx.strokeStyle = "rgba(255, 255, 255, "+transparency+")";
-					ctx.lineWidth = getLower(this.r, dot.r)/4;
+					ctx.lineWidth = getLower(this.r, dot.r)/2;
 					var angle = getAngle(this.x, this.y, dot.x, dot.y);
 					var x1 = this.x + this.r*Math.cos(angle);
 					var y1 = this.y + this.r*Math.sin(angle);
