@@ -10,7 +10,7 @@ var connectionDistance = 100;
 var maxSize = 10;
 var minSize = 2;
 var minTransparency = 0.5;
-var maxTransparency = 0.8;
+var maxTransparency = 0.75;
 var motionBlur = 1;
 var fadeOut = 50;
 var maxSpeed = 2;
@@ -19,9 +19,10 @@ var my = -1000;
 var repelFactor = 10000000;
 var maxAccel = 5;
 var friction = 0.90;
-var pullFactor = 50000;
+var pullFactor = 25000;
 var pullDistance = 100;
 var attractionTimer = 0;
+var pullLength = 10;
 setup();
 function setup () {
 	//set the starting size
@@ -43,7 +44,7 @@ function onMouseMove (e) {
 	my = e.clientY+document.documentElement.scrollTop;
 } 
 function onMouseClick (e) {
-	attractionTimer = 5;
+	attractionTimer = pullLength;
 	
 }
 
@@ -69,10 +70,11 @@ function update () {
 		dots[i].draw();
 	}
 	//succ circle
-	ctx.strokeStyle = "rgba(255, 255, 255, "+(0.1*0.1*(5+attractionTimer))+")";
-	ctx.lineWidth = 20;
+	ctx.strokeStyle = "rgba(255, 255, 255, "+(3/(pullLength)*1/(attractionTimer))+")";
+	//ctx.strokeStyle = "rgba(255, 255, 255, "+1+")";
+	ctx.lineWidth = 10;
 	ctx.beginPath();
-	ctx.arc(mx, my, 50*(attractionTimer+1), 0, Math.PI*2);
+	ctx.arc(mx, my, 3*(attractionTimer+1)**2, 0, Math.PI*2);
 	ctx.stroke();
 }
 
@@ -106,7 +108,7 @@ function dot () {
 		} else {
 			//attract to mouse
 			var angle = getAngle(this.x, this.y, mx, my);
-			var force = pullFactor/Math.pow(dist(this.x, this.y, mx, my), 2)*(attractionTimer+5);
+			var force = pullFactor/Math.pow(dist(this.x, this.y, mx, my), 2)*(attractionTimer+pullLength);
 			if (force > 100*maxAccel) {
 				force = maxAccel;
 			}
@@ -145,16 +147,22 @@ function dot () {
 		//connections
 		for (var i = 0; i < dots.length; i++) {
 			var dot = dots[i];
-			var distance = dist(this.x, this.y, dot.x, dot.y);
-			if (distance <= connectionDistance+fadeOut) {
-				var transparency = (getLower(this.t, dot.t))*2*sigmoid(-6/(2*fadeOut)*(distance-(connectionDistance+fadeOut)))-1;
-				//ctx.globalAlpha = (getLower(this.t, cdot.t))*2*sigmoid(-6/(2*fadeOut)*(distance-(connectionDistance+fadeOut)))-1;
-				ctx.strokeStyle = "rgba(255, 255, 255, "+transparency+")";
-				ctx.lineWidth = getLower(this.r, dot.r)/4;
-				ctx.beginPath();
-				ctx.moveTo(this.x, this.y);
-				ctx.lineTo(dot.x, dot.y);
-				ctx.stroke();
+			if (dot !== this) {
+				var distance = dist(this.x, this.y, dot.x, dot.y);
+				if (distance <= connectionDistance+fadeOut) {
+					var transparency = (getLower(this.t, dot.t))*2*sigmoid(-6/(2*fadeOut)*(distance-(connectionDistance+fadeOut)))-1;
+					ctx.strokeStyle = "rgba(255, 255, 255, "+transparency+")";
+					ctx.lineWidth = getLower(this.r, dot.r)/4;
+					var angle = getAngle(this.x, this.y, dot.x, dot.y);
+					var x1 = this.x + this.r*Math.cos(angle);
+					var y1 = this.y + this.r*Math.sin(angle);
+					var x2 = dot.x + -dot.r*Math.cos(angle);
+					var y2 = dot.y + -dot.r*Math.sin(angle);
+					ctx.beginPath();
+					ctx.moveTo(x1, y1);
+					ctx.lineTo(x2, y2);
+					ctx.stroke();
+				}
 			}
 		}
 		//draw
