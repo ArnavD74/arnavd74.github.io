@@ -1,3 +1,4 @@
+//By Wingo206
 var home = document.getElementById("home");
 var c = document.getElementById("canvas");
 var ctx = c.getContext("2d");
