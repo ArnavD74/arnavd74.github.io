@@ -35,15 +35,17 @@ h2 {
     text-transform: capitalize;
     letter-spacing: 2px;
     position: relative;
-    color: #e09288;
-    margin-left: 40px;
+    color: rgb(238, 220, 217);
+    /*margin-left: 40px;*/
     font-weight: 700;
-}*/
+}
 
 h3 {
     font-family: 'Lato', sans-serif;
-    font-size: 50px;
-    line-height: 70px;
-    letter-spacing: 8px;
-    position:relative;
+    text-transform: capitalize;
+    letter-spacing: 16px;
+    position: relative;
+    color: #e09288;
+    /*margin-left: 40px;*/
+    font-weight: 700;
 }
