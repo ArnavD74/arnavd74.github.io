@@ -284,6 +284,12 @@ a.active { /*matches with bg-nav*/
     height: 100vh;
 }
 
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .table-cell {
     display: table-cell;
     vertical-align: middle;
@@ -292,6 +298,7 @@ a.active { /*matches with bg-nav*/
 .disply-table {
     display: table;
     height: 100vh;
+    z-index: 10;
 }
 
 
