@@ -58,7 +58,6 @@ function onresize () {
 
 function update () {
 	
-	
 	ctx.clearRect(0,0,cw,ch);
 	for (var i = 0; i < dots.length; i++) {
 		dots[i].update();
