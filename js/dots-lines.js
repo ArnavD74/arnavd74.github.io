@@ -65,10 +65,15 @@ function update () {
 	if (attractionTimer >= 0) {
 		attractionTimer --;
 	}
-	console.log(attractionTimer);
 	for (var i = 0; i < dots.length; i++) {
 		dots[i].draw();
 	}
+	//succ circle
+	ctx.strokeStyle = "rgba(255, 255, 255, "+(0.1*0.1*(5+attractionTimer))+")";
+	ctx.lineWidth = 20;
+	ctx.beginPath();
+	ctx.arc(mx, my, 50*(attractionTimer+1), 0, Math.PI*2);
+	ctx.stroke();
 }
 
 var interval = setInterval(update, 1000/30);
