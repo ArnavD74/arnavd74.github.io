@@ -1,6 +1,7 @@
 //By Wingo206
 var home = document.getElementById("home");
 var c = document.getElementById("canvas");
+//var header = document.getElementById("header") by arnav idk how this works 1/3
 var ctx = c.getContext("2d");
 var cw = 0;
 var ch = 0;
@@ -35,8 +36,10 @@ function setup () {
 	}
 	home.addEventListener("mousemove", onMouseMove, true);
 	c.addEventListener("mousemove", onMouseMove, true);
+	//header.addEventListener("mousemove", onMouseClick, true); by arnav idk how this works 2/3
 	home.addEventListener("click", onMouseClick, true);
 	c.addEventListener("click", onMouseClick, true);
+	//header.addEventListener("click", onMouseClick, true); by arnav idk how this works 3/3
 }
 
 function onMouseMove (e) {
