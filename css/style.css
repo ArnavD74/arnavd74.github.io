@@ -314,13 +314,13 @@ a.active { /*matches with bg-nav*/
     margin: 0 auto;
 }
 
-.about-border { /*the box around the about image*/
+.about-border {
     position: absolute;
     border: 10px solid #e09288;
     width: 400px;
     height: 400px;
-    top: 120px; /*up and down*/
-    left: 120px; /*left right*/
+    top: 40px;
+    left: 50px;
     z-index: 1
 }
 
