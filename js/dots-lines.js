@@ -5,12 +5,12 @@ var ctx = c.getContext("2d");
 var cw = 0;
 var ch = 0;
 var dots = [];
-var dotCount = 200;
+var dotCount = 200;//on my normal screen
 var connectionDistance = 100;
 var maxSize = 10;
 var minSize = 2;
 var minTransparency = 0.5;
-var maxTransparency = 1;
+var maxTransparency = 0.8;
 var motionBlur = 1;
 var fadeOut = 50;
 var maxSpeed = 2;
@@ -26,6 +26,9 @@ setup();
 function setup () {
 	//set the starting size
 	onresize();
+	var dotsPerPixel = dotCount/(1903*969);
+	dotCount = cw*ch*dotsPerPixel;
+	console.log(dotCount);
 	for (var i = 0; i < dotCount; i++) {
 		dots.push(new dot());
 	}
