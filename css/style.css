@@ -862,6 +862,7 @@ fieldset {
     /*background: #fae2e2;*/
     background-image: linear-gradient(#F3F3F3, #fae2e2);
     background-size: auto;
+    background-repeat: repeat-y;
     height: 35px;
 }
 
