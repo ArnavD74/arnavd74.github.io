@@ -503,6 +503,7 @@ a.active { /*matches with bg-nav*/
 ==================================================*/
 
 #projects {
+    background-color: #333;
     padding: 100px 0;
 }
 
@@ -687,7 +688,7 @@ a.active { /*matches with bg-nav*/
 
 #contact {
     padding: 100px 0;
-    background: #f3f3f3
+    background: white /*was f3f3f3*/
 }
 
 #contact-form input,
@@ -860,9 +861,8 @@ fieldset {
 
 #banner {
     /*background: #fae2e2;*/
-    background-image: linear-gradient(#F3F3F3, #fae2e2);
-    background-size: auto;
-    background-repeat: repeat-y;
+    background-image: linear-gradient(white, #fae2e2);
+    background-size: contain;
     height: 35px;
 }
 
@@ -874,6 +874,4 @@ h6 { /*Exclusive to banner */
     padding-top: 10px;
     position: relative;
     color: #e09288;
-    /*margin-left: 40px;*/
-    font-weight: 700;
 }
