@@ -300,7 +300,7 @@ a.active { /*matches with bg-nav*/
 	border-bottom: 1px solid rgba(255,255,255,.8);
 	margin: 0 0 0.125em 0.315em;
 	transform: rotate(45deg);
-  animation: mouse-scroll 1s infinite;
+    animation: mouse-scroll 2s infinite;
 	animation-direction: alternate;
 }
 
