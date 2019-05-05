@@ -7,16 +7,6 @@ font-family: 'Open Sans', sans-serif;
 font-family: 'Major Mono Display', monospace;
 */
 
-.ml3 {
-    font-weight: 900;
-    font-size: 3.5em;
-  }
-
-
-.spacing {
-    line-height: 32px;
-}
-
 .center {
     display: block;
     margin-left: auto;
