@@ -867,12 +867,12 @@ fieldset {
 
 h6 { /*Exclusive to banner */
 
-    font-family: 'Lato', sans-serif;
+    font-family: 'Major Mono Display', monospace;
     font-size: 12px;
     letter-spacing: 12px;
     padding-top: 10px;
     position: relative;
     color: #e09288;
-    /*margin-left: 40px;
-    font-weight: 700;*/
+    /*margin-left: 40px;*/
+    font-weight: 700;
 }
