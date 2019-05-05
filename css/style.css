@@ -868,7 +868,7 @@ fieldset {
 h6 { /*Exclusive to banner */
 
     font-family: 'Major Mono Display', monospace;
-    font-size: 12px;
+        font-size: 12px;
     letter-spacing: 12px;
     padding-top: 10px;
     position: relative;
