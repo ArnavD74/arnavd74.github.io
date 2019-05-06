@@ -30,6 +30,8 @@ function setup () {
 	onresize();
 	var dotsPerPixel = dotCount/(1903*969);
 	dotCount = cw*ch*dotsPerPixel;
+	var sizePerPixel = pullFactor/(1903*969);
+	pullFactor = ch*cw*sizePerPixel;
 	console.log(dotCount);
 	for (var i = 0; i < dotCount; i++) {
 		dots.push(new dot());
