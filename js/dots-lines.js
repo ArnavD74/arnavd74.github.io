@@ -32,7 +32,7 @@ function setup () {
 	dotCount = cw*ch*dotsPerPixel;
 	var sizePerPixel = pullFactor/(1903*969);
 	pullFactor = ch*cw*sizePerPixel;
-	console.log(dotCount);
+	console.log("balls: "+dotCount);
 	for (var i = 0; i < dotCount; i++) {
 		dots.push(new dot());
 	}
