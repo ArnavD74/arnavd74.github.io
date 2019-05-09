@@ -37,6 +37,9 @@ body {
   z-index: -1;
 }
 
+span { font-size: 290px;}
+span b { text-shadow: -1px -1px 0px #bbff00, 1px 1px 0px #ff005a;}
+
 .notfound .notfound-404 h1 {
   font-family: 'Montserrat', sans-serif;
   position: absolute;
@@ -45,7 +48,7 @@ body {
   -webkit-transform: translate(-50% , -50%);
       -ms-transform: translate(-50% , -50%);
           transform: translate(-50% , -50%);
-  font-size: 224px;
+  font-size: 290;
   font-weight: 900;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -80,6 +83,7 @@ body {
   text-decoration: none;
   border: 2px solid;
   background: transparent;
+  margin-top:20px;
   padding: 10px 40px;
   font-size: 14px;
   font-weight: 700;
