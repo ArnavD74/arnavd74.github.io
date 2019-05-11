@@ -6,27 +6,36 @@ var cch = 0;
 var image = document.getElementById("chevron_down");
 console.log(image);
 
+var globalHeight = -15;
+var separationDistance = 50;
+var startFrameDifference = 10;
+var speed = 100;
 var arrows = [];
 setup();
 
 function setup () {
     ccw = ccanvas.clientWidth;
     cch = ccanvas.clientHeight;
+    /*
     arrows.push(new arrow(0,0,ccw,30,20,100,0));
     arrows.push(new arrow(0,40,ccw,30,20,100,10));
-    arrows.push(new arrow(0,80,ccw,30,20,100,20));
+    arows.push(new arrow(0,80,ccw,30,20,100,20));
+    */
+    for (var i = 0; i < 2; i++) {
+        arrows.push(new arrow(0,globalHeight+i*separationDistance, ccw, 20, speed, i*startFrameDifference));
+    }
 }
 
 function update () {
+    
     cctx.clearRect(0,0,ccw,cch);
     //VV bounding box for testing
-    cctx.lineWidth = 2;
+   /* cctx.lineWidth = 2;
     cctx.strokeStyle = "#ffffff";
     cctx.fillStyle = "#ffffff";
     cctx.beginPath();
     cctx.rect(0,0,ccw, cch);
-    cctx.stroke();
-    
+    cctx.stroke();*/
     //
     for (var i = 0; i < arrows.length; i++) {
         arrows[i].update();
@@ -36,13 +45,12 @@ function update () {
 
 var interval = setInterval(update, 1000/30);
 
-function arrow (startX, startY, width, height, shift, interval, startFrame) {
+function arrow (startX, startY, width, shift, interval, startFrame) {
     this.startX = startX;//the "top" position, counting from the top left of the bounding box of the image
     this.startY = startY;
     this.x = startX;
     this.y = startY;
     this.w = width;
-    this.h = height;
     this.shift = shift;
     this.interval = interval;//the amount of frames needed to cycle completely from top to bottom to top again
     this.curFrame = 0;
@@ -59,6 +67,6 @@ function arrow (startX, startY, width, height, shift, interval, startFrame) {
             /*cctx.beginPath();
             cctx.rect(this.x,this.y,this.w,this.h);
             cctx.stroke();*/
-            cctx.drawImage(image, this.x, this.y);
+            cctx.drawImage(image,this.x, this.y,this.w,this.w);
     }
 }
