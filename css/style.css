@@ -259,6 +259,10 @@ a.active { /*matches with bg-nav*/
     z-index: 10;
 }
 
+#chevron_down {
+    visibility: hidden;
+}
+
 .table-cell {
     display: table-cell;
     vertical-align: middle;
@@ -269,6 +273,7 @@ a.active { /*matches with bg-nav*/
     height: 100vh;
     z-index: -1;
 }
+
 
 /* about section
 ==================================================*/
