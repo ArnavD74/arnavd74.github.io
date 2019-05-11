@@ -6,10 +6,10 @@ var ctx = c.getContext("2d");
 var cw = 0;
 var ch = 0;
 var dots = [];
-var dotCount = 175;//on my normal screen
+var dotCount = 225;//on my normal screen
 var connectionDistance = 110;
-var maxSize = 10;
-var minSize = 5;
+var maxSize = 7;
+var minSize = 2;
 var minTransparency = 0.25;
 var maxTransparency = 0.82; //edited (Arnav) 0.75 5/6/19
 var motionBlur = 5; //edited (Arnav) 1.0 5/6/19
@@ -134,17 +134,17 @@ function dot () {
 		//bounce off walls
 		if (this.x < -1*maxSize*2) {//x
 			this.xvel *= -1;
-			this.x = -1*maxSize*2+(this.x+maxSize*2);
+			//this.x = -1*maxSize*2+(this.x+maxSize*2);
 		} else if (this.x > cw+maxSize*2) {
 			this.xvel *= -1;
-			this.x = (cw+maxSize*2) - (this.x-(cw+maxSize*2));
+			//this.x = (cw+maxSize*2) - (this.x-(cw+maxSize*2));
 		}
 		if (this.y < -1*maxSize*2) {//y
 			this.yvel *= -1;
-			this.y = -1*maxSize*2+(this.y+maxSize*2);
+			//this.y = -1*maxSize*2+(this.y+maxSize*2);
 		} else if (this.y > ch+maxSize*2) {
 			this.yvel *= -1;
-			this.y = (ch+maxSize*2) - (this.y-(ch+maxSize*2));
+			//this.y = (ch+maxSize*2) - (this.y-(ch+maxSize*2));
 		}
 	}
 	this.draw = function () {
