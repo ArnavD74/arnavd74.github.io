@@ -3,6 +3,7 @@
 
 /* typography
 ==================================================*/
+
 h1 {
     font-family: 'Major Mono Display', monospace;
     font-size: 80px;
@@ -29,6 +30,20 @@ h4:before {
     background: #e09288;
     top: 9px;
 }
+
+/* Audio
+==================================================*/
+
+#music{
+position: relative;
+z-index: 1000;
+}
+
+audio {
+    background-color: black;
+    width: 100%;
+    height: 18px;
+    }
 
 /* General
 ==================================================*/
@@ -259,10 +274,6 @@ a.active { /*matches with bg-nav*/
     z-index: 10;
 }
 
-#chevron_down {
-    visibility: hidden;
-}
-
 .table-cell {
     display: table-cell;
     vertical-align: middle;
@@ -273,7 +284,6 @@ a.active { /*matches with bg-nav*/
     height: 100vh;
     z-index: -1;
 }
-
 
 /* about section
 ==================================================*/
@@ -790,6 +800,7 @@ fieldset {
 }
 
 h6 { /*Exclusive to banner */
+
     font-family: 'Lato', sans-serif;
     font-size: 12px;
     letter-spacing: 10px;
