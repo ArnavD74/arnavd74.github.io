@@ -1,5 +1,5 @@
 @import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i';
-@import 'https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet';
+@import 'https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet';  
 
 /* typography
 ==================================================*/
@@ -272,6 +272,10 @@ a.active { /*matches with bg-nav*/
     top: 0;
     left: 0;
     z-index: 10;
+}
+
+#chevron_down {
+    visibility: hidden;
 }
 
 .table-cell {
