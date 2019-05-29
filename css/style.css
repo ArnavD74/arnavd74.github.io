@@ -803,6 +803,15 @@ fieldset {
     height: 35px;
 }
 
+h5 { /*Exclusive to changelog */
+
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    position: relative;
+    padding-top: 770px;
+    color: #999;
+}
+
 h6 { /*Exclusive to banner */
 
     font-family: 'Lato', sans-serif;
