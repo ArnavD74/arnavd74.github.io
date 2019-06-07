@@ -28,20 +28,26 @@
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-TileImage" content="img/favicon/favicon-144.png">
 	<meta name="msapplication-config" content="img/favicon/browserconfig.xml">
-	
+    <link href="css/aos.css" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="css/404.css" />
 </head>
 
 <body>
-	<div id="notfound">
+	<div id="notfound" >
 		<div class="notfound">
-			<div class="notfound-404">
+			<div class="notfound-404" data-aos="fade-up" data-aos-duration="1000">
 				<span><h1>4<b>0</b>4</h1></span>
-				<h2>Page not found</h2>
-			</div>
-			<a href="index.html">Homepage</a>
+                <div data-aos="fade-up" data-aos-duration="1500">
+                    <h2>Page not found</h2>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="2000">
+                <a href="index.html">Homepage</a>
+            </div>
 		</div>
 	</div>
 
+<script src="js/aos.js"></script>
+<script src="js/aosinit.js"></script>
 </body>
 </html>
