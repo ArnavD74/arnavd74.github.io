@@ -1,0 +1,12 @@
+# TEAM
+
+	Arnav Dashaputra -- Ui/Ux -- @arnavd74
+
+# THANKS
+
+	Brandon Cheng
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5, PHP
+    jQuery, aos.js
