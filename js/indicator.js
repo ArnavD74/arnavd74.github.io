@@ -21,7 +21,7 @@ function setup () {
     arrows.push(new arrow(0,40,ccw,30,20,100,10));
     arows.push(new arrow(0,80,ccw,30,20,100,20));
     */
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < 1; i++) { //number of arrows
         arrows.push(new arrow(0,globalHeight+i*separationDistance, ccw, 20, speed, i*startFrameDifference));
     }
 }
