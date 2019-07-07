@@ -830,3 +830,14 @@ button {
     overflow: hidden;
     outline:none;
 }
+
+#GA {
+    position: absolute;
+    bottom: 8px;
+    right: 0px;
+    height:25px;
+    width:25px;
+    margin: 8px 8px 0px 0px;
+    opacity: 0.6;
+    z-index: 9999;
+}
