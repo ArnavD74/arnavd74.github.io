@@ -798,7 +798,7 @@ fieldset {
 
 #banner {
     /*background: #fae2e2;*/
-    background-image: linear-gradient(white, #fae2e2);
+    background-image: linear-gradient(white, #f0bfbfcb);
     background-size: contain;
     height: 35px;
 }
