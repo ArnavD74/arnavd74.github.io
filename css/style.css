@@ -448,8 +448,8 @@ a.active { /*matches with bg-nav*/
 }
 
 .portfolio_item img {
-    /**-webkit-filter: grayscale(100%);
-    filter: grayscale(100%);**/
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 .portfolio-padding {
