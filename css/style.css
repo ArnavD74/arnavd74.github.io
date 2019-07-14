@@ -15,7 +15,7 @@ h4 {
     text-transform: capitalize;
     letter-spacing: 2px;
     position: relative;
-    color: #e09288;
+    color: #C82228;
     margin-left: 40px;
     font-weight: 700;
 }
@@ -27,7 +27,7 @@ h4:before {
     content: "";
     display: block;
     height: 2px;
-    background: #e09288;
+    background: #C82228;
     top: 9px;
 }
 
@@ -108,7 +108,7 @@ body {
     width: 100%;
     -webkit-animation: rotation 1s linear infinite;
     animation: rotation 1s linear infinite;
-    border: 2px solid #e09288;
+    border: 2px solid rgb(63, 102, 161);
     border-top: 2px solid transparent;
     border-radius: 100%
 }
@@ -235,7 +235,7 @@ nav li a {
 }
 
 .bg-nav {
-    background: #e09288; /*header color of top of page when scrolling down*/
+    background: #18273E; /*header color of top of page when scrolling down*/
     border-bottom: 1px solid #f3f3f3
 }
 
@@ -254,7 +254,7 @@ a:hover {
 }
 
 a.active { /*matches with bg-nav*/
-    color: #444;
+    color: #C82228;
 }
 
 
@@ -303,7 +303,7 @@ a.active { /*matches with bg-nav*/
 
 .about-border {
     position: absolute;
-    border: 10px solid #e09288;
+    border: 10px solid #18273E;
     width: 400px;
     height: 400px;
     top: 40px;
@@ -346,7 +346,7 @@ a.active { /*matches with bg-nav*/
 }
 
 .portfolio .categories-grid .categories ul li a.active {
-    background-color: #e09288;
+    background-color: #18273E;
     padding: 0px 20px;
     color: white;
     text-decoration: none;
@@ -369,7 +369,7 @@ a.active { /*matches with bg-nav*/
     left: 0px;
     height: 100%;
     width: 100%;
-    background-color: #e09288;
+    background-color: #18273E;
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
     opacity: 0;
@@ -404,7 +404,7 @@ a.active { /*matches with bg-nav*/
 .portfolio_item .portfolio_item_hover .item_info em {
     font-style: normal;
     display: inline-block;
-    background-color: #e09288;
+    background-color: #18273E;
     padding: 5px 20px;
     color: #fff;
     margin-top: 10px;
@@ -511,7 +511,7 @@ a.active { /*matches with bg-nav*/
     font-family: 'Lato', sans-serif;
     text-transform: capitalize;
     letter-spacing: 2px;
-    color: #e09288;
+    color: #18273E;
     font-size: 16px;
     font-weight: bold
 }
@@ -551,11 +551,11 @@ a.active { /*matches with bg-nav*/
 .timeline-event:hover .timeline-event-icon {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    background-color: #e09288;
+    background-color: #C82228;
 }
 
 .timeline-event:hover .timeline-event-thumbnail {
-    box-shadow: inset 40em 0 0 0 #e09288;
+    box-shadow: inset 40em 0 0 0 #C82228;
 }
 
 .timeline-event-copy {
@@ -590,7 +590,7 @@ a.active { /*matches with bg-nav*/
     transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-    background-color: #e09288;
+    background-color: #18273E;
     outline: 10px solid #f3f3f3;
     display: block;
     margin: 0.5em 0.5em 0.5em -0.5em;
@@ -613,7 +613,7 @@ a.active { /*matches with bg-nav*/
     font-size: 12px;
     font-weight: bold;
     background-color: black;
-    box-shadow: inset 0 0 0 0em #e09288;
+    box-shadow: inset 0 0 0 0em #18273E;
     display: inline-block;
     margin-bottom: 1.2em;
     padding: 0.25em 1em 0.2em 1em;
@@ -697,11 +697,11 @@ fieldset {
 }
 
 #success p {
-    color: #e09288;
+    color: #18273E;
     font-size: 15px;
     text-align: center;
     padding: 10px;
-    border: 2px solid #e09288;
+    border: 2px solid #18273E;
     margin-top: 10px;
 }
 
@@ -715,7 +715,7 @@ fieldset {
 }
 
 #submit {
-    background-color: #e09288;
+    background-color: #18273E;
     color: #fff;
     padding: 10px 40px;
     border-radius: 0;
@@ -744,7 +744,7 @@ fieldset {
 }
 
 .social li a:hover {
-    color: #e09288;
+    color: #C82228;
 }
 
 
@@ -797,7 +797,7 @@ fieldset {
 
 #banner {
     /*background: #fae2e2;*/
-    background-image: linear-gradient(white, #f0bfbfcb);
+    background-image: linear-gradient(white, rgba(24, 39, 62, 0.425));
     background-size: contain;
     height: 35px;
 }
@@ -818,7 +818,7 @@ h6 { /*Exclusive to banner */
     letter-spacing: 10px;
     padding-top: 10px;
     position: relative;
-    color: #e09288;
+    color: #18273E;
 }
 
 button {
