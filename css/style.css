@@ -830,13 +830,25 @@ button {
     outline:none;
 }
 
-#GA {
+.gacontainer {
     position: absolute;
     bottom: 8px;
     right: 0px;
     height:25px;
     width:25px;
     margin: 8px 8px 0px 0px;
-    opacity: 0.6;
     z-index: 9999;
+}
+
+.ga {
+    opacity: 0.3;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.gacontainer:hover .ga {
+    opacity: 1;
 }
