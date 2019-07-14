@@ -150,3 +150,11 @@ body {
     border-top: 3px solid transparent;
     text-align: center;
 }
+
+#BACK {
+    position: absolute;
+    height:40px;
+    width:40px;
+    margin: 17.5px 0px 0px 17.5px;
+    z-index: 9999;
+}
