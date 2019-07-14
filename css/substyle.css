@@ -15,10 +15,6 @@ h6 {
     font-weight: 600;
 }
 
-html,
-body {
-    height: 100%
-}
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -26,14 +22,6 @@ body {
     font-size: 15px;
     line-height: 1.8;
     color: #515656;
-}
-
-
-/* Remove Chrome Input Field's Unwanted Yellow Background Color */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
 /**
@@ -102,6 +90,28 @@ input:-webkit-autofill:focus {
     color: #ffffff;
 }
 
+.button.dark,
+.button:hover {
+    background-color: #696969;
+    color: white;
+}
+
+.button.dark:hover {
+    background-color: #2f60c3;
+    color: white;
+}
+
+.button.github,
+.button:hover {
+    background-color: #6e5494;
+    color: white;
+}
+
+.button.github:hover {
+    background-color: white;
+    color: #6e5494;
+}
+
 .button i {
     margin-left: 5px;
 }
@@ -134,41 +144,9 @@ input:-webkit-autofill:focus {
     padding-left: 0;
 }
 
-.mainmenu-area .logo h2 {
-    margin-bottom: 0;
-}
-
 .mainmenu-area #primary-menu > ul > li > a {
     padding: 30px 15px;
     position: relative;
     border-top: 3px solid transparent;
     text-align: center;
-}
-
-.mainmenu-area #primary-menu > ul > li > a:before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    top: -10px;
-    width: 0;
-    height: 0;
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
-    border-top: 10px solid #ffffff;
-    opacity: 0;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-}
-
-.mainmenu-area #primary-menu > ul > li > a:hover:before,
-.mainmenu-area #primary-menu > ul > li.active > a:before {
-    opacity: 1;
-    top: 0;
-}
-
-.mainmenu-area #primary-menu ul li.active a,
-.mainmenu-area #primary-menu ul li a:hover {
-    border-top: 3px solid #ffffff;
 }
