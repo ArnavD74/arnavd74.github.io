@@ -112,6 +112,17 @@ body {
     color: #6e5494;
 }
 
+.button.youtube,
+.button:hover {
+    background-color: #ff0000;
+    color: white;
+}
+
+.button.youtube:hover {
+    background-color: white;
+    color: #ff0000;
+}
+
 .button i {
     margin-left: 5px;
 }
