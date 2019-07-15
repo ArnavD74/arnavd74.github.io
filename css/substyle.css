@@ -104,12 +104,12 @@ body {
 .button.github,
 .button:hover {
     background-color: #6e5494;
-    color: white;
+    color: #eadcff;
 }
 
 .button.github:hover {
-    background-color: white;
-    color: #6e5494;
+    background-color: #d4bff3;
+    color: #482b74;
 }
 
 .button.youtube,
@@ -121,6 +121,17 @@ body {
 .button.youtube:hover {
     background-color: white;
     color: #ff0000;
+}
+
+.button.devpost,
+.button:hover {
+    background-color: #003E54;
+    color: #3ACCE6;
+}
+
+.button.devpost:hover {
+    background-color: #3ACCE6;
+    color: #003E54;
 }
 
 .button i {
