@@ -1,5 +1,3 @@
-// JavaScript Document
-
 $(window).load(function () {
     "use strict";
     // makes sure the whole site is loaded
