@@ -1,3 +1,4 @@
+<!--php is disabled in GitHub Pages-->
 <?php
 
     $to = "arugold1@gmail.com";
