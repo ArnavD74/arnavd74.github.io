@@ -837,7 +837,7 @@ button {
     height:25px;
     width:25px;
     margin: 8px 8px 0px 0px;
-    z-index: 9999;
+    z-index: 2;
 }
 
 .ga {
