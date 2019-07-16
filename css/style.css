@@ -108,7 +108,7 @@ body {
     width: 100%;
     -webkit-animation: rotation 1s linear infinite;
     animation: rotation 1s linear infinite;
-    border: 2px solid rgb(63, 102, 161);
+    border: 2px solid rgb(63, 102, 161); /* ring color*/
     border-top: 2px solid transparent;
     border-radius: 100%
 }
@@ -832,11 +832,11 @@ button {
 
 .gacontainer {
     position: absolute;
-    bottom: 8px;
-    right: 0px;
+    bottom: 1%;
+    right: 0%;
     height:25px;
     width:25px;
-    margin: 8px 8px 0px 0px;
+    margin-right: 8px;
     z-index: 999;
 }
 
