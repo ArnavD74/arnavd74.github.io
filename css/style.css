@@ -6,8 +6,11 @@
 
 h1 {
     font-family: 'Major Mono Display', monospace;
-    font-size: 80px;
+    font-size: 90px;
     line-height: 70px;
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(193, 194, 255));
+    -webkit-background-clip: text;
+    color:transparent;
 }
 
 h4 {
@@ -288,6 +291,13 @@ a.active { /*matches with bg-nav*/
     height: 100vh;
     z-index: -1;
 }
+
+.text-gradient {
+    background-image: linear-gradient(to right, color list);
+      color: red, blue;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
 
 /* about section
 ==================================================*/
@@ -769,6 +779,7 @@ fieldset {
         font-family: 'Playfair Display', serif;
         font-size: 50px;
         line-height: 50px;
+        
     }
     #home,
     .disply-table {
