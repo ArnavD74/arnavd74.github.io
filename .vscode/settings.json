@@ -1,4 +1,10 @@
 {
     "C_Cpp.dimInactiveRegions": false,
-    "editor.showFoldingControls": "always"
+    "editor.showFoldingControls": "always",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
 }
