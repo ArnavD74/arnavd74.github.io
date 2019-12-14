@@ -175,6 +175,8 @@ function dot () {
 		ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
 		//ctx.drawImage(document.getElementById("image1"), this.x, this.y, this.r*10, this.r*10);
 		ctx.fill();
+		//var img = document.getElementById("google");
+		//ctx.drawImage(img, this.x, this.y);
 	}
 }
 function dist (x1, y1, x2, y2) {
