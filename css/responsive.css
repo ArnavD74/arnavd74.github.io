@@ -88,8 +88,9 @@
     }
     .mainmenu-area .logo {
         margin-left: 15px;
+        z-index: 999999;
     }
-}
+
 
 
 /* Wide Mobile Layout: 480px. */
