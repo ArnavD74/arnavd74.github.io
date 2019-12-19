@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140418508-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'UA-140418508-1');
-    </script>   
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Arnav Dashaputra</title>
     <!-- FAVICONS-->
     <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon"> <!--For masked forwarding-->
+    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <!--For masked forwarding-->
     <link rel="icon" sizes="16x16 32x32 64x64" href="img/favicon/favicon.ico">
     <link rel="icon" type="image/png" sizes="196x196" href="img/favicon/favicon-192.png">
     <link rel="icon" type="image/png" sizes="160x160" href="img/favicon/favicon-160.png">
@@ -39,20 +44,55 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/aos.css" rel="stylesheet"> <!--https://michalsnik.github.io/aos/-->
+    <link href="css/aos.css" rel="stylesheet">
+    <!--https://michalsnik.github.io/aos/-->
     <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-git.js"></script>
 </head>
+
+<script type="text/javascript">
+    $(window).on('load', function () {
+        window.countFPS = (function () {
+            var lastLoop = (new Date()).getMilliseconds();
+            var count = 1;
+            var fps = 0;
+            return function () {
+                var currentLoop = (new Date()).getMilliseconds();
+                if (lastLoop > currentLoop) {
+                    fps = count;
+                    count = 1;
+                } else {
+                    count += 1;
+                }
+                lastLoop = currentLoop;
+                return fps;
+            };
+        }());
+        var $out = $('#out');
+        (function loop() {
+            requestAnimationFrame(function () {
+                $out.html(countFPS());
+                loop();
+            });
+        }());
+    });
+</script>
+
 <body>
     <div id="preloader">
         <div id="status">
             <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar"></div>
         </div>
-        </div>
+    </div>
     <!--<script>window.stop();</script>-->
     </div>
+
+
+
     <header class="navbar-fixed-top" id="header"></header>
     <div class="section" id="home" data-stellar-background-ratio="0.5">
         <canvas id="canvas" onresize="onresize()" width="1000px" height="1000px"></canvas>
+        <output id="out">error</output>
         <div class="container">
             <div class="disply-table">
                 <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
@@ -76,4 +116,5 @@
         <script src="js/custom.js"></script>
     </div>
 </body>
+
 </html>
