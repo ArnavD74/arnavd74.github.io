@@ -15,7 +15,7 @@ $(window).on('load', function () {
             return fps;
         };
     }());
-    var $out = $('#out');
+    var $out =$('#out');
     (function loop() {
         requestAnimationFrame(function () {
             $out.html(countFPS());
