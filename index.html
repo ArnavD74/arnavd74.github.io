@@ -88,9 +88,19 @@
     <div class="gitcontainer"><a href="https://github.io/"><img class="git" src="img/images/Git.png"></a></div>
     <div class="section" id="home" data-stellar-background-ratio="0.5">
         <canvas id="canvas" onresize="onresize()" width="1000px" height="1000px"></canvas>
-        <output id="out">
-            <font color="red">FPS error</font>
-        </output>
+        <output id="out"><font color="red">FPS error</font></output>
+
+        <output id="resolutionNumber"><font color="red">Resolution error</font></output>
+        <script type="text/javascript">
+            height = screen.height;
+            width = screen.width;
+            res = document.getElementById('resolutionNumber');
+            res.innerHTML = "\xa0Resolution: " + width + " x " + height;
+            if (res == null) {
+                alert("hello");
+            }
+        </script>
+
         <!--FPS-->
         <div class="container">
             <div class="disply-table">
