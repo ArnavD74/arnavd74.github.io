@@ -952,3 +952,8 @@ button {
 .codecontainer:hover .code {
     opacity: 1;
 }
+
+.resolutionNumber {
+    padding-left: 10px;
+    z-index: 999;
+}
