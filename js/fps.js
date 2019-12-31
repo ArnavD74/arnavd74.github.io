@@ -8,7 +8,8 @@ $(window).on('load', function () {
             if (lastLoop > currentLoop) {
                 fps = count;
                 count = 1;
-            } else {
+            }
+            else {
                 count += 1;
             }
             lastLoop = currentLoop;
