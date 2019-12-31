@@ -957,3 +957,7 @@ button {
     padding-left: 10px;
     z-index: 999;
 }
+
+.fps {
+    color: "white";
+}
