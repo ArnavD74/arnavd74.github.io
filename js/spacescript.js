@@ -18,11 +18,16 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    var yeet = document.getElementById("yeeter");
-    yeet.value = position.coords.latitude + "," + position.coords.longitude;
-    console.log("yotwe");
     x.innerHTML = position.coords.latitude + "," + position.coords.longitude +
         "<br><font color=white> Enter below! <i>(as a single line)</i></font>";
+    
+    console.log("initiated, coordinates successfully grabbed");
+
+    var yeet = document.getElementById("copyPos");
+
+    console.log("yeet captured as copyLocation");
+
+    yeet.value = position.coords.latitude + "," + position.coords.longitude;
 }
 
 function copyLocation() {
@@ -30,4 +35,4 @@ function copyLocation() {
     copyText.select();
     copyText.setSelectionRange(0, 99999)
     document.execCommand("copy");
-  }
+}

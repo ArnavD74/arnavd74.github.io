@@ -30,7 +30,7 @@ function update () {
     
     cctx.clearRect(0,0,ccw,cch);
     //VV bounding box for testing
-   /* cctx.lineWidth = 2;
+    /* cctx.lineWidth = 2;
     cctx.strokeStyle = "#ffffff";
     cctx.fillStyle = "#ffffff";
     cctx.beginPath();
