@@ -65,8 +65,11 @@
       <img id="google" src="https://cdn.pixabay.com/photo/2015/12/11/11/43/google-1088003_960_720.png"
         data-aos=fade-down data-aos-duration="1000" ;>
 
-      <p>Click the button to get your coordinates.</p>
-      <button onclick="getLocation()"></button>
+      <h6>EARTH LOCATION PREVIEW</h6>
+
+      <div class="location-button">
+        <button onclick="getLocation()"><img src="img/images/css.png" width="15" height="15"></button>
+      </div>
       <p id="getPos"></p>
 
       <script>
@@ -76,19 +79,19 @@
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
           } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            x.innerHTML = "100,100";
           }
         }
 
         function showPosition(position) {
-          x.innerHTML = position.coords.latitude + "," + position.coords.longitude;
+          x.innerHTML = position.coords.latitude + "," + position.coords.longitude + "<br><font color=white> Enter below! <i>(as a single line)</i></font>";
         }
       </script>
 
 
       <input id="search" class="search-bar" type="search" autofocus x-webkit-speech />
       <div class="search-button">
-        <a> <button onclick="redirect()"></button></a>
+        <a> <button onclick="redirect()"><img src="img/images/glass.png" width="15" height="15"></button></a>
       </div>
 
       <script>
