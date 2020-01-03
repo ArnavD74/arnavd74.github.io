@@ -23,11 +23,11 @@ function showPosition(position) {
     
     console.log("initiated, coordinates successfully grabbed");
 
-    var yeet = document.getElementById("copyPos");
+    var rawPos = document.getElementById("copyPos");
 
     console.log("yeet captured as copyLocation");
 
-    yeet.value = position.coords.latitude + "," + position.coords.longitude;
+    rawPos.value = position.coords.latitude + "," + position.coords.longitude;
 }
 
 function copyLocation() {
