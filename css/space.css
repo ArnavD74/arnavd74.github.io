@@ -61,9 +61,7 @@ h6 {
 
 .search button {
     margin-bottom: 100px;
-    color: #222222;
-    width: 30px;
-    height: 30px;
+    background-color: #222222;
     z-index: 2147483647;
 }
 
