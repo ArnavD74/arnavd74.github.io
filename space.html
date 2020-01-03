@@ -68,7 +68,7 @@
       <h6>EARTH LOCATION PREVIEW</h6>
 
       <div class="location-button">
-        <button onclick="getLocation()"><img src="img/images/css.png" width="15" height="15"></button>
+        <button onclick="getLocation()">Get coordinates</button>
       </div>
       <p id="getPos"></p>
 
@@ -84,21 +84,19 @@
         }
 
         function showPosition(position) {
-          x.innerHTML = position.coords.latitude + "," + position.coords.longitude + "<br><font color=white> Enter below! <i>(as a single line)</i></font>";
+          x.innerHTML = position.coords.latitude + "," + position.coords.longitude +
+            "<br><font color=white> Enter below! <i>(as a single line)</i></font>";
         }
       </script>
-
 
       <input id="search" class="search-bar" type="search" autofocus x-webkit-speech />
       <div class="search-button">
-        <a> <button onclick="redirect()"><img src="img/images/glass.png" width="15" height="15"></button></a>
+        <a> <button onclick="earth()">Query Earth</button></a>
+        <a> <button onclick="maps()">Query Maps</button></a>
       </div>
 
-      <script>
-        function redirect() {
-          window.location.href = "https://earth.google.com/web/@" + document.getElementById("getPos").value;
-        }
-      </script>
+
+ 
 
     </div>
 
@@ -110,6 +108,7 @@
       <script src="js/aosinit.js"></script>
       <script src="js/dots-lines-search.js"></script>
       <script src="js/indicator.js"></script>
+      <script src="js/spacescript.js"></script>
     </div>
 </body>
 
