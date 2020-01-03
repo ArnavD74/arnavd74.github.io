@@ -44,7 +44,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/aos.css" rel="stylesheet">
   <!--https://michalsnik.github.io/aos/-->
-  <link href="css/search.css" rel="stylesheet">
+  <link href="css/space.css" rel="stylesheet">
+  <link href="css/stars.css" rel="stylesheet">
 </head>
 
 <body>
@@ -56,9 +57,34 @@
 
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+
     <div class="search">
       <img id="google" src="https://cdn.pixabay.com/photo/2015/12/11/11/43/google-1088003_960_720.png"
         data-aos=fade-down data-aos-duration="1000" ;>
+
+        <p>Click the button to get your coordinates.</p>
+        <button onclick="getLocation()"></button>
+        <p id="getPos"></p>
+
+      <script>
+        var x = document.getElementById("getPos");
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude + "<br>" +
+            position.coords.latitude + "," + position.coords.longitude ;
+        }
+      </script>
 
       <input id="search" class="search-bar" type="search" autofocus x-webkit-speech />
       <div class="search-button">
@@ -67,7 +93,7 @@
 
       <script>
         function redirect() {
-          window.location.href = "https://www.google.com/search?&q=" + document.getElementById("search").value;
+          window.location.href = "https://earth.google.com/web/@" + document.getElementById("search").value;
         }
       </script>
 
