@@ -18,6 +18,16 @@ function getLocation() {
 }
 
 function showPosition(position) {
+    var yeet = document.getElementById("yeeter");
+    yeet.value = position.coords.latitude + "," + position.coords.longitude;
+    console.log("yotwe");
     x.innerHTML = position.coords.latitude + "," + position.coords.longitude +
         "<br><font color=white> Enter below! <i>(as a single line)</i></font>";
 }
+
+function copyLocation() {
+    var copyText = document.getElementById("copyPos");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+  }
