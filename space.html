@@ -46,9 +46,13 @@
   <!--https://michalsnik.github.io/aos/-->
   <link href="css/space.css" rel="stylesheet">
   <link href="css/stars.css" rel="stylesheet">
+  <script type="text/javascript" src="js/jquery-git.js"></script> <!-- custom for FPS-->
+  <script type="text/javascript" src="js/fps.js"></script> <!-- custom for FPS-->
 </head>
 
 <body>
+
+  
 
   </div>
   <header class="navbar-fixed-top" id="header"></header>
@@ -60,26 +64,39 @@
     <div id='stars2'></div>
     <div id='stars3'></div>
 
-    <div class="search">
-      <img id="google" src="https://cdn.pixabay.com/photo/2015/12/11/11/43/google-1088003_960_720.png"
-        data-aos=fade-down data-aos-duration="1000";>
+    <div class="fps">
+      <output id="out">
+          <font color="red">FPS error</font>
+      </output>
+  </div>
 
-      <h6 data-aos=fade-down data-aos-duration="1000";>GLOBAL LOCATION PREVIEW</h6>
+    <div class="search">
+      <img id="google" src="img/images/google.jpg" data-aos=fade-down data-aos-duration="1000" ; width="100px">
+
+      <h6 data-aos=fade-down data-aos-duration="1000" ;>GLOBAL LOCATION PREVIEW</h6>
 
       <div class="location-button">
-        <button onclick="getLocation()" data-aos=fade-down data-aos-duration="1000";>Get coordinates</button>
+        <button onclick="getLocation()" data-aos=fade-down data-aos-duration="1000" ;>Get coordinates</button>
       </div>
       <p id="getPos"></p>
 
-      <input id="search" class="search-bar" type="search" autofocus x-webkit-speech data-aos=fade-up data-aos-duration="2500";/>
+      <button onclick="copyLocation()" data-aos=fade-up
+      data-aos-duration="2500" ;>Copy Location</button>
+
+      <div class="absolute">
+        <input type="text" value="hello" id="copyPos">
+      </div>
+
+      <input id="search" class="search-bar" type="search" autofocus x-webkit-speech data-aos=fade-up
+        data-aos-duration="2500" ; />
       <div class="search-button">
-        <a> <button onclick="earth()"data-aos=fade-up data-aos-duration="2500";      data-aos-delay="300">Query Earth</button></a>
-        <a> <button onclick="maps()"data-aos=fade-up data-aos-duration="2500";      data-aos-delay="300">Query Maps</button></a>
+        <a> <button onclick="earth()" data-aos=fade-up data-aos-duration="2500" ; data-aos-delay="300">Query
+            Earth</button></a>
+        <a> <button onclick="maps()" data-aos=fade-up data-aos-duration="2500" ; data-aos-delay="300">Query
+            Maps</button></a>
       </div>
 
     </div>
-
-    <canvas id="canvas" onresize="onresize()" width="1000px" height="1000px"></canvas>
 
     <div id=js>
       <!-- jQuery -->
@@ -88,6 +105,7 @@
       <script src="js/dots-lines-search.js"></script>
       <script src="js/indicator.js"></script>
       <script src="js/spacescript.js"></script>
+
     </div>
 </body>
 
