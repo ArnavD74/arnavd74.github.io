@@ -305,7 +305,8 @@ a.active { /*matches with bg-nav*/
 
 #about {
     padding: 100px 0;
-    background-image: url("bg.jpg");
+    background: linear-gradient(180deg, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 37%, rgba(226,8,34,1) 49%, rgba(17,17,17,1) 62%, rgba(17,17,17,1) 100%);
+    /*background-image: url("bg.jpg");*/
 }
 
 .about-img-div img {
