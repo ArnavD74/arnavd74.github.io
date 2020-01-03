@@ -65,12 +65,13 @@
       <img id="google" src="https://cdn.pixabay.com/photo/2015/12/11/11/43/google-1088003_960_720.png"
         data-aos=fade-down data-aos-duration="1000" ;>
 
-        <p>Click the button to get your coordinates.</p>
-        <button onclick="getLocation()"></button>
-        <p id="getPos"></p>
+      <p>Click the button to get your coordinates.</p>
+      <button onclick="getLocation()"></button>
+      <p id="getPos"></p>
 
       <script>
         var x = document.getElementById("getPos");
+
         function getLocation() {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -80,11 +81,11 @@
         }
 
         function showPosition(position) {
-          x.innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude + "<br>" +
-            position.coords.latitude + "," + position.coords.longitude ;
+          x.innerHTML = position.coords.latitude + "," + position.coords.longitude;
         }
+
       </script>
+
 
       <input id="search" class="search-bar" type="search" autofocus x-webkit-speech />
       <div class="search-button">
@@ -93,7 +94,7 @@
 
       <script>
         function redirect() {
-          window.location.href = "https://earth.google.com/web/@" + document.getElementById("search").value + ",25.22245252a,500d,35y,0h,0t,0r";
+          window.location.href = "https://earth.google.com/web/@" + document.getElementById("getPos").value ";
         }
       </script>
 
