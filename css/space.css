@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
 html,
 body {
     width: 100%;
@@ -14,46 +15,46 @@ body {
 
 h6 {
     font-family: 'Ubuntu', sans-serif;
-    font-size: 30px;
+    font-size: 60px;
     background: linear-gradient(90deg, rgb(255, 255, 255), rgb(193, 194, 255));
     -webkit-background-clip: text;
     background-clip: text;
-    color:transparent;
+    color: transparent;
 }
 
 /* Search */
 .search {
-	text-align: center;
-	/*clear: both;*/
+    text-align: center;
+    /*clear: both;*/
     margin: 0% 0 0 0;
     z-index: 2147483647;
-    
+
 }
 
 .search input {
     width: 500px;
     height: 35px;
     margin-bottom: 50px;
-	/*border: 1px solid #D8D8D8;
+    /*border: 1px solid #D8D8D8;
 	padding: 5px;*/
     font-size: 13pt;
     color: white;
     background: url('images/microphone.png') no-repeat;
-	background-position: right;
+    background-position: right;
     background-size: 4.25%;
     z-index: 2147483647;
-    
+
 
 }
 
 .search-bar {
     max-width: 100%;
     z-index: 2147483647;
-    
-}    
+
+}
 
 .search input:focus {
-	outline: none;
+    outline: none;
     border: 3px solid white;
     z-index: 2147483647;
 }
@@ -62,11 +63,13 @@ h6 {
     margin-bottom: 100px;
     background-color: #222222;
     z-index: 2147483647;
+    border-radius: 8px;
 }
 
 .search button:hover {
-    box-shadow: 2px 2px 2px rgba(0,0,0,.1);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
     z-index: 2147483647;
+    border-radius: 8px;
 }
 
 div.absolute {
@@ -75,7 +78,7 @@ div.absolute {
     right: -90px;
     width: 200px;
     z-index: -999999;
-    
+
 }
 
 /* End of Search */
@@ -86,7 +89,8 @@ div.absolute {
 
 #home {
     /*background: url(../img/home-bg-2.jpg);*/
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%); /*Change BG here*/
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    /*Change BG here*/
     background-size: cover;
     height: 100vh;
 }
@@ -100,10 +104,10 @@ div.absolute {
 
 #google {
 
-    width:50%;
+    width: 50%;
     display: block;
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
 
 }
