@@ -15,20 +15,15 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
-        x.innerHTML = "100,100";
+        x.innerHTML = "Error fetching coordinates. Please enable GPS.";
     }
 }
 
 function showPosition(position) {
-    x.innerHTML = position.coords.latitude + "," + position.coords.longitude;
-
+    x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
     var rawPos = document.getElementById("copyPos");
 
     rawPos.value = position.coords.latitude + "," + position.coords.longitude;
-}
-
-function clear() {
-    alert(x.innerHTML);
 }
 
 function copyLocation() {

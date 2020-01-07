@@ -1,7 +1,7 @@
 /* Search */
 .search {
-	text-align: center;
-	/*clear: both;*/
+    text-align: center;
+    /*clear: both;*/
     margin: 0% 0 0 0;
     z-index: 2147483647;
 }
@@ -10,12 +10,12 @@
     width: 500px;
     height: 35px;
     margin-bottom: 50px;
-	/*border: 1px solid #D8D8D8;
+    /*border: 1px solid #D8D8D8;
 	padding: 5px;*/
     font-size: 13pt;
     color: white;
     background: url('images/microphone.png') no-repeat;
-	background-position: right;
+    background-position: right;
     background-size: 4.25%;
     z-index: 2147483647;
 
@@ -24,28 +24,28 @@
 .search-bar {
     max-width: 100%;
     z-index: 2147483647;
-}    
+}
 
 .search input:focus {
-	outline: none;
+    outline: none;
     border: 2px solid white;
     z-index: 2147483647;
 }
 
 .search button {
     margin-bottom: 100px;
-	/*padding: 7px 8px;*/
-	border-radius: 2px;
-	border: 1px solid #D0D0D0;
+    /*padding: 7px 8px;*/
+    border-radius: 2px;
+    border: 1px solid #D0D0D0;
     /*color: #444444;*/
     width: 30px;
     height: 30px;
-     background: url(../img/images/glass.png);
-     z-index: 2147483647;
+    background: url(../img/images/glass.png);
+    z-index: 2147483647;
 }
 
 .search button:hover {
-    box-shadow: 2px 2px 2px rgba(0,0,0,.1);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
     z-index: 2147483647;
 }
 
@@ -57,7 +57,8 @@
 
 #home {
     background: url(../img/home-bg-2.jpg);
-    /*background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%); */ /*Change BG here*/
+    /*background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%); */
+    /*Change BG here*/
     background-size: cover;
     height: 100vh;
 }
@@ -70,6 +71,6 @@
 }
 
 #google {
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
 }
