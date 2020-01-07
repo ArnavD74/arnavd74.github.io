@@ -3,7 +3,9 @@
 
 @font-face {
     font-family: "ProductSans";
-    src: url("https://github.com/ArnavD74/arnavd74.github.io/raw/master/ionicons/fonts/productsans/product_sans_regular-webfont.eot");
+    src: url("https://github.com/ArnavD74/arnavd74.github.io/raw/master/ionicons/fonts/productsans/product_sans_regular-webfont.eot")(format"eot");
+    src: url("https://github.com/ArnavD74/arnavd74.github.io/raw/master/ionicons/fonts/productsans/product_sans_regular-webfont.woff");
+    src: url("https://github.com/ArnavD74/arnavd74.github.io/raw/master/ionicons/fonts/productsans/product_sans_regular-webfont.otf")(format"opentype");
     src: url("https://github.com/ArnavD74/arnavd74.github.io/raw/master/ionicons/fonts/productsans/product_sans_regular-webfont.svg") format("svg");
 }
 
