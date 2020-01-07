@@ -43,14 +43,11 @@ h6 {
     background-position: right;
     background-size: 4.25%;
     z-index: 2147483647;
-
-
 }
 
 .search-bar {
     max-width: 100%;
     z-index: 2147483647;
-
 }
 
 .search input:focus {
@@ -66,19 +63,18 @@ h6 {
     border-radius: 8px;
 }
 
+
+
 .search button:hover {
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
+    box-shadow: 3px 3px 3px 3px rgba(255, 255, 255, 0.1);
     z-index: 2147483647;
     border-radius: 8px;
 }
 
-div.absolute {
-    position: absolute;
-    top: 80px;
-    right: -90px;
+.grab {
     width: 200px;
-    z-index: -999999;
-
+    height: 50px;
+    font-size: 20px;
 }
 
 /* End of Search */
