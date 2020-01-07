@@ -51,15 +51,11 @@
 </head>
 
 <body>
-
-  <header class="navbar-fixed-top" id="header"></header>
   <div class="section" id="home" data-stellar-background-ratio="0.5">
 
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-
-    <div id='stars'></div>
+    <!--<div id='stars'></div>
     <div id='stars2'></div>
-    <div id='stars3'></div>
+    <div id='stars3'></div>-->
 
     <div class="fps">
       <output id="out">
@@ -72,24 +68,22 @@
 
       <div class="location-button">
         <br>
-        <button onclick="getLocation()" data-aos=fade-down data-aos-duration="1000" ;>Get coordinates</button>
+        <button class="grab" onclick="getLocation()" data-aos=fade-down data-aos-duration="1000" data-aos-delay="200">Grab coordinates</button>
+      </div>
+
+      <div class="search-button">
+        <a> <button onclick="clear()" data-aos=fade-up data-aos-duration="2500" ; data-aos-delay="300">Clear</button></a>
       </div>
 
       <p id="getPos"></p>
 
-      <button onclick="copyLocation()" data-aos=fade-up data-aos-duration="2500" ;>Copy Location</button>
-
-      <div class="absolute">
-        <input type="text" value="Error fetching location to copy to clipboard" id="copyPos">
-      </div>
-
-      <input id="search" class="search-bar" type="search" autofocus x-webkit-speech data-aos=fade-up
-        data-aos-duration="2500" ; />
+      <input type="text" class="search-bar" id="copyPos" value="Error fetching location to copy to clipboard">
+      <br>
       <div class="search-button">
-        <a> <button onclick="earth()" data-aos=fade-up data-aos-duration="2500" ; data-aos-delay="300">Query
-            Earth</button></a>
-        <a> <button onclick="maps()" data-aos=fade-up data-aos-duration="2500" ; data-aos-delay="300">Query
-            Maps</button></a>
+        <a> <button onclick="earth()" data-aos=fade-up data-aos-duration="2500" ; data-aos-delay="300">Query Earth</button></a>
+        <a> <button onclick="maps()" data-aos=fade-up data-aos-duration="2500" ; data-aos-delay="400">Query Maps</button></a>
+
+        <button onclick="copyLocation()" data-aos=fade-up data-aos-duration="2500"; data-aos-delay="500">Copy Location</button>
       </div>
     </div>
 
