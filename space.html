@@ -68,22 +68,18 @@
 
       <div class="location-button">
         <br>
-        <button class="grab" onclick="getLocation()" data-aos=fade-down data-aos-duration="1000" data-aos-delay="200">Grab coordinates</button>
-      </div>
-
-      <div class="search-button">
-        <a> <button onclick="clear()" data-aos=fade-up data-aos-duration="2500" ; data-aos-delay="300">Clear</button></a>
+        <button class="grab" onclick="getLocation()" data-aos=fade-down data-aos-duration="1000" data-aos-delay="300">Grab coordinates</button>
       </div>
 
       <p id="getPos"></p>
 
-      <input type="text" class="search-bar" id="copyPos" value="Error fetching location to copy to clipboard">
+      <input type="text" class="search-bar" id="copyPos" value="error">
       <br>
       <div class="search-button">
-        <a> <button onclick="earth()" data-aos=fade-up data-aos-duration="2500" ; data-aos-delay="300">Query Earth</button></a>
-        <a> <button onclick="maps()" data-aos=fade-up data-aos-duration="2500" ; data-aos-delay="400">Query Maps</button></a>
+        <a> <button onclick="earth()" data-aos=fade-up data-aos-duration="1000" ; data-aos-delay="50">Query Earth</button></a>
+        <a> <button onclick="maps()" data-aos=fade-up data-aos-duration="1000" ; data-aos-delay="100">Query Maps</button></a>
 
-        <button onclick="copyLocation()" data-aos=fade-up data-aos-duration="2500"; data-aos-delay="500">Copy Location</button>
+        <button onclick="copyLocation()" data-aos=fade-up data-aos-duration="1000"; data-aos-delay="150">Copy Location</button>
       </div>
     </div>
 
