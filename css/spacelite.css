@@ -29,32 +29,21 @@ h6 {
 
 .search {
     text-align: center;
-    z-index: 2147483647;
+    z-index: -2147483647;
+
 }
 
 .search input {
-    width: 500px;
-    height: 35px;
-    margin-bottom: 50px;
-    border: 1px solid #D8D8D8;
-	padding: 5px;
-    font-size: 13pt;
-    color: white;
-    background: url('images/microphone.png') no-repeat;
-    background-size: 4.25%;
-    z-index: 2147483647;
+
+    z-index: -2147483647;
 }
 
 .search-bar {
-    max-width: 100%;
-    z-index: 2147483647;
+    max-width: 0%;
+    z-index: -2147483647;
+
 }
 
-.search input:focus {
-    outline: none;
-    border: 2px solid white;
-    z-index: 2147483647;
-}
 
 .search button {
     margin-bottom: 40px;
