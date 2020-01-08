@@ -1,8 +1,7 @@
-    html {
+    /*html {
         height: 100%;
-        /*background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);*/
         overflow: hidden;
-    }
+    }*/
 
     #stars {
         width: 1px;
@@ -55,20 +54,6 @@
         box-shadow: 1713px 1665px #FFF , 968px 1596px #FFF , 568px 577px #FFF , 195px 311px #FFF , 720px 1805px #FFF , 1539px 1789px #FFF , 1134px 1928px #FFF , 1976px 1280px #FFF , 1848px 1555px #FFF , 1707px 324px #FFF , 872px 553px #FFF , 1041px 1040px #FFF , 20px 489px #FFF , 1793px 1002px #FFF , 1153px 1181px #FFF , 751px 486px #FFF , 455px 1455px #FFF , 1381px 1156px #FFF , 911px 1415px #FFF , 1464px 300px #FFF , 1756px 121px #FFF , 1315px 134px #FFF , 247px 956px #FFF , 1197px 1486px #FFF , 1079px 1375px #FFF , 826px 1985px #FFF , 1905px 1380px #FFF , 475px 170px #FFF , 865px 1231px #FFF , 1089px 232px #FFF , 1534px 762px #FFF , 784px 367px #FFF , 693px 105px #FFF , 1206px 30px #FFF , 762px 460px #FFF , 808px 123px #FFF , 1691px 97px #FFF , 1214px 937px #FFF , 564px 206px #FFF , 924px 1989px #FFF , 1650px 329px #FFF , 631px 1890px #FFF , 1646px 442px #FFF , 780px 1373px #FFF , 545px 1453px #FFF , 659px 12px #FFF , 788px 1980px #FFF , 1374px 1426px #FFF , 1676px 1028px #FFF , 1373px 1304px #FFF , 1270px 1649px #FFF , 197px 1727px #FFF , 1517px 1400px #FFF , 494px 1472px #FFF , 1997px 1062px #FFF , 1392px 84px #FFF , 1314px 1940px #FFF , 743px 852px #FFF , 1119px 935px #FFF , 1335px 1549px #FFF , 770px 1410px #FFF , 1534px 254px #FFF , 109px 497px #FFF , 1979px 927px #FFF , 557px 1363px #FFF , 581px 919px #FFF , 184px 147px #FFF , 1206px 1549px #FFF , 1983px 1311px #FFF , 1936px 999px #FFF , 895px 1242px #FFF , 1664px 16px #FFF , 1543px 1871px #FFF , 269px 1044px #FFF , 1394px 1879px #FFF , 465px 1332px #FFF , 1908px 548px #FFF , 1240px 1983px #FFF , 473px 713px #FFF , 731px 1534px #FFF , 1972px 963px #FFF , 524px 1468px #FFF , 1394px 308px #FFF , 509px 763px #FFF , 1833px 656px #FFF , 518px 1133px #FFF , 1066px 1552px #FFF , 1058px 327px #FFF , 1092px 21px #FFF , 1469px 487px #FFF , 1270px 98px #FFF , 1958px 1641px #FFF , 1422px 687px #FFF , 953px 1325px #FFF , 1512px 1846px #FFF , 739px 1963px #FFF , 1581px 1290px #FFF , 549px 133px #FFF , 1574px 1803px #FFF , 182px 250px #FFF;
     }
 
-    #title {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        color: #FFF;
-        text-align: center;
-        font-family: "lato", sans-serif;
-        font-weight: 300;
-        font-size: 50px;
-        letter-spacing: 10px;
-        margin-top: -60px;
-        padding-left: 10px;
-    }
     #title span {
         background: -webkit-linear-gradient(white, #38495a);
         -webkit-text-fill-color: transparent;
