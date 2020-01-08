@@ -29,21 +29,7 @@ h6 {
 
 .search {
     text-align: center;
-    z-index: -2147483647;
-
 }
-
-.search input {
-
-    z-index: -2147483647;
-}
-
-.search-bar {
-    max-width: 0%;
-    z-index: -2147483647;
-
-}
-
 
 .search button {
     margin-bottom: 40px;
@@ -56,6 +42,20 @@ h6 {
     box-shadow: 3px 3px 3px 3px rgba(255, 255, 255, 0.1);
     z-index: 2147483647;
     border-radius: 6px;
+}
+
+.grab button {
+    
+    margin-bottom: 40px;
+    background-color: #222222;
+    padding: 20px;
+    border-radius: 100%;
+}
+
+.grab button:hover {
+    box-shadow: 3px 3px 3px 3px rgba(255, 255, 255, 0.1);
+    padding: 20px;
+  border-radius: 100%;
 }
 
 .grab {
