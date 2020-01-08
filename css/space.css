@@ -1,12 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Rubik&display=swap');
 
 html,
 body {
     width: 100%;
     height: 100%;
-    font: 700 1em "Ubuntu", sans-serif;
+
+    font-family: 'Open Sans', sans-serif;
     letter-spacing: .15em;
     color: rgb(172, 236, 255);
     background: #000;
@@ -15,8 +16,9 @@ body {
 }
 
 h6 {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 60px;
+
+    font-family: 'Ubuntu';
+    font-size: 80px;
     background: linear-gradient(90deg, rgb(255, 255, 255), rgb(193, 194, 255));
     -webkit-background-clip: text;
     background-clip: text;
@@ -26,22 +28,18 @@ h6 {
 /* Search */
 .search {
     text-align: center;
-    /*clear: both;*/
-    margin: 0% 0 0 0;
     z-index: 2147483647;
-
 }
 
 .search input {
     width: 500px;
     height: 35px;
     margin-bottom: 50px;
-    /*border: 1px solid #D8D8D8;
-	padding: 5px;*/
+    border: 1px solid #D8D8D8;
+	padding: 5px;
     font-size: 13pt;
     color: white;
     background: url('images/microphone.png') no-repeat;
-    background-position: right;
     background-size: 4.25%;
     z-index: 2147483647;
 }
@@ -53,22 +51,22 @@ h6 {
 
 .search input:focus {
     outline: none;
-    border: 3px solid white;
+    border: 2px solid white;
     z-index: 2147483647;
 }
 
 .search button {
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     background-color: #222222;
     z-index: 2147483647;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 
 .search button:hover {
     box-shadow: 3px 3px 3px 3px rgba(255, 255, 255, 0.1);
     z-index: 2147483647;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .grab {
@@ -76,6 +74,7 @@ h6 {
     height: 50px;
     font-size: 20px;
 }
+
 
 /* End of Search */
 

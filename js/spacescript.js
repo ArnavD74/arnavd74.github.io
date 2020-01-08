@@ -7,9 +7,7 @@ function maps() {
     window.location.href = "https://www.google.com/maps/search/?api=1&query=" + document.getElementById("copyPos").value;
 }
 
-var x = document.getElementById("getPos");
-
-
+var x = document.getElementById("getPos");  
 
 function getLocation() {
     if (navigator.geolocation) {

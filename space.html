@@ -53,9 +53,9 @@
 <body>
   <div class="section" id="home" data-stellar-background-ratio="0.5">
 
-    <!--<div id='stars'></div>
+    <div id='stars'></div>
     <div id='stars2'></div>
-    <div id='stars3'></div>-->
+    <div id='stars3'></div>
 
     <div class="fps">
       <output id="out">
@@ -66,21 +66,32 @@
     <div class="search">
       <h6 data-aos=fade-down data-aos-duration="1000" ;>Google API Location Preview</h6>
 
-      <div class="location-button">
-        <br>
-        <button class="grab" onclick="getLocation()" data-aos=fade-down data-aos-duration="1000" data-aos-delay="300">Grab coordinates</button>
-      </div>
+      <p style="padding: 0 0 2em 0;"></p>
+
+      <button class="grab" onclick="getLocation()" data-aos=fade-down data-aos-duration="1000" data-aos-delay="300">Grab
+        coordinates</button>
+
 
       <p id="getPos"></p>
 
-      <input type="text" class="search-bar" id="copyPos" value="error">
+      <p style="padding: 0 0 1em 0;"></p>
+
+      <input data-aos=fade-in data-aos-duration="3000" ; data-aos-delay="400" ; type="text" class="search-bar"
+        id="copyPos">
+
       <br>
       <div class="search-button">
-        <a> <button onclick="earth()" data-aos=fade-up data-aos-duration="1000" ; data-aos-delay="50">Query Earth</button></a>
-        <a> <button onclick="maps()" data-aos=fade-up data-aos-duration="1000" ; data-aos-delay="100">Query Maps</button></a>
+        <a> <button onclick="earth()" data-aos=fade-up data-aos-duration="1000" ; data-aos-delay="50">Query
+            Earth</button></a>
+        <a> <button onclick="maps()" data-aos=fade-up data-aos-duration="1000" ; data-aos-delay="100">Query
+            Maps</button></a>
 
-        <button onclick="copyLocation()" data-aos=fade-up data-aos-duration="1000"; data-aos-delay="150">Copy Location</button>
+        <button onclick="copyLocation()" data-aos=fade-up data-aos-duration="1000" ; data-aos-delay="150">Copy
+          Location</button>
       </div>
+
+      <p>Note: This is hosted on Github Pages with SSL provided by Lets Encrypt! All Github pages are static; information can not be passed through any protocols out of this site. <i>I can not track your location, or check anyone's location at any given time.</i></p>
+
     </div>
 
     <div id=js>
