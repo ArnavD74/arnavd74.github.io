@@ -20,7 +20,7 @@ body {
 h6 {
 
     font-family: 'Ubuntu';
-    font-size: 80px;
+    font-size: 50px;
     background: linear-gradient(90deg, rgb(255, 255, 255), rgb(193, 194, 255));
     -webkit-background-clip: text;
     background-clip: text;
