@@ -13,7 +13,6 @@
     $fields{"phone"} = "phone";
     $fields{"message"} = "message";
 
-    
 
     $body = "Here is what was sent:\r\n"; 
 

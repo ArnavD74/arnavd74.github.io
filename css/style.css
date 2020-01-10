@@ -8,7 +8,7 @@ h1 {
     font-family: 'Major Mono Display', monospace;
     font-size: 90px;
     line-height: 70px;
-    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(193, 194, 255));
+    background: red;
     -webkit-background-clip: text;
     background-clip: text;
     color:transparent;
@@ -22,6 +22,14 @@ h4 {
     color: #C82228;
     margin-left: 40px;
     font-weight: 700;
+}
+
+.title {
+
+    font-family: 'Helvetica Neue',  'Major Mono Display',sans-serif;
+    color: white;
+    font-style: italic;
+
 }
 
 h4:before {
@@ -266,7 +274,7 @@ a.active { /*matches with bg-nav*/
 ==================================================*/
 
 #home {
-    background: url(../img/home-bg-2.jpg);
+    background: url(../img/test.gif);
     background-size: cover;
     height: 100vh;
 }
