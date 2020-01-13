@@ -289,7 +289,7 @@ a.active {
 ==================================================*/
 
 #home {
-    background: url(../img/test.gif);
+    background: url(../img/test1.gif);
     background-size: cover;
     height: 100vh;
 }
@@ -328,7 +328,7 @@ a.active {
 
 #about {
     padding: 100px 0;
-    background: linear-gradient(180deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 1) 37%, rgba(226, 8, 34, 1) 49%, rgba(17, 17, 17, 1) 62%, rgba(17, 17, 17, 1) 100%);
+    background: linear-gradient(180deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 1) 37%, #18273E 49%, rgba(17, 17, 17, 1) 62%, rgba(17, 17, 17, 1) 100%);
     /*background-image: url("bg.jpg");*/
 }
 
@@ -351,7 +351,8 @@ a.active {
 ==================================================*/
 
 #projects {
-    background-color: #111;
+    /*background-color: #111;*/
+    background: url(../img/bg5.jpg);
     padding: 100px 0;
 }
 
