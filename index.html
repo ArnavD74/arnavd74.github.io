@@ -51,11 +51,22 @@
     <script type="text/javascript" src="js/jquery-git.js"></script> <!-- custom for FPS-->
     <script type="text/javascript" src="js/fps.js"></script> <!-- custom for FPS-->
 
-	<style type="text/css">
-        body{
-    font-family: 'product_sansregular';
-                }
-</style>
+    <style type="text/css">
+        body {
+            font-family: 'product_sansregular';
+        }
+    </style>
+
+    <style type="text/css">
+        .mobileHide {
+            display: inline;
+        }
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .mobileHide {
+                display: none;
+            }
+        }
+    </style>
 
 </head>
 
@@ -146,7 +157,8 @@
                     <font color="white">Hello! I am a high school student interested in computer science and
                         programming, robotics, video games, and going to sleep late.
                 </p>
-                <p style="font-size: 15px;">I enjoy going to local community hacking events and creating programs to learn more and explore my
+                <p style="font-size: 15px;">I enjoy going to local community hacking events and creating programs to
+                    learn more and explore my
                     interests. Check out my current (and upcoming) projects on this website!</font>
                 </p>
                 <p style="font-size: 15px;">
@@ -355,11 +367,11 @@
                                     winner.</i></p>
                             <p>
 
-                             <p><strong>Lead Editor of Cougar Robotics Website and Instagram Handle</strong>
-                                <br><b>·</b><i> Cougar Robotics: https://cougarrobotics.com</i>
-                                <br><b>·</b><i> Instagram: @team1403</i></p>
-                            <p>   
-                            </p>
+                                <p><strong>Lead Editor of Cougar Robotics Website and Instagram Handle</strong>
+                                    <br><b>·</b><i> Cougar Robotics: https://cougarrobotics.com</i>
+                                    <br><b>·</b><i> Instagram: @team1403</i></p>
+                                <p>
+                                </p>
                         </div>
                     </li>
                 </ul>
@@ -415,9 +427,9 @@
                     ctx.fillRect(500,500,200,100);
                 </script> -->
 
-            <!--<iframe
+            <iframe class="mobileHide"
                 src="https://docs.google.com/forms/d/e/1FAIpQLSfxGlTS9QizM13BnpRAYn66wyOKuoU68qJsc6mZETj8OO-HQQ/viewform?embedded=true"
-                width="640" height="706" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>-->
+                width="640" height="706" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         </div>
         <br>
     </div>
