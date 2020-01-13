@@ -50,6 +50,28 @@
     <link href="css/style.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery-git.js"></script> <!-- custom for FPS-->
     <script type="text/javascript" src="js/fps.js"></script> <!-- custom for FPS-->
+
+    <style>
+        .mobileHide {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .mobileHide {
+                display: none;
+            }
+        }
+        
+        .mobileHeader {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .mobileHeader {
+                font-size: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -68,10 +90,10 @@
     </div>
     <!-- ./Preloader -->
     <!-- /header -->
-    <header class="navbar-fixed-top"  class="mobileHeader" id="header">
+    <header class="navbar-fixed-top" class="mobileHeader" id="header">
         <nav class="mobileHeader">
             <ul>
-                <li ><a class="mobileHeader" href="#about">ABOUT</a></li >
+                <li><a class="mobileHeader" href="#about">ABOUT</a></li>
                 <li><a class="mobileHeader" href="#projects">PROJECTS</a></li>
                 <li><a class="mobileHeader" href="#experience">EXPERIENCE</a></li>
                 <li><a class="mobileHeader" href="#contact">CONTACT</a></li>
