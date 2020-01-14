@@ -52,7 +52,6 @@
     <script type="text/javascript" src="js/fps.js"></script> <!-- custom for FPS-->
     <script type="text/javascript" src="js/resolution.js"></script> <!-- custom for res-->
 
-
     <style>
         .mobileHide {
             display: inline;
@@ -114,9 +113,9 @@
         <canvas id="canvas" onresize="onresize()" width="1000px" height="1000px"></canvas>
 
         <div class="resolutionContainer"><output id="resolutionNumber">
-            <font color="red">Resolution error</font>
-        </output>
-    </div>
+                <font color="red">Resolution error</font>
+            </output>
+        </div>
 
         <script type="text/javascript">
             height = screen.height;
@@ -124,7 +123,7 @@
             res = document.getElementById('resolutionNumber');
             res.innerHTML = "\xa0Resolution: " + width + " x " + height;
             if (res == null) {
-                alert("hello");
+                alert("Resolution error");
             }
         </script>
 
@@ -153,20 +152,20 @@
         </div>
 
 
-    <div class="container">
-        <div class="disply-table">
-            <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
-                <h4>
-                    <font color="white"><i>Arnav Dashaputra · Personal Portfolio</i></font>
-                </h4>
-                <h1 class="title">
-                    Student &<br /> Web Developer
-                </h1>
-                <canvas id="scroll-canvas" width="75px" height="200px"></canvas>
-                <img src="ionicons\fonts\Chevron_down.png" id="chevron_down" height="100px" width="100px">
+        <div class="container">
+            <div class="disply-table">
+                <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
+                    <h4>
+                        <font color="white"><i>Arnav Dashaputra · Personal Portfolio</i></font>
+                    </h4>
+                    <h1 class="title">
+                        Student &<br /> Web Developer
+                    </h1>
+                    <canvas id="scroll-canvas" width="75px" height="200px"></canvas>
+                    <img src="ionicons\fonts\Chevron_down.png" id="chevron_down" height="100px" width="100px">
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- ./home -->
     <!-- about -->
