@@ -63,7 +63,7 @@
                 display: none;
             }
         }
-        
+
         .mobileHeader {
             display: inline;
         }
@@ -110,11 +110,13 @@
     <div class="lecontainer"><a href="https://letsencrypt.org/"><img class="le" src="img/images/LE.png"></a></div>
     <div class="gitcontainer"><a href="https://github.io/"><img class="git" src="img/images/Git.png"></a></div>
     <div class="section" id="home" data-stellar-background-ratio="0.5">
+
         <canvas id="canvas" onresize="onresize()" width="1000px" height="1000px"></canvas>
 
-        <output id="resolutionNumber">
+        <div class="resolutionContainer"><output id="resolutionNumber">
             <font color="red">Resolution error</font>
         </output>
+    </div>
 
         <script type="text/javascript">
             height = screen.height;
@@ -126,34 +128,45 @@
             }
         </script>
 
-        <div class="fps">
-            <output id="out">
+        <style>
+            .fps1container {
+                position: absolute;
+                height: 45px;
+                width: 45px;
+                margin-left: 8px;
+                margin-top: 2px;
+                z-index: 9999;
+            }
+
+            .resolutionContainer {
+                position: absolute;
+                margin-left: 2px;
+                z-index: 9999;
+                bottom: 0px;
+            }
+        </style>
+
+        <div class="fps1container"><output id="out">
                 <font color="red">FPS error</font>
-            </output>
-        </div>
-
-        <div>
-            <output>
-                <font color="green">Verified: 4</font>
+                <!--FPS-->
             </output>
         </div>
 
 
-        <!--FPS-->
-        <div class="container">
-            <div class="disply-table">
-                <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
-                    <h4>
-                        <font color="white"><i>Arnav Dashaputra · Personal Portfolio</i></font>
-                    </h4>
-                    <h1 class="title">
-                        Student &<br /> Web Developer
-                    </h1>
-                    <canvas id="scroll-canvas" width="75px" height="200px"></canvas>
-                    <img src="ionicons\fonts\Chevron_down.png" id="chevron_down" height="100px" width="100px">
-                </div>
+    <div class="container">
+        <div class="disply-table">
+            <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
+                <h4>
+                    <font color="white"><i>Arnav Dashaputra · Personal Portfolio</i></font>
+                </h4>
+                <h1 class="title">
+                    Student &<br /> Web Developer
+                </h1>
+                <canvas id="scroll-canvas" width="75px" height="200px"></canvas>
+                <img src="ionicons\fonts\Chevron_down.png" id="chevron_down" height="100px" width="100px">
             </div>
         </div>
+    </div>
     </div>
     <!-- ./home -->
     <!-- about -->
