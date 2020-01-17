@@ -45,79 +45,179 @@
     <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="userfiles/ps/ps.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/vhs.css" type="text/css" charset="utf-8" />
     <!--https://michalsnik.github.io/aos/-->
     <link href="css/style.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery-git.js"></script> <!-- custom for FPS-->
     <script type="text/javascript" src="js/fps.js"></script> <!-- custom for FPS-->
+    <script type="text/javascript" src="js/resolution.js"></script> <!-- custom for res-->
 
+    <style>
+        .mobileHide {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .mobileHide {
+                display: none;
+            }
+        }
+
+        .mobileHeader {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .mobileHeader {
+                font-size: 10px;
+            }
+        }
+
+        .mobileMini {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .mobileMini {
+                font-size: 10px;
+            }
+        }
+
+        .tenEightyHide {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 1080px) and (max-device-width : 1080px) {
+            .tenEightyHide {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Preloader -->
     <div id="preloader">
         <div id="status">
-            <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar"></div>
+            <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar">
+            </div>
         </div>
-        <div data-aos-duration="100">
-            <h6 style="text-align:center;">
-                <font size=1 color=white><i><b>the website may be down, or you may have to enable javascript and
-                            refresh.</b></i></font>
-            </h6>
-        </div>
-        <!--<script>window.stop();</script>-->
+    </div>
+    <!--<script>window.stop();</script>-->
     </div>
     <!-- ./Preloader -->
     <!-- /header -->
-    <header class="navbar-fixed-top" id="header">
-        <nav>
+    <header class="navbar-fixed-top" class="mobileHeader" id="header">
+        <nav class="mobileHeader">
             <ul>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#projects">PROJECTS</a></li>
-                <li><a href="#experience">EXPERIENCE</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-                <li><a href="space">SPACE <font color=#f76363>(BETA)</font></a></li>
+                <li><a class="mobileHeader" href="#about">ABOUT</a></li>
+                <li><a class="mobileHeader" href="#projects">PROJECTS</a></li>
+                <li><a class="mobileHeader" href="#experience">EXPERIENCE</a></li>
+                <li><a class="mobileHeader" href="#contact">CONTACT</a></li>
             </ul>
         </nav>
     </header>
     <!-- ./header -->
     <!-- home -->
-    <div class="codecontainer"><a href="code.html"><img class="code" src="img/images/html.png"></a></div>
-    <div class="gacontainer"><a href="https://www.google.com/analytics"><img class="ga" src="img/images/GA.png"></a>
+    <div class="mobileHide">
+        <div class="codecontainer"><a href="code.html"><img class="code" src="img/images/html.png"></a></div>
+        <div class="gacontainer" <a href="https://www.google.com/analytics"><img class="ga" src="img/images/GA.png"></a>
+        </div>
+        <div class="lecontainer"><a href="https://letsencrypt.org/"><img class="le" src="img/images/LE.png"></a></div>
+        <div class="gitcontainer"><a href="https://github.io/"><img class="git" src="img/images/Git.png"></a></div>
     </div>
-    <div class="lecontainer"><a href="https://letsencrypt.org/"><img class="le" src="img/images/LE.png"></a></div>
-    <div class="gitcontainer"><a href="https://github.io/"><img class="git" src="img/images/Git.png"></a></div>
     <div class="section" id="home" data-stellar-background-ratio="0.5">
+
         <canvas id="canvas" onresize="onresize()" width="1000px" height="1000px"></canvas>
 
-        <output id="resolutionNumber">
-            <font color="red">Resolution error</font>
-        </output>
+        <div class="mobileHide">
+            <div class="resolutionContainer"><output id="resolutionNumber">
+                    <font color="red">Resolution error</font>
+                </output>
+            </div>
+        </div>
+
         <script type="text/javascript">
             height = screen.height;
             width = screen.width;
             res = document.getElementById('resolutionNumber');
             res.innerHTML = "\xa0Resolution: " + width + " x " + height;
             if (res == null) {
-                alert("hello");
+                alert("Resolution error");
             }
         </script>
 
-        <div class="fps">
-            <output id="out">
-                <font color="red">FPS error</font>
-            </output>
+        <style>
+            .fps1container {
+                position: absolute;
+                height: 30px;
+                width: 30px;
+                margin-left: 35px;
+                margin-top: 5px;
+                z-index: 9999;
+            }
+
+            .fpscontainer {
+                position: absolute;
+                height: 30px;
+                width: 30px;
+                margin-left: 6px;
+                margin-top: 10px;
+                z-index: 9999;
+                color: white;
+            }
+
+            .resolutionContainer {
+                position: absolute;
+                margin-left: 2px;
+                z-index: 9999;
+                bottom: 20px;
+            }
+
+            .fps1container output {
+                color: white;
+            }
+
+            .resolutionContainer output {
+                color: white;
+            }
+
+            .vhsContainer {
+                position: absolute;
+                scale: 50%;
+                margin-left: -230px;
+                z-index: 0;
+                bottom: -110px;
+            }
+        </style>
+        <div class="mobileMini">
+            <p class="fpscontainer">FPS:</p>
+            <div class="fps1container"><output id="out">
+                    <font color="red">FPS error</font>
+                    <!--FPS-->
+                </output>
+            </div>
+        </div>
+
+        <div class="tenEightyHide">
+            <div class="vhsContainer">
+                <a class="no-underline inline-flex items-center mh3 tc br2 pv5" href="#" title="dp">
+                    <h1 class="f1 mv0 vhs jockey" data-text=" arnavdashaputra™">arnavdashaputra™</h1>
+                </a>
+                <script src="//use.edgefonts.net/jockey-one;play.js"></script>
+            </div>
         </div>
 
 
-        <!--FPS-->
         <div class="container">
             <div class="disply-table">
-                <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
+                <div class="table-cell" data-aos="fade-up" data-aos-delay="500">
                     <h4>
                         <font color="white"><i>Arnav Dashaputra · Personal Portfolio</i></font>
                     </h4>
-                    <h1>
-                        <font color="white">Student &<br /> Web Developer</font>
+                    <h1 class="title">
+                        Student &<br /> Web Developer
                     </h1>
                     <canvas id="scroll-canvas" width="75px" height="200px"></canvas>
                     <img src="ionicons\fonts\Chevron_down.png" id="chevron_down" height="100px" width="100px">
@@ -127,6 +227,8 @@
     </div>
     <!-- ./home -->
     <!-- about -->
+
+
     <div class="section" id="about">
         <div class="container">
             <div class="col-md-6" data-aos="fade-up">
@@ -135,14 +237,15 @@
                     <font color="white">About me</font>
                 </h1>
                 <div class="h-50"></div>
-                <p>
+                <p style="font-size: 15px;">
                     <font color="white">Hello! I am a high school student interested in computer science and
                         programming, robotics, video games, and going to sleep late.
                 </p>
-                <p>I enjoy going to local community hacking events and creating programs to learn more and explore my
+                <p style="font-size: 15px;">I enjoy going to local community hacking events and creating programs to
+                    learn more and explore my
                     interests. Check out my current (and upcoming) projects on this website!</font>
                 </p>
-                <p>
+                <p style="font-size: 15px;">
                     <font color="red"><b>⚠ </b></font>
                     <font color="white">This website is a work in progress, with no expected due date. This is going to
                         require me learning a lot of webdev, with additional testing along the way.</font>
@@ -346,6 +449,13 @@
                                 <br><b>·</b><i> 2019 Season Mount Olive District Chairman's award winner.</i>
                                 <br><b>·</b><i> 2019 Season LeHigh District Championship/Regional Chairman's award
                                     winner.</i></p>
+                            <p>
+
+                                <p><strong>Lead Editor of Cougar Robotics Website and Instagram Handle</strong>
+                                    <br><b>·</b><i> Cougar Robotics: https://cougarrobotics.com</i>
+                                    <br><b>·</b><i> Instagram: @team1403</i></p>
+                                <p>
+                                </p>
                         </div>
                     </li>
                 </ul>
@@ -391,24 +501,19 @@
                 <div class="clearfix"></div>
                 <div class="h-50"></div>
             </div>
-            <iframe
+
+            <!-- <canvas id="formHider" width="200" height="100"></canvas>
+
+                <script>
+                    var canvas = document.getElementById("formHider");
+                    var ctx = canvas.getContext("2d");
+                    ctx.fillStyle = "#FF0000";
+                    ctx.fillRect(500,500,200,100);
+                </script> -->
+
+            <iframe class="mobileHide"
                 src="https://docs.google.com/forms/d/e/1FAIpQLSfxGlTS9QizM13BnpRAYn66wyOKuoU68qJsc6mZETj8OO-HQQ/viewform?embedded=true"
                 width="640" height="706" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-            <!--<div class="col-md-8" data-aos="fade-up">
-                <form class="contact-bg" id="contact-form" name="contact" method="post" novalidate="novalidate">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" />
-                    <input type="email" name="email" class="form-control" placeholder="Your E-mail" />
-                    <input type="text" name="phone" class="form-control" placeholder="Phone Number" />
-                    <textarea name="message" class="form-control" placeholder="Your Message" style="height:120px"></textarea>
-                    <button id="submit" type="submit" name="submit" class="btn btn-glance">Send</button>
-                    <div id="success">
-                        <p class="green textcenter"> Your message was sent successfully! I will be in touch as soon as I can. </p>
-                    </div>
-                    <div id="error">
-                        <p> Something went wrong, I'm working on fixing the form as fast as I can! </p>
-                    </div>
-                </form>
-            </div>-->
         </div>
         <br>
     </div>
@@ -428,7 +533,7 @@
         <script src="js/jquery.form.js"></script>
         <script src="js/jquery.validate.min.js"></script>
         <!-- custom -->
-        <script src="js/dots-linesDEMO.js"></script>
+        <script src="js/dots-lines.js"></script>
         <script src="js/indicator.js"></script>
         <!--  main  -->
         <script src="js/custom.js"></script>
