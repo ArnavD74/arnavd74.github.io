@@ -46,6 +46,7 @@
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="userfiles/ps/ps.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/vhs.css" type="text/css" charset="utf-8" />
     <!--https://michalsnik.github.io/aos/-->
     <link href="css/style.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery-git.js"></script> <!-- custom for FPS-->
@@ -161,7 +162,7 @@
                 position: absolute;
                 margin-left: 2px;
                 z-index: 9999;
-                bottom: 0px;
+                bottom: 20px;
             }
 
             .fps1container output {
@@ -171,6 +172,15 @@
             .resolutionContainer output {
                 color: white;
             }
+
+            .vhsContainer {
+                position: absolute;
+                scale: 50%;
+                margin-left: -240px;
+                z-index: 0;
+                bottom: -110px;
+            }
+
         </style>
         <div class="mobileMini">
             <p class="fpscontainer">FPS:</p>
@@ -179,6 +189,13 @@
                     <!--FPS-->
                 </output>
             </div>
+        </div>
+
+        <div class="vhsContainer">
+            <a class="no-underline inline-flex items-center mh3 tc br2 pv5" href="#" title="dp">
+                <h1 class="f1 mv0 vhs jockey" data-text=" arnavdashaputra">arnavdashaputra</h1>
+             </a>
+            <script src="//use.edgefonts.net/jockey-one;play.js"></script>
         </div>
 
 
@@ -199,6 +216,8 @@
     </div>
     <!-- ./home -->
     <!-- about -->
+
+    
     <div class="section" id="about">
         <div class="container">
             <div class="col-md-6" data-aos="fade-up">
