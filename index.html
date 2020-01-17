@@ -83,6 +83,16 @@
                 font-size: 10px;
             }
         }
+
+        .tenEightyHide {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 1080px) and (max-device-width : 1080px) {
+            .tenEightyHide {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -93,8 +103,8 @@
             <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar">
             </div>
         </div>
-        </div>
-        <!--<script>window.stop();</script>-->
+    </div>
+    <!--<script>window.stop();</script>-->
     </div>
     <!-- ./Preloader -->
     <!-- /header -->
@@ -180,7 +190,6 @@
                 z-index: 0;
                 bottom: -110px;
             }
-
         </style>
         <div class="mobileMini">
             <p class="fpscontainer">FPS:</p>
@@ -191,11 +200,13 @@
             </div>
         </div>
 
-        <div class="vhsContainer">
-            <a class="no-underline inline-flex items-center mh3 tc br2 pv5" href="#" title="dp">
-                <h1 class="f1 mv0 vhs jockey" data-text=" arnavdashaputra™">arnavdashaputra™</h1>
-             </a>
-            <script src="//use.edgefonts.net/jockey-one;play.js"></script>
+        <div class="mobileHide">
+            <div class="vhsContainer">
+                <a class="no-underline inline-flex items-center mh3 tc br2 pv5" href="#" title="dp">
+                    <h1 class="f1 mv0 vhs jockey" data-text=" arnavdashaputra™">arnavdashaputra™</h1>
+                </a>
+                <script src="//use.edgefonts.net/jockey-one;play.js"></script>
+            </div>
         </div>
 
 
@@ -217,7 +228,7 @@
     <!-- ./home -->
     <!-- about -->
 
-    
+
     <div class="section" id="about">
         <div class="container">
             <div class="col-md-6" data-aos="fade-up">
