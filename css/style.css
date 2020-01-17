@@ -328,7 +328,8 @@ a.active {
 
 #about {
     padding: 100px 0;
-    background: linear-gradient(180deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 1) 37%, #18273E 49%, rgba(17, 17, 17, 1) 62%, rgba(17, 17, 17, 1) 100%);
+    background: url(../img/bg5.jpg);
+    /* background: linear-gradient(180deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 1) 37%, #18273E 49%, rgba(17, 17, 17, 1) 62%, rgba(17, 17, 17, 1) 100%); */
     /*background-image: url("bg.jpg");*/
 }
 
