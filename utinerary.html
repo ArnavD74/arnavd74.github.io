@@ -50,6 +50,19 @@
     <!-- Main-Stylesheets -->
     <link rel="stylesheet" href="css/substyle.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <style>
+        .mobileHide {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .mobileHide {
+                display: none;
+            }
+        }
+        </style>
+
 </head>
 
 <body background="img/substyle/utinerary.jpg">
@@ -58,7 +71,7 @@
             <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar"></div>
         </div>
     </div>
-    <a href="javascript:history.back()"><img src="ionicons/fonts/chevron_left_white.png" id=BACK></a>
+    <div class="mobileHide"><a href="javascript:history.back()"><img src="ionicons/fonts/chevron_left_white.png" id=BACK></a></div>
 
     <!--Mainmenu-area-->
     <div class="mainmenu-area">
@@ -67,7 +80,7 @@
             <!--Logo-->
             <div class="navbar-header">
                 <a class="navbar-brand logo">
-                    <h2>Utinerary <font color="yellow">[Discontinued]</font></h2>
+                    <h1>Utinerary</h1>
                 </a>
             </div>
         </div>
