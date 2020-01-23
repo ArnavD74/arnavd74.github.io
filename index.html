@@ -93,6 +93,22 @@
                 display: none;
             }
         }
+
+        .mobileTop {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .mobileTop {
+                position: absolute;
+                height: 30px;
+                width: 30px;
+                margin-left: 6px;
+                margin-top: 15px;
+                z-index: 9999;
+                color: white;
+            }
+        }
     </style>
 </head>
 
@@ -192,7 +208,9 @@
             }
         </style>
         <div class="mobileMini">
-            <p class="fpscontainer">FPS:</p>
+            <div class="mobileHide">
+                <p class="fpscontainer">FPS:</p>
+            </div>
             <div class="fps1container"><output id="out">
                     <font color="red">FPS error</font>
                     <!--FPS-->
