@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140418508-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'UA-140418508-1');
     </script>
@@ -15,7 +19,8 @@
     <title>ReVitalize</title>
     <!-- FAVICONS-->
     <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon"> <!--For masked forwarding-->
+    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <!--For masked forwarding-->
     <link rel="icon" sizes="16x16 32x32 64x64" href="img/favicon/favicon.ico">
     <link rel="icon" type="image/png" sizes="196x196" href="img/favicon/favicon-192.png">
     <link rel="icon" type="image/png" sizes="160x160" href="img/favicon/favicon-160.png">
@@ -50,6 +55,17 @@
     <!-- Main-Stylesheets -->
     <link rel="stylesheet" href="css/substyle.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <style>
+        .mobileHide {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .mobileHide {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body background="img/substyle/revitalize.jpg">
@@ -58,14 +74,17 @@
             <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar"></div>
         </div>
     </div>
-    <a href="javascript:history.back()"><img src="ionicons/fonts/chevron_left_white.png" id=BACK></a>
+    <div class="mobileHide"><a href="javascript:history.back()"><img src="ionicons/fonts/chevron_left_white.png"
+                id=BACK></a></div>
     <!--Mainmenu-area-->
     <div class="mainmenu-area">
         <div class="container">
             <!--Logo-->
             <div class="navbar-header">
                 <a class="navbar-brand logo">
-                    <h2>ReVitalize <font color="orange">[Outdated]</font></h2>
+                    <h2>
+                        <font size="90px">ReVitalize</font>
+                    </h2>
                 </a>
             </div>
         </div>
@@ -78,44 +97,50 @@
             <div class="row v-center">
                 <div class="col-xs-12 col-md-7 header-text">
                     <h2>ReVitalize Your Life.</h2>
-                    <p>ReVitalize was planned with a very average consumer in mind - one who is lost while looking at the many available options for health trackers and fitness motivation, as well as a place to consult aid and get coarse reccomendations.
-                        One way this is achieved is with an easy-to build Arduino breadboard circuit, which, by using the Nutritionix API, tracks the user's "total" health for the day with a visual meter.
-                    <br>    
-                    <br> </p>
-                    <p>As of June 2019, <u><a href="arnavd74.github.io/Spark">Spark</a></u> has succeeded ReVitalize in version and function. However, ReVitalize's code can still be found below.
+                    <p>ReVitalize was planned with a very average consumer in mind - one who is lost while looking at
+                        the many available options for health trackers and fitness motivation, as well as a place to
+                        consult aid and get coarse reccomendations.
+                        One way this is achieved is with an easy-to build Arduino breadboard circuit, which, by using
+                        the Nutritionix API, tracks the user's "total" health for the day with a visual meter.
+                        <br>
+                        <br> </p>
+                    <p>As of June 2019, <u><a href="arnavd74.github.io/Spark">Spark</a></u> has succeeded ReVitalize in
+                        version and function. However, ReVitalize's code can still be accessed below.
                     </p>
                     <a href="https://github.com/TusharDevelops/Revitalize" class="button github">GitHub</a>
                     <a href="https://devpost.com/software/revitalize-hrzu3b" class="button devpost">Devpost</a>
                 </div>
                 <div class="hidden-xs hidden-sm col-md-5 text-right">
-                    <img src="img/portfolio/04.jpg" alt="" style="border:1px solid black">
+                    <img src="img/mockups/revitalize1.jpg" alt="" width="1500px" height="1500px"
+                        style="border:1px solid white">
                 </div>
             </div>
         </div>
     </header>
     <!--Header-area/-->
 
-<!--Vendor-JS-->
-<script src="js/vendor/jquery-1.12.4.min.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<!--Plugin-JS-->
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.parallax-1.1.3.js"></script>
-<script src="js/scrollUp.min.js"></script>
-<script src="js/magnific-popup.min.js"></script>
-<script src="js/wow.min.js"></script>
-<!--Preloader Reqs-->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/aos.js"></script>
-<!--Main-active-JS-->
-<script src="js/main.js"></script>
-<script src="js/custom.js"></script>
-<!-- aps.js initializing-->
-<script src="js/aosinit.js"></script>
+    <!--Vendor-JS-->
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <!--Plugin-JS-->
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.parallax-1.1.3.js"></script>
+    <script src="js/scrollUp.min.js"></script>
+    <script src="js/magnific-popup.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <!--Preloader Reqs-->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/aos.js"></script>
+    <!--Main-active-JS-->
+    <script src="js/main.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- aps.js initializing-->
+    <script src="js/aosinit.js"></script>
 
 
 
 </body>
+
 </html>
