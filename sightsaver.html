@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140418508-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'UA-140418508-1');
     </script>
@@ -15,7 +19,8 @@
     <title>SightSaver</title>
     <!-- FAVICONS-->
     <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon"> <!--For masked forwarding-->
+    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <!--For masked forwarding-->
     <link rel="icon" sizes="16x16 32x32 64x64" href="img/favicon/favicon.ico">
     <link rel="icon" type="image/png" sizes="196x196" href="img/favicon/favicon-192.png">
     <link rel="icon" type="image/png" sizes="160x160" href="img/favicon/favicon-160.png">
@@ -50,6 +55,17 @@
     <!-- Main-Stylesheets -->
     <link rel="stylesheet" href="css/substyle.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <style>
+        .mobileHide {
+            display: inline;
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .mobileHide {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body background="img/substyle/sightsaver.jpg">
@@ -58,14 +74,17 @@
             <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar"></div>
         </div>
     </div>
-    <a href="javascript:history.back()"><img src="ionicons/fonts/chevron_left_white.png" id=BACK></a>
+    <div class="mobileHide"><a href="javascript:history.back()"><img src="ionicons/fonts/chevron_left_white.png"
+                id=BACK></a></div>
     <!--Mainmenu-area-->
     <div class="mainmenu-area">
         <div class="container">
             <!--Logo-->
             <div class="navbar-header">
                 <a class="navbar-brand logo">
-                    <h2>SightSaver <font color="yellow">[Discontinued]</font></h2>
+                    <h2>
+                        <font font size="90px">SightSaver</font>
+                    </h2>
                 </a>
             </div>
         </div>
@@ -77,43 +96,51 @@
         <div class="container">
             <div class="row v-center">
                 <div class="col-xs-12 col-md-7 header-text">
+                    <div class="hidden-xs hidden-sm col-md-7 text-right">
+                        <img src="img/mockups/sightsaver2.png" alt="">
+                    </div>
                     <h2>Less Strain, More Gain.</h2>
-                    <p>As our world becomes more technologically advanced, copious amounts of jobs start to involve the use of ​computers. As a result of that, many people strain their eyes.
-                        Our app provides a solution to this problem by prompting people to take their eyes off of their computers and perform some exercises to make sure that they keep their eyes healthy.
+                    <p>As our world becomes more technologically advanced, copious amounts of jobs start to involve the
+                        use of ​computers. As a result of that, many people strain their eyes.
+                        Our app provides a solution to this problem by prompting people to take their eyes off of their
+                        computers and perform some exercises to make sure that they keep their eyes healthy.
                         Running the app allows it to send a notification to the user at regular time intervals.
-                        </p>
+                        <br>
+                    </p>
                     <a href="https://sightsavermh.weebly.com/download.html" class="button white">Download APK</a>
+                    <p><br></p>
                     <a href="https://devpost.com/software/sightsaver" class="button devpost">Devpost</a>
                 </div>
                 <div class="hidden-xs hidden-sm col-md-5 text-right">
-                    <img src="img/portfolio/05.jpg" alt="" style="border:1px solid white">
+                    <img src="img/mockups/sightsaver1.png" alt="">
                 </div>
             </div>
         </div>
     </header>
     <!--Header-area/-->
 
-<!--Vendor-JS-->
-<script src="js/vendor/jquery-1.12.4.min.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<!--Plugin-JS-->
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.parallax-1.1.3.js"></script>
-<script src="js/scrollUp.min.js"></script>
-<script src="js/magnific-popup.min.js"></script>
-<script src="js/wow.min.js"></script>
-<!--Preloader Reqs-->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/aos.js"></script>
-<!--Main-active-JS-->
-<script src="js/main.js"></script>
-<script src="js/custom.js"></script>
-<!-- aps.js initializing-->
-<script src="js/aosinit.js"></script>
+    <!--Vendor-JS-->
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <!--Plugin-JS-->
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.parallax-1.1.3.js"></script>
+    <script src="js/scrollUp.min.js"></script>
+    <script src="js/magnific-popup.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <!--Preloader Reqs-->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/aos.js"></script>
+    <!--Main-active-JS-->
+    <script src="js/main.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- aps.js initializing-->
+    <script src="js/aosinit.js"></script>
 
 
 
 </body>
+
 </html>
