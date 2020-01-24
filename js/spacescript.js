@@ -29,4 +29,17 @@ function copyLocation() {
     copyText.select();
     copyText.setSelectionRange(0, 99999)
     document.execCommand("copy");
+    var x = document.getElementById("copyLoc");
+
+    if (x.innerHTML === "Copy Location") {
+    x.innerHTML = "Swapped text!";
+    }
+}
+
+function changeText() {
+    var x = document.getElementById("copyLoc");
+
+    if (x.innerHTML === "Copy Location") {
+    x.innerHTML = "Swapped text!";
+    }
 }
