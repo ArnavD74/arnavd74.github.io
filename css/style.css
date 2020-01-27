@@ -877,6 +877,9 @@ button {
     outline: none;
 }
 
+/* Homescreen Icons
+==================================================*/
+
 .gacontainer {
     position: absolute;
     bottom: 1%;
@@ -985,6 +988,9 @@ button {
     opacity: 1;
 }
 
+/* Resolution/FPS
+==================================================*/
+
 .resolutionNumber {
     padding-left: 10px;
     z-index: 999;
@@ -993,27 +999,6 @@ button {
 .fps {
     padding-top: 0px;
     padding-right: 20px;
-}
-
-.mobileHide {
-    display: inline;
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    .mobileHide {
-        display: none;
-    }
-}
-
-
-.mobileHeader {
-    display: inline;
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    .mobileHeader {
-        font-size: 10px;
-    }
 }
 
 .fps1container {
@@ -1056,6 +1041,30 @@ button {
     margin-left: -230px;
     z-index: 0;
     bottom: -20px;
+}
+
+/* Mobile
+==================================================*/
+
+.mobileHide {
+    display: inline;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .mobileHide {
+        display: none;
+    }
+}
+
+
+.mobileHeader {
+    display: inline;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .mobileHeader {
+        font-size: 10px;
+    }
 }
 
 .mobileHide {
@@ -1112,4 +1121,17 @@ button {
         z-index: 9999;
         color: white;
     }
+}
+
+/* Resolution
+==================================================*/
+
+.disclaimerPadding {
+
+    position: relative;
+    margin-left: 18px;
+    margin-top: 10px;
+    z-index: 9999;
+    color: white;
+    line-height: 28px;
 }
