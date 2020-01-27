@@ -1015,3 +1015,101 @@ button {
         font-size: 10px;
     }
 }
+
+.fps1container {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    margin-left: 35px;
+    margin-top: 5px;
+    z-index: 9999;
+}
+
+.fpscontainer {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    margin-left: 6px;
+    margin-top: 10px;
+    z-index: 9999;
+    color: white;
+}
+
+.resolutionContainer {
+    position: absolute;
+    margin-left: 2px;
+    z-index: 9999;
+    bottom: 0px;
+}
+
+.fps1container output {
+    color: white;
+}
+
+.resolutionContainer output {
+    color: white;
+}
+
+.vhsContainer {
+    position: absolute;
+    scale: 50%;
+    margin-left: -230px;
+    z-index: 0;
+    bottom: -20px;
+}
+
+.mobileHide {
+    display: inline;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .mobileHide {
+        display: none;
+    }
+}
+
+.mobileHeader {
+    display: inline;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .mobileHeader {
+        font-size: 10px;
+    }
+}
+
+.mobileMini {
+    display: inline;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .mobileMini {
+        font-size: 10px;
+    }
+}
+
+.tenEightyHide {
+    display: inline;
+}
+
+@media only screen and (min-device-width : 1079px) and (max-device-width : 1081px) {
+    .tenEightyHide {
+        display: none;
+    }
+}
+
+.mobileTop {
+    display: inline;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .mobileTop {
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        margin-left: 6px;
+        margin-top: 15px;
+        z-index: 9999;
+        color: white;
+    }
+}
