@@ -47,10 +47,10 @@ function setup () {
 function onMouseMove (e) {
 	mx = e.clientX;
 	my = e.clientY+document.documentElement.scrollTop;
-} 
+}
 function onMouseClick (e) {
 	attractionTimer = pullLength;
-	
+
 }
 
 function onresize () {
@@ -62,7 +62,7 @@ function onresize () {
 }
 
 function update () {
-	
+
 	ctx.clearRect(0,0,cw,ch);
 	for (var i = 0; i < dots.length; i++) {
 		dots[i].update();
@@ -99,7 +99,7 @@ function dot () {
 		//move
 		this.x += this.xvel;
 		this.y += this.yvel;
-		
+
 		if (attractionTimer <= 0) {
 			//repel from mouse
 			var angle = getAngle(this.x, this.y, mx, my);
@@ -107,7 +107,7 @@ function dot () {
 			if (force > maxAccel) {
 				force = maxAccel;
 			}
-			
+
 			this.applyForce(angle, -force);
 		} else {
 			//attract to mouse
@@ -116,7 +116,7 @@ function dot () {
 			if (force > 10*maxAccel) {
 				force = maxAccel;
 			}
-			
+
 			this.applyForce(angle, force);
 		}
 		//repel from each other
