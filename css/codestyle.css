@@ -195,8 +195,8 @@ body {
     position: absolute;
     height:45px;
     width:45px;
-    margin-right: 8px;
-    margin-top: 12px;
+    margin-right: 16px;
+    margin-top: -12px;
     z-index: 9999;
     right: 0%;
 }
