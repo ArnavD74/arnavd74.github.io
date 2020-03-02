@@ -1,4 +1,4 @@
 # Personal Website
-### Personal Portfolio Website Hosted Through GitHub Pages, [Available Here.](https://arnavd74.github.io)
+### Personal Portfolio Website Hosted Through GitHub Pages, [https://dashaputra.com](https://dashaputra.com)
 
-Thank you to [Brandon C.](https://github.com/Wingo206) For the JS homepage animation.
+Thank you to [Brandon C.](https://github.com/Wingo206) for some JS.
