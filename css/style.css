@@ -8,7 +8,6 @@ h1 {
     font-family: 'Major Mono Display', monospace;
     font-size: 90px;
     line-height: 70px;
-    background: red;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -353,10 +352,9 @@ a.active {
 }
 
 .skillbox {
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 240px;
+    margin-right: 240px;
     margin-bottom: 100px;
-    height: 100%;
 }
 
 /* Create three equal columns that floats next to each other */
@@ -372,7 +370,22 @@ a.active {
 
 .skillList p {
     font-size: 16px;
+    margin: 20px 0;
 }
+
+hr.white {
+    border-top: 1px solid white;
+  }
+
+  hr.whiteL {
+    border-top: 1px solid white;
+    margin-left: 20px;
+  }
+
+  hr.whiteR {
+    border-top: 1px solid white;
+    margin-right: 20px;
+  }
 
 /* projects section
 ==================================================*/
