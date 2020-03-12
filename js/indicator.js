@@ -4,7 +4,6 @@ var cctx = ccanvas.getContext("2d");
 var ccw = 0;
 var cch = 0;
 var image = document.getElementById("chevron_down");
-console.log(image);
 
 var globalHeight = -15;
 var separationDistance = 50;
