@@ -363,14 +363,13 @@ a.active {
     float: left;
 }
 .skillList h2 {
-    font-size: 25px;
+    font-size: 2vw;
     font-style: italic;
     /*text-decoration: underline;*/
 }
 
 .skillList p {
-    font-size: 16px;
-    margin: 20px 0;
+    font-size: 2vs;
 }
 
 hr.white {
@@ -379,12 +378,12 @@ hr.white {
 
   hr.whiteL {
     border-top: 1px solid white;
-    margin-left: 20px;
+    margin-left: 5vw;
   }
 
   hr.whiteR {
     border-top: 1px solid white;
-    margin-right: 20px;
+    margin-right: 3vw;
   }
 
 /* projects section
