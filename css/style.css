@@ -347,6 +347,32 @@ a.active {
     z-index: 1
 }
 
+.skills {
+    text-align: center;
+    color: white;
+}
+
+.skillbox {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 100px;
+    height: 100%;
+}
+
+/* Create three equal columns that floats next to each other */
+.skillcolumn {
+    width:20%;
+    float: left;
+}
+.skillList h2 {
+    font-size: 25px;
+    font-style: italic;
+    /*text-decoration: underline;*/
+}
+
+.skillList p {
+    font-size: 16px;
+}
 
 /* projects section
 ==================================================*/
