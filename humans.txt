@@ -1,9 +1,0 @@
-# TEAM
-
-	Arnav Dashaputra -- Ui/Ux -- @arnavd74
-	Brandon Cheng -- js Animations --
-
-# TECHNOLOGY COLOPHON
-
-    CSS3, HTML5, jS, PHP
-    jQuery, aos.js, bootstrap, fontawesome, stellar.js, jQuery Smooth Scroll, isotope.js
