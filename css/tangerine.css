@@ -16,6 +16,66 @@ body {
     height: 50px;
 }
 
+.button {
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 50px;
+    color: #ffffff;
+    background-color: #FD902B;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    border: none;
+    -webkit-box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.button.white,
+.button:hover {
+    background-color: #ffffff;
+    color: #FD902B;
+}
+
+.button.white:hover {
+    background-color: #FD902B;
+    color: #ffffff;
+}
+
+.button.dark,
+.button:hover {
+    background-color: #696969;
+    color: white;
+}
+
+.button.dark:hover {
+    background-color: #FD902B;
+    color: white;
+}
+
+/* Banner
+==================================================*/
+
+#banner {
+    /*background: #fae2e2;*/
+    background-image: linear-gradient(#FEBC80, rgb(255, 234, 214));
+    background-size: contain;
+    height: 35px;
+}
+
+#banner1 {
+    /*background: #fae2e2;*/
+    background-image: linear-gradient(rgb(255, 234, 214), #FEBC80);
+    background-size: contain;
+    height: 35px;
+}
+
+h6 {
+    /*Exclusive to banner */
+    font-size: 11px;
+    letter-spacing: 4px;
+    padding-top: 10px;
+    position: relative;
+    color: rgb(219, 114, 15), 114, 15);
+}
 
 /* preloader
 ==================================================*/
