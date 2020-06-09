@@ -359,9 +359,10 @@ a.active {
 
 /* Create three equal columns that floats next to each other */
 .skillcolumn {
-    width:20%;
+    width: 20%;
     float: left;
 }
+
 .skillList h2 {
     font-size: 3vw;
     font-style: italic;
@@ -374,17 +375,17 @@ a.active {
 
 hr.white {
     border-top: 1px solid white;
-  }
+}
 
-  hr.whiteL {
+hr.whiteL {
     border-top: 1px solid white;
     margin-left: 8vw;
-  }
+}
 
-  hr.whiteR {
+hr.whiteR {
     border-top: 1px solid white;
     margin-right: 8vw;
-  }
+}
 
 /* projects section
 ==================================================*/
@@ -1101,7 +1102,7 @@ button {
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .mobileHeader {
-        font-size: 10px;
+        font-size: 9px;
     }
 }
 
@@ -1121,7 +1122,7 @@ button {
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .mobileHeader {
-        font-size: 10px;
+        font-size: 9px;
     }
 }
 
@@ -1131,7 +1132,7 @@ button {
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .mobileMini {
-        font-size: 10px;
+        font-size: 9px;
     }
 }
 
@@ -1172,4 +1173,9 @@ button {
     z-index: 9999;
     color: white;
     line-height: 28px;
+}
+
+.knowledgebase {
+    width: 65%;
+    height: 65%;
 }
