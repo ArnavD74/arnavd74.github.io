@@ -5,7 +5,6 @@
 ==================================================*/
 
 h1 {
-    font-family: 'Major Mono Display', monospace;
     font-size: 90px;
     line-height: 70px;
     -webkit-background-clip: text;
@@ -19,29 +18,17 @@ h4 {
     letter-spacing: 2px;
     position: relative;
     color: #C82228;
-    margin-left: 40px;
+    margin-left: 20px;
     font-weight: 700;
 }
 
 .title {
 
-    font-family: 'Helvetica Neue', 'Major Mono Display', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     color: white;
     font-style: italic;
 
 }
-
-h4:before {
-    position: absolute;
-    width: 30px;
-    left: -40px;
-    content: "";
-    display: block;
-    height: 2px;
-    background: #C82228;
-    top: 9px;
-}
-
 
 /* General
 ==================================================*/
@@ -66,7 +53,8 @@ body {
 ==================================================*/
 
 #home {
-    background: black;
+    /* background: black; */
+    background: url(../img/contacts.jpg);
     background-size: cover;
     height: 100vh;
 }
@@ -124,6 +112,8 @@ body {
     color: white;
     font-size: 2vw;
     line-height: 3vw;
+    letter-spacing: 0.2vw;
+    margin-left: 0.5vw;
 }
 
 .socialEntry a {
@@ -142,6 +132,8 @@ body {
     color: #d64f8c;
     font-size: 3vw;
     line-height: 3vw;
+    letter-spacing: 0.4vw;
+    margin-left: -0.5vw;
 }
 
 @media screen and (max-width: 750px) {
@@ -152,7 +144,7 @@ body {
     }
 }
 
-.code {
+.homebutton {
     display: block;
     width: 100%;
     height: auto;
@@ -161,7 +153,7 @@ body {
     border-radius: 50%;
 }
 
-.codecontainer {
+.homebuttoncontainer {
     position: absolute;
     height: 4vw;
     width: 4vw;
@@ -172,7 +164,7 @@ body {
 }
 
 @media screen and (max-width: 750px) {
-    .codecontainer {
+    .homebuttoncontainer {
         width: 100%;
         position: absolute;
         height: 15vw;
@@ -182,3 +174,7 @@ body {
         text-align: center;
     }
 }
+
+b {
+    color: #fc036b;
+  }
