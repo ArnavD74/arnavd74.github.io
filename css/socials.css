@@ -177,4 +177,9 @@ body {
 
 b {
     color: #fc036b;
-  }
+}
+
+i {
+    font-style: normal;
+    letter-spacing: normal;
+}
