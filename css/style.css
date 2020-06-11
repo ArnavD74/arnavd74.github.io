@@ -1007,8 +1007,8 @@ button {
 
 .codecontainer {
     position: absolute;
-    height: 5vw;
-    width: 5vw;
+    height: 4vw;
+    width: 4vw;
     margin-right: 8px;
     margin-top: 12px;
     z-index: 9999;
