@@ -1007,12 +1007,24 @@ button {
 
 .codecontainer {
     position: absolute;
-    height: 45px;
-    width: 45px;
+    height: 5vw;
+    width: 5vw;
     margin-right: 8px;
     margin-top: 12px;
     z-index: 9999;
     right: 0%;
+}
+
+@media screen and (max-width: 750px) {
+    .codecontainer {
+        position: absolute;
+        height: 5vw;
+        width: 5vw;
+        margin-right: 0.5vw;
+        margin-top: 0.5vw;
+        z-index: 9999;
+        right: 0%;
+    }
 }
 
 .code {
@@ -1021,6 +1033,7 @@ button {
     height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
+    border-radius: 50%;
 }
 
 .codecontainer:hover .code {
