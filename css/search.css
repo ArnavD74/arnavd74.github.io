@@ -53,7 +53,7 @@
 ==================================================*/
 
 #home {
-    background: url(../img/home-bg-2.jpg);
+    background: url(../img/home.jpg);
     /*background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%); */
     /*Change BG here*/
     background-size: cover;

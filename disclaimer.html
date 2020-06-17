@@ -37,16 +37,23 @@
   <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="css/animate.min.css" rel="stylesheet">
   <link href="css/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="userfiles/ps/ps.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="css/vhs.css" type="text/css" charset="utf-8" />
-  <!--https://michalsnik.github.io/aos/-->
   <link href="css/style.css" rel="stylesheet">
-  <script type="text/javascript" src="js/jquery-git.js"></script> <!-- custom for FPS-->
-  <script type="text/javascript" src="js/fps.js"></script> <!-- custom for FPS-->
-  <script type="text/javascript" src="js/resolution.js"></script> <!-- custom for res-->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/preloader/utinerary-preloader.css" rel="stylesheet">
+  <!-- Main-Stylesheets -->
+  <link rel="stylesheet" href="css/substyle.css">
+  <style>
+    .mobileHide {
+      display: inline;
+    }
+
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+      .mobileHide {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body background="img/substyle/nutrifit.jpg">
@@ -90,5 +97,26 @@
       <br /> · Contact form: forms.google.com.
       <br /> · Contact icons: Fontawesome.
     </p>
+  </div>
+  <div id=js>
+    <!-- custom -->
+    <script type="text/javascript" src="js/jquery-git.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        startEvent: 'load',
+        enable: 'mobile'
+      });
+    </script>
+    <!-- Plugins -->
+    <script src="js/plugins.js"></script>
+    <!--  main  -->
+    <script src="js/custom.js"></script>
   </div>
 </body>

@@ -96,8 +96,14 @@
   </div>
 
   <div id=js>
-    <script src="js/aos.js"></script>
-    <script src="js/aosinit.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            startEvent: 'load',
+            enable: 'mobile'
+        });
+    </script>
     <script src="js/spacescript.js"></script>
   </div>
 
