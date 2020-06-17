@@ -1,5 +1,4 @@
 @import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i';
-@import 'https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet';
 
 /* typography
 ==================================================*/
@@ -288,7 +287,7 @@ a.active {
 ==================================================*/
 
 #home {
-    background: url(../img/test.gif);
+    background: url(../img/backdrop.gif);
     background-size: cover;
     height: 100vh;
 }
@@ -327,7 +326,8 @@ a.active {
 
 #about {
     padding: 100px 0;
-    background: url(../img/bg5.jpg);
+    background: url(../img/about.jpg);
+    background-color: black;
     /* background: linear-gradient(180deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 1) 37%, #18273E 49%, rgba(17, 17, 17, 1) 62%, rgba(17, 17, 17, 1) 100%); */
     /*background-image: url("bg.jpg");*/
 }
@@ -392,7 +392,8 @@ hr.whiteR {
 
 #projects {
     /*background-color: #111;*/
-    background: url(../img/bg5.jpg);
+    background: url(../img/about.jpg);
+    background-color: black;
     padding: 100px 0;
 }
 
