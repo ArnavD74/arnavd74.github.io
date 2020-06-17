@@ -41,19 +41,6 @@ h4:before {
     top: 9px;
 }
 
-/* Audio
-==================================================*/
-
-#music {
-    position: relative;
-    z-index: 1000;
-}
-
-audio {
-    background-color: black;
-    width: 100%;
-    height: 18px;
-}
 
 /* General
 ==================================================*/
@@ -1175,6 +1162,19 @@ button {
         color: white;
     }
 }
+
+.mainText {
+    color: white;
+
+}
+
+@media screen and (max-width: 750px) {
+    .mainText {
+        color: #777;
+
+    }
+}
+
 
 /* Resolution
 ==================================================*/
