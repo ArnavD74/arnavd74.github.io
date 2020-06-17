@@ -40,11 +40,8 @@
   <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="css/animate.min.css" rel="stylesheet">
   <link href="css/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="userfiles/ps/ps.css" type="text/css" charset="utf-8" />
-  <!--https://michalsnik.github.io/aos/-->
+  <link href="userfiles/ps/ps.css" rel="stylesheet" type="text/css" charset="utf-8" />
   <link href="css/style.css" rel="stylesheet">
-  <script type="text/javascript" src="js/jquery-git.js"></script> <!-- custom for FPS-->
-  <script type="text/javascript" src="js/fps.js"></script> <!-- custom for FPS-->
 </head>
 
 <body>
@@ -72,18 +69,14 @@
   </header>
   <!-- ./header -->
   <!-- home -->
-  <div class="codecontainer"><a href="code.html"><img class="code" src="img/pfp.gif"></a></div>
   <div class="section" id="home" data-stellar-background-ratio="0.5">
-
     <canvas id="canvas" onresize="onresize()" width="1000px" height="1000px"></canvas>
-
     <div class="mobileHide">
       <div class="resolutionContainer"><output id="resolutionNumber">
           <font color="red">Resolution error</font>
         </output>
       </div>
     </div>
-
     <script type="text/javascript">
       height = screen.height;
       width = screen.width;
@@ -93,7 +86,6 @@
         alert("Resolution error");
       }
     </script>
-
     <div class="mobileHide">
       <p class="fpscontainer">FPS:</p>
       <div class="fps1container"><output id="out">
@@ -101,15 +93,12 @@
         </output>
       </div>
     </div>
-
-
     <div class="container">
       <div class="disply-table">
         <div class="table-cell">
           <h4>
             <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="2000">
               <font color="white"><i>Arnav Dashaputra · Personal Portfolio</i><br>
-                <!--<font size="2px">Mobile users: please view in desktop mode</font>-->
               </font>
             </div>
           </h4>
@@ -429,14 +418,13 @@
                 <br><b>·</b><i> 2019 Season ended with a 2-8-0 record in Detroit World Championship's
                   Archimedes Division, ranking
                   63rd overall.</i></p>
-
               <p><strong>1 Year Team and Project Management</strong>
                 <br>Captain of 1403's Business and Communications team, including the prestegous
                 chairman's and sub-award essays:
                 <br><b>·</b><i> 2019 Season Mount Olive District Chairman's award winner.</i>
                 <br><b>·</b><i> 2019 Season LeHigh District Championship/Regional Chairman's award
                   winner.</i></p>
-              <p><strong>Lead Editor of Cougar Robotics Website and Instagram Handle</strong>
+              <p><strong>Lead Editor of Cougar Robotics Website & Media</strong>
                 <br><b>·</b><i> Cougar Robotics: https://cougarrobotics.com</i>
                 <br><b>·</b><i> Instagram: @team1403</i></p>
               <p>
@@ -501,14 +489,24 @@
   <!-- ./banner -->
   <!-- js -->
   <div id=js>
+    <!-- custom -->
+    <script type="text/javascript" src="js/jquery-git.js"></script>
+    <script type="text/javascript" src="js/fps.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/aosinit.js"></script>
-    <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            startEvent: 'load',
+            enable: 'mobile'
+        });
+    </script>
+    <!-- Plugins -->
+    <script src="js/plugins.js"></script>
     <!-- custom -->
     <script src="js/dots-lines.js"></script>
     <script src="js/indicator.js"></script>
