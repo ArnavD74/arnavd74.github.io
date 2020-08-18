@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
     content="Arnav Dashaputra · Personal Portfolio. High School Student & Full-Stack Web Developer." />
@@ -40,7 +40,7 @@
   <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="css/animate.min.css" rel="stylesheet">
   <link href="css/aos.css" rel="stylesheet">
-  <link href="userfiles/ps/ps.css" rel="stylesheet" type="text/css" charset="utf-8" />
+  <link href="userfiles/ps/ps.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -53,10 +53,9 @@
     </div>
   </div>
   <!--<script>window.stop();</script>-->
-  </div>
   <!-- ./Preloader -->
   <!-- /header -->
-  <header class="navbar-fixed-top" class="mobileHeader" id="header">
+  <header class="navbar-fixed-top mobileHeader" id="header">
     <nav class="mobileHeader">
       <ul>
         <li><a class="mobileHeader" href="socials">SOCIALS</a></li>
@@ -70,14 +69,14 @@
   <!-- ./header -->
   <!-- home -->
   <div class="section" id="home" data-stellar-background-ratio="0.5">
-    <canvas id="canvas" onresize="onresize()" width="1000px" height="1000px"></canvas>
-    <div class="mobileHide">
+    <canvas id="canvas" onresize="onresize()" width="1000" height="1000"></canvas>
+    <!--<div class="mobileHide">
       <div class="resolutionContainer"><output id="resolutionNumber">
           <font color="red">Resolution error</font>
         </output>
       </div>
     </div>
-    <script type="text/javascript">
+    <script>
       height = screen.height;
       width = screen.width;
       res = document.getElementById('resolutionNumber');
@@ -85,7 +84,7 @@
       if (res == null) {
         alert("Resolution error");
       }
-    </script>
+    </script>-->
     <div class="mobileHide">
       <p class="fpscontainer">FPS:</p>
       <div class="fps1container"><output id="out">
@@ -96,20 +95,20 @@
     <div class="container">
       <div class="disply-table">
         <div class="table-cell">
-          <h4>
-            <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="2000">
+          <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="2000">
+            <h4>
               <font color="white"><i>Arnav Dashaputra · Personal Portfolio</i><br>
               </font>
-            </div>
-          </h4>
-          <h1 class="title">
-            <div data-aos="fade-up" data-aos-delay="700" data-aos-duration="2000">
+            </h4>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="700" data-aos-duration="2000">
+            <h1 class="title">
               Student &<br /> Full Stack <br />Web Developer
-            </div>
-          </h1>
+            </h1>
+          </div>
           <div data-aos="fade-up" data-aos-delay="900" data-aos-duration="2000">
-            <canvas id="scroll-canvas" width="75px" height="200px"></canvas>
-            <img src="ionicons\fonts\Chevron_down.png" id="chevron_down" height="100px" width="100px">
+            <canvas id="scroll-canvas" width="75" height="200"></canvas>
+            <img src="ionicons/fonts/Chevron_down.png" alt="" id="chevron_down" height="100" width="100">
           </div>
         </div>
       </div>
@@ -127,36 +126,39 @@
           </div>
         </h1>
         <div class="h-50"></div>
-        <p class="mainText" style="font-size: 15px;">
-          Hello! I am currently a high school senior in Central New Jersey interested in computer
-          science and engineering, full-stack web development utilizing Ui/Ux (html/css) and static/dynamic server
-          backend (js/node), application development (java/xml via Android SDK), program development (java),
-          cloud architecture and
-          computing (Azure/AWS), the Google AOSP, ARM Micro-processing, FIRST robotics competition, and digital
-          graphic
-          design/editing. Current FIRST Team 1403 Business Captain. Check out my current (and upcoming) projects on
+        <p class="mainText" style="font-size: 15;">
+          Hello! I am currently a high school senior in Princeton, New Jersey passionate in computer science and
+          engineering. Welcome to my personal website!
+          <br />
+          <br />
+          Many of my projects revolve around the idea of full-stack web development and user interface/user
+          experience. For front-end I use HTML/CSS, Javascript, and Bootstrap. As for dynamic back-end, I use Node.JS
+          and Express. I am also interested in developing and modding Google's AOSP (Android). I write mobile
+          applications using Java and XML via the Android SDK, and am familiar with unlocking and rooting Android
+          devices. Some other interests of mine include application development in Java, cloud architecture and
+          computing using Heroku and AWS, digital graphic design using Adobe Photoshop, and ARM Micro-processing, i.e.
+          the Raspberry Pi.
+
+
+          Check out my current (and upcoming) projects on
+          this
+          website!
+
+          Check out my current (and upcoming) projects on
           this
           website!
           <br />
           <br />
         </p>
-        <p class="mainText" style="font-size: 15px;">
-          Please note that some features of this website are inaccessibile in mobile view. For the
-          best experience, please use a standard display. Thank you to GitHub, Lets Encrpyt!, jQuery, AOS, and more for
-          helping with the internal
-          functions of the website. If needed, all website sources can be found <a href="disclaimer">
-            <u>here.</u>
-          </a>
+        <p class="mainText" style="font-size: 15;">
+          <font color="red">⚠</font>
+          <font color="#777"> Please note that some features of this website are inaccessibile in mobile view. For the
+            best experience, please use a standard display. Thanks to GitHub Pages, Lets Encrpyt!, jQuery, AOS, and
+            many other services, this website is able to run as seamless and efficient as can be. If needed, all
+            resources used can be found <a href="disclaimer">
+              <u>here.</u>
+            </a>
         </p>
-        <div class="mobileHide">
-          <p class="mainText" style="font-size: 15px;">
-            <font color="red">⚠</font>
-            <font color="#777">This website is a work in progress, with no expected due date. This is going to
-              require me learning a lot of web development, with additional testing phases and plans being implemented
-              on
-              the site.</font>
-          </p>
-        </div>
         <div class="h-50"></div>
       </div>
       <div class="col-md-6 about-img-div">
@@ -179,7 +181,7 @@
       &nbsp;&nbsp;&nbsp;&nbsp;
       <div class="skillbox">
         <div class="skills" data-aos="fade-up">
-          <img class="knowledgebase" src="img/images/knowledgebase.png">
+          <img class="knowledgebase" alt="" src="img/images/knowledgebase.png">
         </div>
       </div>
     </div>
@@ -391,13 +393,14 @@
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">September 2017 - Present</p>
+              <p class="timeline-event-thumbnail">September 2017 - June 2021</p>
               <h3>High School</h3>
               <h4><i>Montgomery High School, Skillman NJ. Graduating Class of 2021</i></h4>
               <p><strong>Submitted Projects in the Following Events:</strong>
-                <br><b>· Winner</b> of Montgomery MontyHacks I with project 'NutriFit'.
+                <br><b>·</b> Winner of Montgomery MontyHacks I with project 'NutriFit'.
                 <br><b>·</b> Montgomery MontyHacks II with project 'SightSaver.tk'
                 <br><b>·</b> Edison HackJA with project 'Revitalize'
+                <br><b>·</b> Montgomery MontyHacks III with project 'Spark'
                 <br>
                 <br><strong>Extracurriculars:</strong>
                 <br><b>·</b> Completion of AP Computer Science A
@@ -411,30 +414,35 @@
           <li class="timeline-event">
             <label class="timeline-event-icon"></label>
             <div class="timeline-event-copy">
-              <p class="timeline-event-thumbnail">September 2017 - Present</p>
+              <p class="timeline-event-thumbnail">September 2017 - June 2021</p>
               <h3>FIRST Robotics Competition</h3>
               <h4><i><strong><a href="http://cougarrobotics.com" style="color:#C82228">Team 1403 Cougar
                       Robotics</a></strong></i></h4>
               <p><strong>2 Years CAD Experience</strong>
-                <br>Qualified for the 2019 Detroit World Championship by Winning the Charimans Award at
-                the LeHigh District Championship:
+                <br>Design Sub-team member and Chairman's writing team.
                 <br><b>·</b><i> 2019 Season Bridgewater-Raritan District event winner.</i>
                 <br><b>·</b><i> 2019 Season Montgomery District event finalist.</i>
-                <br><b>·</b><i> 2019 Season ended with a 2-8-0 record in Detroit World Championship's
-                  Archimedes Division, ranking
-                  63rd overall.</i></p>
-              <p><strong>1 Year Team and Project Management</strong>
-                <br>Captain of 1403's Business and Communications team, including the prestegous
-                chairman's and sub-award essays:
+                <br><b>·</b><i> 2019 Season LeHigh District Championship Chairmans Winner.</i>
+                <br><b>·</b><i> 2019 Season Detroit World Championship's
+                  Archimedes Division, Rank 63.</i></p>
+              <p><strong>1 Year Project Management</strong>
+                <br>Captain of 1403's Business and Communications team from 2019-2020.
                 <br><b>·</b><i> 2019 Season Mount Olive District Chairman's award winner.</i>
                 <br><b>·</b><i> 2019 Season LeHigh District Championship/Regional Chairman's award
                   winner.</i>
-              <br><b>·</b><i> 2020 (Suspended season) Hatboro-Horsham District Chairman's award winner.</p>
-                <p><strong>Lead Editor of Cougar Robotics Website & Media</strong>
-                  <br><b>·</b><i> Cougar Robotics: https://cougarrobotics.com</i>
-                  <br><b>·</b><i> Instagram: @team1403</i></p>
-                <p>
-                </p>
+                <br><b>·</b><i> 2020 (Suspended season) Hatboro-Horsham District Chairman's award winner.</i></p>
+              <p><strong>1 Year Team Management</strong>
+                <br>Logistics Manager of Team 1403 from 2020-2021 of A/V, Business/Communications,
+                Outreach and Strategy teams.
+                <br><b>·</b><i> 2019 Season Mount Olive District Chairman's award winner.</i>
+                <br><b>·</b><i> 2019 Season LeHigh District Championship/Regional Chairman's award
+                  winner.</i>
+                <br><b>·</b><i> 2020 (Suspended season) Hatboro-Horsham District Chairman's award winner.</i></p>
+              <p><strong>Lead Editor of Cougar Robotics Website & Media</strong>
+                <br><b>·</b><i> Cougar Robotics: https://cougarrobotics.com</i>
+                <br><b>·</b><i> Instagram: @team1403</i></p>
+              <p>
+              </p>
             </div>
           </li>
         </ul>
@@ -456,32 +464,28 @@
         <h3>Phone Number</h3>
         <p>(609) 436-0729</p>
         <h3>E-mail</h3>
-        <p><a
-            href="mailto:arugold1@gmail.com?cc=arnav.dashaputra@gmail.com&amp;subject=New%20Contact%20From%20Website">arugold1@gmail.com</a>
+        <p><a href="mailto:arugold1@gmail.com">arugold1@gmail.com</a>
         </p>
         <h3>GitHub</h3>
-        <p><a href="http://github.com/ArnavD74/">http://github.com/ArnavD74/</a></p>
+        <p><a href="https://github.com/ArnavD74/">https://github.com/ArnavD74/</a></p>
+        <h3>Linkedin</h3>
+        <p><a href="https://www.linkedin.com/in/dashaputra/">https://linkedin.com/in/dashaputra/</a></p>
+        <h3>Resume</h3>
+        <p><a href="Coming Soon">Coming Soon</a></p>
         <h3>Social Networks</h3>
         <ul class="social">
           <li><a href="https://www.facebook.com/arnavdashaputra"><i class="ion-social-facebook"></i></a></li>
           <li><a href="https://www.instagram.com/arnav.xd/"><i class="ion-social-instagram"></i></a></li>
-          <li><a href="https://www.linkedin.com/in/arnav-d-91215811a/"><i class="ion-social-linkedin"></i></a>
-          </li>
           <li><a href="https://www.youtube.com/channel/UCZqyFKqYKZt3lYyLWvWfy4A?theme=dark"><i
                 class="ion-social-youtube"></i></a></li>
           <li><a href="https://steamcommunity.com/id/antilegendban"><i class="ion-steam"></i></a></li>
-          <br>
-          <br>
-          <li>
-            <h4><a href="http://github.com/ArnavD74/Website">&nbsp;<i class="ion-fork-repo"></i></a>GitHub</h4>
-          </li>
         </ul>
         <div class="clearfix">
         </div>
         <div class="h-50"></div>
       </div>
       <iframe class="mobileHide"
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfxGlTS9QizM13BnpRAYn66wyOKuoU68qJsc6mZETj8OO-HQQ/viewform?embedded=true"
+        src="http://docs.google.com/forms/d/e/1FAIpQLSfxGlTS9QizM13BnpRAYn66wyOKuoU68qJsc6mZETj8OO-HQQ/viewform?embedded=true"
         width="640" height="706" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
     </div>
     <br>
@@ -489,15 +493,16 @@
   <!-- ./contact -->
   <!-- banner -->
   <div class="section" id="banner">
-    <h6 style="text-align:center;"><b><a href=disclaimer>Disclaimer. </a>
-        <font color="#00015B">Made by Arnav Dashaputra & Brandon Cheng, 2019-2020</font>
+    <h6 style="text-align:center;"><a href=disclaimer><b>Disclaimer.</b> </a>
+      <font color="#00015B">Made by Arnav Dashaputra, 2019-2020</font>
+    </h6>
   </div>
   <!-- ./banner -->
   <!-- js -->
   <div id=js>
     <!-- custom -->
-    <script type="text/javascript" src="js/jquery-git.js"></script>
-    <script type="text/javascript" src="js/fps.js"></script>
+    <script src="js/jquery-git.js"></script>
+    <script src="js/fps.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <script src="js/jquery.validate.min.js"></script>
