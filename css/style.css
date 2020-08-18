@@ -70,7 +70,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #222;
+    background-color: rgb(7, 7, 7);
     /* refresh background color */
     z-index: 10000
 }
@@ -274,7 +274,8 @@ a.active {
 ==================================================*/
 
 #home {
-    background: url(../img/backdrop.gif);
+    /*background: url(../img/backdrop.gif);*/
+    background: url(../img/8972.jpg);
     background-size: cover;
     height: 100vh;
 }
