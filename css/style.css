@@ -23,11 +23,9 @@ h4 {
 }
 
 .title {
-
     font-family: 'Helvetica Neue', 'Major Mono Display', sans-serif;
     color: white;
     font-style: italic;
-
 }
 
 h4:before {
@@ -59,6 +57,34 @@ body {
 
 .h-50 {
     height: 50px;
+}
+
+.titleText {
+    color: white;
+}
+
+.greyText {
+    color: #777
+}
+
+.bannerColor {
+    color: #00015B;
+}
+
+.experienceColor {
+    color: #18273E;
+}
+
+.contactColor {
+    color: #18273E;
+}
+
+.headerImage {
+    float: right;
+}
+
+.spanRed {
+    color: red;
 }
 
 /* preloader
@@ -1049,6 +1075,7 @@ button {
     margin-left: 35px;
     margin-top: 5px;
     z-index: 9999;
+    color: red;
 }
 
 .fpscontainer {
@@ -1166,13 +1193,11 @@ button {
 
 .mainText {
     color: white;
-
 }
 
 @media screen and (max-width: 750px) {
     .mainText {
         color: #777;
-
     }
 }
 
