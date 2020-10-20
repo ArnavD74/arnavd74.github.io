@@ -1,5 +1,5 @@
 # Personal Website
-### Personal Portfolio Website Hosted Through GitHub Pages, [https://dashaputra.com](https://dashaputra.com)
+### Personal Portfolio Website Hosted Through GitHub Pages, [https://dashaputra.com](https://dashaputra.net)
 
 ![GitHub followers](https://img.shields.io/github/followers/arnavd74?style=social) ![GitHub stars](https://img.shields.io/github/stars/arnavd74/arnavd74.github.io?style=social) ![GitHub watchers](https://img.shields.io/github/watchers/arnavd74/arnavd74.github.io?style=social) 
 
