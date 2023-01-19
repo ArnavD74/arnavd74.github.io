@@ -460,18 +460,20 @@ hr.whiteR {
     left: 0px;
     height: 100%;
     width: 100%;
-    /* background-color: #18273E; */
+    background-color: #00000080;
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
     opacity: 100;
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
-    color: #333;
+    -webkit-filter: grayscale(50%) sepia(50%);
+    filter: grayscale(50%) sepia(50%);
 }
 
 .portfolio_image_hover:hover img {
-    -webkit-filter: grayscale(6px);
+    -webkit-filter: grayscale(50%) sepia(50%);
     filter: blur(6px);
+
     -webkit-transition: all .2s ease-in-out .1s;
     transition: all .2s ease-in-out .1s;
 }
@@ -545,10 +547,10 @@ hr.whiteR {
     text-align: center;
 }
 
-/* .portfolio_item img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(75%);
-} */
+.portfolio_item img {
+    -webkit-filter: grayscale(50%) sepia(50%);
+    filter: grayscale(50%) sepia(50%);
+}
 
 .portfolio-padding {
     padding: 50px 0;
