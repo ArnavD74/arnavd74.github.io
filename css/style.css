@@ -468,12 +468,12 @@ hr.whiteR {
     transition: all .2s ease-in-out;
     /* -webkit-filter: grayscale(70%) sepia(50%); */
     /* filter: grayscale(50%) sepia(50%); */
-    background: rgba(0, 0, 29, 0.245)
+    background: rgba(0, 0, 145, 0.2);
 }
 
 .portfolio_image_hover:hover img {
     /* -webkit-filter: grayscale(50%) sepia(50%); */
-    background: rgba(0, 0, 29, 0.445);
+    background: rgba(0, 0, 145, 0.2);
     filter: blur(6px);
 
     -webkit-transition: all .2s ease-in-out .1s;
