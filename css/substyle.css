@@ -90,6 +90,18 @@ body {
     color: #ffffff;
 }
 
+.button.orange,
+.button:hover {
+    background-color: #fd902b;
+    color: #ffffff;
+}
+
+.button.orange:hover {
+    background-color: #ffffff;
+    color: #fd902b;
+}
+
+
 .button.dark,
 .button:hover {
     background-color: #696969;
@@ -104,11 +116,11 @@ body {
 .button.github,
 .button:hover {
     background-color: #6e5494;
-    color: #eadcff;
+    color: #ffffff;
 }
 
 .button.github:hover {
-    background-color: #d4bff3;
+    background-color: #ffffff;
     color: #482b74;
 }
 

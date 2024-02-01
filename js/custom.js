@@ -70,17 +70,22 @@ $(document).ready(function () {
         parallax();
     });
 
-    //  isotope
     $('#projects').waitForImages(function () {
         var $container = $('.portfolio_container');
+        
+        // Initialize isotope with the '.projects' filter instead of '*'
         $container.isotope({
-            filter: '*',
+            filter: '.projects', // Change this line
         });
-
+    
+        // Update the active class on the corresponding menu item
+        $('.portfolio_filter .active').removeClass('active');
+        $('.portfolio_filter a[data-filter=".projects"]').addClass('active');
+    
         $('.portfolio_filter a').click(function () {
             $('.portfolio_filter .active').removeClass('active');
             $(this).addClass('active');
-
+    
             var selector = $(this).attr('data-filter');
             $container.isotope({
                 filter: selector,
@@ -91,67 +96,7 @@ $(document).ready(function () {
             });
             return false;
         });
-
     });
+    
 
-    //animatedModal
-    //$("#demo01,#demo02,#demo03,#demo04,#demo05,#demo06,#demo07,#demo08,#demo09").animatedModal();
-
-    // Contact Form 	
-
-    // validate contact form
-    $(function () {
-        $('#contact-form').validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 2
-                },
-                email: {
-                    required: true
-                },
-                phone: {
-                    required: false
-                },
-                message: {
-                    required: true
-                }
-
-            },
-            messages: {
-                name: {
-                    required: "This field is required",
-                    minlength: "your name must consist of at least 2 characters"
-                },
-                email: {
-                    required: "This field is required"
-                },
-                message: {
-                    required: "This field is required"
-                }
-            },
-            
-            submitHandler: function (form) {
-                $(form).ajaxSubmit({
-                    type: "POST",
-                    data: $(form).serialize(),
-                    url: "process.php",
-                    success: function () {
-                        $('#contact :input').attr('disabled', 'disabled');
-                        $('#contact').fadeTo("slow", 1, function () {
-                            $(this).find(':input').attr('disabled', 'disabled');
-                            $(this).find('label').css('cursor', 'default');
-                            $('#success').fadeIn();
-                        });
-                    },
-                    error: function () {
-                        $('#contact').fadeTo("slow", 1, function () {
-                            $('#error').fadeIn();
-                        });
-                    }
-                });
-            }
-        });
-
-    });
 });
