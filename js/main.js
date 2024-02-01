@@ -107,14 +107,7 @@
     $('.header-area').parallax("50%", -0.4);
     $('.price-area').parallax("50%", -0.5);
     $('.testimonial-area').parallax("10%", -0.2);
-
-
     $('#accordion .panel-title a').prepend('<span></span>');
-
-
-
-
-
 
     //Function to animate slider captions 
     function doAnimations(elems) {
@@ -149,10 +142,6 @@
         var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
         doAnimations($animatingElems);
     });
-
-
-
-
 
     // Select all links with hashes
     $('.mainmenu-area a[href*="#"]')
@@ -190,14 +179,10 @@
             }
         });
 
-
-
-
-
-
     /* Preloader Js
     ===================*/
     $(window).on("load", function () {
-        $('.preloader').fadeOut(500);
+        $('.preloader').fadeOut(500);      
     });
+    
 })(jQuery);
