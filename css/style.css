@@ -261,7 +261,7 @@ nav li {
 
 nav li a {
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: #ddd;
     /* was 444 now ddd*/
     font-size: 11px;
@@ -466,12 +466,14 @@ hr.whiteR {
     opacity: 100;
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
-    -webkit-filter: grayscale(50%) sepia(50%);
-    filter: grayscale(50%) sepia(50%);
+    /* -webkit-filter: grayscale(70%) sepia(50%); */
+    /* filter: grayscale(50%) sepia(50%); */
+    background: rgba(0, 0, 29, 0.245)
 }
 
 .portfolio_image_hover:hover img {
-    -webkit-filter: grayscale(50%) sepia(50%);
+    /* -webkit-filter: grayscale(50%) sepia(50%); */
+    background: rgba(0, 0, 29, 0.445);
     filter: blur(6px);
 
     -webkit-transition: all .2s ease-in-out .1s;
@@ -547,9 +549,25 @@ hr.whiteR {
     text-align: center;
 }
 
+.portfolio_item {
+    position: relative;
+}
+
 .portfolio_item img {
-    -webkit-filter: grayscale(50%) sepia(50%);
-    filter: grayscale(50%) sepia(50%);
+    display: block;
+    width: 100%; 
+}
+
+.portfolio_item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 145, 0.2);
+    /* -webkit-filter: grayscale(80%); */
+    pointer-events: none;
 }
 
 .portfolio-padding {
@@ -905,7 +923,7 @@ fieldset {
 
 #banner {
     /*background: #fae2e2;*/
-    background-image: linear-gradient(white, rgba(54, 86, 134, 0.425));
+    background-image: linear-gradient(white, rgba(54, 86, 134, 0.7));
     background-size: contain;
     height: 35px;
 }
