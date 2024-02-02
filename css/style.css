@@ -466,18 +466,25 @@ hr.whiteR {
     opacity: 100;
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
-    /* -webkit-filter: grayscale(70%) sepia(50%); */
-    /* filter: grayscale(50%) sepia(50%); */
-    background: rgba(0, 0, 145, 0.2);
+    background: rgba(0, 0, 145, 0.1);
 }
 
 .portfolio_image_hover:hover img {
-    /* -webkit-filter: grayscale(50%) sepia(50%); */
-    background: rgba(0, 0, 145, 0.2);
+    background: rgba(0, 0, 145, 0.1);
     filter: blur(6px);
-
     -webkit-transition: all .2s ease-in-out .1s;
     transition: all .2s ease-in-out .1s;
+}
+
+.portfolio_item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 145, 0.1);
+    pointer-events: none;
 }
 
 .portfolio_item .portfolio_item_hover .item_info {
@@ -556,18 +563,6 @@ hr.whiteR {
 .portfolio_item img {
     display: block;
     width: 100%; 
-}
-
-.portfolio_item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 145, 0.2);
-    /* -webkit-filter: grayscale(80%); */
-    pointer-events: none;
 }
 
 .portfolio-padding {
