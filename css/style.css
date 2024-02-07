@@ -271,7 +271,7 @@ nav li a {
 .bg-nav {
     background: #18273E;
     /*header color of top of page when scrolling down*/
-    border-bottom: 1px solid #f3f3f3
+    border-bottom: 1px solid #f3f3f3;    
 }
 
 .bg-nav ul {
@@ -280,19 +280,27 @@ nav li a {
 
 a:focus {
     color: #ddd;
-    /* was 444 now ddd*/
     text-decoration: none;
+    /* transition: color 0.2s ease-in-out; */
+
 }
 
 a:hover {
     color: #999;
     /* hover color */
     text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
 
 a.active {
     /*matches with bg-nav*/
     color: #C82228;
+}
+
+a.active:hover {
+    /*matches with bg-nav*/
+    color: #92171b;
+    transition: color 0.3s ease-in-out;
 }
 
 
