@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
 
 img {
 	max-width: 100%;
@@ -16,7 +16,7 @@ h6 {
 }
 
 body {
-	font-family: "Poppins", sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	font-size: 15px;
 	line-height: 1.8;

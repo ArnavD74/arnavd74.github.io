@@ -34,7 +34,7 @@
 }
 
 .mfp-container:before {
-	content: "";
+	content: '';
 	display: inline-block;
 	height: 100%;
 	vertical-align: middle;
@@ -211,7 +211,7 @@ button::-moz-focus-inner {
 }
 .mfp-arrow:before,
 .mfp-arrow:after {
-	content: "";
+	content: '';
 	display: block;
 	width: 0;
 	height: 0;
@@ -303,7 +303,7 @@ img.mfp-img {
 	line-height: 0;
 }
 .mfp-figure:after {
-	content: "";
+	content: '';
 	position: absolute;
 	left: 0;
 	top: 40px;
@@ -351,8 +351,7 @@ img.mfp-img {
 	cursor: pointer;
 }
 
-@media screen and (max-width: 800px) and (orientation: landscape),
-	screen and (max-height: 300px) {
+@media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
 	/**
        * Remove all paddings around the image on small screen
        */

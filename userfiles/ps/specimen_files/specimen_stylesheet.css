@@ -1,4 +1,4 @@
-@import url("grid_12-825-55-15.css");
+@import url('grid_12-825-55-15.css');
 
 /*  
 	CSS Reset by Eric Meyer - Released under Public Domain
@@ -89,7 +89,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: "";
+	content: '';
 	content: none;
 }
 :focus {
@@ -172,7 +172,7 @@ h2 {
 	display: block;
 	color: #fff;
 	text-decoration: none;
-	font: bold 11px/11px "Arial";
+	font: bold 11px/11px 'Arial';
 	text-transform: uppercase;
 	padding: 10px 15px;
 	border-right: 1px solid #fff;
@@ -316,7 +316,7 @@ div.glyph_range {
 	padding-left: 0;
 	padding: 5px;
 	font:
-		11px/12px "Courier New",
+		11px/12px 'Courier New',
 		Courier,
 		mono;
 }
@@ -515,7 +515,7 @@ code {
 }
 .render_table td {
 	font:
-		11px "Courier New",
+		11px 'Courier New',
 		Courier,
 		mono;
 	vertical-align: middle;
