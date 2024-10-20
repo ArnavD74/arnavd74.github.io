@@ -47,7 +47,7 @@ span b {
 }
 
 .notfound .notfound-404 h1 {
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -68,7 +68,7 @@ span b {
 }
 
 .notfound .notfound-404 h2 {
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -83,7 +83,7 @@ span b {
 }
 
 .notfound a {
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	display: inline-block;
 	text-transform: uppercase;
 	color: #ff005a;
