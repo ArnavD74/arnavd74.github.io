@@ -1,10 +1,10 @@
-@import "https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i";
+@import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i';
 
 /* typography
 ==================================================*/
 
 h1 {
-	font-family: "Major Mono Display", monospace;
+	font-family: 'Major Mono Display', monospace;
 	font-size: 90px;
 	line-height: 70px;
 	background: linear-gradient(90deg, rgb(255, 255, 255), rgb(193, 194, 255));
@@ -14,7 +14,7 @@ h1 {
 }
 
 h4 {
-	font-family: "Lato", sans-serif;
+	font-family: 'Lato', sans-serif;
 	text-transform: capitalize;
 	letter-spacing: 2px;
 	position: relative;
@@ -27,7 +27,7 @@ h4:before {
 	position: absolute;
 	width: 30px;
 	left: -40px;
-	content: "";
+	content: '';
 	display: block;
 	height: 2px;
 	background: #c82228;
@@ -38,7 +38,7 @@ h4:before {
 ==================================================*/
 
 body {
-	font-family: "Open Sans", sans-serif, monospace;
+	font-family: 'Open Sans', sans-serif, monospace;
 	font-size: 14px;
 	line-height: 24px;
 	background-color: #222;
@@ -89,7 +89,7 @@ body {
 }
 
 .preloader:before {
-	content: "";
+	content: '';
 	display: block;
 	position: absolute;
 	left: -1px;

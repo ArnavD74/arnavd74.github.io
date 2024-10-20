@@ -1400,38 +1400,31 @@ Copyright (c) 2013 Daniel Eden
 
 @-webkit-keyframes flip {
 	0% {
-		-webkit-transform: perspective(400px) translateZ(0) rotateY(-360deg)
-			scale(1);
+		-webkit-transform: perspective(400px) translateZ(0) rotateY(-360deg) scale(1);
 		transform: perspective(400px) translateZ(0) rotateY(-360deg) scale(1);
 		-webkit-animation-timing-function: ease-out;
 		animation-timing-function: ease-out;
 	}
 	40% {
-		-webkit-transform: perspective(400px) translateZ(150px) rotateY(-190deg)
-			scale(1);
-		transform: perspective(400px) translateZ(150px) rotateY(-190deg)
-			scale(1);
+		-webkit-transform: perspective(400px) translateZ(150px) rotateY(-190deg) scale(1);
+		transform: perspective(400px) translateZ(150px) rotateY(-190deg) scale(1);
 		-webkit-animation-timing-function: ease-out;
 		animation-timing-function: ease-out;
 	}
 	50% {
-		-webkit-transform: perspective(400px) translateZ(150px) rotateY(-170deg)
-			scale(1);
-		transform: perspective(400px) translateZ(150px) rotateY(-170deg)
-			scale(1);
+		-webkit-transform: perspective(400px) translateZ(150px) rotateY(-170deg) scale(1);
+		transform: perspective(400px) translateZ(150px) rotateY(-170deg) scale(1);
 		-webkit-animation-timing-function: ease-in;
 		animation-timing-function: ease-in;
 	}
 	80% {
-		-webkit-transform: perspective(400px) translateZ(0) rotateY(0deg)
-			scale(0.95);
+		-webkit-transform: perspective(400px) translateZ(0) rotateY(0deg) scale(0.95);
 		transform: perspective(400px) translateZ(0) rotateY(0deg) scale(0.95);
 		-webkit-animation-timing-function: ease-in;
 		animation-timing-function: ease-in;
 	}
 	100% {
-		-webkit-transform: perspective(400px) translateZ(0) rotateY(0deg)
-			scale(1);
+		-webkit-transform: perspective(400px) translateZ(0) rotateY(0deg) scale(1);
 		transform: perspective(400px) translateZ(0) rotateY(0deg) scale(1);
 		-webkit-animation-timing-function: ease-in;
 		animation-timing-function: ease-in;
@@ -1440,38 +1433,31 @@ Copyright (c) 2013 Daniel Eden
 
 @keyframes flip {
 	0% {
-		-webkit-transform: perspective(400px) translateZ(0) rotateY(-360deg)
-			scale(1);
+		-webkit-transform: perspective(400px) translateZ(0) rotateY(-360deg) scale(1);
 		transform: perspective(400px) translateZ(0) rotateY(-360deg) scale(1);
 		-webkit-animation-timing-function: ease-out;
 		animation-timing-function: ease-out;
 	}
 	40% {
-		-webkit-transform: perspective(400px) translateZ(150px) rotateY(-190deg)
-			scale(1);
-		transform: perspective(400px) translateZ(150px) rotateY(-190deg)
-			scale(1);
+		-webkit-transform: perspective(400px) translateZ(150px) rotateY(-190deg) scale(1);
+		transform: perspective(400px) translateZ(150px) rotateY(-190deg) scale(1);
 		-webkit-animation-timing-function: ease-out;
 		animation-timing-function: ease-out;
 	}
 	50% {
-		-webkit-transform: perspective(400px) translateZ(150px) rotateY(-170deg)
-			scale(1);
-		transform: perspective(400px) translateZ(150px) rotateY(-170deg)
-			scale(1);
+		-webkit-transform: perspective(400px) translateZ(150px) rotateY(-170deg) scale(1);
+		transform: perspective(400px) translateZ(150px) rotateY(-170deg) scale(1);
 		-webkit-animation-timing-function: ease-in;
 		animation-timing-function: ease-in;
 	}
 	80% {
-		-webkit-transform: perspective(400px) translateZ(0) rotateY(0deg)
-			scale(0.95);
+		-webkit-transform: perspective(400px) translateZ(0) rotateY(0deg) scale(0.95);
 		transform: perspective(400px) translateZ(0) rotateY(0deg) scale(0.95);
 		-webkit-animation-timing-function: ease-in;
 		animation-timing-function: ease-in;
 	}
 	100% {
-		-webkit-transform: perspective(400px) translateZ(0) rotateY(0deg)
-			scale(1);
+		-webkit-transform: perspective(400px) translateZ(0) rotateY(0deg) scale(1);
 		transform: perspective(400px) translateZ(0) rotateY(0deg) scale(1);
 		-webkit-animation-timing-function: ease-in;
 		animation-timing-function: ease-in;

@@ -9,7 +9,7 @@ Gutter Width: 15px
 	margin-bottom: 18px;
 }
 .section:after {
-	content: ".";
+	content: '.';
 	display: block;
 	height: 0;
 	clear: both;
