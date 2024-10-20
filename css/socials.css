@@ -1,184 +1,181 @@
-@import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i';
+@import "https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i";
 
 /* typography
 ==================================================*/
 
 h1 {
-    font-size: 90px;
-    line-height: 70px;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+	font-size: 90px;
+	line-height: 70px;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
 h4 {
-    font-family: 'Lato', sans-serif;
-    text-transform: capitalize;
-    letter-spacing: 2px;
-    position: relative;
-    color: #C82228;
-    margin-left: 20px;
-    font-weight: 700;
+	font-family: "Lato", sans-serif;
+	text-transform: capitalize;
+	letter-spacing: 2px;
+	position: relative;
+	color: #c82228;
+	margin-left: 20px;
+	font-weight: 700;
 }
 
 .title {
-
-    font-family: 'Helvetica Neue', sans-serif;
-    color: white;
-    font-style: italic;
-
+	font-family: "Helvetica Neue", sans-serif;
+	color: white;
+	font-style: italic;
 }
 
 /* General
 ==================================================*/
 
 body {
-    font-family: 'product_sansregular', sans-serif, monospace;
-    font-size: 14px;
-    line-height: 24px;
+	font-family: "product_sansregular", sans-serif, monospace;
+	font-size: 14px;
+	line-height: 24px;
 }
 
-
 .size-50 {
-    font-size: 50px;
-    line-height: 50px
+	font-size: 50px;
+	line-height: 50px;
 }
 
 .h-50 {
-    height: 50px;
+	height: 50px;
 }
 
 /* home section
 ==================================================*/
 
 #home {
-    /* background: black; */
-    background: url(../img/contacts.jpg);
-    background-size: cover;
-    height: 100vh;
+	/* background: black; */
+	background: url(../img/contacts.jpg);
+	background-size: cover;
+	height: 100vh;
 }
 
 #canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
 }
 
 #chevron_down {
-    visibility: hidden;
+	visibility: hidden;
 }
 
 .table-cell {
-    display: table-cell;
-    vertical-align: middle;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .disply-table {
-    display: table;
-    height: 100vh;
-    z-index: -1;
+	display: table;
+	height: 100vh;
+	z-index: -1;
 }
 
 /* socials section
 ==================================================*/
 
 .socialTitle {
-    color: white;
-    font-size: 5vw;
+	color: white;
+	font-size: 5vw;
 }
 
 @media screen and (max-width: 750px) {
-    .socialTitle {
-        color: white;
-        font-size: 14vw;
-    }
+	.socialTitle {
+		color: white;
+		font-size: 14vw;
+	}
 }
 
 .socialCaption {
-    color: white;
-    font-size: 1vw;
+	color: white;
+	font-size: 1vw;
 }
 
 @media screen and (max-width: 750px) {
-    .socialCaption {
-        color: white;
-        font-size: 5vw;
-    }
+	.socialCaption {
+		color: white;
+		font-size: 5vw;
+	}
 }
 
 .socialEntry {
-    color: white;
-    font-size: 2vw;
-    line-height: 3vw;
-    letter-spacing: 0.2vw;
-    margin-left: 0.5vw;
+	color: white;
+	font-size: 2vw;
+	line-height: 3vw;
+	letter-spacing: 0.2vw;
+	margin-left: 0.5vw;
 }
 
 .socialEntry a {
-    color: white;
+	color: white;
 }
 
 @media screen and (max-width: 750px) {
-    .socialEntry {
-        color: white;
-        font-size: 5vw;
-        line-height: 7vw;
-    }
+	.socialEntry {
+		color: white;
+		font-size: 5vw;
+		line-height: 7vw;
+	}
 }
 
 .home a {
-    color: #d64f8c;
-    font-size: 3vw;
-    line-height: 3vw;
-    letter-spacing: 0.4vw;
-    margin-left: -0.5vw;
+	color: #d64f8c;
+	font-size: 3vw;
+	line-height: 3vw;
+	letter-spacing: 0.4vw;
+	margin-left: -0.5vw;
 }
 
 @media screen and (max-width: 750px) {
-    .home a {
-        color: #d64f8c;
-        font-size: 10vw;
-        line-height: 3vw;
-    }
+	.home a {
+		color: #d64f8c;
+		font-size: 10vw;
+		line-height: 3vw;
+	}
 }
 
 .homebutton {
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
-    border-radius: 50%;
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: 0.5s ease;
+	backface-visibility: hidden;
+	border-radius: 50%;
 }
 
 .homebuttoncontainer {
-    position: absolute;
-    height: 4vw;
-    width: 4vw;
-    margin-left: 1vw;
-    margin-top: 1vw;
-    z-index: 9999;
-    left: 0%;
+	position: absolute;
+	height: 4vw;
+	width: 4vw;
+	margin-left: 1vw;
+	margin-top: 1vw;
+	z-index: 9999;
+	left: 0%;
 }
 
 @media screen and (max-width: 750px) {
-    .homebuttoncontainer {
-        width: 100%;
-        position: absolute;
-        height: 15vw;
-        width: 15vw;
-        margin-top: 4vw;
-        z-index: 9999;
-        text-align: center;
-    }
+	.homebuttoncontainer {
+		width: 100%;
+		position: absolute;
+		height: 15vw;
+		width: 15vw;
+		margin-top: 4vw;
+		z-index: 9999;
+		text-align: center;
+	}
 }
 
 b {
-    color: red;
+	color: red;
 }
 
 i {
-    font-style: normal;
-    letter-spacing: normal;
+	font-style: normal;
+	letter-spacing: normal;
 }

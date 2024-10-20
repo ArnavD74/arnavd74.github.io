@@ -1,224 +1,223 @@
-@import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i';
+@import "https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i";
 
 body {
-    font-family: 'product_sansregular', sans-serif, monospace;
-    font-size: 14px;
-    line-height: 24px;
+	font-family: "product_sansregular", sans-serif, monospace;
+	font-size: 14px;
+	line-height: 24px;
 }
 
 .size-50 {
-    font-size: 50px;
-    line-height: 50px
+	font-size: 50px;
+	line-height: 50px;
 }
 
 .h-50 {
-    height: 50px;
+	height: 50px;
 }
 
 .button {
-    display: inline-block;
-    padding: 8px 30px;
-    border-radius: 50px;
-    color: #ffffff;
-    background-color: #FD902B;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-    border: none;
-    -webkit-box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.1);
-    box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.1);
+	display: inline-block;
+	padding: 8px 30px;
+	border-radius: 50px;
+	color: #ffffff;
+	background-color: #fd902b;
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
+	border: none;
+	-webkit-box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.1);
+	box-shadow: 2px 5px 20px -5px rgba(0, 0, 0, 0.1);
 }
 
 .button.white,
 .button:hover {
-    background-color: #ffffff;
-    color: #FD902B;
+	background-color: #ffffff;
+	color: #fd902b;
 }
 
 .button.white:hover {
-    background-color: #696969;
-    color: #ffffff;
+	background-color: #696969;
+	color: #ffffff;
 }
 
 .button.dark,
 .button:hover {
-    background-color: #696969;
-    color: white;
+	background-color: #696969;
+	color: white;
 }
 
 .button.dark:hover {
-    background-color: #FD902B;
-    color: white;
+	background-color: #fd902b;
+	color: white;
 }
 
 /* Banner
 ==================================================*/
 
 #banner {
-    /*background: #fae2e2;*/
-    background-image: linear-gradient(#FEBC80, rgb(255, 234, 214));
-    background-size: contain;
-    height: 35px;
+	/*background: #fae2e2;*/
+	background-image: linear-gradient(#febc80, rgb(255, 234, 214));
+	background-size: contain;
+	height: 35px;
 }
 
 #banner1 {
-    /*background: #fae2e2;*/
-    background-image: linear-gradient(rgb(255, 234, 214), #FEBC80);
-    background-size: contain;
-    height: 35px;
+	/*background: #fae2e2;*/
+	background-image: linear-gradient(rgb(255, 234, 214), #febc80);
+	background-size: contain;
+	height: 35px;
 }
 
 h6 {
-    /*Exclusive to banner */
-    font-size: 11px;
-    letter-spacing: 4px;
-    padding-top: 10px;
-    position: relative;
-    color: rgb(219, 114, 15);
+	/*Exclusive to banner */
+	font-size: 11px;
+	letter-spacing: 4px;
+	padding-top: 10px;
+	position: relative;
+	color: rgb(219, 114, 15);
 }
 
 /* preloader
 ==================================================*/
 
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #222;
-    /* refresh background color */
-    z-index: 10000
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #222;
+	/* refresh background color */
+	z-index: 10000;
 }
 
 #status,
 .preloader {
-    top: 50%;
-    left: 50%;
-    position: absolute
+	top: 50%;
+	left: 50%;
+	position: absolute;
 }
 
 #status {
-    width: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: -50px 0 0 -50px
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: -50px 0 0 -50px;
 }
 
 .preloader {
-    height: 40px;
-    width: 40px;
-    margin-top: -20px;
-    margin-left: -20px
+	height: 40px;
+	width: 40px;
+	margin-top: -20px;
+	margin-left: -20px;
 }
 
 .preloader:before {
-    content: "";
-    display: block;
-    position: absolute;
-    left: -1px;
-    top: -1px;
-    height: 100%;
-    width: 100%;
-    -webkit-animation: rotation 1s linear infinite;
-    animation: rotation 1s linear infinite;
-    border: 2px solid #FEBC80;
-    /* ring color*/
-    border-top: 2px solid transparent;
-    border-radius: 100%
+	content: "";
+	display: block;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	height: 100%;
+	width: 100%;
+	-webkit-animation: rotation 1s linear infinite;
+	animation: rotation 1s linear infinite;
+	border: 2px solid #febc80;
+	/* ring color*/
+	border-top: 2px solid transparent;
+	border-radius: 100%;
 }
 
-.preloader>.icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 25px;
-    width: 10.6px;
-    margin-top: -12.5px;
-    margin-left: -5.3px;
-    -webkit-animation: wink 1s ease-in-out infinite alternate;
-    animation: wink 1s ease-in-out infinite alternate
+.preloader > .icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 25px;
+	width: 10.6px;
+	margin-top: -12.5px;
+	margin-left: -5.3px;
+	-webkit-animation: wink 1s ease-in-out infinite alternate;
+	animation: wink 1s ease-in-out infinite alternate;
 }
 
-@media only screen and (min-width:768px) {
-    .preloader {
-        height: 60px;
-        width: 60px;
-        margin-top: -30px;
-        margin-left: -30px
-    }
+@media only screen and (min-width: 768px) {
+	.preloader {
+		height: 60px;
+		width: 60px;
+		margin-top: -30px;
+		margin-left: -30px;
+	}
 
-    .preloader:before {
-        left: -2px;
-        top: -2px;
-        border-width: 2px
-    }
+	.preloader:before {
+		left: -2px;
+		top: -2px;
+		border-width: 2px;
+	}
 
-    .preloader>.icon {
-        height: 37.5px;
-        width: 15.9px;
-        margin-top: -18.75px;
-        margin-left: -7.95px
-    }
+	.preloader > .icon {
+		height: 37.5px;
+		width: 15.9px;
+		margin-top: -18.75px;
+		margin-left: -7.95px;
+	}
 }
 
-@media only screen and (min-width:1200px) {
-    .preloader {
-        height: 60px;
-        width: 60px;
-        margin-top: -30px;
-        margin-left: -30px
-    }
+@media only screen and (min-width: 1200px) {
+	.preloader {
+		height: 60px;
+		width: 60px;
+		margin-top: -30px;
+		margin-left: -30px;
+	}
 
-    .preloader>.icon {
-        height: 50px;
-        width: 21.2px;
-        margin-top: -25px;
-        margin-left: -10.6px
-    }
+	.preloader > .icon {
+		height: 50px;
+		width: 21.2px;
+		margin-top: -25px;
+		margin-left: -10.6px;
+	}
 }
 
 @-webkit-keyframes rotation {
-    from {
-        -webkit-transform: rotate(0);
-        transform: rotate(0)
-    }
+	from {
+		-webkit-transform: rotate(0);
+		transform: rotate(0);
+	}
 
-    to {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg)
-    }
+	to {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
 }
 
 @keyframes rotation {
-    from {
-        -webkit-transform: rotate(0);
-        transform: rotate(0)
-    }
+	from {
+		-webkit-transform: rotate(0);
+		transform: rotate(0);
+	}
 
-    to {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg)
-    }
+	to {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
 }
 
 @-webkit-keyframes wink {
-    from {
-        opacity: 0
-    }
+	from {
+		opacity: 0;
+	}
 
-    to {
-        opacity: 1
-    }
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes wink {
-    from {
-        opacity: 0
-    }
+	from {
+		opacity: 0;
+	}
 
-    to {
-        opacity: 1
-    }
+	to {
+		opacity: 1;
+	}
 }
-
