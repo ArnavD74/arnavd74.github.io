@@ -1,89 +1,87 @@
 @import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
-@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Rubik&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Rubik&display=swap");
 
 #home {
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-    height: 100vh;
+	background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+	height: 100vh;
 }
 
 html,
 body {
-
-    font-family: 'Open Sans', sans-serif;
-    letter-spacing: .15em;
-    color: rgb(172, 236, 255);
-    background: #000;
-    overflow: hidden;
+	font-family: "Open Sans", sans-serif;
+	letter-spacing: 0.15em;
+	color: rgb(172, 236, 255);
+	background: #000;
+	overflow: hidden;
 }
 
 h6 {
-
-    font-family: 'Ubuntu';
-    font-size: 50px;
-    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(193, 194, 255));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+	font-family: "Ubuntu";
+	font-size: 50px;
+	background: linear-gradient(90deg, rgb(255, 255, 255), rgb(193, 194, 255));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
 .search {
-    text-align: center;
-    z-index: 2147483647;
+	text-align: center;
+	z-index: 2147483647;
 }
 
 .search input {
-    width: 500px;
-    height: 35px;
-    margin-bottom: 50px;
-    border: 1px solid #D8D8D8;
+	width: 500px;
+	height: 35px;
+	margin-bottom: 50px;
+	border: 1px solid #d8d8d8;
 	padding: 5px;
-    font-size: 13pt;
-    color: white;
-    background: url('images/microphone.png') no-repeat;
-    background-size: 4.25%;
-    z-index: 2147483647;
+	font-size: 13pt;
+	color: white;
+	background: url("images/microphone.png") no-repeat;
+	background-size: 4.25%;
+	z-index: 2147483647;
 }
 
 .search-bar {
-    max-width: 100%;
-    z-index: 2147483647;
+	max-width: 100%;
+	z-index: 2147483647;
 }
 
 .search input:focus {
-    outline: none;
-    border: 2px solid white;
-    z-index: 2147483647;
+	outline: none;
+	border: 2px solid white;
+	z-index: 2147483647;
 }
 
 .search button {
-    margin-bottom: 40px;
-    background-color: #222222;
-    z-index: 2147483647;
-    border-radius: 6px;
+	margin-bottom: 40px;
+	background-color: #222222;
+	z-index: 2147483647;
+	border-radius: 6px;
 }
 
 .search button:hover {
-    box-shadow: 3px 3px 3px 3px rgba(255, 255, 255, 0.1);
-    z-index: 2147483647;
-    border-radius: 6px;
+	box-shadow: 3px 3px 3px 3px rgba(255, 255, 255, 0.1);
+	z-index: 2147483647;
+	border-radius: 6px;
 }
 
 .grab {
-    width: 110px;
-    height: 70px;
-    font-size: 30px;
+	width: 110px;
+	height: 70px;
+	font-size: 30px;
 }
 
 .grabtext {
-    font-size: 10px;
-    color: white;
+	font-size: 10px;
+	color: white;
 }
 
 div.footer {
-    position: absolute;
-    bottom: 0;
-    width:100%;
-    text-align:center;
-    color: white;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	color: white;
 }
