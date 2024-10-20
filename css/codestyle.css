@@ -1,214 +1,214 @@
-@import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i';
+@import "https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i";
 
 /* typography
 ==================================================*/
 
 h1 {
-    font-family: 'Major Mono Display', monospace;
-    font-size: 90px;
-    line-height: 70px;
-    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(193, 194, 255));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color:transparent;
+	font-family: "Major Mono Display", monospace;
+	font-size: 90px;
+	line-height: 70px;
+	background: linear-gradient(90deg, rgb(255, 255, 255), rgb(193, 194, 255));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
 h4 {
-    font-family: 'Lato', sans-serif;
-    text-transform: capitalize;
-    letter-spacing: 2px;
-    position: relative;
-    color: #C82228;
-    margin-left: 40px;
-    font-weight: 700;
+	font-family: "Lato", sans-serif;
+	text-transform: capitalize;
+	letter-spacing: 2px;
+	position: relative;
+	color: #c82228;
+	margin-left: 40px;
+	font-weight: 700;
 }
 
 h4:before {
-    position: absolute;
-    width: 30px;
-    left: -40px;
-    content: "";
-    display: block;
-    height: 2px;
-    background: #C82228;
-    top: 9px;
+	position: absolute;
+	width: 30px;
+	left: -40px;
+	content: "";
+	display: block;
+	height: 2px;
+	background: #c82228;
+	top: 9px;
 }
 
 /* General
 ==================================================*/
 
 body {
-    font-family: 'Open Sans', sans-serif, monospace;
-    font-size: 14px;
-    line-height: 24px;
-    background-color: #222;
+	font-family: "Open Sans", sans-serif, monospace;
+	font-size: 14px;
+	line-height: 24px;
+	background-color: #222;
 }
 
 .size-50 {
-    font-size: 50px;
-    line-height: 50px
+	font-size: 50px;
+	line-height: 50px;
 }
 
 .h-50 {
-    height: 50px;
+	height: 50px;
 }
 
 /* preloader
 ==================================================*/
 
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #222; /* refresh background color */
-    z-index: 10000
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #222; /* refresh background color */
+	z-index: 10000;
 }
 
 #status,
 .preloader {
-    top: 50%;
-    left: 50%;
-    position: absolute
+	top: 50%;
+	left: 50%;
+	position: absolute;
 }
 
 #status {
-    width: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: -50px 0 0 -50px
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: -50px 0 0 -50px;
 }
 
 .preloader {
-    height: 40px;
-    width: 40px;
-    margin-top: -20px;
-    margin-left: -20px
+	height: 40px;
+	width: 40px;
+	margin-top: -20px;
+	margin-left: -20px;
 }
 
 .preloader:before {
-    content: "";
-    display: block;
-    position: absolute;
-    left: -1px;
-    top: -1px;
-    height: 100%;
-    width: 100%;
-    -webkit-animation: rotation 1s linear infinite;
-    animation: rotation 1s linear infinite;
-    border: 2px solid rgb(63, 102, 161); /* ring color*/
-    border-top: 2px solid transparent;
-    border-radius: 100%
+	content: "";
+	display: block;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	height: 100%;
+	width: 100%;
+	-webkit-animation: rotation 1s linear infinite;
+	animation: rotation 1s linear infinite;
+	border: 2px solid rgb(63, 102, 161); /* ring color*/
+	border-top: 2px solid transparent;
+	border-radius: 100%;
 }
 
-.preloader>.icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 25px;
-    width: 10.6px;
-    margin-top: -12.5px;
-    margin-left: -5.3px;
-    -webkit-animation: wink 1s ease-in-out infinite alternate;
-    animation: wink 1s ease-in-out infinite alternate
+.preloader > .icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 25px;
+	width: 10.6px;
+	margin-top: -12.5px;
+	margin-left: -5.3px;
+	-webkit-animation: wink 1s ease-in-out infinite alternate;
+	animation: wink 1s ease-in-out infinite alternate;
 }
 
-@media only screen and (min-width:768px) {
-    .preloader {
-        height: 60px;
-        width: 60px;
-        margin-top: -30px;
-        margin-left: -30px
-    }
-    .preloader:before {
-        left: -2px;
-        top: -2px;
-        border-width: 2px
-    }
-    .preloader>.icon {
-        height: 37.5px;
-        width: 15.9px;
-        margin-top: -18.75px;
-        margin-left: -7.95px
-    }
+@media only screen and (min-width: 768px) {
+	.preloader {
+		height: 60px;
+		width: 60px;
+		margin-top: -30px;
+		margin-left: -30px;
+	}
+	.preloader:before {
+		left: -2px;
+		top: -2px;
+		border-width: 2px;
+	}
+	.preloader > .icon {
+		height: 37.5px;
+		width: 15.9px;
+		margin-top: -18.75px;
+		margin-left: -7.95px;
+	}
 }
 
-@media only screen and (min-width:1200px) {
-    .preloader {
-        height: 60px;
-        width: 60px;
-        margin-top: -30px;
-        margin-left: -30px
-    }
-    .preloader>.icon {
-        height: 50px;
-        width: 21.2px;
-        margin-top: -25px;
-        margin-left: -10.6px
-    }
+@media only screen and (min-width: 1200px) {
+	.preloader {
+		height: 60px;
+		width: 60px;
+		margin-top: -30px;
+		margin-left: -30px;
+	}
+	.preloader > .icon {
+		height: 50px;
+		width: 21.2px;
+		margin-top: -25px;
+		margin-left: -10.6px;
+	}
 }
 
 @-webkit-keyframes rotation {
-    from {
-        -webkit-transform: rotate(0);
-        transform: rotate(0)
-    }
-    to {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg)
-    }
+	from {
+		-webkit-transform: rotate(0);
+		transform: rotate(0);
+	}
+	to {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
 }
 
 @keyframes rotation {
-    from {
-        -webkit-transform: rotate(0);
-        transform: rotate(0)
-    }
-    to {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg)
-    }
+	from {
+		-webkit-transform: rotate(0);
+		transform: rotate(0);
+	}
+	to {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
 }
 
 @-webkit-keyframes wink {
-    from {
-        opacity: 0
-    }
-    to {
-        opacity: 1
-    }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes wink {
-    from {
-        opacity: 0
-    }
-    to {
-        opacity: 1
-    }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 .codecontainer {
-    position: absolute;
-    height:45px;
-    width:45px;
-    margin-right: 16px;
-    margin-top: -12px;
-    z-index: 9999;
-    right: 0%;
+	position: absolute;
+	height: 45px;
+	width: 45px;
+	margin-right: 16px;
+	margin-top: -12px;
+	z-index: 9999;
+	right: 0%;
 }
 
 .code {
-    opacity: 0.45;
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
+	opacity: 0.45;
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: 0.5s ease;
+	backface-visibility: hidden;
 }
 
 .codecontainer:hover .code {
-    opacity: 1;
+	opacity: 1;
 }
