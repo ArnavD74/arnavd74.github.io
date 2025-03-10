@@ -1014,9 +1014,13 @@
 	<div class="section" id="banner">
 		<h6 style="text-align: center" class="bannerColor">
 			<a href="disclaimer"><b>Disclaimer.</b></a>
-			<b>Developed by Arnav Dashaputra, 2019 - 2024</b>
+			<b>Developed by Arnav Dashaputra, 2019 - <span id="year"></span></b>
 		</h6>
 	</div>
+
+	<script>
+		document.getElementById("year").textContent = new Date().getFullYear();
+	</script>
 	<!-- ./banner -->
 	<!-- js -->
 	<div id="js">
