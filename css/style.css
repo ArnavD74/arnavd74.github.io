@@ -1237,3 +1237,7 @@ button {
 	width: 65%;
 	height: 65%;
 }
+
+[data-aos-delay="4000"].aos-animate {
+	transition-delay: 4000ms;
+}
