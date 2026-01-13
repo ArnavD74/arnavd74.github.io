@@ -73,8 +73,7 @@ const About: React.FC = () => {
           >
             <div className="space-y-6 body-text">
               <p className="text-frost text-lg leading-relaxed">
-                I'm a recent graduate of Rutgers University with a Bachelor's in Computer Science
-                and a minor in Data Science.
+                Hey, I'm Arnav, thanks for visiting my site.
               </p>
 
               <p>

@@ -80,26 +80,28 @@ const Projects: React.FC = () => {
         </motion.div>
 
         {/* Projects grid */}
-        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <AnimatePresence mode="popLayout">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
+            className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5"
+          >
             {filteredProjects.map((project) => (
               <motion.button
                 key={project.id}
                 onClick={() => openModal(project)}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
                 whileHover={{ y: -4 }}
                 className="group relative project-card overflow-hidden text-left cursor-pointer"
               >
                 {/* Image */}
-                <div className="aspect-video relative overflow-hidden">
+                <div className="overflow-hidden rounded-t-lg">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className={`w-full h-full object-cover transition-all duration-500
+                    className={`w-full block transition-all duration-500
                                group-hover:scale-105 group-hover:blur-sm
                                ${project.archived ? 'grayscale opacity-60' : ''}`}
                   />
@@ -111,24 +113,26 @@ const Projects: React.FC = () => {
                   </div>
 
                   {project.archived && (
-                    <div className="absolute top-3 right-3 px-2 py-1 bg-slate/90 backdrop-blur-sm rounded text-xs font-mono text-ash uppercase tracking-wider">
+                    <div className="absolute top-2 right-2 md:top-3 md:right-3 px-1.5 py-0.5 md:px-2 md:py-1 bg-slate/90 backdrop-blur-sm rounded text-[10px] md:text-xs font-mono text-ash uppercase tracking-wider">
                       Archived
                     </div>
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="p-5">
-                  <h3 className="font-body font-semibold text-base text-frost group-hover:text-white
-                                 transition-colors line-clamp-2 mb-2">
+                <div className="p-3 md:p-5">
+                  <h3 className="font-body font-semibold text-sm md:text-base text-frost group-hover:text-white
+                                 transition-colors line-clamp-2 mb-1 md:mb-2">
                     {project.title}
                   </h3>
 
-                  <p className="text-silver text-sm line-clamp-2 mb-4">
+                  {/* Description - hidden on mobile */}
+                  <p className="hidden md:block text-silver text-sm line-clamp-2 mb-4">
                     {project.description}
                   </p>
 
-                  <div className="flex items-center justify-between">
+                  {/* Desktop: category + multiple tech badges */}
+                  <div className="hidden md:flex items-center justify-between">
                     <span className="font-mono text-xs text-ash uppercase tracking-wider">
                       {project.category === 'oss' ? 'Open Source' : project.category}
                     </span>
@@ -143,6 +147,18 @@ const Projects: React.FC = () => {
                       ))}
                     </div>
                   </div>
+
+                  {/* Mobile: just the first tech badge */}
+                  <div className="flex md:hidden mt-2">
+                    {project.technologies.slice(0, 1).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-1.5 py-0.5 bg-graphite rounded text-[10px] text-ash"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Accent line on hover */}
@@ -150,8 +166,8 @@ const Projects: React.FC = () => {
                                 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </motion.button>
             ))}
-          </AnimatePresence>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       <ProjectModal
