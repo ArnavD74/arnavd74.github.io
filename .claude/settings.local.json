@@ -12,7 +12,12 @@
       "Bash(copy:*)",
       "Bash(npm run dev:*)",
       "Bash(timeout:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh api:*)",
+      "Bash(curl:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh workflow run:*)"
     ]
   }
 }
