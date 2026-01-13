@@ -1,0 +1,862 @@
+About section:
+
+Arnav Dashaputra 
+ He/Him
+Data Scientist @ AmTrust Financial
+
+AboutAbout
+Hands-on engineer working across software development and data science. Love to learn by building with new tools and technologies :]
+
+My background spans full-stack engineering (React, Node, Python), cloud (AWS), and data science/ML workflows. I'm most engaged when I can move between these areas rather than stay siloed in one.
+
+Portfolio and projects: https://dashaputra.netHands-on engineer working across software development and data science. Love to learn by building with new tools and technologies :] My background spans full-stack engineering (React, Node, Python), cloud (AWS), and data science/ML workflows. I'm most engaged when I can move between these areas rather than stay siloed in one. Portfolio and projects: https://dashaputra.net
+Top skills
+Top skills
+Machine Learning • Amazon Web Services (AWS) • React.js • JavaScript • Python (Programming Language)
+Machine Learning • Amazon Web Services (AWS) • React.js • JavaScript • Python (Programming Language)
+
+
+Posts:
+ActivityActivity
+641 followers641 followers
+
+Create a post
+
+Posts
+
+Comments
+Loaded 1 Posts post
+View Arnav Dashaputra’s  graphic link
+Arnav DashaputraArnav Dashaputra
+   • YouVerified • You
+Data Scientist @ AmTrust FinancialData Scientist @ AmTrust Financial
+4d • Edited •  4 days ago • Edited • Visible to anyone on or off LinkedIn
+
+Excited to share that I’m starting a new position as a Data Scientist at AmTrust Financial! Thank you to everyone who has helped support me in this process!
+
+
+Starting a New Position
+likecelebratelove
+48
+14 comments
+
+
+
+Experience:
+
+Experience
+
+AmTrust Financial Services, Inc. logo
+Data Scientist
+Data Scientist
+AmTrust Financial Services, Inc. · Full-timeAmTrust Financial Services, Inc. · Full-time
+Jan 2026 - Present · 1 moJan 2026 to Present · 1 mo
+Princeton, New Jersey, United StatesPrinceton, New Jersey, United States
+Skills: Python (Programming Language) · SQL
+Skills: Python (Programming Language) · SQL
+Got Users logo
+AI/ML Engineer
+AI/ML Engineer
+Got Users · ContractGot Users · Contract
+Sep 2025 - Present · 5 mosSep 2025 to Present · 5 mos
+San Rafael, California, United StatesSan Rafael, California, United States
+Build and deploy internal AI/ML tools for market research.
+
+- Developed an analytics platform for optimizing social media content performance, including a feature pipeline to normalize text, compute embeddings and readability metrics, and capture platform-specific engagement signals
+- Applied interpretable modeling to identify performance drivers, translated findings into reusable content templates, and clustered text patterns into style families (k-means++)
+- Built semantic retrieval system (FAISS) to surface relevant examples and a RAG workflow to polish drafts against proven patterns
+- Delivered Streamlit interface with SQLite backend and modular architecture for flexible embedding swaps and re-indexing
+Build and deploy internal AI/ML tools for market research. - Developed an analytics platform for optimizing social media content performance, including a feature pipeline to normalize text, compute embeddings and readability metrics, and capture platform-specific engagement signals - Applied interpretable modeling to identify performance drivers, translated findings into reusable content templates, and clustered text patterns into style families (k-means++) - Built semantic retrieval system (FAISS) to surface relevant examples and a RAG workflow to polish drafts against proven patterns - Delivered Streamlit interface with SQLite backend and modular architecture for flexible embedding swaps and re-indexing
+Skills: Python (Programming Language) · Streamlit · FAISS · Computational Semantics · Retrieval-Augmented Generation (RAG) · Data Analysis · Google Gemini · OpenAI API
+Skills: Python (Programming Language) · Streamlit · FAISS · Computational Semantics · Retrieval-Augmented Generation (RAG) · Data Analysis · Google Gemini · OpenAI API
+Code Ninjas Bridgewater logo
+Center Director
+Center Director
+Code Ninjas Bridgewater · Part-timeCode Ninjas Bridgewater · Part-time
+Aug 2022 - Present · 3 yrs 6 mosAug 2022 to Present · 3 yrs 6 mos
+Bridgewater, New Jersey, United States · On-siteBridgewater, New Jersey, United States · On-site
+Direct operations and team development supporting youth coding education programs.
+
+- Recruited, screened, and trained 75+ employees and interns; led workshops to elevate instructional quality and teaching skills
+- Designed coding curricula for 500+ students across 36 week-long sessions, driving a 70% increase in customer registrations
+- Rebuilt business website and implemented SEO strategies (keyword optimization, site speed, Google Analytics), growing web traffic by 40% and enrollments by 20%
+- Optimized email marketing engagement through A/B testing and campaign analysis
+- Administered network-wide DNS server to monitor and filter internal traffic
+Direct operations and team development supporting youth coding education programs. - Recruited, screened, and trained 75+ employees and interns; led workshops to elevate instructional quality and teaching skills - Designed coding curricula for 500+ students across 36 week-long sessions, driving a 70% increase in customer registrations - Rebuilt business website and implemented SEO strategies (keyword optimization, site speed, Google Analytics), growing web traffic by 40% and enrollments by 20% - Optimized email marketing engagement through A/B testing and campaign analysis - Administered network-wide DNS server to monitor and filter internal traffic
+Skills: Customer Relationship Management (CRM) · Unity · C# · Web Development · React.js · Lua · Email Campaigning
+Skills: Customer Relationship Management (CRM) · Unity · C# · Web Development · React.js · Lua · Email Campaigning
+Stealth AI Startup logo
+Software Engineer
+Software Engineer
+Stealth AI Startup · Full-timeStealth AI Startup · Full-time
+Mar 2025 - Jan 2026 · 11 mosMar 2025 to Jan 2026 · 11 mos
+First engineering hire at an early-stage healthcare AI startup focused on utilization management, clinical workflow automation, and payer decision support. Own platform architecture, DevOps, and client-facing applications.
+
+- Shipped enterprise-ready React prototypes used for executive demos at national healthcare payers to accelerate buy-in and secure pilot commitments (AWS Cognito/Amplify/CodePipeline, Figma/Photoshop)
+- Architected production infrastructure: deployed Dockerized services on AWS, migrated persistence to RDS/Postgres, and implemented provisioning, monitoring, and logging (CloudWatch, EventBridge, CloudFormation/SAM)
+- Led final-round technical interviews for frontend, full-stack, and DevOps candidates; evaluated 15+ engineers and held final hiring authority for a core engineering team
+- Automated Python workflows for data ingestion, resource generation, and database synchronization; designed Streamlit dashboards for operations and compliance monitoring
+First engineering hire at an early-stage healthcare AI startup focused on utilization management, clinical workflow automation, and payer decision support. Own platform architecture, DevOps, and client-facing applications. - Shipped enterprise-ready React prototypes used for executive demos at national healthcare payers to accelerate buy-in and secure pilot commitments (AWS Cognito/Amplify/CodePipeline, Figma/Photoshop) - Architected production infrastructure: deployed Dockerized services on AWS, migrated persistence to RDS/Postgres, and implemented provisioning, monitoring, and logging (CloudWatch, EventBridge, CloudFormation/SAM) - Led final-round technical interviews for frontend, full-stack, and DevOps candidates; evaluated 15+ engineers and held final hiring authority for a core engineering team - Automated Python workflows for data ingestion, resource generation, and database synchronization; designed Streamlit dashboards for operations and compliance monitoring
+Skills: PostgreSQL · Amazon Web Services (AWS) · React.js · Docker · Figma · Fast Healthcare Interoperability Resources (FHIR) · Github · Python (Programming Language) · Streamlit · Systems Management · Software Architecture · DevOps · GitHub · Continuous Integration and Continuous Delivery (CI/CD) · Agile Application Development
+Skills: PostgreSQL · Amazon Web Services (AWS) · React.js · Docker · Figma · Fast Healthcare Interoperability Resources (FHIR) · Github · Python (Programming Language) · Streamlit · Systems Management · Software Architecture · DevOps · GitHub · Continuous Integration and Continuous Delivery (CI/CD) · Agile Application Development
+Freelance Architect
+Freelance Architect
+Freelance Architect
+Phillipvn Photography · ContractPhillipvn Photography · Contract
+Apr 2025 - Oct 2025 · 7 mosApr 2025 to Oct 2025 · 7 mos
+New York, New York, United StatesNew York, New York, United States
+Contracted to build a serverless micro-SaaS platform complete with authentication, payments, and AI-powered content workflows.
+
+- Delivered end-to-end AWS solution (React, Amplify, Cognito, Pinpoint, End User Messaging, API Gateway, Lambda, EventBridge, DynamoDB) including user dashboards, REST APIs, and scheduled automation
+- Integrated Stripe Checkout and Billing Portal with webhook-driven subscription management
+- Configured IaC (SAM/CloudFormation), monitoring (CloudWatch), and CI/CD pipelines for low-maintenance operation
+Contracted to build a serverless micro-SaaS platform complete with authentication, payments, and AI-powered content workflows. - Delivered end-to-end AWS solution (React, Amplify, Cognito, Pinpoint, End User Messaging, API Gateway, Lambda, EventBridge, DynamoDB) including user dashboards, REST APIs, and scheduled automation - Integrated Stripe Checkout and Billing Portal with webhook-driven subscription management - Configured IaC (SAM/CloudFormation), monitoring (CloudWatch), and CI/CD pipelines for low-maintenance operation
+Skills: Amazon Web Services (AWS) · Python (Programming Language) · React.js · Stripe (Software) · Google Gemini · Cloudflare · Domain Name System (DNS)
+Skills: Amazon Web Services (AWS) · Python (Programming Language) · React.js · Stripe (Software) · Google Gemini · Cloudflare · Domain Name System (DNS)
+Rutgers New Brunswick Computing Services logo
+Technology Labs Consultant
+Technology Labs Consultant
+Rutgers New Brunswick Computing Services · Part-timeRutgers New Brunswick Computing Services · Part-time
+May 2022 - Dec 2024 · 2 yrs 8 mosMay 2022 to Dec 2024 · 2 yrs 8 mos
+New Brunswick, New Jersey, United States · On-siteNew Brunswick, New Jersey, United States · On-site
+Provided frontline technical support for faculty, students, and guests across Rutgers computing labs; collaborated with team members on process improvements and system maintenance.
+
+- Resolved ~50 technical issues weekly using ServiceNow, OpenRegistry, PaperCut, Icinga, and SecureW2 for identity management, print services, and network authentication
+- Reduced average troubleshooting time by 20% through proactive system monitoring and streamlined issue resolution workflows
+Provided frontline technical support for faculty, students, and guests across Rutgers computing labs; collaborated with team members on process improvements and system maintenance. - Resolved ~50 technical issues weekly using ServiceNow, OpenRegistry, PaperCut, Icinga, and SecureW2 for identity management, print services, and network authentication - Reduced average troubleshooting time by 20% through proactive system monitoring and streamlined issue resolution workflows
+Skills: Icinga · IT Service Management · Networking · Verizon Virtual Contact Center · Slack · Identity and Access Management (IAM) · Microsoft MDM · Microsoft Intune · PaperCut · ServiceNow
+Skills: Icinga · IT Service Management · Networking · Verizon Virtual Contact Center · Slack · Identity and Access Management (IAM) · Microsoft MDM · Microsoft Intune · PaperCut · ServiceNow
+New Jersey Beta - Vice President of Communications
+New Jersey Beta - Vice President of Communications
+New Jersey Beta - Vice President of Communications
+Sigma Phi Epsilon - New Jersey BetaSigma Phi Epsilon - New Jersey Beta
+Oct 2023 - Nov 2024 · 1 yr 2 mosOct 2023 to Nov 2024 · 1 yr 2 mos
+New Brunswick, New Jersey, United States · On-siteNew Brunswick, New Jersey, United States · On-site
+Led all communications and digital branding for the New Jersey Beta chapter, contributing to national recognition for excellence in communication and recruitment.
+
+- Managed official social media channels (@rutgerssigep on Instagram and Facebook), highlighting outreach events and community impact
+- Created visual assets in Photoshop to support chapter branding
+- Led end-to-end production of the fraternity composite board, including photography, design, and physical assembly
+- Established consistent standards for digital assets and alumni/parent communications
+- Efforts contributed to chapter earning the Benjamin Hobson-Frayser Award for Excellence in Communication and the Talent Power Award for Excellence in Recruitment (2025)
+Led all communications and digital branding for the New Jersey Beta chapter, contributing to national recognition for excellence in communication and recruitment. - Managed official social media channels (@rutgerssigep on Instagram and Facebook), highlighting outreach events and community impact - Created visual assets in Photoshop to support chapter branding - Led end-to-end production of the fraternity composite board, including photography, design, and physical assembly - Established consistent standards for digital assets and alumni/parent communications - Efforts contributed to chapter earning the Benjamin Hobson-Frayser Award for Excellence in Communication and the Talent Power Award for Excellence in Recruitment (2025)
+Tangerine for Discord logo
+Project Lead Developer
+Project Lead Developer
+Tangerine for Discord · Self-employedTangerine for Discord · Self-employed
+Jun 2021 - Oct 2023 · 2 yrs 5 mosJun 2021 to Oct 2023 · 2 yrs 5 mos
+Princeton, New Jersey, United StatesPrinceton, New Jersey, United States
+Built and maintained an open-source Discord bot as a self-initiated project to develop full-stack and live-service application skills.
+
+- Developed a Node.js-based Discord API service providing moderation and community growth tools for server administrators
+- Scaled infrastructure using VPS and Heroku to support 300,000+ daily users across 500+ Discord servers at peak
+- Designed landing page (Bootstrap, JavaScript) and created all branding and visual assets in Photoshop
+Built and maintained an open-source Discord bot as a self-initiated project to develop full-stack and live-service application skills. - Developed a Node.js-based Discord API service providing moderation and community growth tools for server administrators - Scaled infrastructure using VPS and Heroku to support 300,000+ daily users across 500+ Discord servers at peak - Designed landing page (Bootstrap, JavaScript) and created all branding and visual assets in Photoshop
+Skills: JavaScript · Node.js · Discord API · Discord.js · Github · Adobe Photoshop · Cascading Style Sheets (CSS) · Discord · User Experience (UX) · Heroku
+Skills: JavaScript · Node.js · Discord API · Discord.js · Github · Adobe Photoshop · Cascading Style Sheets (CSS) · Discord · User Experience (UX) · Heroku
+Code Ninjas Green Brook logo
+Assistant Center Director
+Assistant Center Director
+Code Ninjas Green Brook · Part-timeCode Ninjas Green Brook · Part-time
+Feb 2022 - Nov 2022 · 10 mosFeb 2022 to Nov 2022 · 10 mos
+Green Brook, New Jersey, United States · On-siteGreen Brook, New Jersey, United States · On-site
+Code Ninjas Hillsborough-Montgomery logo
+Code Ninjas Hillsborough-Montgomery
+Code Ninjas Hillsborough-Montgomery
+Part-time · 2 yrs 2 mosPart-time · 2 yrs 2 mos
+On-siteOn-site
+Assistant Center Director
+Assistant Center Director
+May 2021 - Nov 2022 · 1 yr 7 mosMay 2021 to Nov 2022 · 1 yr 7 mos
+Hillsborough, New Jersey, United StatesHillsborough, New Jersey, United States
+Technical Lead
+Technical Lead
+Oct 2020 - May 2021 · 8 mosOct 2020 to May 2021 · 8 mos
+Hillsborough, New Jersey, United StatesHillsborough, New Jersey, United States
+FRC Team 1403 Cougar Robotics logo
+Logistics Manager
+Logistics Manager
+FRC Team 1403 Cougar RoboticsFRC Team 1403 Cougar Robotics
+Jun 2020 - Jun 2021 · 1 yr 1 moJun 2020 to Jun 2021 · 1 yr 1 mo
+Skillman, New Jersey, United States · On-siteSkillman, New Jersey, United States · On-site
+After two years in the design team learning CAD modeling for VR applications, I transitioned into a manager-level role overseeing cross-functional teams.
+
+- Contributed to multi-year winning streak of FIRST Mid-Atlantic's Impact Award* and District Championship Regional Impact Award (2019–2021)
+- Served as lead editor for Chairman's Essay and Executive Summaries, helping qualify the team for international competition eligibility
+- Administered and maintained team website (cougarrobotics.com)
+
+*The FIRST Impact Award (formerly Chairman's Award) is the most prestigious award at FIRST, it honors the team that best represents a model for other teams to emulate and best embodies the mission of FIRST.
+After two years in the design team learning CAD modeling for VR applications, I transitioned into a manager-level role overseeing cross-functional teams. - Contributed to multi-year winning streak of FIRST Mid-Atlantic's Impact Award* and District Championship Regional Impact Award (2019–2021) - Served as lead editor for Chairman's Essay and Executive Summaries, helping qualify the team for international competition eligibility - Administered and maintained team website (cougarrobotics.com) *The FIRST Impact Award (formerly Chairman's Award) is the most prestigious award at FIRST, it honors the team that best represents a model for other teams to emulate and best embodies the mission of FIRST.
+Skills: Collaborative Leadership · WordPress · Communication · Documentation · Adobe Photoshop · User Experience (UX) · PHP
+Skills: Collaborative Leadership · WordPress · Communication · Documentation · Adobe Photoshop · User Experience (UX) · PHP
+
+Cougar Robotics HomepageCougar Robotics Homepage
+Located in Skillman, NJ, FIRST Team 1403 Cougar Robotics has been demonstrating the importance of the STEM disciplines while also developing project management, leadership, and teamwork skills since 2004.Located in Skillman, NJ, FIRST Team 1403 Cougar Robotics has been demonstrating the importance of the STEM disciplines while also developing project management, leadership, and teamwork skills since 2004.
+
+The Blue AllianceThe Blue Alliance
+FIRST Robotics Competition team from Skillman, New Jersey, USA.FIRST Robotics Competition team from Skillman, New Jersey, USA.
+Techsters logo
+Education Mentor
+Education Mentor
+TechstersTechsters
+Dec 2016 - Jun 2017 · 7 mosDec 2016 to Jun 2017 · 7 mos
+Skillman, New Jersey, United States · On-siteSkillman, New Jersey, United States · On-site
+Mentored middle school students in STEAM education through interactive, hands-on learning experiences.
+
+- Facilitated "unplugged" activities and projects designed to build foundational skills and interest in STEAM fields
+- Co-authored successful application for the "Women at NASA" speaking panel; coordinated event logistics for the program held at Montgomery High School of Skillman, NJ
+Mentored middle school students in STEAM education through interactive, hands-on learning experiences. - Facilitated "unplugged" activities and projects designed to build foundational skills and interest in STEAM fields - Co-authored successful application for the "Women at NASA" speaking panel; coordinated event logistics for the program held at Montgomery High School of Skillman, NJ
+Skills: Youth Mentoring
+Skills: Youth Mentoring
+
+TechstersTechsters
+The Tech Club - Montgomery Upper Middle School, Skillman NJ
+
+Education:
+Education
+Rutgers University–New Brunswick logo
+Rutgers University–New Brunswick
+Rutgers University–New Brunswick
+Minor, Data ScienceMinor, Data Science
+Sep 2022 - Dec 2024Sep 2022 - Dec 2024
+Rutgers University School of Communication and Information (SC&I)
+Rutgers University School of Communication and Information (SC&I)
+Skills: Python (Programming Language) · Jupyter · Scikit-Learn · Pandas (Software)
+Skills: Python (Programming Language) · Jupyter · Scikit-Learn · Pandas (Software)
+Rutgers University–New Brunswick logo
+Rutgers University–New Brunswick
+Rutgers University–New Brunswick
+Bachelors, Computer ScienceBachelors, Computer Science
+Sep 2021 - Dec 2024Sep 2021 - Dec 2024
+Activities and societies: Sigma Phi Epsilon (ΣΦΕ), Rutgers Makerspace Club, HackRU, Rutgers Mobile App Development (RUMAD), Marathi Origin Rutgers Youth Association (MORYA), Keller Sports LeagueActivities and societies: Sigma Phi Epsilon (ΣΦΕ), Rutgers Makerspace Club, HackRU, Rutgers Mobile App Development (RUMAD), Marathi Origin Rutgers Youth Association (MORYA), Keller Sports League
+Rutgers University School of Arts and Science (SAS)
+Rutgers University School of Arts and Science (SAS)
+Skills: Android SDK (Java/XML) · Python (Programming Language) · C (Programming Language) · Java · PostgreSQL · Tableau · R (Programming Language)
+Skills: Android SDK (Java/XML) · Python (Programming Language) · C (Programming Language) · Java · PostgreSQL · Tableau · R (Programming Language)
+Montgomery High School logo
+Montgomery High School
+Montgomery High School
+High School Diploma, Computer ScienceHigh School Diploma, Computer Science
+2017 - 20212017 - 2021
+Activities and societies: Team 1403 Cougar Robotics, Montgomery High School Marching Band, Computer Science Club, MontyHacks, Jumpstart, Ultimate, Humans for Healing, Wind Ensemble, Red Oak Chamber Organization, Young Musicians for Volunteer Action.Activities and societies: Team 1403 Cougar Robotics, Montgomery High School Marching Band, Computer Science Club, MontyHacks, Jumpstart, Ultimate, Humans for Healing, Wind Ensemble, Red Oak Chamber Organization, Young Musicians for Volunteer Action.
+
+Licenses & certificationsLicenses & certifications
+HTML, CSS, and Javascript
+HTML, CSS, and Javascript
+HTML, CSS, and Javascript
+CourseraCoursera
+Issued Aug 2020Issued Aug 2020
+Credential ID C2SY43ZZZKUPCredential ID C2SY43ZZZKUP
+Show credential
+HTML
+
+
+Projects
+Personal Website & Portfolio
+Personal Website & Portfolio
+Dec 2018 - PresentDec 2018 - Present
+Show project
+Skills: JavaScript · Bootstrap (Framework) · GitHub Pages
+Skills: JavaScript · Bootstrap (Framework) · GitHub Pages
+
+Arnav's PortfolioArnav's Portfolio
+Java-POCs
+Java-POCs
+Rutgers University–New Brunswick logo
+Associated with Rutgers University–New Brunswick
+Associated with Rutgers University–New Brunswick
+A collection of Java projects I have developed during various coursework and competitions as proof-of-concepts.
+A collection of Java projects I have developed during various coursework and competitions as proof-of-concepts.
+Skills: Java · Android SDK (Java/XML) · FXML · XML
+Skills: Java · Android SDK (Java/XML) · FXML · XML
+
+GitHub - ArnavD74/Java-ProjectsGitHub - ArnavD74/Java-Projects
+Research-Projects
+Research-Projects
+Rutgers University–New Brunswick logo
+Associated with Rutgers University–New Brunswick
+Associated with Rutgers University–New Brunswick
+A collection of data-driven research projects exploring various topics through statistical analysis, machine learning, and visualization. Primarily written while completing various coursework for my Minor in Data Science.
+A collection of data-driven research projects exploring various topics through statistical analysis, machine learning, and visualization. Primarily written while completing various coursework for my Minor in Data Science.
+Skills: Jupyter · Python (Programming Language) · R (Programming Language) · SQL · Machine Learning · Statistical Data Analysis · Statistical Programming · Bayesian statistics · Predictive Modeling
+Skills: Jupyter · Python (Programming Language) · R (Programming Language) · SQL · Machine Learning · Statistical Data Analysis · Statistical Programming · Bayesian statistics · Predictive Modeling
+
+GitHub - ArnavD74/Research-Projects
+
+
+Volunteering
+Scouting America logo
+Life Scout
+Life Scout
+Boy Scouts of AmericaBoy Scouts of America
+Mar 2014 - Jul 2021 · 7 yrs 5 mosMar 2014 - Jul 2021 · 7 yrs 5 mos
+EnvironmentEnvironment
+Troop 46 of Skillman, NJ
+Troop 46 of Skillman, NJ
+FIRST logo
+Student Volunteer
+Student Volunteer
+FIRSTFIRST
+Mar 2019 - Apr 2019 · 2 mosMar 2019 - Apr 2019 · 2 mos
+Science and TechnologyScience and Technology
+Team 1403 Cougar Robotics of Skillman, NJ
+FIRST Mid-Atlantic Montgomery District Event
+Team 1403 Cougar Robotics of Skillman, NJ FIRST Mid-Atlantic Montgomery District Event
+Project Evaluator
+Project Evaluator
+Project Evaluator
+Montgomery Township Science & Invention ConventionMontgomery Township Science & Invention Convention
+Jan 2018 - Jan 2020 · 2 yrs 1 moJan 2018 - Jan 2020 · 2 yrs 1 mo
+EducationEducation
+Annual event hosted by the Montgomery Township School District for students grades 3-8, encouraging students to use imagination and critical thinking skills while increasing curiosity in Science, Technology, Engineering & Mathematics (STEM).
+Annual event hosted by the Montgomery Township School District for students grades 3-8, encouraging students to use imagination and critical thinking skills while increasing curiosity in Science, Technology, Engineering & Mathematics (STEM).
+MARTIN LUTHER KING YOUTH CENTER INC logo
+Volunteer Teacher
+Volunteer Teacher
+MARTIN LUTHER KING YOUTH CENTER INCMARTIN LUTHER KING YOUTH CENTER INC
+Nov 2022 - Present · 3 yrs 3 mosNov 2022 - Present · 3 yrs 3 mos
+EducationEducation
+Teaching basic programming in Scratch to children attending the Martin Luther King Youth Center of Bridgewater, NJ during after-school enrichment classes. 
+
+The center serves our community by providing quality affordable after school enrichment programs designed to prepare and empower future leaders. It is especially beneficial for low-income families who would otherwise not be able to afford such services.
+Teaching basic programming in Scratch to children attending the Martin Luther King Youth Center of Bridgewater, NJ during after-school enrichment classes. The center serves our community by providing quality affordable after school enrichment programs designed to prepare and empower future leaders. It is especially beneficial for low-income families who would otherwise not be able to afford such services.
+Sigma Phi Epsilon (Official) logo
+Volunteer
+Volunteer
+Sigma Phi Epsilon (Official)Sigma Phi Epsilon (Official)
+Feb 2022 - Dec 2024 · 2 yrs 11 mosFeb 2022 - Dec 2024 · 2 yrs 11 mos
+Social ServicesSocial Services
+- Helped raise funds for Rutgers University Dance Marathon (RUDM) for supporting the Embrace Kids Foundation.
+- Raised awareness of the Gift of Life Registry and helped collect samples during collaboration events with Rutgers Gift of Life.
+- Helped raise funds for Rutgers University Dance Marathon (RUDM) for supporting the Embrace Kids Foundation. - Raised awareness of the Gift of Life Registry and helped collect samples during collaboration events with Rutgers Gift of Life.
+
+
+
+Skills
+
+All
+Industry Knowledge
+Tools & Technologies
+Interpersonal Skills
+Other Skills
+Python (Programming Language)
+Python (Programming Language)
+Company logo
+4 experiences across AmTrust Financial Services, Inc. and 3 other companies4 experiences across AmTrust Financial Services, Inc. and 3 other companies
+Company logo
+2 educational experiences at Rutgers University–New Brunswick2 educational experiences at Rutgers University–New Brunswick
+Intr Machine LearningIntr Machine Learning
+Show all 4 details
+Amazon Web Services (AWS)
+Amazon Web Services (AWS)
+Company logo
+2 experiences across Stealth AI Startup and 1 other company2 experiences across Stealth AI Startup and 1 other company
+2 endorsements
+2 endorsements
+React.js
+React.js
+Company logo
+3 experiences across Code Ninjas Bridgewater and 2 other companies3 experiences across Code Ninjas Bridgewater and 2 other companies
+Node.js
+Node.js
+Company logo
+Project Lead Developer at Tangerine for DiscordProject Lead Developer at Tangerine for Discord
+Java
+Java
+Company logo
+Rutgers University–New BrunswickRutgers University–New Brunswick
+Passed LinkedIn Skill AssessmentPassed LinkedIn Skill Assessment
+6 endorsements
+6 endorsements
+Show all 4 details
+JavaScript
+JavaScript
+Company logo
+Project Lead Developer at Tangerine for DiscordProject Lead Developer at Tangerine for Discord
+Personal Website & PortfolioPersonal Website & Portfolio
+FAISS
+FAISS
+Company logo
+AI/ML Engineer at Got UsersAI/ML Engineer at Got Users
+Scikit-Learn
+Scikit-Learn
+Company logo
+Rutgers University–New BrunswickRutgers University–New Brunswick
+Computational Semantics
+Computational Semantics
+Company logo
+AI/ML Engineer at Got UsersAI/ML Engineer at Got Users
+Retrieval-Augmented Generation (RAG)
+Retrieval-Augmented Generation (RAG)
+Company logo
+AI/ML Engineer at Got UsersAI/ML Engineer at Got Users
+Machine Learning
+Machine Learning
+Research-ProjectsResearch-Projects
+Statistical Data Analysis
+Statistical Data Analysis
+Research-ProjectsResearch-Projects
+Statistical Programming
+Statistical Programming
+Research-ProjectsResearch-Projects
+Software Architecture
+Software Architecture
+Company logo
+Software Engineer at Stealth AI StartupSoftware Engineer at Stealth AI Startup
+GitHub 
+GitHub 
+Company logo
+Software Engineer at Stealth AI StartupSoftware Engineer at Stealth AI Startup
+Bayesian statistics
+Bayesian statistics
+Research-ProjectsResearch-Projects
+Predictive Modeling
+Predictive Modeling
+Research-ProjectsResearch-Projects
+Data Analysis
+Data Analysis
+Company logo
+AI/ML Engineer at Got UsersAI/ML Engineer at Got Users
+DevOps
+DevOps
+Company logo
+Software Engineer at Stealth AI StartupSoftware Engineer at Stealth AI Startup
+Continuous Integration and Continuous Delivery (CI/CD)
+Continuous Integration and Continuous Delivery (CI/CD)
+Company logo
+Software Engineer at Stealth AI StartupSoftware Engineer at Stealth AI Startup
+Agile Application Development
+Agile Application Development
+Company logo
+Software Engineer at Stealth AI StartupSoftware Engineer at Stealth AI Startup
+OpenAI API
+OpenAI API
+Company logo
+AI/ML Engineer at Got UsersAI/ML Engineer at Got Users
+Stripe (Software)
+Stripe (Software)
+Freelance Architect at Phillipvn PhotographyFreelance Architect at Phillipvn Photography
+Google Gemini
+Google Gemini
+Company logo
+2 experiences across Got Users and 1 other company2 experiences across Got Users and 1 other company
+Cloudflare
+Cloudflare
+Freelance Architect at Phillipvn PhotographyFreelance Architect at Phillipvn Photography
+User Interface Design
+User Interface Design
+Docker
+Docker
+Company logo
+Software Engineer at Stealth AI StartupSoftware Engineer at Stealth AI Startup
+Systems Management
+Systems Management
+Company logo
+Software Engineer at Stealth AI StartupSoftware Engineer at Stealth AI Startup
+Heroku
+Heroku
+Company logo
+Project Lead Developer at Tangerine for DiscordProject Lead Developer at Tangerine for Discord
+Web Hosting
+Web Hosting
+Streamlit
+Streamlit
+Company logo
+2 experiences across Got Users and 1 other company2 experiences across Got Users and 1 other company
+Bootstrap (Framework)
+Bootstrap (Framework)
+Personal Website & PortfolioPersonal Website & Portfolio
+PostgreSQL
+PostgreSQL
+Company logo
+Software Engineer at Stealth AI StartupSoftware Engineer at Stealth AI Startup
+Company logo
+Rutgers University–New BrunswickRutgers University–New Brunswick
+Jupyter
+Jupyter
+Company logo
+Rutgers University–New BrunswickRutgers University–New Brunswick
+Research-ProjectsResearch-Projects
+Pandas (Software)
+Pandas (Software)
+Company logo
+Rutgers University–New BrunswickRutgers University–New Brunswick
+HTML
+HTML
+HTML, CSS, and JavascriptHTML, CSS, and Javascript
+Passed LinkedIn Skill AssessmentPassed LinkedIn Skill Assessment
+6 endorsements
+6 endorsements
+Cascading Style Sheets (CSS)
+Cascading Style Sheets (CSS)
+Company logo
+Project Lead Developer at Tangerine for DiscordProject Lead Developer at Tangerine for Discord
+Passed LinkedIn Skill AssessmentPassed LinkedIn Skill Assessment
+6 endorsements
+6 endorsements
+R (Programming Language)
+R (Programming Language)
+Company logo
+Rutgers University–New BrunswickRutgers University–New Brunswick
+Research-ProjectsResearch-Projects
+C (Programming Language)
+C (Programming Language)
+Company logo
+Rutgers University–New BrunswickRutgers University–New Brunswick
+Lua
+Lua
+Company logo
+Center Director at Code Ninjas BridgewaterCenter Director at Code Ninjas Bridgewater
+C#
+C#
+Company logo
+Center Director at Code Ninjas BridgewaterCenter Director at Code Ninjas Bridgewater
+PHP
+PHP
+Company logo
+Logistics Manager at FRC Team 1403 Cougar RoboticsLogistics Manager at FRC Team 1403 Cougar Robotics
+2 endorsements
+2 endorsements
+FXML
+FXML
+Java-POCsJava-POCs
+XML
+XML
+Java-POCsJava-POCs
+SQL
+SQL
+Company logo
+Data Scientist at AmTrust Financial Services, Inc.Data Scientist at AmTrust Financial Services, Inc.
+Research-ProjectsResearch-Projects
+Tableau
+Tableau
+Company logo
+Rutgers University–New BrunswickRutgers University–New Brunswick
+Figma
+Figma
+Company logo
+Software Engineer at Stealth AI StartupSoftware Engineer at Stealth AI Startup
+GitHub Pages
+GitHub Pages
+Personal Website & PortfolioPersonal Website & Portfolio
+AWS SAM
+AWS SAM
+Amazon CloudFront
+Amazon CloudFront
+Fast Healthcare Interoperability Resources (FHIR)
+Fast Healthcare Interoperability Resources (FHIR)
+Company logo
+Software Engineer at Stealth AI StartupSoftware Engineer at Stealth AI Startup
+hapi.js
+hapi.js
+Spring Framework
+Spring Framework
+Web Development
+Web Development
+Company logo
+Center Director at Code Ninjas BridgewaterCenter Director at Code Ninjas Bridgewater
+3 endorsements
+3 endorsements
+WordPress
+WordPress
+Company logo
+Logistics Manager at FRC Team 1403 Cougar RoboticsLogistics Manager at FRC Team 1403 Cougar Robotics
+Passed LinkedIn Skill AssessmentPassed LinkedIn Skill Assessment
+1 endorsement
+1 endorsement
+Google Analytics
+Google Analytics
+2 endorsements
+2 endorsements
+Discord
+Discord
+Company logo
+Project Lead Developer at Tangerine for DiscordProject Lead Developer at Tangerine for Discord
+3 endorsements
+3 endorsements
+Discord API
+Discord API
+Company logo
+Project Lead Developer at Tangerine for DiscordProject Lead Developer at Tangerine for Discord
+3 endorsements
+3 endorsements
+Discord.js
+Discord.js
+Company logo
+Project Lead Developer at Tangerine for DiscordProject Lead Developer at Tangerine for Discord
+1 endorsement
+1 endorsement
+Identity and Access Management (IAM)
+Identity and Access Management (IAM)
+Company logo
+Technology Labs Consultant at Rutgers New Brunswick Computing ServicesTechnology Labs Consultant at Rutgers New Brunswick Computing Services
+2 endorsements
+2 endorsements
+Virtual Private Network (VPN)
+Virtual Private Network (VPN)
+2 endorsements
+2 endorsements
+Domain Name System (DNS)
+Domain Name System (DNS)
+Freelance Architect at Phillipvn PhotographyFreelance Architect at Phillipvn Photography
+Unity
+Unity
+Company logo
+Center Director at Code Ninjas BridgewaterCenter Director at Code Ninjas Bridgewater
+Minecraft: Education Edition
+Minecraft: Education Edition
+Customer Support
+Customer Support
+1 endorsement
+1 endorsement
+IT Service Management
+IT Service Management
+Company logo
+Technology Labs Consultant at Rutgers New Brunswick Computing ServicesTechnology Labs Consultant at Rutgers New Brunswick Computing Services
+1 endorsement
+1 endorsement
+ServiceNow
+ServiceNow
+Company logo
+Technology Labs Consultant at Rutgers New Brunswick Computing ServicesTechnology Labs Consultant at Rutgers New Brunswick Computing Services
+1 endorsement
+1 endorsement
+Slack
+Slack
+Company logo
+Technology Labs Consultant at Rutgers New Brunswick Computing ServicesTechnology Labs Consultant at Rutgers New Brunswick Computing Services
+1 endorsement
+1 endorsement
+Github
+Github
+Company logo
+2 experiences across Stealth AI Startup and 1 other company2 experiences across Stealth AI Startup and 1 other company
+1 endorsement
+1 endorsement
+PaperCut
+PaperCut
+Company logo
+Technology Labs Consultant at Rutgers New Brunswick Computing ServicesTechnology Labs Consultant at Rutgers New Brunswick Computing Services
+Icinga
+Icinga
+Company logo
+Technology Labs Consultant at Rutgers New Brunswick Computing ServicesTechnology Labs Consultant at Rutgers New Brunswick Computing Services
+Bash
+Bash
+Passed LinkedIn Skill AssessmentPassed LinkedIn Skill Assessment
+Raspberry Pi
+Raspberry Pi
+1 endorsement
+1 endorsement
+Android SDK (Java/XML)
+Android SDK (Java/XML)
+Company logo
+Rutgers University–New BrunswickRutgers University–New Brunswick
+1 endorsement
+1 endorsement
+Java-POCsJava-POCs
+User Experience (UX)
+User Experience (UX)
+Company logo
+2 experiences across Tangerine for Discord and 1 other company2 experiences across Tangerine for Discord and 1 other company
+Customer Relationship Management (CRM)
+Customer Relationship Management (CRM)
+Company logo
+Center Director at Code Ninjas BridgewaterCenter Director at Code Ninjas Bridgewater
+Adobe Photoshop
+Adobe Photoshop
+Company logo
+2 experiences across Tangerine for Discord and 1 other company2 experiences across Tangerine for Discord and 1 other company
+2 endorsements
+2 endorsements
+Adobe Lightroom
+Adobe Lightroom
+Passed LinkedIn Skill AssessmentPassed LinkedIn Skill Assessment
+2 endorsements
+2 endorsements
+Autodesk Inventor
+Autodesk Inventor
+Passed LinkedIn Skill AssessmentPassed LinkedIn Skill Assessment
+1 endorsement
+1 endorsement
+Verizon Virtual Contact Center
+Verizon Virtual Contact Center
+Company logo
+Technology Labs Consultant at Rutgers New Brunswick Computing ServicesTechnology Labs Consultant at Rutgers New Brunswick Computing Services
+2 endorsements
+2 endorsements
+Microsoft Visual Studio Code
+Microsoft Visual Studio Code
+2 endorsements
+2 endorsements
+Microsoft Intune
+Microsoft Intune
+Company logo
+Technology Labs Consultant at Rutgers New Brunswick Computing ServicesTechnology Labs Consultant at Rutgers New Brunswick Computing Services
+2 endorsements
+2 endorsements
+Microsoft MDM
+Microsoft MDM
+Company logo
+Technology Labs Consultant at Rutgers New Brunswick Computing ServicesTechnology Labs Consultant at Rutgers New Brunswick Computing Services
+2 endorsements
+2 endorsements
+Microsoft Azure
+Microsoft Azure
+1 endorsement
+1 endorsement
+Microsoft Office
+Microsoft Office
+2 endorsements
+2 endorsements
+Microsoft Word
+Microsoft Word
+2 endorsements
+2 endorsements
+Microsoft Excel
+Microsoft Excel
+Passed LinkedIn Skill AssessmentPassed LinkedIn Skill Assessment
+2 endorsements
+2 endorsements
+Networking
+Networking
+Company logo
+Technology Labs Consultant at Rutgers New Brunswick Computing ServicesTechnology Labs Consultant at Rutgers New Brunswick Computing Services
+2 endorsements
+2 endorsements
+Internet Protocol Suite (TCP/IP)
+Internet Protocol Suite (TCP/IP)
+1 endorsement
+1 endorsement
+Object-Oriented Programming (OOP)
+Object-Oriented Programming (OOP)
+Passed LinkedIn Skill AssessmentPassed LinkedIn Skill Assessment
+1 endorsement
+1 endorsement
+Computer Hardware Assembly
+Computer Hardware Assembly
+1 endorsement
+1 endorsement
+Collaborative Leadership
+Collaborative Leadership
+Company logo
+Logistics Manager at FRC Team 1403 Cougar RoboticsLogistics Manager at FRC Team 1403 Cougar Robotics
+Email Campaigning
+Email Campaigning
+Company logo
+Center Director at Code Ninjas BridgewaterCenter Director at Code Ninjas Bridgewater
+Documentation
+Documentation
+Company logo
+Logistics Manager at FRC Team 1403 Cougar RoboticsLogistics Manager at FRC Team 1403 Cougar Robotics
+Communication
+Communication
+Company logo
+Logistics Manager at FRC Team 1403 Cougar RoboticsLogistics Manager at FRC Team 1403 Cougar Robotics
+Youth Mentoring
+Youth Mentoring
+Company logo
+Education Mentor at Techsters
+
+
+Honors & awards
+Benjamin Hobson-Frayser Award for Excellence in Communication
+Benjamin Hobson-Frayser Award for Excellence in Communication
+Issued by Carlson Leadership Academy, Sigma Phi Epsilon (Official) · Feb 2025Issued by Carlson Leadership Academy, Sigma Phi Epsilon (Official) · Feb 2025
+Associated with Sigma Phi Epsilon - New Jersey Beta
+Associated with Sigma Phi Epsilon - New Jersey Beta
+Recognizes chapters that foster a strong connection with their undergraduate brothers, alumni, parents and the university community through effective communication, including through newsletters, social media and their chapter site.
+
+As VP of Communications during this period, I led chapter-wide communications and digital media, earning this chapter award under my leadership.
+Recognizes chapters that foster a strong connection with their undergraduate brothers, alumni, parents and the university community through effective communication, including through newsletters, social media and their chapter site. As VP of Communications during this period, I led chapter-wide communications and digital media, earning this chapter award under my leadership.
+Talent Power Award for Excellence in Recruitment
+Talent Power Award for Excellence in Recruitment
+Issued by Carlson Leadership Academy, Sigma Phi Epsilon (Official) · Feb 2025Issued by Carlson Leadership Academy, Sigma Phi Epsilon (Official) · Feb 2025
+Associated with Sigma Phi Epsilon - New Jersey Beta
+Associated with Sigma Phi Epsilon - New Jersey Beta
+Recognizes chapters that demonstrate a strong ability to identify and recruit talented, values-aligned men. This award is selected through a thorough chapter data assessment.
+
+As VP of Communications during this period, I translated our chapter’s values into a consistent online presence, supporting our success in recruitment.
+Recognizes chapters that demonstrate a strong ability to identify and recruit talented, values-aligned men. This award is selected through a thorough chapter data assessment. As VP of Communications during this period, I translated our chapter’s values into a consistent online presence, supporting our success in recruitment.
+MontyHacks V - 3rd Place Overall Winner & Wolfram Award Winner
+MontyHacks V - 3rd Place Overall Winner & Wolfram Award Winner
+Issued by MontyHacks, MHS Computer Science Club · Jun 2022Issued by MontyHacks, MHS Computer Science Club · Jun 2022
+Montgomery High School logo
+Associated with Montgomery High School
+Associated with Montgomery High School
+The United Stated Food and Drug Administration estimates that in 2022, around 30 to 40% of food supply is wasted every day. Meanwhile, it is estimated that between twelve and twenty million people rely on soup kitchens daily as their food source. 
+
+Our mission is to eliminate food waste as much as possible. We introduce restaurants and other food processing facilities with soup kitchens and food relief foundations. Rubi is a platform where this can occur seamlessly, allowing connection between the excess and the need.
+The United Stated Food and Drug Administration estimates that in 2022, around 30 to 40% of food supply is wasted every day. Meanwhile, it is estimated that between twelve and twenty million people rely on soup kitchens daily as their food source. Our mission is to eliminate food waste as much as possible. We introduce restaurants and other food processing facilities with soup kitchens and food relief foundations. Rubi is a platform where this can occur seamlessly, allowing connection between the excess and the need.
+Dean's List
+Dean's List
+Issued by Rutgers University · Dec 2021Issued by Rutgers University · Dec 2021
+Rutgers University–New Brunswick logo
+Associated with Rutgers University–New Brunswick
+Associated with Rutgers University–New Brunswick
+FIRST® Impact Award — Multiple Honors (2019–2020)
+FIRST® Impact Award — Multiple Honors (2019–2020)
+Issued by FIRST Robotics · Mar 2019Issued by FIRST Robotics · Mar 2019
+Company logo
+Associated with FRC Team 1403 Cougar Robotics
+Associated with FRC Team 1403 Cougar Robotics
+2019 — Mount Olive District, FIRST Impact Award
+2019 — FIRST Mid-Atlantic District Championship, Regional Impact Award
+2020 — Hatboro-Horsham District, FIRST Impact Award
+2020 — FIRST Mid-Atlantic District Championship, Regional Impact Award
+
+The FIRST Impact Award (formerly Chairman’s Award) is the most prestigious award at FIRST; it honors the team that best represents a model for other teams to emulate and best embodies the mission of FIRST.
+
+As Logistics Manager, I led cross-functional operations for a 100+ member team. This included coordinating award entries and presentations, streamlining communications, and organizing targeted community initiatives. 
+
+This infrastructure led to our repeated recognition with the FIRST Impact Award at both district and regional levels.
+2019 — Mount Olive District, FIRST Impact Award 2019 — FIRST Mid-Atlantic District Championship, Regional Impact Award 2020 — Hatboro-Horsham District, FIRST Impact Award 2020 — FIRST Mid-Atlantic District Championship, Regional Impact Award The FIRST Impact Award (formerly Chairman’s Award) is the most prestigious award at FIRST; it honors the team that best represents a model for other teams to emulate and best embodies the mission of FIRST. As Logistics Manager, I led cross-functional operations for a 100+ member team. This included coordinating award entries and presentations, streamlining communications, and organizing targeted community initiatives. This infrastructure led to our repeated recognition with the FIRST Impact Award at both district and regional levels.
+
+The Blue Alliance - Team 1403 Cougar RoboticsThe Blue Alliance - Team 1403 Cougar Robotics
+MontyHacks I - Nutritional Category Winner
+MontyHacks I - Nutritional Category Winner
+Issued by MontyHacks, Montgomery High School CS Club · Apr 2017Issued by MontyHacks, Montgomery High School CS Club · Apr 2017
+Montgomery High School logo
+Associated with Montgomery High School
+Associated with Montgomery High School
+Winner of MontyHacks Nutrition category with project NutriFit, a daily caloric and nutritional intake tracking tool.
+Winner of MontyHacks Nutrition category with project NutriFit, a daily caloric and nutritional intake tracking tool.
+
+NutriFit
+
+
+Courses
+Design and Analysis of Computer Algorithms
+Design and Analysis of Computer Algorithms
+CS 344CS 344
+Rutgers University–New Brunswick logo
+Associated with Rutgers University–New Brunswick
+Associated with Rutgers University–New Brunswick
+Discrete Structures II
+Discrete Structures II
+CS 206CS 206
+Rutgers University–New Brunswick logo
+Associated with Rutgers University–New Brunswick
+Associated with Rutgers University–New Brunswick
+Intr Machine Learning
+Intr Machine Learning
+CS 439CS 439
+Rutgers University–New Brunswick logo
+Associated with Rutgers University–New Brunswick
+
+
+Languages
+English
+English
+Full professional proficiencyFull professional proficiency
+Marathi
+Marathi
+Native or bilingual proficiencyNative or bilingual proficiency
+Spanish
+Spanish
+Limited working proficiency
+
+
+
+
+

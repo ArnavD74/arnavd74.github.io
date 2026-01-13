@@ -1,6 +1,47 @@
-# Personal Website
-### Personal Portfolio Website Hosted Through GitHub Pages, [https://dashaputra.net](https://dashaputra.net)
+# Arnav Dashaputra - Portfolio
 
-![GitHub repo size](https://img.shields.io/github/repo-size/arnavd74/arnavd74.github.io) ![GitHub language count](https://img.shields.io/github/languages/count/arnavd74/arnavd74.github.io) ![GitHub top language](https://img.shields.io/github/languages/top/arnavd74/arnavd74.github.io) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/arnavd74/arnavd74.github.io) 
+Personal portfolio website for Arnav Dashaputra, Full-Stack Software Engineer.
 
-Thank you to [Brandon C.](https://github.com/Wingo206) for some JS.
+## Tech Stack
+
+- **Framework**: React 19 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Routing**: React Router
+
+## Features
+
+- Interactive particle network visualization
+- Responsive design with mobile-first approach
+- Dark theme with dynamic accents
+- Project portfolio with category filtering
+- Experience timeline
+- Smooth scroll navigation
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Deployment
+
+The site is configured for GitHub Pages deployment. Build output goes to `dist/`.
+
+## Contact
+
+- **Email**: arnav.dashaputra@gmail.com
+- **GitHub**: [ArnavD74](https://github.com/ArnavD74)
+- **LinkedIn**: [dashaputra](https://linkedin.com/in/dashaputra)
+- **Website**: [dashaputra.net](https://dashaputra.net)

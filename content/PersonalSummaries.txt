@@ -1,0 +1,222 @@
+[NOTE THIS IS OUT OF DATE SO DON'T USE IT AS A SOURCE OF TRUTH JUST FOR MORE INFOS AND CONTEXT!]
+
+https://dashaputra.net/
+https://www.linkedin.com/in/dashaputra/
+https://github.com/ArnavD74
+
+EXPERIENCE
+---
+
+Founding Engineer / Full-stack Software Engineer
+Stealth AI Health-tech Startup
+Drishti Health LLC d.b.a. Carevion
+651 N. Broad Street Suite 201
+Middletown, DE 19709
+
+March 2025 - Present
+Remote (Middletown, DE)
+
+I’m a full-stack engineer focused on backend architecture and automation. I also build polished, client-facing React apps, blending DevOps, data reliability, and user experience to spin healthcare product ideas into production-ready models and tools.
+
+- Shipped enterprise-ready React prototypes and POCs used in C-suite demos at national healthcare payers to accelerate buy-in and secure pilot commitments. Tech stack includes React 19, React Router, scalable state management, AWS Cognito/Amplify/CodePipeline. 
+- Architected a production-ready cloud environment involving the following tools: deployed Dockerized healthcare-native services (HL7 FHIR) on AWS EC2, migrated database persistence to RDS/PostgreSQL, and streamlined provisioning (SAM/CloudFormation, EventBridge, CloudWatch) for reliable and efficient scaling.
+- Automated backend workflows with custom Python scripts to handle bulk data ingress, static resource generation, and database synchronization.
+- Collaborated with UI/UX design agencies to transform Figma and Photoshop mockups into responsive and accessible React wireframes and components.
+- Built production-ready python apps with Streamlit interfaces, incorporating intuitive workflows and structured dashboards.
+
+Please note this LLC is currently in stealth mode and has not yet released any public branding or media. We anticipate a soft launch by the end of Q1 2026.
+
+I'm looking to transition from my current startup environment to a more established organization. While I've valued the hands-on experience and autonomy that comes with working at an early-stage company, I've reached a point where I want to grow in ways that my current role can't yet support. Overall, I am seeking an environment with stronger mentorship, structured professional development, and the opportunity to learn from experienced colleagues. I'm excited to join a team where I can both contribute my skills and continue to develop as a professional.
+
+–
+
+Freelance Solutions Architect
+
+I'm contracted by a few different freelance clients to build and deliver a variety of internal tools and control flows, completely end-to-end. My most recent client products include a text-pattern analytics platform for generating LinkedIn post content, and a text subscription SaaS powered by AI to deliver premium users personalized content. 
+
+Technical description: 
+- Used interpretable modeling to estimate drivers and detractors of public content performance, translated insights into practical guidelines and reusable style templates.
+- Identified style families via clustering (k-means) and validated quality with elbow and silhouette methods, formalized concise style notes and templates around the strongest patterns.
+- Implemented semantic retrieval to surface nearest examples and templates (cosine-like and inner-product search) and a polishing flow that rewrites user drafts according to these retrievals.
+- Architected a serverless SaaS end-to-end: React SPA, AWS Cognito (custom auth triggers + Pinpoint), API Gateway with JWT authorizer fronting Python Lambdas, DynamoDB (users, storage, OTPs), EventBridge for scheduled dispatch, AI content generation, IaC with AWS SAM/CloudFormation, Secrets Manager, and CloudWatch.
+
+–
+Software Architect
+Your Highest Self
+PHILLIPVN LLC d.b.a. Your Highest Self
+April 2025 - Present
+Remote (New York, NY)
+856 Carroll St, Brooklyn, NY 11215
+Phillip Van Nostrand 8056376982
+
+At this business, I am contracted to deliver an end-to-end serverless micro-SaaS platform. The platform features include secure user authentication, payment APIs, scheduled messaging, and AI-powered content workflows.
+
+- Architected and shipped a serverless application end-to-end: React SPA, AWS Cognito (custom authentication flow using Pinpoint), API Gateway with JWT authorizer, Lambda (python), DynamoDB (users, storage, OTPs), EventBridge for scheduled dispatch, and creative content generation via Gemini API.
+- Integrated Stripe Checkout and Billing Portal with signed webhooks in Lambda to synchronize subscription and user state in DynamoDB.
+- Designed the system for minimal maintenance and oversight, leveraging IaC with AWS SAM/CloudFormation and full monitoring via automatic CloudWatch alerts.
+- Implemented least-privilege IAM, CORS/security hardening, and scripted deployments (CI/CD).
+
+–
+AI/ML Engineer
+Got Users
+Got Users LLC
+4460 Redwood Hwy, Suite 16-544, San Rafael, CA 94903
+Sept 2025 - Present
+Remote (San Rafael, CA)
+Co-Founder Pranav Mutatkar 7143389317
+
+Got Users? is a marketing company that offers training programs for early-stage businesses and startups. As part of their data marketing team, I build and deploy a variety of internal AI/ML tools end-to-end. My largest project, still in progress, is a text pattern analytics platform for generating social media post content. It includes a Streamlit interface for data ingestion and batch processing, embedding-powered understanding, and FAISS-based semantic retrieval for generating language templates.
+
+- Developed a feature pipeline to normalize text, compute embeddings and readability metrics, and capture platform-specific signals to learn what types of text patterns correlate with performance at scale.
+- Used interpretable modeling to estimate drivers/detractors of post performance, and translated insights into contextual guidelines and reusable style templates.
+- Identified style families via clustering and validated quality with elbow/silhouette methods, and formalized templates around the strongest patterns.
+- Implemented semantic retrieval to surface nearest examples/templates (cosine-like and inner-product search) and a polishing flow that rewrites drafts using RAG.
+- Delivered a cloud-hosted Python application with a Streamlit UI, with SQLite-backed portability and a modular design that allows swapping/re-indexing embeddings.
+
+
+Skills: Python (Programming Language) · Streamlit · FAISS · Computational Semantics · Retrieval-Augmented Generation (RAG) · Data Analysis · Google Gemini · OpenAI API
+
+As my current contract approaches its conclusion, I'm excited to find a permanent role where I can make a longer-term impact.
+
+--
+
+Center Director
+Code Ninjas, Bridgewater NJ
+Aug 2022 - Present
+Bridgewater, NJ
+338 US-22, Bridgewater, NJ 08807
+Mir Ali 9087777027
+
+Code Ninjas is a brick-and-mortar technology learning center for children grades 3-8 and is part of the larger Code Ninjas franchise. At our center, I manage a team of volunteers and employees and oversee the hiring, training, and supervision of staff members who help run tutoring programs. My responsibilities include ensuring smooth operations in various technical areas including computer systems, classroom setups, and network infrastructure. 
+
+- Increased customer registrations by 70% by designing and authoring innovative coding curricula for over 500 students held during 36 week-long sessions across three different branch locations.
+- Hired and screened over 60 employees and interns and held workshops improving teaching qualities and skills.
+- Grew web traffic by 40% and enrollments by 20% by developing the business’s website and implementing SEO strategies, including keyword optimization, speed improvements, and data insights from Google Analytics. 
+- Analyzed email campaign results using A/B testing and other techniques to refine engagement strategies.
+
+This is a part-time weekend role that I'm happy to continue (or volunteer at) alongside a full-time position.
+
+--
+
+Computer Labs Consultant
+Rutgers University Office of Information Technology
+May 2022 - Dec 2024
+Piscataway, NJ
+Davidson Hall, 96 Davidson Rd Room 172, Piscataway, NJ 08854
+OIT Human Resources 8336484357
+Leroy Wilkins, Manager - 8484452470
+
+As a labs consultant, I provided exceptional support to faculty, students, and guests, ensuring smooth and efficient technology operations. I collaborated with team members to improve processes and delivered prompt solutions in a fast-paced environment while staying up-to-date with the latest technologies.
+
+- Delivered front-line technical support to faculty, students, and visitors, ensuring reliable operation of institutional IT infrastructure and lab systems. Operated in a fast-paced academic environment with a strong focus on service excellence, system efficiency, and cross-functional collaboration.
+- Resolved an average of 50+ weekly technical issues, utilizing tools such as ServiceNow, OpenRegistry, PaperCut, Icinga, and SecureW2 to manage identity services, device authentication, network security, and printer infrastructure.
+- Reduced issue resolution times by 20% through a combination of real-time system monitoring, structured troubleshooting workflows, and prioritization strategies. Coordinated incident response through ServiceNow and Slack to maintain rapid turnaround on support requests.
+- Partnered with team members to identify inefficiencies in support processes and contributed to iterative improvements, resulting in better user satisfaction and smoother operational continuity.
+- Maintained up-to-date knowledge of emerging technologies and institutional systems, ensuring consistent delivery of informed and effective technical assistance.
+
+Upon graduating from Rutgers University, I was no longer eligible to continue as a student worker.
+
+--
+
+Vice President of Communications
+Sigma Phi Epsilon, NJ Beta
+New Brunswick, NJ
+Oct 2023 - Nov 2024
+
+- Boosted online presence with an 18% rise in Instagram engagement and 10% website growth, through spearheading various high-impact communications and recruitment campaigns in collaboration with the executive board.
+- Recognized with the Benjamin Hobson-Frayser Award for Excellence in Communications.
+
+--
+
+SKILLS
+–
+python, pandas, scikit-learn, seaborn, selenium, r, sql, tableau, java, html, css, javascript, react, node, bootstrap, 
+
+aws, dynamodb, ecs, cloudwatch, eventbridge, cognito, pinpoint, APIs, 
+
+--
+
+CAREVION OVERVIEW:
+I graduated at the end of last year, and I have my bachelors in computer science and minor in data science.
+
+My first and current job out of college is consulting for a healthcare startup developing a SaaS that integrates AI into a healthcare payor's infrastructure.
+
+Since we are creating an agentic AI layer that sits on top of existing management systems, our first step was to create a mock management system (payor system) that we can later use to demo our service. 
+
+My first task was to set up a mock patient records server very similar to how a typical small hospital would run. We set this all up on AWS so I learned about some things there, as well as PostgreSQL. 
+
+I also worked with Python to interface with the java server, so we could do basic input/output operations and populate our static server with synthetic patient files.
+
+However, since I was already well-versed in web development using React, my next step was to create the startup's public facing landing page, through which I learned basic cycles of web design and interface. I did create some more advanced UI components from scratch, including a slide carousel and more complex card style layouts
+
+The next big group of tasks I had was to help build out various functions and calculators that will be used on the agent's backend. For example, based on the AI models we currently have in place, we can compare our AI-assisted metrics to standard metrics, and we can show how using our agentic solution can save healthcare payors across various impacts. 
+
+Lastly, right now I have been working in web development using React again, and I have been building out a mock, or demo version of our app to showcase the functionality we could provide to prospective clients. This I think is really cool because I get to work directly with the CEO, CTO and highly-accomplished clinical providers, to build this app which is then showcased directly to various panels of high-ranking executives of various healthcare firms who may want to invest in our product.
+
+It’s definitely a bit of a stressful job knowing the kinds of people I'm working with and who will be seeing my work’s output directly, and the hours are also a little crazy because sometimes some large changes are requested just days before a big demo, but overall I think it’s given me a lot of insight, experience, and work ethic working in a super fast paced startup environment.
+
+---
+
+and aside from all this, I am doing my own personal research, learning things in AWS, Next.JS, database relationships, and I'm applying these skills towards a freelance SaaS development for a personal client. 
+
+and then on the weekends I do computer science and game development tutoring, along with some light small business management for the business that I run my tutoring services out of. 
+
+
+–
+APPLICATION RESPONSES
+–
+
+VISA:
+I'm a budding and passionate software engineer with hands-on experience in software engineering, full stack development, cloud infrastructure, AI pipelines, and data-driven solutions. Above all, I enjoy the trial of turning business needs into practical, reliable software. Visa’s focus on secure and accessible payments on such a broad scale aligns with my interests, and the scale of Visa's systems is the kind of challenge I want to work on. In my projects I’ve owned features end to end, set up automated workflow pipelines, and used data to guide decisions. I also leverage AI to enhance the quality and speed of my work, using it as a powerful assistant that streamlines research, analysis, and execution. However, I still take care in bringing my own expertise and judgment to ensure accuracy and oversight. I’d be glad to help build and operate services for Visa, taking care with performance, reliability, and clear documentation, while learning from experienced engineers. Thank you for considering my application.
+
+
+
+
+AWS:
+
+story: I’ve shipped a serverless SaaS: React on the front end with Amplify-powered Cognito auth; API Gateway (JWT authorizer) to Python Lambdas; DynamoDB for users/OTPs; EventBridge for scheduled jobs; everything defined in SAM and monitored with CloudWatch. For heavier or containerized workloads, I’ve used EC2. I’ve set up CI/CD with CodeBuild/CodeDeploy/CodePipeline so changes go from commit → build/test → SAM deploy with safe rollbacks and alarms.
+
+EC2
+What: Elastic compute on VMs; good for long-running/containerized services.
+What I did: Deployed Dockerized services for healthcare prototypes; secured with SGs/IAM; set up basic monitoring with CloudWatch.
+Learned: When to choose EC2 over serverless (steady workloads, custom runtimes) and how to harden instances + automate provisioning.
+S3
+What: Durable object storage for static assets, backups, logs.
+What I did: Stored static resources and generated artifacts; used pre-signed URLs where needed.
+Learned: Lifecycle policies/versioning to control costs and safe rollbacks.
+DynamoDB
+What: Serverless NoSQL (key-value/Document) with single-digit ms latency.
+What I did: Tables for users/metadata/OTPs; TTL for expiring OTPs; conditional writes for idempotent updates.
+Learned: Model access patterns first; use PK/SK and sparse items to keep queries fast and cheap.
+API Gateway
+What: Managed front door for REST/HTTP APIs (auth, throttling, CORS).
+What I did: Fronted Python Lambdas; JWT authorizer validating Cognito tokens; configured CORS and usage plans.
+Learned: Map claims → app roles; rate limits and stage variables simplify multi-env deployments.
+Cognito / Web Authentication & JWT
+What: Token-based auth; clients present signed JWTs with claims.
+What I did: Issued Cognito JWTs; verified in API Gateway/Lambda authorizer; enforced role-based access (user groups).
+Learned: Keep tokens short-lived; store safely in the browser; least-privilege via claims, not custom headers.
+Cognito (+Amplify)
+What: Managed user pools, auth flows, and hosted UI; Amplify ties auth into React.
+What I did: User groups/roles; custom auth triggers with Pinpoint; integrated Amplify Auth in React SPA (sign-in/out, token refresh).
+Learned: Use groups/claims for RBAC; secure redirects/CORS; keep UX smooth with Amplify hooks.
+AWS Lambda
+What: Serverless functions for event-driven/back-end tasks.
+What I did: REST handlers, Stripe webhook processors, scheduled jobs, content generation; Python runtime with Layers for deps.
+Learned: Fast cold starts via smaller packages; idempotency keys + retries; structure logs for easy CloudWatch search.
+CloudWatch (logs, metrics, alerts)
+What: Logging/metrics/alarms for AWS workloads.
+What I did: Created log groups, metric filters for errors/throttles, alarms on latency/5xx, notifications.
+Learned: Emit structured JSON logs; set SLIs/SLO-aligned alarms (error rate, p95 latency, throttles).
+IaC with SAM (+CloudFormation)
+What: Declarative templates for serverless stacks (APIs, Lambdas, roles, env vars).
+What I did: SAM templates to define APIs, functions, permissions, schedules; repeatable envs; parameterized configs.
+Learned: Review changesets; keep infra in the repo; per-stage stacks avoid drift and make rollbacks safe.
+EventBridge
+What: Event bus + scheduler (rules/cron) to connect services.
+What I did: Scheduled dispatches (digest emails, data sync, maintenance) triggering Lambdas.
+Learned: Prefer EventBridge over ad-hoc crons; dead-letter targets help observe failures.
+CI/CD (CodeBuild, CodeDeploy, CodePipeline)
+What: Build/test/deploy automation across stages.
+What I did: Built pipelines that compile/test Lambdas/React, package SAM, and deploy by stage; environment secrets via IAM/Parameters.
+Learned: Small, repeatable buildspecs; artifact versioning; staged deploys with alarms as deployment gates.

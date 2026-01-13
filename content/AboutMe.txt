@@ -1,0 +1,63 @@
+I’ve been passionate about coding since middle school, where typically outside of school I spent time building little games in Scratch, and small websites in basic HTML and CSS. Eventually I began to enter some hackathons, and a few of those early projects did end up winning, which cemented my interest in the joy of turning ideas into working software.
+
+I went on to study computer science and robotics and high school and then college, and I just graduated this past December with a Bachelors in Computer Science and a minor in data science.
+
+My data science minor gave me hands-on experience with Python, R, machine learning algorithms, statistical analysis, and inferencing. I've implemented things like linear regression, k-means clustering, decision trees, and random forests. 
+
+"Why are you interested in transitioning from software engineering to data science?"
+
+"I've always enjoyed the analytical side of my work. My data science minor gave me a strong foundation, and I've been incorporating ML into my recent projects - like the text analytics platform I built that uses embeddings and clustering.
+
+What excites me about data science is turning data into actionable insights. In software engineering, I build tools; in data science, I can help answer questions that drive business decisions. Insurance is interesting because risk assessment is fundamentally a prediction problem - and I'd love to apply machine learning to help assess risks more accurately."
+
+
+I actually graduated a little early, and so with that extra time I gained, I joined a startup. We are still early-stage and in stealth mode, but we are in the healthcare field blending AI into utilization and care management automation workflows. Since we are still early-stage, my responsibilities had a lot of variety. I started out architecting cloud-agnostic infrastructure on AWS, so I learned a lot about the core basics of cloud operations including boto3 and IaC through CloudFormation, and just in general learning my way around the AWS ecosystem including VMs, file hosting, database work with SQL, queues, CodePipeline for Ci/Cd etc.
+
+My work then pivoted to building OpEx (Operating Expenses) value calculators in python using streamlit as a UI.
+
+More recently, my work has pivoted to React, where I build a bunch of quick polished prototypes for various demos and pitches, working directly to the C-suite. That work includes translating Figma and Photoshop specs into clean, accessible components and shipping small web apps that look great and behave reliably.
+
+I get to work directly with the CEO, CTO and highly-accomplished clinical providers, to build this app which is then showcased directly to various panels of high-ranking executives of various healthcare firms who may want to invest in our product. Overall the goal of this app is to accelerate buy-in and secure pilot commitments from our potential clients.
+
+Use case:
+Utilization management:
+A UM nurse is a member of an insurance team that helps ensure patients receive efficient treatments and procedures. These professionals review treatment plans to make sure they are necessary and appropriate for the patient.
+
+We help automate prior authorizations, concurrent reviews, retrospective audits and appeals.
+
+To do this, we use a combination of factors including our own medical necessity checks, LOS monitoring, etc.
+
+
+PA: approval from your health insurance that may be required for a service, treatment, or prescription
+PA: AI-driven medical-necessity reviews and document extraction accelerate approvals, optimize coverage, and uphold compliance.
+
+Concurrent review: AI-driven medical-necessity reviews and document extraction accelerate approvals, optimize coverage, and uphold compliance.
+
+Retrospective review: Automated claim validation uncovers coding issues and overuse, generating audit-ready documentation without adding headcount.
+
+
+
+
+SRX Management
+is it the right drug, dose, duration
+could there be a better site of care
+
+
+Control specialty spend without compromising care. AMMP evaluates every authorization against the “5 Rs” – right drug, dose, duration, and site – and oversees ongoing therapy with adherence tracking and side-effect management. Initially, agents automate authorizations, flag inappropriate use, and monitor adherence using existing data. Over time, they evolve into a self-optimizing orchestration layer that fine-tunes site-of-care decisions, predicts adherence risks, and adapts interventions based on real-world signals.
+
+
+
+Aside from the startup work, which is my main job, I also run a small freelance practice. I have a few different clients right now, for example for one of them I am building an AI pipeline and web UI that ingests content, computes embeddings, clusters patterns, and uses semantic retrieval to help generate high-performing social media posts. 
+
+For another client, I'm shipping a serverless software built completely on AWS, so I got to learn a bit about web authentication, API Gateways, Lambdas, databases, logging, and this project also integrates into a payment processor API with webhook handling.
+
+On the side, I help run a tutoring center for kids ages 7–15. We teach JavaScript, Roblox Studio/Lua, and Unity/C++; beyond teaching, I lead curriculum development, drive growth initiatives, recruit and onboard new staff, and also a bit of marketing.
+
+So really to sum it up, I’ve dipped my hands into a lot of different facets of software engineering: both frontend and backend engineering, UI/UX, cloud and DevOps, data/ML workflows, and product design. 
+
+I have a pretty broad, working knowledge of many different tools, and I’m a fast learner so I enjoy picking up new frameworks and technologies quickly to solve problems.
+
+
+
+
+

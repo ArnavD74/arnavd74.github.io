@@ -1,0 +1,52 @@
+Arnav Dashaputra
+Princeton, New Jersey • arnav.dashaputra@gmail.com
+Portfolio: dashaputra.net • LinkedIn: linkedin.com/in/dashaputra • GitHub: ArnavD74
+CS graduate with hands-on experience in full-stack development, cloud infra, AI/ML, and data-driven solutions; adept at
+turning business needs into results-focused applications and highly motivated to collaborate on impactful projects.
+SKILLS
+● Languages/Frameworks: React, JavaScript, TypeScript, HTML/CSS, Tanstack, Bootstrap, Node.js, Java/FXML, C#.
+● Data: Python (pandas, scikit-learn, seaborn, OpenCV, BeautifulSoup, Streamlit, Selenium), R, DynamoDB, Tableau.
+● Other: REST APIs, AWS Microservices, OpenAI API, Android, Unix/Bash, Regex, ASM, LaTeX, Git, CI/CD, IaC, Figma.
+PROFESSIONAL EXPERIENCE
+Software Engineer Middletown, DE
+Stealth AI Health-tech Startup March 2025 – Present
+o Shipped enterprise-ready React MVPs and POCs used in C-suite demos at national healthcare payers to accelerate
+buy-in and secure pilot commitments. Stack includes React Router/Hooks, and AWS Cognito/Amplify/CodePipeline.
+o Architected cloud-native healthcare infrastructure (HL7 FHIR) on AWS using Docker, EC2, Lambda, and RDS/SQL.
+o Developed and maintained production React applications in collaboration with UI/UX design agencies using Figma.
+o Deployed client-facing landing pages and API-driven utils and dashboards incorporating robust state management.
+Freelance Solutions Architect New York, NY
+Multiple Clients (incl. Got Users LLC, PHILLIPVN LLC, and more) April 2025 – Present
+o Built an end-to-end text analytics platform using OpenAI embedding-based semantic retrieval, interpretable ML
+modeling, and k-means clustering (FAISS) to analyze text mediums, extract features, and generate style guidelines.
+o Engineered ML pipeline for text normalization, embedding computation, and readability analysis; used cosinesimilarity semantic search and Gemini-based content synthesis for polishing drafts based on generated guidelines.
+o Architected a serverless SaaS platform using React, integrating AWS Cognito authentication, API Gateway with
+JWTs, Lambdas (python, boto3), DynamoDB, EventBridge scheduling, and IaC with SAM and CloudFormation.
+o Integrated Stripe Checkout and Billing Portal APIs with webhook processing via Lambda for updating user states in
+DynamoDB; implemented least-privilege IAM, CORS/security hardening, and scripted deployments (Git, CI/CD).
+Center Director Bridgewater, NJ
+Code Ninjas (Bridgewater, Green Brook, and Hillsborough, NJ) October 2020 – Present
+o Hired and trained over 60 employees and interns; held workshops to improve teaching and leadership qualities.
+o Improved customer registrations by 70% through authoring innovative programming curricula (Scratch, JavaScript,
+Unity/C#) for over 500 students, held during 36 week-long camp sessions across three separate branch locations.
+Computer Labs Consultant Piscataway, NJ
+Rutgers University Office of Information Technology April 2022 – December 2024
+o Diagnosed an average of 50 technical issues per week using ServiceNow workflows, OpenRegistry and similar
+internal IDMS, PaperCut and Icinga for device management, and SecureW2 for network authentication and security.
+o Reduced average resolution turnaround times by 20% through proactive system monitoring, efficient and speedy
+troubleshooting, and effective prioritization; leveraged ServiceNow with Slack for rapid support coordination.
+Vice President of Communications New Brunswick, NJ
+Sigma Phi Epsilon, NJ Beta (Rutgers University) October 2023 – November 2024
+o Boosted online presence with an 18% rise in Instagram engagement and 10% website growth, leading chapterwide comms strategies and earning the National Benjamin Hobson-Frayser Award for Excellence in Communications.
+INDEPENDENT PROJECTS (files available on GitHub)
+Numeric Digit Identification using K-Means Clustering (Python, scikit-learn, pandas)
+o Built end-to-end preprocessing pipeline (imputation/encoding/scaling) and implemented K-Means tuned with
+elbow & silhouette, then produced EDA and cluster-profile summaries to identify distorted digits from a 2D canvas.
+Tangerine — Discord automation and moderation tool (Node.js, Express, MongooseDB)
+o Built and operated a real-time Discord service for advanced moderation and growth utilities; deployed on Heroku
+with horizontal scaling and instrumentation, at peak supporting 250K+ daily users across 500+ unique servers.
+False Discovery Rate (FDR) Gene Analysis (Python/R)
+o Ran hypothesis tests on NCI60 gene expressions, applied FDR correction to identify statistically significant markers.
+EDUCATION
+Rutgers, The State University of New Jersey New Brunswick, NJ
+● Bachelor’s degree: Computer Science; Minor: Data Science September 2021 – December 2024
