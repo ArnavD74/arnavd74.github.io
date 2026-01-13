@@ -28,3 +28,4 @@ tmpclaude-*
 *.njsproj
 *.sln
 *.sw?
+.claude/
