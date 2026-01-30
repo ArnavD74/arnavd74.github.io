@@ -28,7 +28,6 @@ export interface Experience {
 }
 
 export interface ContactInfo {
-  phone: string;
   email: string;
   github: string;
   linkedin: string;
