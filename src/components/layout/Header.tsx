@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'py-3 bg-slate/95 backdrop-blur-xl'
+            ? 'py-3 liquid-glass'
             : 'py-5 bg-transparent'
         }`}
       >
