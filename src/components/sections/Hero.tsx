@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-obsidian to-transparent pointer-events-none z-10" />
 
       {/* Content */}
-      <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-20 text-center px-6 max-w-5xl mx-auto pointer-events-none">
         {/* Geometric accent - top */}
         <motion.div
           initial={{ scaleX: 0 }}
