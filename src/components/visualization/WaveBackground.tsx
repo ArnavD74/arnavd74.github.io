@@ -1,57 +1,62 @@
-import { useMemo, useState, useEffect, useRef } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
+
+const PERIOD_W = 1800; // px — one full wave cycle; translateX animates exactly this far
+const STRIP_W  = 5000; // px — must exceed (rotated container width + PERIOD_W)
+
+// Full site palette — split into warm-cyan and cool-steel tiers
+const BRIGHT = ['0,212,255', '56,189,248', '125,211,252'];          // cyan family
+const COOL   = ['37,99,235', '100,140,200', '140,170,215', '90,120,180']; // steel family
 
 interface WaveConfig {
+  id: number;
   yPercent: number;
-  opacity: number;
-  angleOffset: number;
   amplitude: number;
-  frequency: number;
   phase: number;
-  // Additional harmonics for organic shape
-  harmonic2Amp: number;
-  harmonic2Freq: number;
-  harmonic3Amp: number;
-  harmonic3Freq: number;
-  // Individual timing
-  duration: number;
-  delay: number;
+  harmonic: number;      // 0–0.4: mixes in a 2nd frequency so wave shapes vary
+  duration: number;      // drift cycle (s)
+  delay: number;         // drift pre-start (s) — full range so start positions are random
+  opacity: number;
+  colorDuration: number; // color crossfade cycle (s)
+  colorDelay: number;    // crossfade pre-start (s)
+  color1: string;        // r,g,b — bright
+  color2: string;        // r,g,b — cool
 }
 
-// Generate organic wave path with multiple harmonics for bay-like curves
-const generateWavePath = (
-  width: number,
-  config: WaveConfig
+// Bakes a sine-wave SVG (optionally with a 2nd harmonic) as a CSS url() data-URI.
+// 4 concentric strokes simulate a glow halo — zero filter:blur anywhere.
+const buildWaveURI = (
+  amplitude: number,
+  phase: number,
+  harmonic: number,
+  color: string,
+  opacity: number,
 ): string => {
-  const { amplitude, frequency, phase, harmonic2Amp, harmonic2Freq, harmonic3Amp, harmonic3Freq } = config;
-  const segments = Math.max(60, Math.ceil(frequency * 20)); // More segments for smoother curves
-  const segmentWidth = width / segments;
+  const H  = amplitude * 2 + 20;
+  const cy = amplitude + 10;
 
-  // Calculate max possible amplitude for proper centering
-  const maxAmp = amplitude + harmonic2Amp + harmonic3Amp;
-
-  let path = '';
-
-  for (let i = 0; i <= segments; i++) {
-    const x = i * segmentWidth;
-    const progress = (i / segments) * Math.PI * 2;
-
-    // Combine multiple sine waves for organic shape
-    const y1 = Math.sin(progress * frequency + phase) * amplitude;
-    const y2 = Math.sin(progress * harmonic2Freq + phase * 1.3) * harmonic2Amp;
-    const y3 = Math.sin(progress * harmonic3Freq + phase * 0.7) * harmonic3Amp;
-
-    const y = y1 + y2 + y3 + maxAmp;
-
-    if (i === 0) {
-      path = `M ${x} ${y}`;
-    } else {
-      // Use line segments (many small ones = smooth curve)
-      path += ` L ${x} ${y}`;
-    }
+  let d = '';
+  for (let i = 0; i <= 80; i++) {
+    const t   = (i / 80) * Math.PI * 2;
+    const x   = ((i / 80) * PERIOD_W).toFixed(1);
+    // Blend primary sine + second harmonic; normalize so peak stays at ±amplitude
+    const raw = Math.sin(t + phase) + harmonic * Math.sin(2 * t + phase * 1.3);
+    const y   = (cy + (raw / (1 + harmonic)) * amplitude).toFixed(1);
+    d += i === 0 ? `M${x},${y}` : ` L${x},${y}`;
   }
 
-  return path;
+  const svg = [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${PERIOD_W} ${H}">`,
+    `<path d="${d}" fill="none" stroke="rgb(${color})" stroke-opacity="${(opacity * 0.18).toFixed(3)}" stroke-width="12"/>`,
+    `<path d="${d}" fill="none" stroke="rgb(${color})" stroke-opacity="${(opacity * 0.42).toFixed(3)}" stroke-width="4"/>`,
+    `<path d="${d}" fill="none" stroke="rgb(${color})" stroke-opacity="${opacity.toFixed(3)}"           stroke-width="1.5"/>`,
+    `<path d="${d}" fill="none" stroke="rgb(220,240,255)" stroke-opacity="${(opacity * 0.45).toFixed(3)}" stroke-width="0.65"/>`,
+    `</svg>`,
+  ].join('');
+
+  return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
 };
+
+const pick = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
 
 const WaveBackground: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,142 +68,89 @@ const WaveBackground: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
+    const el = containerRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0, rootMargin: '100px' }
     );
-
-    observer.observe(container);
-    return () => observer.disconnect();
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
-  const waves = useMemo(() => {
-    const generatedWaves: WaveConfig[] = [];
-    const waveCount = 5;
+  // Fully randomised on every page load — useMemo with [] runs once per mount
+  const waves = useMemo<WaveConfig[]>(() => {
+    const configs: WaveConfig[] = [];
 
-    for (let i = 0; i < waveCount; i++) {
-      // Spread waves across the height with more spacing
-      const yPercent = 3 + (i / waveCount) * 45 + Math.random() * 5;
-
-      // Base amplitude varies significantly for bay-like variety
-      const baseAmplitude = 50 + Math.random() * 60; // 50-110px deep curves
-
-      generatedWaves.push({
+    // 13 surface waves — spread evenly across the height with jitter
+    for (let i = 0; i < 13; i++) {
+      const baseY    = 3 + (i / 12) * 87;                          // 3 → 90%
+      const yPercent = Math.max(2, Math.min(93, baseY + (Math.random() - 0.5) * 8));
+      const amplitude = 42 + Math.random() * 42;                   // 42–84 px
+      const duration  = 70  + Math.random() * 60;                  // 70–130 s
+      configs.push({
+        id: i,
         yPercent,
-        opacity: 0.15 + Math.random() * 0.2,
-        angleOffset: (Math.random() - 0.5) * 16,
-        // Primary wave - slow, deep curves
-        amplitude: baseAmplitude,
-        frequency: 0.4 + Math.random() * 0.4, // 0.4-0.8 cycles - very few, deep curves
-        phase: Math.random() * Math.PI * 2,
-        // Second harmonic - adds bay-like indentations
-        harmonic2Amp: baseAmplitude * (0.2 + Math.random() * 0.3),
-        harmonic2Freq: 1.5 + Math.random() * 1, // Higher frequency detail
-        // Third harmonic - subtle organic variation
-        harmonic3Amp: baseAmplitude * (0.05 + Math.random() * 0.1),
-        harmonic3Freq: 3 + Math.random() * 2,
-        // Individual timing for staggered spawning
-        duration: 50 + Math.random() * 40, // 50-90 seconds per cycle
-        delay: Math.random() * 60, // Random start delay 0-60 seconds
+        amplitude,
+        phase:         Math.random() * Math.PI * 2,
+        harmonic:      Math.random() * 0.35,                        // varied shapes
+        duration,
+        delay:         Math.random() * duration,                    // random start position
+        opacity:       0.18 + Math.random() * 0.15,
+        colorDuration: 70  + Math.random() * 70,
+        colorDelay:    Math.random() * 130,
+        color1: pick(BRIGHT),
+        color2: pick(COOL),
       });
     }
 
-    return generatedWaves;
+    // 3 deep swells — barely-there background volume
+    for (let i = 0; i < 3; i++) {
+      const yPercent  = 10 + i * 35 + (Math.random() - 0.5) * 15; // ~10, 45, 80%
+      const amplitude = 85 + Math.random() * 40;                   // 85–125 px
+      const duration  = 150 + Math.random() * 70;                  // 150–220 s
+      configs.push({
+        id: 13 + i,
+        yPercent,
+        amplitude,
+        phase:         Math.random() * Math.PI * 2,
+        harmonic:      Math.random() * 0.2,                         // swells smoother
+        duration,
+        delay:         Math.random() * duration,
+        opacity:       0.04 + Math.random() * 0.05,
+        colorDuration: 120 + Math.random() * 80,
+        colorDelay:    Math.random() * 150,
+        color1: pick(BRIGHT),
+        color2: pick(COOL),
+      });
+    }
+
+    return configs;
   }, []);
 
-  if (prefersReducedMotion) {
-    return null;
-  }
+  // Build two data-URIs per wave: one for each color — computed once
+  const uris1 = useMemo(
+    () => waves.map(w => buildWaveURI(w.amplitude, w.phase, w.harmonic, w.color1, w.opacity)),
+    [waves]
+  );
+  const uris2 = useMemo(
+    () => waves.map(w => buildWaveURI(w.amplitude, w.phase, w.harmonic, w.color2, w.opacity)),
+    [waves]
+  );
 
-  const baseAngle = -12;
-  const svgWidth = 3000;
+  const keyframes = useMemo(() => [
+    // Shared crossfade — works for all waves regardless of which colors they picked
+    `@keyframes showColor1 { 0%,100%{opacity:1} 50%{opacity:0} }`,
+    `@keyframes showColor2 { 0%,100%{opacity:0} 50%{opacity:1} }`,
+    // Per-wave drift — all translate the same distance, just at different speeds
+    ...waves.map(w => `
+    @keyframes waveDrift${w.id} {
+      from { transform: translateX(0) translateZ(0); }
+      to   { transform: translateX(-${PERIOD_W}px) translateZ(0); }
+    }`),
+  ].join('\n'), [waves]);
 
-  // Generate unique keyframes for each wave
-  const keyframesStyles = waves.map((_, i) => `
-    @keyframes waveScroll${i} {
-      from { transform: translateY(0) translateZ(0); }
-      to { transform: translateY(-50%) translateZ(0); }
-    }
-  `).join('\n');
-
-  const renderWave = (wave: WaveConfig, index: number, yOffset: number) => {
-    const path = generateWavePath(svgWidth, wave);
-    const maxAmp = wave.amplitude + wave.harmonic2Amp + wave.harmonic3Amp;
-    const svgHeight = maxAmp * 2 + 60;
-
-    // Trail offset - positioned behind (below) the wave in scroll direction
-    const trailOffset = 6;
-
-    return (
-      <svg
-        key={`wave-${index}-${yOffset}`}
-        style={{
-          position: 'absolute',
-          top: `${(wave.yPercent + yOffset) / 2}%`,
-          left: '50%',
-          width: `${svgWidth}px`,
-          height: `${svgHeight}px`,
-          transform: `translateX(-50%) rotate(${baseAngle + wave.angleOffset}deg) translateZ(0)`,
-          transformOrigin: 'center center',
-          backfaceVisibility: 'hidden',
-          overflow: 'visible',
-        }}
-      >
-        {/* Trail - offset behind the wave */}
-        <g style={{ transform: `translateY(${trailOffset * 3}px)` }}>
-          <path
-            d={path}
-            fill="none"
-            stroke={`rgba(180, 200, 240, ${wave.opacity * 0.15})`}
-            strokeWidth="6"
-            strokeLinecap="round"
-            style={{ filter: 'blur(5px)' }}
-          />
-        </g>
-        <g style={{ transform: `translateY(${trailOffset * 2}px)` }}>
-          <path
-            d={path}
-            fill="none"
-            stroke={`rgba(160, 190, 230, ${wave.opacity * 0.25})`}
-            strokeWidth="4"
-            strokeLinecap="round"
-            style={{ filter: 'blur(3px)' }}
-          />
-        </g>
-        <g style={{ transform: `translateY(${trailOffset}px)` }}>
-          <path
-            d={path}
-            fill="none"
-            stroke={`rgba(140, 175, 220, ${wave.opacity * 0.4})`}
-            strokeWidth="2"
-            strokeLinecap="round"
-            style={{ filter: 'blur(1px)' }}
-          />
-        </g>
-        {/* Core wave line */}
-        <path
-          d={path}
-          fill="none"
-          stroke={`rgba(100, 150, 200, ${wave.opacity})`}
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        {/* Bright leading edge */}
-        <path
-          d={path}
-          fill="none"
-          stroke={`rgba(220, 240, 255, ${wave.opacity * 0.5})`}
-          strokeWidth="0.75"
-          strokeLinecap="round"
-        />
-      </svg>
-    );
-  };
+  if (prefersReducedMotion) return null;
 
   return (
     <div
@@ -206,35 +158,47 @@ const WaveBackground: React.FC = () => {
       style={{
         position: 'absolute',
         top: '100vh',
-        left: 0,
-        right: 0,
-        bottom: 0,
+        left: 0, right: 0, bottom: 0,
         pointerEvents: 'none',
         zIndex: 1,
         overflow: 'hidden',
         contain: 'strict',
       }}
     >
-      <style>{keyframesStyles}</style>
-      {isVisible && waves.map((wave, i) => (
-        <div
-          key={`wave-container-${i}`}
-          style={{
+      <style>{keyframes}</style>
+
+      {/* Rotated stage — all strips at −12° */}
+      <div style={{
+        position: 'absolute',
+        inset: '-35% -15%',
+        transform: 'rotate(-12deg)',
+        transformOrigin: 'center center',
+      }}>
+        {isVisible && waves.map((w, idx) => {
+          const H    = w.amplitude * 2 + 20;
+          const base: React.CSSProperties = {
             position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '200%',
-            willChange: 'transform',
-            animation: `waveScroll${i} ${wave.duration}s linear infinite`,
-            animationDelay: `-${wave.delay}s`, // Negative delay = start partway through
-            backfaceVisibility: 'hidden',
-          }}
-        >
-          {renderWave(wave, i, 0)}
-          {renderWave(wave, i, 50)}
-          {renderWave(wave, i, 100)}
-        </div>
-      ))}
+            top: `${w.yPercent}%`,
+            left: 0,
+            width:  `${STRIP_W}px`,
+            height: `${H}px`,
+            backgroundSize:   `${PERIOD_W}px 100%`,
+            backgroundRepeat: 'repeat-x',
+            willChange: 'transform, opacity',
+          };
+
+          const drift = `waveDrift${w.id} ${w.duration}s linear -${w.delay}s infinite`;
+          const f1    = `showColor1 ${w.colorDuration}s ease-in-out -${w.colorDelay}s infinite`;
+          const f2    = `showColor2 ${w.colorDuration}s ease-in-out -${w.colorDelay}s infinite`;
+
+          return (
+            <React.Fragment key={w.id}>
+              <div style={{ ...base, backgroundImage: uris1[idx], animation: `${drift}, ${f1}` }} />
+              <div style={{ ...base, backgroundImage: uris2[idx], animation: `${drift}, ${f2}` }} />
+            </React.Fragment>
+          );
+        })}
+      </div>
     </div>
   );
 };
