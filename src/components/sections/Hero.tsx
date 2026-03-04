@@ -6,6 +6,7 @@ const HINT_STORAGE_KEY = 'hero-click-hint-shown';
 
 const Hero: React.FC = () => {
   const [showHint, setShowHint] = useState(false);
+  const [showParticles, setShowParticles] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -48,6 +49,20 @@ const Hero: React.FC = () => {
     };
   }, [showHint]);
 
+  // Unmount particles when hero is fully scrolled past (+ 200px buffer)
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowParticles(entry.isIntersecting),
+      { threshold: 0, rootMargin: '0px 0px -200px 0px' }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   // Listen for clicks to dismiss hint and save to storage
   useEffect(() => {
     if (!showHint) return;
@@ -66,8 +81,8 @@ const Hero: React.FC = () => {
       {/* Subtle grid background */}
       <div className="absolute inset-0 grid-bg opacity-50" />
 
-      {/* Particle network visualization */}
-      <ParticleNetwork />
+      {/* Particle network - unmounted when scrolled past hero */}
+      {showParticles && <ParticleNetwork />}
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-obsidian to-transparent pointer-events-none z-10" />

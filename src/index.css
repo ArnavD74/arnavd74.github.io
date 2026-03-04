@@ -92,8 +92,7 @@
 
   /* Glass card with arctic feel */
   .glass-card {
-    @apply backdrop-blur-xl;
-    background: rgba(18, 21, 27, 0.8);
+    background: rgba(18, 21, 27, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.06);
   }
 

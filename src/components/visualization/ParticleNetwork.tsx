@@ -39,6 +39,7 @@ const ParticleNetwork: React.FC = () => {
   const mouseRef = useRef({ x: -1000, y: -1000 });
   const attractionTimerRef = useRef(0);
   const animationFrameRef = useRef<number>(0);
+  const visibleRef = useRef(true);
 
   const config = {
     connectionDistance: 120,
@@ -223,11 +224,18 @@ const ParticleNetwork: React.FC = () => {
     const fps = 30;
     const fpsInterval = 1000 / fps;
 
+    const io = new IntersectionObserver(
+      ([e]) => { visibleRef.current = e.isIntersecting; },
+      { threshold: 0 }
+    );
+    io.observe(container);
+
     const animate = (currentTime: number) => {
       animationFrameRef.current = requestAnimationFrame(animate);
 
       const elapsed = currentTime - lastTime;
       if (elapsed < fpsInterval) return;
+      if (!visibleRef.current) return;
       lastTime = currentTime - (elapsed % fpsInterval);
 
       const cw = canvas.width;
@@ -269,6 +277,7 @@ const ParticleNetwork: React.FC = () => {
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('click', handleClick);
       cancelAnimationFrame(animationFrameRef.current);
+      io.disconnect();
     };
   }, [createParticle, updateParticle, drawParticle]);
 

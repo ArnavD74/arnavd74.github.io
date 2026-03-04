@@ -36,7 +36,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-obsidian/95 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-obsidian/95 z-50"
             onClick={onClose}
           />
 
