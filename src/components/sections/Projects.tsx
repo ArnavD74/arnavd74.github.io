@@ -113,7 +113,7 @@ const Projects: React.FC = () => {
                   </div>
 
                   {project.archived && (
-                    <div className="absolute top-2 right-2 md:top-3 md:right-3 px-1.5 py-0.5 md:px-2 md:py-1 bg-slate/90 backdrop-blur-sm rounded text-[10px] md:text-xs font-mono text-ash uppercase tracking-wider">
+                    <div className="absolute top-2 right-2 md:top-3 md:right-3 px-1.5 py-0.5 md:px-2 md:py-1 bg-slate/90 rounded text-[10px] md:text-xs font-mono text-ash uppercase tracking-wider">
                       Archived
                     </div>
                   )}

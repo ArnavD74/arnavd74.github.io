@@ -47,7 +47,7 @@ const Experience: React.FC = () => {
                 <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10">
                   <div className="relative">
                     <div className="w-3 h-3 rounded-full bg-cyan" />
-                    <div className="absolute inset-0 w-3 h-3 rounded-full bg-cyan animate-ping opacity-30" />
+                    <div className="absolute inset-0 w-3 h-3 rounded-full bg-cyan animate-pulse opacity-40" />
                   </div>
                 </div>
 
