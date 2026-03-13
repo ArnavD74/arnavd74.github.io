@@ -20,9 +20,13 @@ export interface Experience {
   location: string;
   period: string;
   role: string;
+  tagline?: string;
   points: string[];
+  technologies?: string[];
   subSections?: {
     title: string;
+    period?: string;
+    tagline?: string;
     points: string[];
   }[];
 }
