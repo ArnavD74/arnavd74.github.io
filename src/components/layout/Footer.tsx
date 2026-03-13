@@ -4,7 +4,42 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const [showCredits, setShowCredits] = useState(false);
-  const footerRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+
+  // Continuously scroll to bottom while credits are animating open
+  useEffect(() => {
+    if (!showCredits) return;
+
+    const scrollToBottom = () => {
+      window.scrollTo(0, document.documentElement.scrollHeight);
+      rafRef.current = requestAnimationFrame(scrollToBottom);
+    };
+
+    rafRef.current = requestAnimationFrame(scrollToBottom);
+
+    // Stop after animation settles (500ms matches transition duration)
+    const timeout = setTimeout(() => {
+      cancelAnimationFrame(rafRef.current);
+    }, 550);
+
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      clearTimeout(timeout);
+    };
+  }, [showCredits]);
+
+  // When closing, snap to bottom after collapse
+  const handleToggle = () => {
+    if (showCredits) {
+      // Closing - keep at bottom
+      setShowCredits(false);
+      requestAnimationFrame(() => {
+        window.scrollTo(0, document.documentElement.scrollHeight);
+      });
+    } else {
+      setShowCredits(true);
+    }
+  };
 
   const credits = [
     { name: 'React 19', url: 'https://react.dev' },
@@ -20,84 +55,66 @@ const Footer: React.FC = () => {
     { name: 'JetBrains Mono', url: 'https://fonts.google.com/specimen/JetBrains+Mono', note: 'Monospace font' },
   ];
 
-  const handleToggleCredits = () => {
-    setShowCredits(!showCredits);
-  };
-
-  useEffect(() => {
-    if (showCredits) {
-      const timer = setTimeout(() => {
-        window.scrollTo({
-          top: document.documentElement.scrollHeight,
-          behavior: 'smooth'
-        });
-      }, 350);
-      return () => clearTimeout(timer);
-    }
-  }, [showCredits]);
-
   return (
-    <motion.footer
-      ref={footerRef}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      className="relative z-10 py-10 border-t border-zinc/20"
-    >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col items-center gap-6">
-          <AnimatePresence>
-            {showCredits && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden w-full max-w-2xl"
-              >
-                <div className="pb-6 border-b border-zinc/20 mb-6">
-                  <p className="font-mono text-xs text-silver text-center mb-4">
-                    Built with:
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {credits.map((credit) => (
-                      <a
-                        key={credit.name}
-                        href={credit.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-2.5 py-1 bg-slate/50 rounded text-xs text-ash hover:text-cyan
-                                   border border-zinc/20 hover:border-cyan/30 transition-all"
-                        title={credit.note}
-                      >
-                        {credit.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <button
-            onClick={handleToggleCredits}
-            className="font-mono text-xs text-ash hover:text-cyan transition-colors"
-          >
-            {showCredits ? 'Hide Credits' : 'Credits & Attributions'}
-          </button>
-
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
+    <footer className="relative z-10 border-t border-zinc/10">
+      {/* Top bar with toggle */}
+      <div className="py-8 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-4 text-center">
+          <div className="flex items-center gap-3">
             <p className="font-mono text-xs text-ash">
               Designed & Built by Arnav Dashaputra
             </p>
-            <span className="hidden md:inline text-zinc">|</span>
+            <span className="text-zinc/50">|</span>
             <p className="font-mono text-xs text-ash">
               2019 - {currentYear}
             </p>
           </div>
+
+          <button
+            onClick={handleToggle}
+            className="font-mono text-xs text-ash hover:text-cyan transition-colors cursor-pointer"
+          >
+            {showCredits ? 'Hide Credits' : 'Credits & Attributions'}
+          </button>
         </div>
       </div>
-    </motion.footer>
+
+      {/* Credits expand downward below the button */}
+      <AnimatePresence>
+        {showCredits && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-10 pt-2 border-t border-zinc/10">
+              <div className="max-w-2xl mx-auto">
+                <p className="font-mono text-[10px] text-ash uppercase tracking-widest text-center mb-5">
+                  Built with
+                </p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {credits.map((credit) => (
+                    <a
+                      key={credit.name}
+                      href={credit.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 bg-slate/40 rounded-lg text-xs text-ash hover:text-cyan
+                                 border border-zinc/15 hover:border-cyan/30 transition-all"
+                      title={credit.note}
+                    >
+                      {credit.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </footer>
   );
 };
 

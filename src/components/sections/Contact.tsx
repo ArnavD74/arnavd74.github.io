@@ -1,7 +1,32 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { contact } from '../../data/contact';
+import { useIsMobile } from '../../hooks/useIsMobile';
+
+const blurUp = {
+  hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as const },
+  }),
+};
 
 const Contact: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const headerY = useTransform(scrollYProgress, [0, 0.3], [60, 0]);
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
+
+  const mobileViewport = isMobile
+    ? { once: true, margin: '2000px' as const }
+    : undefined;
+
   const contactItems = [
     {
       label: 'Email',
@@ -37,105 +62,116 @@ const Contact: React.FC = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
-    <section id="contact" className="py-32 relative">
-      {/* Subtle divider line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-zinc/30" />
-
+    <section ref={sectionRef} id="contact" className="py-32 md:py-44 relative">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="font-mono text-xs text-cyan tracking-widest uppercase mb-4 block">
-            04 / Contact
-          </span>
-          <h2 className="section-title text-white mb-6">
-            Get in Touch
-          </h2>
-          <p className="body-text max-w-xl mx-auto">
-            I'm always looking for new opportunities. Whether you have a question
-            or just want to say hi, I'd love to hear from you.
-          </p>
-        </motion.div>
-
-        {/* Contact cards */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-4 mb-12"
-        >
-          {contactItems.map((item) => (
-            <motion.a
-              key={item.label}
-              href={item.href}
-              target={item.href.startsWith('http') ? '_blank' : undefined}
-              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              variants={itemVariants}
-              whileHover={{ y: -3 }}
-              className="group glass-card rounded-lg p-5 text-center transition-all"
+        {/* Full-section grid: left has header + CTA, right has cards centered to the whole thing */}
+        <div className="grid md:grid-cols-2 gap-16 md:gap-24">
+          {/* Left column - header + CTA stacked */}
+          <div>
+            {/* Section header */}
+            <motion.div
+              style={{ y: headerY, opacity: headerOpacity }}
+              className="mb-12 md:mb-16"
             >
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg
-                              bg-slate text-ash group-hover:text-cyan group-hover:bg-cyan/10
-                              transition-all mb-3">
-                {item.icon}
+              <div className="flex items-center gap-4 mb-6">
+                <span className="font-mono text-xs text-cyan tracking-widest">04</span>
+                <div className="w-12 h-px bg-cyan" />
+                <span className="font-mono text-xs text-ash tracking-widest uppercase">Contact</span>
               </div>
+              <h2 className="section-title text-white">
+                Get in Touch
+              </h2>
+            </motion.div>
 
-              <h3 className="font-mono text-xs text-ash uppercase tracking-widest mb-2">
-                {item.label}
-              </h3>
-
-              <p className="font-body text-sm text-frost group-hover:text-cyan transition-colors break-all">
-                {item.value}
+            {/* CTA */}
+            <motion.div
+              variants={blurUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={mobileViewport ?? { once: true }}
+              custom={0}
+            >
+              <p className="text-frost text-lg md:text-xl leading-relaxed mb-10">
+                I'm always looking for new opportunities.
+                <br />
+                Whether you have a question or just want to say hi, I'd love to hear from you!
               </p>
-            </motion.a>
-          ))}
-        </motion.div>
 
-        {/* Resume button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
-        >
-          <motion.a
-            href={contact.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="btn-primary"
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            Download Resume
-          </motion.a>
-        </motion.div>
+              <div className="flex flex-wrap gap-4">
+                <motion.a
+                  href={`mailto:${contact.email}`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="btn-primary text-base"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  Say Hello
+                </motion.a>
+
+                <motion.a
+                  href={contact.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="btn-secondary text-base"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Resume
+                </motion.a>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right column - vertically centered to the full section height */}
+          <div className="flex items-center">
+            <div className="space-y-4 w-full">
+              {contactItems.map((item, index) => (
+                <motion.a
+                  key={item.label}
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  variants={blurUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={mobileViewport ?? { once: true }}
+                  custom={0.1 + index * 0.1}
+                  whileHover={{ x: 6 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                  className="group flex items-center gap-5 bento-card p-5 cursor-pointer"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-slate/80 flex items-center justify-center
+                                  text-ash group-hover:text-cyan group-hover:bg-cyan/10
+                                  transition-all duration-500 shrink-0">
+                    {item.icon}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-mono text-[10px] text-ash uppercase tracking-[0.2em] mb-0.5">
+                      {item.label}
+                    </h3>
+                    <p className="font-body text-sm text-frost group-hover:text-cyan transition-colors duration-300 truncate">
+                      {item.value}
+                    </p>
+                  </div>
+                  <svg className="w-4 h-4 text-zinc/50 group-hover:text-cyan/60 transition-all duration-300 shrink-0
+                                 -translate-x-1 group-hover:translate-x-0 opacity-0 group-hover:opacity-100"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 17L17 7M17 7H7M17 7v10" />
+                  </svg>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
