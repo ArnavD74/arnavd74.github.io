@@ -54,7 +54,7 @@
   }
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
   }
 
   ::-webkit-scrollbar-track {
@@ -62,7 +62,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-zinc rounded-full;
+    @apply bg-zinc/50 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -71,23 +71,23 @@
 }
 
 @layer components {
-  /* Sharp accent line - no gradients, just clean */
+  /* Sharp accent line */
   .accent-line {
     @apply h-px bg-cyan;
   }
 
   /* Liquid glass navbar */
   .liquid-glass {
-    @apply backdrop-blur-xl;
+    @apply backdrop-blur-2xl;
     background: linear-gradient(
       135deg,
-      rgba(18, 21, 27, 0.35) 0%,
-      rgba(26, 30, 39, 0.25) 50%,
-      rgba(18, 21, 27, 0.35) 100%
+      rgba(18, 21, 27, 0.4) 0%,
+      rgba(26, 30, 39, 0.3) 50%,
+      rgba(18, 21, 27, 0.4) 100%
     );
     box-shadow:
-      0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
-      0 4px 24px rgba(0, 0, 0, 0.2);
+      0 1px 0 0 rgba(255, 255, 255, 0.03) inset,
+      0 8px 32px rgba(0, 0, 0, 0.25);
   }
 
   /* Glass card with arctic feel */
@@ -101,21 +101,33 @@
     border-color: rgba(0, 212, 255, 0.2);
   }
 
-  /* Project card */
-  .project-card {
+  /* Bento card */
+  .bento-card {
     background: rgba(18, 21, 27, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.04);
-    @apply rounded-lg transition-all duration-300;
+    @apply rounded-2xl transition-all duration-500;
   }
 
-  .project-card:hover {
-    background: rgba(26, 30, 39, 0.7);
-    border-color: rgba(0, 212, 255, 0.25);
+  .bento-card:hover {
+    background: rgba(26, 30, 39, 0.55);
+    border-color: rgba(0, 212, 255, 0.12);
   }
 
-  /* Section titles - bold, clean */
+  /* Project card - fluid tile */
+  .project-tile {
+    @apply relative rounded-2xl overflow-hidden cursor-pointer;
+    background: rgba(18, 21, 27, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: border-color 0.5s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-tile:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+  }
+
+  /* Section titles - bold, clean, exaggerated */
   .section-title {
-    @apply font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none;
+    @apply font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none;
   }
 
   /* Body text */
@@ -125,7 +137,7 @@
 
   /* Tag pill */
   .tag {
-    @apply px-3 py-1.5 bg-slate rounded font-mono text-xs text-silver border border-zinc/30 transition-all;
+    @apply px-3 py-1.5 bg-slate rounded-lg font-mono text-xs text-silver border border-zinc/30 transition-all duration-300;
   }
 
   .tag:hover {
@@ -134,20 +146,33 @@
 
   /* Button primary */
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-cyan text-obsidian font-medium rounded transition-all;
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-cyan text-obsidian font-semibold rounded-xl transition-all duration-300;
   }
 
   .btn-primary:hover {
     @apply bg-white;
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.25);
   }
 
   /* Button secondary */
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-slate text-frost font-medium rounded border border-zinc/50 transition-all;
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-slate text-frost font-medium rounded-xl border border-zinc/50 transition-all duration-300;
   }
 
   .btn-secondary:hover {
     @apply border-cyan/50 text-white;
+  }
+
+  /* Timeline card */
+  .timeline-card {
+    background: rgba(18, 21, 27, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    @apply rounded-2xl p-6 md:p-7 transition-all duration-500;
+  }
+
+  .timeline-card:hover {
+    background: rgba(26, 30, 39, 0.6);
+    border-color: rgba(0, 212, 255, 0.15);
   }
 }
 
@@ -178,7 +203,7 @@
     background-size: 60px 60px;
   }
 
-  /* Glow effect for accent elements */
+  /* Glow effect */
   .glow-cyan {
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(0, 212, 255, 0.1);
   }
@@ -188,7 +213,7 @@
     text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
   }
 
-  /* Scanline effect for hero */
+  /* Scanlines */
   .scanlines::after {
     content: "";
     position: absolute;
@@ -208,4 +233,37 @@
     opacity: 0.15;
   }
 
+  /* Horizontal rule with fade */
+  .hr-fade {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, rgba(61, 69, 86, 0.4), transparent);
+  }
+
+  /* Marquee animation - translateX by 25% since we use 4x copies */
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .marquee-track {
+    animation: marquee-scroll 40s linear infinite;
+    will-change: transform;
+  }
+
+  .marquee-reverse {
+    animation-direction: reverse;
+    animation-duration: 35s;
+  }
+
+  /* Pause on container hover so hovering any child pauses the whole row */
+  .marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* Scroll progress bar */
+  .scroll-progress {
+    @apply fixed top-0 left-0 h-[2px] bg-cyan z-[100];
+    transform-origin: left;
+    will-change: transform;
+  }
 }

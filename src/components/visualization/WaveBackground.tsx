@@ -167,10 +167,10 @@ const WaveBackground: React.FC = () => {
     >
       <style>{keyframes}</style>
 
-      {/* Rotated stage — all strips at −12° */}
+      {/* Rotated stage — all strips at −12°; extra left overshoot prevents edge gaps on narrow screens */}
       <div style={{
         position: 'absolute',
-        inset: '-35% -15%',
+        inset: '-35% -15% -35% -40%',
         transform: 'rotate(-12deg)',
         transformOrigin: 'center center',
       }}>
