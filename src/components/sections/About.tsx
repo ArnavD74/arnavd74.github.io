@@ -190,11 +190,10 @@ const About: React.FC = () => {
 
         {/* Tech Stack Marquee */}
         <motion.div
-          variants={blurUp}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={mobileViewport ?? { once: true }}
-          custom={0.1}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="mt-14 md:mt-28"
         >
           <h3 className="font-mono text-[10px] text-ash uppercase tracking-[0.2em] mb-4 md:mb-6 text-center">
