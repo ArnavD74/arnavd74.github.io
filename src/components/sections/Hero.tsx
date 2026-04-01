@@ -92,11 +92,11 @@ const Hero: React.FC = () => {
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 pointer-events-none -mt-20 md:mt-0">
         <div className="flex flex-col gap-6">
           {/* Accent line (no number) */}
-          <motion.div style={{ opacity: subtitleOpacity }} className="overflow-hidden">
+          <motion.div style={{ opacity: subtitleOpacity }}>
             <motion.div
-              initial={{ x: '-110%' }}
-              animate={{ x: 0 }}
-              transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="w-12 h-px bg-cyan"
             />
           </motion.div>
@@ -128,12 +128,12 @@ const Hero: React.FC = () => {
           {/* Subtitle only */}
           <motion.div
             style={{ y: subtitleY, opacity: subtitleOpacity }}
-            className="overflow-hidden mt-4"
+            className="mt-4"
           >
             <motion.p
-              initial={{ x: '-110%' }}
-              animate={{ x: 0 }}
-              transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="font-body text-lg md:text-xl text-silver/90 leading-relaxed"
             >
               Data Scientist & Full-Stack Engineer
