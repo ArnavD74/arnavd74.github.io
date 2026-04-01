@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'py-3 liquid-glass'
@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               key={item.id}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index, duration: 0.5 }}
+              transition={{ delay: 1.3 + 0.1 * index, duration: 0.5 }}
             >
               <ScrollLink
                 to={item.id}
@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               key={item.id}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.05 * index, duration: 0.4 }}
+              transition={{ delay: 1.3 + 0.05 * index, duration: 0.4 }}
             >
               <ScrollLink
                 to={item.id}

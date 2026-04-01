@@ -92,13 +92,14 @@ const Hero: React.FC = () => {
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 pointer-events-none -mt-20 md:mt-0">
         <div className="flex flex-col gap-6">
           {/* Accent line (no number) */}
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            style={{ opacity: subtitleOpacity }}
-            className="w-12 h-px bg-cyan origin-left"
-          />
+          <motion.div style={{ opacity: subtitleOpacity }} className="overflow-hidden">
+            <motion.div
+              initial={{ x: '-110%' }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="w-12 h-px bg-cyan"
+            />
+          </motion.div>
 
           {/* Name - oversized with scroll parallax */}
           <motion.div style={{ y: nameY, opacity: nameOpacity }}>
@@ -126,15 +127,17 @@ const Hero: React.FC = () => {
 
           {/* Subtitle only */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             style={{ y: subtitleY, opacity: subtitleOpacity }}
-            className="mt-4"
+            className="overflow-hidden mt-4"
           >
-            <p className="font-body text-lg md:text-xl text-silver/90 leading-relaxed">
+            <motion.p
+              initial={{ x: '-110%' }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="font-body text-lg md:text-xl text-silver/90 leading-relaxed"
+            >
               Data Scientist & Full-Stack Engineer
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </div>
@@ -143,7 +146,7 @@ const Hero: React.FC = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
         style={{ opacity: subtitleOpacity }}
         className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 z-20 pointer-events-auto"
       >

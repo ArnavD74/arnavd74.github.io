@@ -3,10 +3,11 @@ import { useRef } from 'react';
 import { useIsMobile } from '../../hooks/useIsMobile';
 
 const blurUp = {
-  hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
+  hidden: { opacity: 0, y: 30, x: -20, filter: 'blur(8px)' },
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
+    x: 0,
     filter: 'blur(0px)',
     transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as const },
   }),
@@ -62,13 +63,39 @@ const Testimonials: React.FC = () => {
           className="mb-20 md:mb-28"
         >
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-mono text-xs text-cyan tracking-widest">03</span>
-            <div className="w-12 h-px bg-cyan" />
-            <span className="font-mono text-xs text-ash tracking-widest uppercase">Testimonials</span>
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="font-mono text-xs text-cyan tracking-widest"
+            >03</motion.span>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="w-12 h-px bg-cyan"
+            />
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="font-mono text-xs text-ash tracking-widest uppercase"
+            >Testimonials</motion.span>
           </div>
-          <h2 className="section-title text-white">
-            Kind Words
-          </h2>
+          <div className="overflow-hidden">
+            <motion.h2
+              initial={{ y: '100%' }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="section-title text-white"
+            >
+              Kind Words
+            </motion.h2>
+          </div>
         </motion.div>
 
         {/* Testimonial cards */}
