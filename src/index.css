@@ -246,13 +246,13 @@
   }
 
   .marquee-track {
-    animation: marquee-scroll 80s linear infinite;
+    animation: marquee-scroll 120s linear infinite;
     will-change: transform;
   }
 
   .marquee-reverse {
     animation-direction: reverse;
-    animation-duration: 70s;
+    animation-duration: 105s;
   }
 
   /* Scroll progress bar */

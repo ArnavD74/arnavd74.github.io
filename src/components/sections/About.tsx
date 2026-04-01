@@ -34,12 +34,10 @@ const techRow1: TechItem[] = [
   { name: 'RAG', url: 'https://en.wikipedia.org/wiki/Retrieval-augmented_generation' },
   { name: 'MongoDB', url: 'https://www.mongodb.com' },
   { name: 'Photoshop', url: 'https://www.adobe.com/products/photoshop.html' },
-  { name: 'Lua', url: 'https://www.lua.org' },
   { name: 'OpenAI API', url: 'https://openai.com/api' },
   { name: 'Tableau', url: 'https://www.tableau.com' },
-  { name: 'Unity', url: 'https://unity.com' },
   { name: 'Bash', url: 'https://www.gnu.org/software/bash/' },
-  { name: 'FHIR', url: 'https://www.hl7.org/fhir/' },
+  { name: 'FHIR HL7', url: 'https://www.hl7.org/fhir/' },
 ];
 
 const techRow2: TechItem[] = [
@@ -59,13 +57,10 @@ const techRow2: TechItem[] = [
   { name: 'SQL Server', url: 'https://www.microsoft.com/en-us/sql-server' },
   { name: 'Predictive Modeling', url: 'https://en.wikipedia.org/wiki/Predictive_modelling' },
   { name: 'WordPress', url: 'https://wordpress.org' },
-  { name: 'C', url: 'https://en.wikipedia.org/wiki/C_(programming_language)' },
   { name: 'SQLite', url: 'https://www.sqlite.org' },
   { name: 'Discord API', url: 'https://discord.com/developers/docs' },
-  { name: 'Lightroom', url: 'https://www.adobe.com/products/photoshop-lightroom.html' },
   { name: 'ServiceNow', url: 'https://www.servicenow.com' },
   { name: 'Android SDK', url: 'https://developer.android.com' },
-  { name: 'Autodesk Inventor', url: 'https://www.autodesk.com/products/inventor' },
   { name: 'VS Code', url: 'https://code.visualstudio.com' },
   { name: 'Excel', url: 'https://www.microsoft.com/en-us/microsoft-365/excel' },
 ];
@@ -109,6 +104,9 @@ const MarqueeRow = ({ items, reverse, speed }: { items: TechItem[]; reverse?: bo
       className="marquee-container relative overflow-hidden py-1 md:py-2 mb-1.5 md:mb-3"
       onMouseEnter={() => easeRate(0.15)}
       onMouseLeave={() => easeRate(1)}
+      onTouchStart={() => easeRate(0.15)}
+      onTouchEnd={() => easeRate(1)}
+      onTouchCancel={() => easeRate(1)}
     >
       <div className="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-obsidian to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-obsidian to-transparent z-10 pointer-events-none" />
@@ -241,10 +239,10 @@ const About: React.FC = () => {
 
           {/* Mobile: 4 rows, faster */}
           <div className="md:hidden">
-            <MarqueeRow items={mobileRow1} speed="40s" />
-            <MarqueeRow items={mobileRow2} speed="44s" reverse />
-            <MarqueeRow items={mobileRow3} speed="38s" />
-            <MarqueeRow items={mobileRow4} speed="42s" reverse />
+            <MarqueeRow items={mobileRow1} speed="60s" />
+            <MarqueeRow items={mobileRow2} speed="66s" reverse />
+            <MarqueeRow items={mobileRow3} speed="57s" />
+            <MarqueeRow items={mobileRow4} speed="63s" reverse />
           </div>
         </motion.div>
       </div>
