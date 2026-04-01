@@ -91,18 +91,14 @@ const Hero: React.FC = () => {
       {/* Content with scroll parallax */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 pointer-events-none -mt-20 md:mt-0">
         <div className="flex flex-col gap-6">
-          {/* Accent line (no number) */}
-          <motion.div style={{ opacity: subtitleOpacity }}>
-            <motion.div
-              initial={{ opacity: 0, x: -150 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                x: { duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] },
-                opacity: { duration: 0.3, delay: 0.7 },
-              }}
-              className="w-12 h-px bg-cyan"
-            />
-          </motion.div>
+          {/* Accent line — slides in from off-screen left, clipped by section overflow:hidden */}
+          <motion.div
+            initial={{ x: -800 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            style={{ opacity: subtitleOpacity }}
+            className="w-12 h-px bg-cyan"
+          />
 
           {/* Name - oversized with scroll parallax */}
           <motion.div style={{ y: nameY, opacity: nameOpacity }}>
@@ -128,18 +124,15 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Subtitle only */}
+          {/* Subtitle — slides in from off-screen left, clipped by section overflow:hidden */}
           <motion.div
             style={{ y: subtitleY, opacity: subtitleOpacity }}
             className="mt-4"
           >
             <motion.p
-              initial={{ opacity: 0, x: -200 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                x: { duration: 1.2, delay: 0.9, ease: [0.16, 1, 0.3, 1] },
-                opacity: { duration: 0.3, delay: 0.9 },
-              }}
+              initial={{ x: -1000 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1.2, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="font-body text-lg md:text-xl text-silver/90 leading-relaxed"
             >
               Data Scientist & Full-Stack Engineer

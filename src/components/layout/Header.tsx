@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 
@@ -8,11 +8,14 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [startedAtTop, setStartedAtTop] = useState(true);
+  const [ready, setReady] = useState(false);
+  const atTopRef = useRef(true);
 
-  // Check scroll position after browser restores it (before paint)
+  // Determine scroll position before first paint, then mount with correct animation
   useLayoutEffect(() => {
-    if (window.scrollY >= 100) setStartedAtTop(false);
+    atTopRef.current = window.scrollY < 100;
+    setIsScrolled(window.scrollY > 50);
+    setReady(true);
   }, []);
 
   const navItems = [
@@ -31,11 +34,16 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Don't render until we know the scroll position — prevents wrong initial animation
+  if (!ready) return null;
+
+  const atTop = atTopRef.current;
+
   return (
     <motion.header
-      initial={{ y: -100 }}
+      initial={atTop ? { y: -100 } : false}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, delay: startedAtTop ? 1.1 : 0, ease: [0.16, 1, 0.3, 1] }}
+      transition={atTop ? { duration: 0.6, delay: 1.1, ease: [0.16, 1, 0.3, 1] } : { duration: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'py-3 liquid-glass'
@@ -48,9 +56,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           {navItems.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: -20 }}
+              initial={atTop ? { opacity: 0, y: -20 } : false}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (startedAtTop ? 1.3 : 0.1) + 0.1 * index, duration: 0.5 }}
+              transition={atTop ? { delay: 1.3 + 0.1 * index, duration: 0.5 } : { duration: 0 }}
             >
               <ScrollLink
                 to={item.id}
@@ -82,9 +90,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           {navItems.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: -10 }}
+              initial={atTop ? { opacity: 0, y: -10 } : false}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (startedAtTop ? 1.3 : 0.1) + 0.05 * index, duration: 0.4 }}
+              transition={atTop ? { delay: 1.3 + 0.05 * index, duration: 0.4 } : { duration: 0 }}
             >
               <ScrollLink
                 to={item.id}
