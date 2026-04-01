@@ -239,6 +239,29 @@
     background: linear-gradient(90deg, transparent, rgba(61, 69, 86, 0.4), transparent);
   }
 
+  /* Hero entrance animations — CSS @keyframes to bypass Framer Motion's
+     automatic reduced-motion suppression of transform animations */
+  @keyframes hero-line-grow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  @keyframes hero-slide-reveal {
+    from { transform: translateY(110%); }
+    to { transform: translateY(0); }
+  }
+  .hero-line-hidden {
+    transform: scaleX(0);
+  }
+  .hero-subtitle-hidden {
+    transform: translateY(110%);
+  }
+  .hero-line-anim {
+    animation: hero-line-grow 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  }
+  .hero-subtitle-anim {
+    animation: hero-slide-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.95s both;
+  }
+
   /* Marquee animation - 2x copies with w-max; translateX(-50%) = exactly 1 copy width */
   @keyframes marquee-scroll {
     0% { transform: translateX(0); }

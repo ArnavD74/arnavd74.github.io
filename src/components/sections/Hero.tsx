@@ -14,9 +14,57 @@ const Hero: React.FC = () => {
   const { scrollY } = useScroll();
   const nameY = useTransform(scrollY, [0, 600], [0, 120]);
   const nameOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const subtitleY = useTransform(scrollY, [0, 600], [0, 60]);
   const subtitleOpacity = useTransform(scrollY, [0, 350], [1, 0]);
   const accentScale = useTransform(scrollY, [0, 300], [1, 0.3]);
+
+  // Refs for elements that use CSS @keyframes (motion.div wrappers kill these)
+  const lineRef = useRef<HTMLDivElement>(null);
+  const subtitleWrapRef = useRef<HTMLDivElement>(null);
+  const subtitleTextRef = useRef<HTMLParagraphElement>(null);
+
+  // 'hidden' = inline transforms keep elements invisible before animation starts
+  // 'animate' = CSS animation classes applied via className (fill-mode:both holds initial state during delay)
+  // 'visible' = no animation, no inline transform — elements show instantly (refreshed-while-scrolled)
+  const [animState, setAnimState] = useState<'hidden' | 'animate' | 'visible'>('hidden');
+
+  // Apply entrance animations via rAF — StrictMode-safe (cleanup cancels first rAF,
+  // only the second fires). Skip animation only if hero is entirely off-screen
+  // (scrolled past one full viewport height). Matches Framer Motion's name animation
+  // which always plays initial→animate regardless of scroll position.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      setAnimState(window.scrollY <= window.innerHeight ? 'animate' : 'visible');
+    });
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // Scroll-driven opacity/parallax via plain scroll listener.
+  // Avoids Framer Motion's useTransform initialization race where derived MotionValues
+  // emit incorrect values (opacity=0 at scrollY=0) before stabilizing.
+  useEffect(() => {
+    let raf: number;
+    const update = () => {
+      const sy = window.scrollY;
+      const opacity = String(Math.max(0, 1 - Math.min(sy, 350) / 350));
+      const translateY = `translateY(${sy * (60 / 600)}px)`;
+      if (lineRef.current) lineRef.current.style.opacity = opacity;
+      if (subtitleWrapRef.current) {
+        subtitleWrapRef.current.style.opacity = opacity;
+        subtitleWrapRef.current.style.transform = translateY;
+      }
+    };
+    update(); // Set correct initial values immediately
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
 
   useEffect(() => {
     if (localStorage.getItem(HINT_STORAGE_KEY)) return;
@@ -91,13 +139,14 @@ const Hero: React.FC = () => {
       {/* Content with scroll parallax */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 pointer-events-none -mt-20 md:mt-0">
         <div className="flex flex-col gap-6">
-          {/* Accent line — slides in from off-screen left, clipped by section overflow:hidden */}
-          <motion.div
-            initial={{ x: -800 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            style={{ opacity: subtitleOpacity }}
-            className="w-12 h-px bg-cyan"
+          {/* Accent line — uses CSS classes (not inline style) so React never clears
+               the imperatively-set opacity from the scroll listener */}
+          <div
+            ref={lineRef}
+            className={`w-12 h-px bg-cyan origin-left${
+              animState === 'hidden' ? ' hero-line-hidden' :
+              animState === 'animate' ? ' hero-line-anim' : ''
+            }`}
           />
 
           {/* Name - oversized with scroll parallax */}
@@ -106,7 +155,7 @@ const Hero: React.FC = () => {
               <motion.h1
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
-                transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 className="font-display font-bold text-[clamp(3.5rem,11vw,10rem)] leading-[0.88] tracking-tighter text-white"
               >
                 Arnav
@@ -116,7 +165,7 @@ const Hero: React.FC = () => {
               <motion.h1
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
-                transition={{ duration: 1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 1, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className="font-display font-bold text-[clamp(3.5rem,11vw,10rem)] leading-[0.88] tracking-tighter text-white"
               >
                 Dashaputra
@@ -124,20 +173,18 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Subtitle — slides in from off-screen left, clipped by section overflow:hidden */}
-          <motion.div
-            style={{ y: subtitleY, opacity: subtitleOpacity }}
-            className="mt-4"
-          >
-            <motion.p
-              initial={{ x: -1000 }}
-              animate={{ x: 0 }}
-              transition={{ duration: 1.2, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="font-body text-lg md:text-xl text-silver/90 leading-relaxed"
+          {/* Subtitle — uses CSS classes (not inline style) for same reason as line */}
+          <div ref={subtitleWrapRef} className="mt-4 overflow-hidden">
+            <p
+              ref={subtitleTextRef}
+              className={`font-body text-lg md:text-xl text-silver/90 leading-relaxed${
+                animState === 'hidden' ? ' hero-subtitle-hidden' :
+                animState === 'animate' ? ' hero-subtitle-anim' : ''
+              }`}
             >
               Data Scientist & Full-Stack Engineer
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </div>
       </div>
 

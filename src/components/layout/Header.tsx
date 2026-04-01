@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 
@@ -11,11 +11,14 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const [ready, setReady] = useState(false);
   const atTopRef = useRef(true);
 
-  // Determine scroll position before first paint, then mount with correct animation
-  useLayoutEffect(() => {
-    atTopRef.current = window.scrollY < 100;
-    setIsScrolled(window.scrollY > 50);
-    setReady(true);
+  // Defer scroll check until after the browser restores scroll position (post-paint)
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      atTopRef.current = window.scrollY < 100;
+      setIsScrolled(window.scrollY > 50);
+      setReady(true);
+    });
+    return () => cancelAnimationFrame(id);
   }, []);
 
   const navItems = [
@@ -43,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     <motion.header
       initial={atTop ? { y: -100 } : false}
       animate={{ y: 0 }}
-      transition={atTop ? { duration: 0.6, delay: 1.1, ease: [0.16, 1, 0.3, 1] } : { duration: 0 }}
+      transition={atTop ? { duration: 0.6, delay: 0.95, ease: [0.16, 1, 0.3, 1] } : { duration: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'py-3 liquid-glass'
