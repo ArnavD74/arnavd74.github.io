@@ -246,18 +246,13 @@
   }
 
   .marquee-track {
-    animation: marquee-scroll 40s linear infinite;
+    animation: marquee-scroll 80s linear infinite;
     will-change: transform;
   }
 
   .marquee-reverse {
     animation-direction: reverse;
-    animation-duration: 35s;
-  }
-
-  /* Pause on container hover so hovering any child pauses the whole row */
-  .marquee-container:hover .marquee-track {
-    animation-play-state: paused;
+    animation-duration: 70s;
   }
 
   /* Scroll progress bar */

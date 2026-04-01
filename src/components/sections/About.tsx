@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { useIsMobile } from '../../hooks/useIsMobile';
 
 const blurUp = {
@@ -79,28 +79,59 @@ const mobileRow3 = allTech.slice(quarter * 2, quarter * 3);
 const mobileRow4 = allTech.slice(quarter * 3);
 
 // Defined at module level so React preserves DOM across parent re-renders
-const MarqueeRow = ({ items, reverse, speed }: { items: TechItem[]; reverse?: boolean; speed?: string }) => (
-  <div className="marquee-container relative overflow-hidden py-1 md:py-2 mb-1.5 md:mb-3">
-    <div className="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-obsidian to-transparent z-10 pointer-events-none" />
-    <div className="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-obsidian to-transparent z-10 pointer-events-none" />
+const MarqueeRow = ({ items, reverse, speed }: { items: TechItem[]; reverse?: boolean; speed?: string }) => {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+
+  useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
+
+  const easeRate = (target: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    cancelAnimationFrame(rafRef.current);
+    const anims = track.getAnimations();
+    if (anims.length === 0) return;
+    const start = anims[0].playbackRate;
+    const t0 = performance.now();
+    const dur = 1000;
+    const step = (now: number) => {
+      const t = Math.min((now - t0) / dur, 1);
+      const ease = 1 - (1 - t) * (1 - t) * (1 - t); // cubic ease-out
+      const rate = start + (target - start) * ease;
+      anims.forEach(a => { a.playbackRate = rate; });
+      if (t < 1) rafRef.current = requestAnimationFrame(step);
+    };
+    rafRef.current = requestAnimationFrame(step);
+  };
+
+  return (
     <div
-      className={`marquee-track flex w-max ${reverse ? 'marquee-reverse' : ''}`}
-      style={speed ? { animationDuration: speed } : undefined}
+      className="marquee-container relative overflow-hidden py-1 md:py-2 mb-1.5 md:mb-3"
+      onMouseEnter={() => easeRate(0.15)}
+      onMouseLeave={() => easeRate(1)}
     >
-      {[...items, ...items].map((tech, i) => (
-        <a
-          key={`${tech.name}-${i}`}
-          href={tech.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="tag mx-1 md:mx-1.5 inline-block cursor-pointer shrink-0 text-[10px] md:text-xs px-2 py-1 md:px-3 md:py-1.5"
-        >
-          {tech.name}
-        </a>
-      ))}
+      <div className="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-obsidian to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-obsidian to-transparent z-10 pointer-events-none" />
+      <div
+        ref={trackRef}
+        className={`marquee-track flex w-max ${reverse ? 'marquee-reverse' : ''}`}
+        style={speed ? { animationDuration: speed } : undefined}
+      >
+        {[...items, ...items].map((tech, i) => (
+          <a
+            key={`${tech.name}-${i}`}
+            href={tech.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tag mx-1 md:mx-1.5 inline-block cursor-pointer shrink-0 text-[10px] md:text-xs px-2 py-1 md:px-3 md:py-1.5"
+          >
+            {tech.name}
+          </a>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -210,10 +241,10 @@ const About: React.FC = () => {
 
           {/* Mobile: 4 rows, faster */}
           <div className="md:hidden">
-            <MarqueeRow items={mobileRow1} speed="20s" />
-            <MarqueeRow items={mobileRow2} speed="22s" reverse />
-            <MarqueeRow items={mobileRow3} speed="19s" />
-            <MarqueeRow items={mobileRow4} speed="21s" reverse />
+            <MarqueeRow items={mobileRow1} speed="40s" />
+            <MarqueeRow items={mobileRow2} speed="44s" reverse />
+            <MarqueeRow items={mobileRow3} speed="38s" />
+            <MarqueeRow items={mobileRow4} speed="42s" reverse />
           </div>
         </motion.div>
       </div>
