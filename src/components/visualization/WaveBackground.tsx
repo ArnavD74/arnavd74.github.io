@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 
 const PERIOD_W = 1800; // px — one full wave cycle; translateX animates exactly this far
-const STRIP_W  = 5000; // px — must exceed (rotated container width + PERIOD_W)
+const STRIP_W  = 9000; // px — must exceed (rotated container width + PERIOD_W); covers up to 4K viewports
 
 // Full site palette — split into warm-cyan and cool-steel tiers
 const BRIGHT = ['0,212,255', '56,189,248', '125,211,252'];          // cyan family
