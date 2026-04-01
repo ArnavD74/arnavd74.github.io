@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
                       rel="noopener noreferrer"
                       className="px-3 py-1.5 bg-slate/40 rounded-lg text-xs text-ash hover:text-cyan
                                  border border-zinc/15 hover:border-cyan/30 transition-all"
-                      title={credit.note}
+                      title={credit.name}
                     >
                       {credit.name}
                     </a>
