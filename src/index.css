@@ -239,7 +239,7 @@
     background: linear-gradient(90deg, transparent, rgba(61, 69, 86, 0.4), transparent);
   }
 
-  /* Marquee animation - translateX by 25% since we use 4x copies */
+  /* Marquee animation - translateX by 50% since we use 4x copies (shifts 2 copies per cycle) */
   @keyframes marquee-scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
