@@ -207,17 +207,17 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, filter: 'blur(8px)' }}
             transition={{ duration: 0.8 }}
-            className="absolute right-12 lg:right-24 top-1/3 z-30 pointer-events-none hidden md:flex items-center gap-5 text-white"
+            className="absolute z-30 pointer-events-none flex items-center gap-3
+                       left-6 top-[70%] text-frost/30
+                       md:left-[68%] md:top-[56%] md:text-frost/50 md:gap-5"
           >
-            <span className="text-sm tracking-[0.2em] uppercase font-light text-frost/50">try clicking</span>
+            <span className="text-xs md:text-sm tracking-[0.2em] uppercase font-light">try clicking</span>
             <svg
-              width="28"
-              height="28"
+              className="w-5 h-5 md:w-7 md:h-7 text-cyan/30 md:text-cyan/40"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
-              className="text-cyan/40"
             >
               <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
               <circle cx="12" cy="12" r="3" />
