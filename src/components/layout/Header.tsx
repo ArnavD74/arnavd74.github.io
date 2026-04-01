@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 
@@ -11,8 +11,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const [ready, setReady] = useState(false);
   const atTopRef = useRef(true);
 
-  // useEffect runs after paint + scroll restoration, so scrollY is correct
-  useEffect(() => {
+  // Determine scroll position before first paint, then mount with correct animation
+  useLayoutEffect(() => {
     atTopRef.current = window.scrollY < 100;
     setIsScrolled(window.scrollY > 50);
     setReady(true);
