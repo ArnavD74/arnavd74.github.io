@@ -8,6 +8,8 @@ interface Particle {
   yvel: number;
   t: number;
   color: { r: number; g: number; b: number };
+  fadeInDelay: number;
+  currentFade: number;
 }
 
 // Blue spectrum colors (weighted toward darker shades)
@@ -32,6 +34,8 @@ const particleColors = [
   { r: 255, g: 255, b: 255 },  // white (accent)
 ];
 
+let initialFadeComplete = false;
+
 const ParticleNetwork: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,6 +44,7 @@ const ParticleNetwork: React.FC = () => {
   const attractionTimerRef = useRef(0);
   const animationFrameRef = useRef<number>(0);
   const visibleRef = useRef(true);
+  const startTimeRef = useRef<number>(0);
 
   const config = {
     connectionDistance: 120,
@@ -80,6 +85,8 @@ const ParticleNetwork: React.FC = () => {
       yvel: config.maxSpeed * (Math.random() * 2 - 1),
       t: config.minTransparency + Math.random() * (config.maxTransparency - config.minTransparency),
       color: getRandomColor(),
+      fadeInDelay: initialFadeComplete ? 0 : Math.random() * 1500,
+      currentFade: initialFadeComplete ? 1 : 0,
     };
   }, []);
 
@@ -128,6 +135,9 @@ const ParticleNetwork: React.FC = () => {
   }, []);
 
   const drawParticle = useCallback((ctx: CanvasRenderingContext2D, particle: Particle) => {
+    const alpha = particle.t * particle.currentFade;
+    if (alpha <= 0) return;
+
     // Draw lines to nearby particles - closer = more opaque
     particlesRef.current.forEach(other => {
       if (other === particle) return;
@@ -137,7 +147,7 @@ const ParticleNetwork: React.FC = () => {
         const transparency = sigmoid(
           (-6 / (2 * config.fadeOut)) * (distance - (config.connectionDistance + config.fadeOut))
         );
-        const lineAlpha = Math.max(0, transparency * 0.15 * Math.min(particle.t, other.t));
+        const lineAlpha = Math.max(0, transparency * 0.15 * Math.min(alpha, other.t * other.currentFade));
 
         // Blend the two particle colors for the line
         const avgR = Math.round((particle.color.r + other.color.r) / 2);
@@ -167,7 +177,7 @@ const ParticleNetwork: React.FC = () => {
       particle.x, particle.y, 0,
       particle.x, particle.y, particle.r * 3
     );
-    gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${particle.t * 0.3})`);
+    gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${alpha * 0.3})`);
     gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
     ctx.fillStyle = gradient;
     ctx.beginPath();
@@ -175,7 +185,7 @@ const ParticleNetwork: React.FC = () => {
     ctx.fill();
 
     // Core particle
-    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${particle.t})`;
+    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
     ctx.beginPath();
     ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
     ctx.fill();
@@ -244,6 +254,20 @@ const ParticleNetwork: React.FC = () => {
       const pullFactor = ch * cw * sizePerPixel;
 
       ctx.clearRect(0, 0, cw, ch);
+
+      // Compute dot fade-in progress
+      if (!initialFadeComplete) {
+        if (startTimeRef.current === 0) startTimeRef.current = currentTime;
+        const elapsedMs = currentTime - startTimeRef.current;
+        let allDone = true;
+        particlesRef.current.forEach(p => {
+          if (p.currentFade < 1) {
+            p.currentFade = Math.min(1, Math.max(0, (elapsedMs - p.fadeInDelay) / 500));
+            if (p.currentFade < 1) allDone = false;
+          }
+        });
+        if (allDone) initialFadeComplete = true;
+      }
 
       particlesRef.current.forEach(p => updateParticle(p, cw, ch, pullFactor));
 

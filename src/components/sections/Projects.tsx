@@ -59,14 +59,40 @@ const Projects: React.FC = () => {
           className="mb-16 md:mb-20"
         >
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-mono text-xs text-cyan tracking-widest">02</span>
-            <div className="w-12 h-px bg-cyan" />
-            <span className="font-mono text-xs text-ash tracking-widest uppercase">Works</span>
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="font-mono text-xs text-cyan tracking-widest"
+            >02</motion.span>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="w-12 h-px bg-cyan"
+            />
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="font-mono text-xs text-ash tracking-widest uppercase"
+            >Works</motion.span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h2 className="section-title text-white">
-              My Work
-            </h2>
+            <div className="overflow-hidden">
+              <motion.h2
+                initial={{ y: '100%' }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                className="section-title text-white"
+              >
+                My Work
+              </motion.h2>
+            </div>
 
             {/* Filter pills */}
             <div className="flex gap-1 p-1 bg-slate/40 rounded-xl border border-zinc/15 backdrop-blur-sm">
