@@ -20,6 +20,7 @@ interface WaveConfig {
   colorDelay: number;    // crossfade pre-start (s)
   color1: string;        // r,g,b — bright
   color2: string;        // r,g,b — cool
+  angle: number;         // per-wave rotation offset (degrees)
 }
 
 // Bakes a sine-wave SVG (optionally with a 2nd harmonic) as a CSS url() data-URI.
@@ -82,46 +83,48 @@ const WaveBackground: React.FC = () => {
   const waves = useMemo<WaveConfig[]>(() => {
     const configs: WaveConfig[] = [];
 
-    // 13 surface waves — spread evenly across the height with jitter
-    for (let i = 0; i < 13; i++) {
-      const baseY    = 3 + (i / 12) * 87;                          // 3 → 90%
-      const yPercent = Math.max(2, Math.min(93, baseY + (Math.random() - 0.5) * 8));
-      const amplitude = 42 + Math.random() * 42;                   // 42–84 px
-      const duration  = 70  + Math.random() * 60;                  // 70–130 s
+    // 20 surface waves — spread evenly across the height with jitter
+    for (let i = 0; i < 20; i++) {
+      const baseY    = 3 + (i / 19) * 87;                          // 3 → 90%
+      const yPercent = Math.max(2, Math.min(93, baseY + (Math.random() - 0.5) * 10));
+      const amplitude = 45 + Math.random() * 55;                   // 45–100 px
+      const duration  = 55  + Math.random() * 55;                  // 55–110 s (faster)
       configs.push({
         id: i,
         yPercent,
         amplitude,
         phase:         Math.random() * Math.PI * 2,
-        harmonic:      Math.random() * 0.35,                        // varied shapes
+        harmonic:      Math.random() * 0.4,                         // more varied shapes
         duration,
         delay:         Math.random() * duration,                    // random start position
-        opacity:       0.18 + Math.random() * 0.15,
-        colorDuration: 70  + Math.random() * 70,
+        opacity:       0.16 + Math.random() * 0.16,
+        colorDuration: 60  + Math.random() * 70,
         colorDelay:    Math.random() * 130,
         color1: pick(BRIGHT),
         color2: pick(COOL),
+        angle:         (Math.random() - 0.5) * 5,                  // ±2.5° variance
       });
     }
 
     // 3 deep swells — barely-there background volume
     for (let i = 0; i < 3; i++) {
       const yPercent  = 10 + i * 35 + (Math.random() - 0.5) * 15; // ~10, 45, 80%
-      const amplitude = 85 + Math.random() * 40;                   // 85–125 px
-      const duration  = 150 + Math.random() * 70;                  // 150–220 s
+      const amplitude = 95 + Math.random() * 50;                   // 95–145 px (wider)
+      const duration  = 120 + Math.random() * 70;                  // 120–190 s (faster)
       configs.push({
-        id: 13 + i,
+        id: 20 + i,
         yPercent,
         amplitude,
         phase:         Math.random() * Math.PI * 2,
-        harmonic:      Math.random() * 0.2,                         // swells smoother
+        harmonic:      Math.random() * 0.25,                        // swells smoother
         duration,
         delay:         Math.random() * duration,
-        opacity:       0.04 + Math.random() * 0.05,
-        colorDuration: 120 + Math.random() * 80,
+        opacity:       0.04 + Math.random() * 0.06,
+        colorDuration: 100 + Math.random() * 80,
         colorDelay:    Math.random() * 150,
         color1: pick(BRIGHT),
         color2: pick(COOL),
+        angle:         (Math.random() - 0.5) * 3,                  // ±1.5° variance (subtler for swells)
       });
     }
 
@@ -176,12 +179,18 @@ const WaveBackground: React.FC = () => {
       }}>
         {isVisible && waves.map((w, idx) => {
           const H    = w.amplitude * 2 + 20;
-          const base: React.CSSProperties = {
+          const wrapStyle: React.CSSProperties = {
             position: 'absolute',
             top: `${w.yPercent}%`,
             left: 0,
             width:  `${STRIP_W}px`,
             height: `${H}px`,
+            transform: w.angle ? `rotate(${w.angle.toFixed(2)}deg)` : undefined,
+            transformOrigin: 'center center',
+          };
+          const strip: React.CSSProperties = {
+            position: 'absolute',
+            inset: 0,
             backgroundSize:   `${PERIOD_W}px 100%`,
             backgroundRepeat: 'repeat-x',
             willChange: 'transform, opacity',
@@ -192,10 +201,10 @@ const WaveBackground: React.FC = () => {
           const f2    = `showColor2 ${w.colorDuration}s ease-in-out -${w.colorDelay}s infinite`;
 
           return (
-            <React.Fragment key={w.id}>
-              <div style={{ ...base, backgroundImage: uris1[idx], animation: `${drift}, ${f1}` }} />
-              <div style={{ ...base, backgroundImage: uris2[idx], animation: `${drift}, ${f2}` }} />
-            </React.Fragment>
+            <div key={w.id} style={wrapStyle}>
+              <div style={{ ...strip, backgroundImage: uris1[idx], animation: `${drift}, ${f1}` }} />
+              <div style={{ ...strip, backgroundImage: uris2[idx], animation: `${drift}, ${f2}` }} />
+            </div>
           );
         })}
       </div>
