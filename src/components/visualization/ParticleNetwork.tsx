@@ -255,14 +255,14 @@ const ParticleNetwork: React.FC = () => {
 
       ctx.clearRect(0, 0, cw, ch);
 
-      // Compute dot fade-in progress
+      // Compute dot fade-in progress (1s global delay before any dots appear)
       if (!initialFadeComplete) {
         if (startTimeRef.current === 0) startTimeRef.current = currentTime;
-        const elapsedMs = currentTime - startTimeRef.current;
+        const fadeElapsed = currentTime - startTimeRef.current - 1000;
         let allDone = true;
         particlesRef.current.forEach(p => {
           if (p.currentFade < 1) {
-            p.currentFade = Math.min(1, Math.max(0, (elapsedMs - p.fadeInDelay) / 500));
+            p.currentFade = fadeElapsed > 0 ? Math.min(1, Math.max(0, (fadeElapsed - p.fadeInDelay) / 500)) : 0;
             if (p.currentFade < 1) allDone = false;
           }
         });

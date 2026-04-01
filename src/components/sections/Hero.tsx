@@ -94,9 +94,12 @@ const Hero: React.FC = () => {
           {/* Accent line (no number) */}
           <motion.div style={{ opacity: subtitleOpacity }}>
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
+              initial={{ opacity: 0, x: -150 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                x: { duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] },
+                opacity: { duration: 0.3, delay: 0.7 },
+              }}
               className="w-12 h-px bg-cyan"
             />
           </motion.div>
@@ -131,9 +134,12 @@ const Hero: React.FC = () => {
             className="mt-4"
           >
             <motion.p
-              initial={{ opacity: 0, x: -60 }}
+              initial={{ opacity: 0, x: -200 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                x: { duration: 1.2, delay: 0.9, ease: [0.16, 1, 0.3, 1] },
+                opacity: { duration: 0.3, delay: 0.9 },
+              }}
               className="font-body text-lg md:text-xl text-silver/90 leading-relaxed"
             >
               Data Scientist & Full-Stack Engineer
