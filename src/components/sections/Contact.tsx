@@ -79,21 +79,21 @@ const Contact: React.FC = () => {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   className="font-mono text-xs text-cyan tracking-widest"
                 >04</motion.span>
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
                   className="w-12 h-px bg-cyan"
                 />
                 <motion.span
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   className="font-mono text-xs text-ash tracking-widest uppercase"
                 >Contact</motion.span>
               </div>
@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
                   initial={{ y: '100%' }}
                   whileInView={{ y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                   className="section-title text-white"
                 >
                   Get in Touch
