@@ -201,7 +201,7 @@ const About: React.FC = () => {
           >
             <div className="space-y-6 body-text">
               <p className="text-frost text-lg leading-relaxed">
-                Hey, I'm Arnav, thanks for visiting my site!
+                Hey, thanks for visiting my site!
               </p>
               <p>
                 My background spans full-stack engineering (React, Node, Python), cloud infrastructure (AWS),

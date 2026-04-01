@@ -49,10 +49,12 @@ const Footer: React.FC = () => {
     { name: 'Framer Motion', url: 'https://www.framer.com/motion' },
     { name: 'React Router', url: 'https://reactrouter.com' },
     { name: 'React Scroll', url: 'https://www.npmjs.com/package/react-scroll' },
-    { name: 'Particle Animation', url: 'https://github.com/wingo206', note: 'Original by wingo206' },
-    { name: 'Clash Display', url: 'https://www.fontshare.com/fonts/clash-display', note: 'Display font' },
-    { name: 'Satoshi', url: 'https://www.fontshare.com/fonts/satoshi', note: 'Body font' },
-    { name: 'JetBrains Mono', url: 'https://fonts.google.com/specimen/JetBrains+Mono', note: 'Monospace font' },
+  ];
+
+  const fonts = [
+    { name: 'Clash Display', url: 'https://www.fontshare.com/fonts/clash-display', fontClass: 'font-display' },
+    { name: 'Satoshi', url: 'https://www.fontshare.com/fonts/satoshi', fontClass: 'font-body' },
+    { name: 'JetBrains Mono', url: 'https://fonts.google.com/specimen/JetBrains+Mono', fontClass: 'font-mono' },
   ];
 
   return (
@@ -60,7 +62,13 @@ const Footer: React.FC = () => {
       {/* Top bar with toggle */}
       <div className="py-8 px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center gap-4 text-center">
-          <div className="flex items-center gap-3">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-20px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="flex items-center gap-3"
+          >
             <p className="font-mono text-xs text-ash">
               Designed & Built by Arnav Dashaputra
             </p>
@@ -68,14 +76,18 @@ const Footer: React.FC = () => {
             <p className="font-mono text-xs text-ash">
               2019 - {currentYear}
             </p>
-          </div>
+          </motion.div>
 
-          <button
+          <motion.button
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-20px' }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             onClick={handleToggle}
             className="font-mono text-xs text-ash hover:text-cyan transition-colors cursor-pointer"
           >
             {showCredits ? 'Hide Credits' : 'Credits & Attributions'}
-          </button>
+          </motion.button>
         </div>
       </div>
 
@@ -89,7 +101,7 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-10 pt-2 border-t border-zinc/10">
+            <div className="px-6 pb-10 pt-2">
               <div className="max-w-2xl mx-auto">
                 <p className="font-mono text-[10px] text-ash uppercase tracking-widest text-center mb-5">
                   Built with
@@ -106,6 +118,21 @@ const Footer: React.FC = () => {
                       title={credit.note}
                     >
                       {credit.name}
+                    </a>
+                  ))}
+                </div>
+                <div className="flex flex-wrap justify-center items-center gap-2 mt-3">
+                  <span className="font-display text-lg text-silver/50 mr-1 relative top-[1px]">Aa</span>
+                  {fonts.map((font) => (
+                    <a
+                      key={font.name}
+                      href={font.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-3 py-1.5 bg-slate/40 rounded-lg text-xs text-ash hover:text-cyan
+                                 border border-zinc/15 hover:border-cyan/30 transition-all ${font.fontClass}`}
+                    >
+                      {font.name}
                     </a>
                   ))}
                 </div>
