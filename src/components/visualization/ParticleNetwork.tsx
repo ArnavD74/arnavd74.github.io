@@ -208,10 +208,13 @@ const ParticleNetwork: React.FC = () => {
       const dotsPerPixel = 110 / (1903 * 969);
       const dotCount = Math.floor(cw * ch * dotsPerPixel);
 
-      if (particlesRef.current.length === 0) {
-        for (let i = 0; i < dotCount; i++) {
+      const current = particlesRef.current.length;
+      if (current < dotCount) {
+        for (let i = current; i < dotCount; i++) {
           particlesRef.current.push(createParticle(cw, ch));
         }
+      } else if (current > dotCount) {
+        particlesRef.current.length = dotCount;
       }
     };
 
@@ -226,6 +229,10 @@ const ParticleNetwork: React.FC = () => {
     };
 
     resize();
+    // Use ResizeObserver to catch all container size changes — including
+    // mobile dvh stabilization on first load that window 'resize' misses.
+    const ro = new ResizeObserver(() => resize());
+    ro.observe(container);
     window.addEventListener('resize', resize);
     container.addEventListener('mousemove', handleMouseMove);
     container.addEventListener('click', handleClick);
@@ -297,6 +304,7 @@ const ParticleNetwork: React.FC = () => {
     animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => {
+      ro.disconnect();
       window.removeEventListener('resize', resize);
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('click', handleClick);
