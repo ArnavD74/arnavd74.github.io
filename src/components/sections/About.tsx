@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import { useIsMobile } from '../../hooks/useIsMobile';
+import ScrollReveal from '../ui/ScrollReveal';
 
 const blurUp = {
   hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
@@ -101,15 +102,13 @@ const MarqueeRow = ({ items, reverse, speed }: { items: TechItem[]; reverse?: bo
 
   return (
     <div
-      className="marquee-container relative overflow-hidden py-1 md:py-2 mb-1.5 md:mb-3"
+      className="marquee-container relative overflow-hidden py-1 md:py-2 mb-1.5 md:mb-3 marquee-fade"
       onMouseEnter={() => easeRate(0.15)}
       onMouseLeave={() => easeRate(1)}
       onTouchStart={() => easeRate(0.15)}
       onTouchEnd={() => easeRate(1)}
       onTouchCancel={() => easeRate(1)}
     >
-      <div className="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-obsidian to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-obsidian to-transparent z-10 pointer-events-none" />
       <div
         ref={trackRef}
         className={`marquee-track flex w-max ${reverse ? 'marquee-reverse' : ''}`}
@@ -138,8 +137,8 @@ const About: React.FC = () => {
     target: sectionRef,
     offset: ['start end', 'end start'],
   });
-  const headerY = useTransform(scrollYProgress, [0, 0.4], [60, 0]);
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+  const headerY = useTransform(scrollYProgress, [0, 0.4, 0.85, 1], [60, 0, 0, -40]);
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.2, 0.85, 1], [0, 1, 1, 0]);
 
   const mobileViewport = isMobile
     ? { once: true, margin: '2000px' as const }
@@ -191,86 +190,90 @@ const About: React.FC = () => {
 
         {/* Main content grid */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          <motion.div
-            variants={blurUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={mobileViewport ?? { once: true, margin: '-80px' }}
-            custom={0}
-            className="lg:col-span-7 order-2 lg:order-1"
-          >
-            <div className="space-y-6 body-text">
-              <p className="text-frost text-lg leading-relaxed">
-                Hey, thanks for visiting my site!
-              </p>
-              <p>
-                My background spans full-stack engineering (React, Node, Python), cloud infrastructure (AWS),
-                and data science/ML workflows. I'm most engaged when I can move between these areas
-                rather than stay siloed in one.
-              </p>
-              <p>
-                I have a strong bias for action, translating business needs into dependable
-                software through analytical processes and methodical execution. I'm currently
-                working as a Data Scientist while continuing to build and ship software projects.
-              </p>
-              <p>
-                Beyond development, some niche interests I have include Discord bot development,
-                custom peripheral design (mechanical keyboards, enthusiast-grade mice),
-                PC hardware, and DIY embedded systems projects.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            variants={blurUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={mobileViewport ?? { once: true, margin: '-80px' }}
-            custom={0.1}
-            className="lg:col-span-5 order-1 lg:order-2"
-          >
-            <div className="relative w-4/5 mx-auto group">
-              <div className="absolute -inset-3 border border-zinc/20 rounded-lg" />
-              <div className="absolute -top-3 -left-3 w-6 h-6 border-l-2 border-t-2 border-cyan" />
-              <div className="absolute -bottom-3 -right-3 w-6 h-6 border-r-2 border-b-2 border-cyan" />
-              <div className="relative aspect-square rounded-lg overflow-hidden bg-graphite">
-                <img
-                  src="/images/pfp2.png"
-                  alt="Arnav Dashaputra"
-                  className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
-                />
-                <div className="absolute inset-0 bg-obsidian/10" />
+          <ScrollReveal className="lg:col-span-7 order-2 lg:order-1">
+            <motion.div
+              variants={blurUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={mobileViewport ?? { once: true, margin: '-80px' }}
+              custom={0}
+            >
+              <div className="space-y-6 body-text">
+                <p className="text-frost text-lg leading-relaxed">
+                  Hey, thanks for visiting my site!
+                </p>
+                <p>
+                  My background spans full-stack engineering (React, Node, Python), cloud infrastructure (AWS),
+                  and data science/ML workflows. I'm most engaged when I can move between these areas
+                  rather than stay siloed in one.
+                </p>
+                <p>
+                  I have a strong bias for action, translating business needs into dependable
+                  software through analytical processes and methodical execution. I'm currently
+                  working as a Data Scientist while continuing to build and ship software projects.
+                </p>
+                <p>
+                  Beyond development, some niche interests I have include Discord bot development,
+                  custom peripheral design (mechanical keyboards, enthusiast-grade mice),
+                  PC hardware, and DIY embedded systems projects.
+                </p>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </ScrollReveal>
+
+          <ScrollReveal className="lg:col-span-5 order-1 lg:order-2">
+            <motion.div
+              variants={blurUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={mobileViewport ?? { once: true, margin: '-80px' }}
+              custom={0.1}
+            >
+              <div className="relative w-4/5 mx-auto group">
+                <div className="absolute -inset-3 border border-zinc/20 rounded-lg" />
+                <div className="absolute -top-3 -left-3 w-6 h-6 border-l-2 border-t-2 border-cyan" />
+                <div className="absolute -bottom-3 -right-3 w-6 h-6 border-r-2 border-b-2 border-cyan" />
+                <div className="relative aspect-square rounded-lg overflow-hidden bg-graphite">
+                  <img
+                    src="/images/pfp2.png"
+                    alt="Arnav Dashaputra"
+                    className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-obsidian/10" />
+                </div>
+              </div>
+            </motion.div>
+          </ScrollReveal>
         </div>
 
         {/* Tech Stack Marquee */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={mobileViewport ?? { once: true }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-14 md:mt-28"
-        >
-          <h3 className="font-mono text-[10px] text-ash uppercase tracking-[0.2em] mb-4 md:mb-6 text-center">
-            Technologies I Work With
-          </h3>
+        <ScrollReveal className="mt-14 md:mt-28">
+          <motion.div
+            variants={blurUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0}
+          >
+            <h3 className="font-mono text-[10px] text-ash uppercase tracking-[0.2em] mb-4 md:mb-6 text-center">
+              Technologies I Work With
+            </h3>
 
-          {/* Desktop: 2 rows */}
-          <div className="hidden md:block">
-            <MarqueeRow items={techRow1} />
-            <MarqueeRow items={techRow2} reverse />
-          </div>
+            {/* Desktop: 2 rows */}
+            <div className="hidden md:block">
+              <MarqueeRow items={techRow1} />
+              <MarqueeRow items={techRow2} reverse />
+            </div>
 
-          {/* Mobile: 4 rows, faster */}
-          <div className="md:hidden">
-            <MarqueeRow items={mobileRow1} speed="60s" />
-            <MarqueeRow items={mobileRow2} speed="66s" reverse />
-            <MarqueeRow items={mobileRow3} speed="57s" />
-            <MarqueeRow items={mobileRow4} speed="63s" reverse />
-          </div>
-        </motion.div>
+            {/* Mobile: 4 rows, faster */}
+            <div className="md:hidden">
+              <MarqueeRow items={mobileRow1} speed="60s" />
+              <MarqueeRow items={mobileRow2} speed="66s" reverse />
+              <MarqueeRow items={mobileRow3} speed="57s" />
+              <MarqueeRow items={mobileRow4} speed="63s" reverse />
+            </div>
+          </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );
