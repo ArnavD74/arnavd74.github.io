@@ -26,8 +26,10 @@ const Projects: React.FC = () => {
     target: sectionRef,
     offset: ['start end', 'end start'],
   });
-  const headerY = useTransform(scrollYProgress, [0, 0.3], [60, 0]);
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
+  const headerY = useTransform(scrollYProgress, [0, 0.3, 0.85, 1], [60, 0, 0, -40]);
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
+  const contentY = useTransform(scrollYProgress, [0.05, 0.4, 0.85, 1], [40, 0, 0, -20]);
+  const contentOpacity = useTransform(scrollYProgress, [0.02, 0.18, 0.85, 1], [0, 1, 1, 0]);
 
   const categories: { id: Category; label: string }[] = [
     { id: 'projects', label: 'Projects' },
@@ -121,6 +123,7 @@ const Projects: React.FC = () => {
         </motion.div>
 
         {/* Projects grid - fluid tiles */}
+        <motion.div style={{ y: contentY, opacity: contentOpacity }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
@@ -210,6 +213,7 @@ const Projects: React.FC = () => {
             ))}
           </motion.div>
         </AnimatePresence>
+        </motion.div>
       </div>
 
       <ProjectModal

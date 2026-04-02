@@ -1,13 +1,12 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { useIsMobile } from '../../hooks/useIsMobile';
+import ScrollReveal from '../ui/ScrollReveal';
 
 const blurUp = {
-  hidden: { opacity: 0, y: 30, x: -20, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    x: 0,
     filter: 'blur(0px)',
     transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as const },
   }),
@@ -42,17 +41,12 @@ const testimonials: Testimonial[] = [
 
 const Testimonials: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
   });
-  const headerY = useTransform(scrollYProgress, [0, 0.3], [60, 0]);
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
-
-  const mobileViewport = isMobile
-    ? { once: true, margin: '2000px' as const }
-    : undefined;
+  const headerY = useTransform(scrollYProgress, [0, 0.3, 0.85, 1], [60, 0, 0, -40]);
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
 
   return (
     <section ref={sectionRef} id="testimonials" className="pt-32 pb-20 md:py-44 relative">
@@ -101,15 +95,15 @@ const Testimonials: React.FC = () => {
         {/* Testimonial cards */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {testimonials.map((t, index) => (
-            <motion.div
-              key={t.name}
-              variants={blurUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={mobileViewport ?? { once: true, margin: '-60px' }}
-              custom={index * 0.12}
-              className="group relative bento-card p-8 md:p-10 flex flex-col"
-            >
+            <ScrollReveal key={t.name}>
+              <motion.div
+                variants={blurUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={index * 0.12}
+                className="group relative bento-card p-8 md:p-10 flex flex-col h-full"
+              >
               {/* Quote mark */}
               <svg
                 className="w-10 h-10 text-cyan/15 mb-6 shrink-0"
@@ -140,7 +134,8 @@ const Testimonials: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+              </motion.div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

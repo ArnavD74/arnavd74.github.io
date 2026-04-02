@@ -17,10 +17,10 @@ const Footer: React.FC = () => {
 
     rafRef.current = requestAnimationFrame(scrollToBottom);
 
-    // Stop after animation settles (500ms matches transition duration)
+    // Stop after animation settles (650ms matches transition duration)
     const timeout = setTimeout(() => {
       cancelAnimationFrame(rafRef.current);
-    }, 550);
+    }, 700);
 
     return () => {
       cancelAnimationFrame(rafRef.current);
@@ -63,10 +63,10 @@ const Footer: React.FC = () => {
       <div className="py-8 px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center gap-4 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-20px' }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center gap-3"
           >
             <p className="font-mono text-xs text-ash">
@@ -79,10 +79,10 @@ const Footer: React.FC = () => {
           </motion.div>
 
           <motion.button
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-20px' }}
-            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
             onClick={handleToggle}
             className="font-mono text-xs text-ash hover:text-cyan transition-colors cursor-pointer"
           >
@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
             <div className="px-6 pb-10 pt-2">

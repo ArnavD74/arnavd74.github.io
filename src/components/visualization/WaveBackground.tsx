@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 
 const PERIOD_W = 1800; // px — one full wave cycle; translateX animates exactly this far
-const STRIP_W  = 9000; // px — must exceed (rotated container width + PERIOD_W); covers up to 4K viewports
+const STRIP_W  = 10500; // px — must exceed (rotated container width + PERIOD_W); covers up to 5K viewports
 
 // Full site palette — split into warm-cyan and cool-steel tiers
 const BRIGHT = ['0,212,255', '56,189,248', '125,211,252'];          // cyan family
@@ -170,10 +170,13 @@ const WaveBackground: React.FC = () => {
     >
       <style>{keyframes}</style>
 
-      {/* Rotated stage — all strips at −12°; extra left overshoot prevents edge gaps on narrow screens */}
+      {/* Rotated stage — all strips at −12°; left overshoot uses min() so it scales with vh on tall narrow mobiles */}
       <div style={{
         position: 'absolute',
-        inset: '-35% -15% -35% -40%',
+        top: '-35%',
+        right: '-15%',
+        bottom: '-35%',
+        left: 'min(-40%, -80vh)',
         transform: 'rotate(-12deg)',
         transformOrigin: 'center center',
       }}>

@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { contact } from '../../data/contact';
-import { useIsMobile } from '../../hooks/useIsMobile';
+import ScrollReveal from '../ui/ScrollReveal';
 
 const blurUp = {
   hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
@@ -15,17 +15,12 @@ const blurUp = {
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
   });
-  const headerY = useTransform(scrollYProgress, [0, 0.3], [60, 0]);
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
-
-  const mobileViewport = isMobile
-    ? { once: true, margin: '2000px' as const }
-    : undefined;
+  const headerY = useTransform(scrollYProgress, [0, 0.3, 0.85, 1], [60, 0, 0, -40]);
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
 
   const contactItems = [
     {
@@ -111,13 +106,14 @@ const Contact: React.FC = () => {
             </motion.div>
 
             {/* CTA */}
-            <motion.div
-              variants={blurUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={mobileViewport ?? { once: true }}
-              custom={0}
-            >
+            <ScrollReveal>
+              <motion.div
+                variants={blurUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={0}
+              >
               <p className="text-frost text-lg md:text-xl leading-relaxed mb-10">
                 I'm always looking for new opportunities.
                 <br />
@@ -153,23 +149,26 @@ const Contact: React.FC = () => {
                   Resume
                 </motion.a>
               </div>
-            </motion.div>
+              </motion.div>
+            </ScrollReveal>
           </div>
 
           {/* Right column - vertically centered to the full section height */}
           <div className="flex items-center">
             <div className="space-y-4 w-full">
               {contactItems.map((item, index) => (
+                <ScrollReveal key={item.label}>
+                  <motion.div
+                    variants={blurUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={0.1 + index * 0.1}
+                  >
                 <motion.a
-                  key={item.label}
                   href={item.href}
                   target={item.href.startsWith('http') ? '_blank' : undefined}
                   rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  variants={blurUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={mobileViewport ?? { once: true }}
-                  custom={0.1 + index * 0.1}
                   whileHover={{ x: 6 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                   className="group flex items-center gap-5 bento-card p-5 cursor-pointer"
@@ -194,6 +193,8 @@ const Contact: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 17L17 7M17 7H7M17 7v10" />
                   </svg>
                 </motion.a>
+                  </motion.div>
+                </ScrollReveal>
               ))}
             </div>
           </div>

@@ -126,7 +126,7 @@ const Hero: React.FC = () => {
   }, [showHint]);
 
   return (
-    <section ref={sectionRef} id="home" className="relative h-dvh flex items-center md:items-center overflow-hidden">
+    <section ref={sectionRef} id="home" className="relative h-dvh flex items-center md:items-center overflow-hidden bg-obsidian">
       {/* Subtle grid */}
       <div className="absolute inset-0 grid-bg opacity-50" />
 

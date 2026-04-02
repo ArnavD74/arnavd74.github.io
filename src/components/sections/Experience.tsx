@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { experiences } from '../../data/experience';
-import { useIsMobile } from '../../hooks/useIsMobile';
+import ScrollReveal from '../ui/ScrollReveal';
 
 const blurUp = {
   hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
@@ -15,17 +15,12 @@ const blurUp = {
 
 const Experience: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
   });
-  const headerY = useTransform(scrollYProgress, [0, 0.3], [60, 0]);
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
-
-  const mobileViewport = isMobile
-    ? { once: true, margin: '2000px' as const }
-    : undefined;
+  const headerY = useTransform(scrollYProgress, [0, 0.3, 0.85, 1], [60, 0, 0, -40]);
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
 
   return (
     <section ref={sectionRef} id="experience" className="py-32 md:py-44 relative">
@@ -83,13 +78,8 @@ const Experience: React.FC = () => {
               const isLeft = index % 2 === 0;
 
               return (
-                <motion.div
+                <ScrollReveal
                   key={exp.id}
-                  variants={blurUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={mobileViewport ?? { once: true, margin: '-60px' }}
-                  custom={0.05}
                   className={`relative flex items-start ${
                     isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
@@ -112,9 +102,16 @@ const Experience: React.FC = () => {
                   <div className="w-12 shrink-0 md:hidden" />
 
                   {/* Card */}
-                  <div className={`flex-1 md:w-[calc(50%-3rem)] ${
-                    isLeft ? 'md:pr-14' : 'md:pl-14'
-                  }`}>
+                  <motion.div
+                    variants={blurUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-60px' }}
+                    custom={0.05}
+                    className={`flex-1 md:w-[calc(50%-3rem)] ${
+                      isLeft ? 'md:pr-14' : 'md:pl-14'
+                    }`}
+                  >
                     <div className="group timeline-card relative">
                       {/* Period badge */}
                       <div className="mb-4">
@@ -224,11 +221,11 @@ const Experience: React.FC = () => {
                       {/* Hover accent */}
                       <div className={`absolute top-0 ${isLeft ? 'right-0' : 'left-0'} w-0 group-hover:w-12 h-px bg-cyan/30 transition-all duration-700`} />
                     </div>
-                  </div>
+                  </motion.div>
 
                   {/* Empty space for alternating layout */}
                   <div className="hidden md:block flex-1 md:w-[calc(50%-3rem)]" />
-                </motion.div>
+                </ScrollReveal>
               );
             })}
           </div>
