@@ -87,10 +87,10 @@ const Footer: React.FC = () => {
           </motion.div>
 
           <motion.button
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            initial={isMobile ? false : { opacity: 0, y: 16 }}
+            whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
+            viewport={isMobile ? undefined : { once: true }}
+            transition={isMobile ? undefined : { duration: 0.8, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
             onClick={handleToggle}
             className="font-mono text-xs text-ash hover:text-cyan transition-colors cursor-pointer"
           >
