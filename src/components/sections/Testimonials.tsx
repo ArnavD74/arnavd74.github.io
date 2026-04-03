@@ -1,16 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import ScrollReveal from '../ui/ScrollReveal';
-
-const blurUp = {
-  hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as const },
-  }),
-};
 
 interface Testimonial {
   name: string;
@@ -79,7 +68,7 @@ const Testimonials: React.FC = () => {
               className="font-mono text-xs text-ash tracking-widest uppercase"
             >Testimonials</motion.span>
           </div>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden" style={{ clipPath: 'inset(0)' }}>
             <motion.h2
               initial={{ y: '100%' }}
               whileInView={{ y: 0 }}
@@ -95,47 +84,45 @@ const Testimonials: React.FC = () => {
         {/* Testimonial cards */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {testimonials.map((t, index) => (
-            <ScrollReveal key={t.name}>
-              <motion.div
-                variants={blurUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={index * 0.12}
-                className="group relative bento-card p-8 md:p-10 flex flex-col h-full"
-              >
-              {/* Quote mark */}
-              <svg
-                className="w-10 h-10 text-cyan/15 mb-6 shrink-0"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M11.3 2.5c-2 1-3.5 2.2-4.6 3.7C5.6 7.7 5 9.5 5 11.5c0 .4.1.7.2 1 .6-.5 1.3-.7 2.2-.7 1 0 1.8.3 2.5 1 .7.7 1 1.5 1 2.5s-.4 1.9-1.1 2.6c-.7.7-1.6 1.1-2.6 1.1-1.2 0-2.2-.5-3-1.4-.7-.9-1.1-2.1-1.1-3.5 0-2.5.8-4.8 2.3-6.8 1.5-2 3.5-3.5 5.9-4.4l.1.6zm10 0c-2 1-3.5 2.2-4.6 3.7-1.1 1.5-1.7 3.3-1.7 5.3 0 .4.1.7.2 1 .6-.5 1.3-.7 2.2-.7 1 0 1.8.3 2.5 1 .7.7 1 1.5 1 2.5s-.4 1.9-1.1 2.6c-.7.7-1.6 1.1-2.6 1.1-1.2 0-2.2-.5-3-1.4-.7-.9-1.1-2.1-1.1-3.5 0-2.5.8-4.8 2.3-6.8 1.5-2 3.5-3.5 5.9-4.4l.1.6z" />
-              </svg>
+            <motion.div key={t.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 + index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              style={{ transition: 'background 500ms ease, border-color 500ms ease' }}
+              className="group relative bento-card p-8 md:p-10 flex flex-col h-full"
+            >
+                {/* Quote mark */}
+                <svg
+                  className="w-10 h-10 text-cyan/15 mb-6 shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M11.3 2.5c-2 1-3.5 2.2-4.6 3.7C5.6 7.7 5 9.5 5 11.5c0 .4.1.7.2 1 .6-.5 1.3-.7 2.2-.7 1 0 1.8.3 2.5 1 .7.7 1 1.5 1 2.5s-.4 1.9-1.1 2.6c-.7.7-1.6 1.1-2.6 1.1-1.2 0-2.2-.5-3-1.4-.7-.9-1.1-2.1-1.1-3.5 0-2.5.8-4.8 2.3-6.8 1.5-2 3.5-3.5 5.9-4.4l.1.6zm10 0c-2 1-3.5 2.2-4.6 3.7-1.1 1.5-1.7 3.3-1.7 5.3 0 .4.1.7.2 1 .6-.5 1.3-.7 2.2-.7 1 0 1.8.3 2.5 1 .7.7 1 1.5 1 2.5s-.4 1.9-1.1 2.6c-.7.7-1.6 1.1-2.6 1.1-1.2 0-2.2-.5-3-1.4-.7-.9-1.1-2.1-1.1-3.5 0-2.5.8-4.8 2.3-6.8 1.5-2 3.5-3.5 5.9-4.4l.1.6z" />
+                </svg>
 
-              {/* Quote text */}
-              <blockquote className="text-silver text-sm md:text-[15px] leading-relaxed mb-8 flex-1 whitespace-pre-line">
-                {t.quote}
-              </blockquote>
+                {/* Quote text */}
+                <blockquote className="text-silver text-sm md:text-[15px] leading-relaxed mb-8 flex-1 whitespace-pre-line">
+                  {t.quote}
+                </blockquote>
 
-              {/* Author */}
-              <div className="flex items-center gap-4 pt-6 border-t border-zinc/15">
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover ring-2 ring-zinc/20 group-hover:ring-cyan/30 transition-all duration-500"
-                />
-                <div className="min-w-0">
-                  <p className="font-body font-semibold text-sm text-frost group-hover:text-white transition-colors">
-                    {t.name}
-                  </p>
-                  <p className="font-mono text-[10px] text-ash truncate">
-                    {t.title}
-                  </p>
+                {/* Author */}
+                <div className="flex items-center gap-4 pt-6 border-t border-zinc/15">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-12 h-12 rounded-full object-cover ring-2 ring-zinc/20 group-hover:ring-cyan/30 transition-all duration-500"
+                  />
+                  <div className="min-w-0">
+                    <p className="font-body font-semibold text-sm text-frost group-hover:text-white transition-colors">
+                      {t.name}
+                    </p>
+                    <p className="font-mono text-[10px] text-ash truncate">
+                      {t.title}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              </motion.div>
-            </ScrollReveal>
+            </motion.div>
           ))}
         </div>
       </div>

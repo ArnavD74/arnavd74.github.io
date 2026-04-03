@@ -1,17 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { contact } from '../../data/contact';
-import ScrollReveal from '../ui/ScrollReveal';
-
-const blurUp = {
-  hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as const },
-  }),
-};
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -60,9 +49,8 @@ const Contact: React.FC = () => {
   return (
     <section ref={sectionRef} id="contact" className="py-32 md:py-44 relative">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Full-section grid: left has header + CTA, right has cards centered to the whole thing */}
         <div className="grid md:grid-cols-2 gap-16 md:gap-24">
-          {/* Left column - header + CTA stacked */}
+          {/* Left column */}
           <div>
             {/* Section header */}
             <motion.div
@@ -106,14 +94,12 @@ const Contact: React.FC = () => {
             </motion.div>
 
             {/* CTA */}
-            <ScrollReveal>
-              <motion.div
-                variants={blurUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={0}
-              >
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
               <p className="text-frost text-lg md:text-xl leading-relaxed mb-10">
                 I'm always looking for new opportunities.
                 <br />
@@ -149,52 +135,47 @@ const Contact: React.FC = () => {
                   Resume
                 </motion.a>
               </div>
-              </motion.div>
-            </ScrollReveal>
+            </motion.div>
           </div>
 
-          {/* Right column - vertically centered to the full section height */}
+          {/* Right column */}
           <div className="flex items-center">
             <div className="space-y-4 w-full">
               {contactItems.map((item, index) => (
-                <ScrollReveal key={item.label}>
-                  <motion.div
-                    variants={blurUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    custom={0.1 + index * 0.1}
-                  >
-                <motion.a
-                  href={item.href}
-                  target={item.href.startsWith('http') ? '_blank' : undefined}
-                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  whileHover={{ x: 6 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                  className="group flex items-center gap-5 bento-card p-5 cursor-pointer"
+                <motion.div key={item.label}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.4 + index * 0.15, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <div className="w-11 h-11 rounded-xl bg-slate/80 flex items-center justify-center
-                                  text-ash group-hover:text-cyan group-hover:bg-cyan/10
-                                  transition-all duration-500 shrink-0">
-                    {item.icon}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="font-mono text-[10px] text-ash uppercase tracking-[0.2em] mb-0.5">
-                      {item.label}
-                    </h3>
-                    <p className="font-body text-sm text-frost group-hover:text-cyan transition-colors duration-300 truncate">
-                      {item.value}
-                    </p>
-                  </div>
-                  <svg className="w-4 h-4 text-zinc/50 group-hover:text-cyan/60 transition-all duration-300 shrink-0
-                                 -translate-x-1 group-hover:translate-x-0 opacity-0 group-hover:opacity-100"
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  <a
+                    href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="group flex items-center gap-5 bento-card p-5 cursor-pointer
+                               hover:translate-x-1.5 transition-transform duration-300"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                </motion.a>
-                  </motion.div>
-                </ScrollReveal>
+                    <div className="w-11 h-11 rounded-xl bg-slate/80 flex items-center justify-center
+                                    text-ash group-hover:text-cyan group-hover:bg-cyan/10
+                                    transition-all duration-500 shrink-0">
+                      {item.icon}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="font-mono text-[10px] text-ash uppercase tracking-[0.2em] mb-0.5">
+                        {item.label}
+                      </h3>
+                      <p className="font-body text-sm text-frost group-hover:text-cyan transition-colors duration-300 truncate">
+                        {item.value}
+                      </p>
+                    </div>
+                    <svg className="w-4 h-4 text-zinc/50 group-hover:text-cyan/60 transition-all duration-300 shrink-0
+                                   -translate-x-1 group-hover:translate-x-0 opacity-0 group-hover:opacity-100"
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 17L17 7M17 7H7M17 7v10" />
+                    </svg>
+                  </a>
+                </motion.div>
               ))}
             </div>
           </div>

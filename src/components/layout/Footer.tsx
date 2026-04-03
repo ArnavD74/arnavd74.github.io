@@ -5,6 +5,14 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const [showCredits, setShowCredits] = useState(false);
   const rafRef = useRef<number>(0);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   // Continuously scroll to bottom while credits are animating open
   useEffect(() => {
@@ -63,10 +71,10 @@ const Footer: React.FC = () => {
       <div className="py-8 px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center gap-4 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            initial={isMobile ? false : { opacity: 0, y: 16 }}
+            whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
+            viewport={isMobile ? undefined : { once: true }}
+            transition={isMobile ? undefined : { duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center gap-3"
           >
             <p className="font-mono text-xs text-ash">
