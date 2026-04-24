@@ -1,7 +1,7 @@
 import type { ContactInfo } from '../types';
 
 export const contact: ContactInfo = {
-  email: 'arnav.dashaputra@gmail.com',
+  email: 'arnav@dashaputra.net',
   github: 'github.com/ArnavD74',
   linkedin: 'linkedin.com/in/dashaputra',
   resumeUrl: '/ArnavDashaputra_Resume2026.pdf',
