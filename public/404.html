@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>404 - Page Not Found | Arnav Dashaputra</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+      :root {
+        --obsidian: #08090c;
+        --graphite: #12151b;
+        --slate: #1a1e27;
+        --zinc: #3d4556;
+        --ash: #5a6478;
+        --silver: #8994a8;
+        --frost: #c4cdd9;
+        --ice: #e8ecf2;
+        --cyan: #00d4ff;
+        --cyan-glow: rgba(0, 212, 255, 0.15);
+      }
+
+      body {
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--obsidian);
+        color: var(--ice);
+        font-family: 'Satoshi', system-ui, sans-serif;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* ---- Grid background ---- */
+      .grid-bg {
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+      }
+
+      /* ---- Vignette ---- */
+      .vignette {
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(ellipse at center, transparent 30%, var(--obsidian) 100%);
+        pointer-events: none;
+      }
+
+      /* ---- Noise texture ---- */
+      .noise {
+        position: fixed;
+        inset: 0;
+        opacity: 0.035;
+        filter: grayscale(1);
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 360 360' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        pointer-events: none;
+      }
+
+      /* ---- Corner accents ---- */
+      .corner { position: fixed; width: 60px; height: 60px; pointer-events: none; opacity: 0; animation: cornerIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      .corner--tl { top: 24px; left: 24px; border-left: 1px solid rgba(61, 69, 86, 0.15); border-top: 1px solid rgba(61, 69, 86, 0.15); animation-delay: 0.8s; }
+      .corner--tr { top: 24px; right: 24px; border-right: 1px solid rgba(61, 69, 86, 0.15); border-top: 1px solid rgba(61, 69, 86, 0.15); animation-delay: 0.85s; }
+      .corner--bl { bottom: 24px; left: 24px; border-left: 1px solid rgba(61, 69, 86, 0.15); border-bottom: 1px solid rgba(61, 69, 86, 0.15); animation-delay: 0.9s; }
+      .corner--br { bottom: 24px; right: 24px; border-right: 1px solid rgba(61, 69, 86, 0.15); border-bottom: 1px solid rgba(61, 69, 86, 0.15); animation-delay: 0.95s; }
+
+      /* ---- Main content ---- */
+      .container {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* ---- Navbar ---- */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .navbar nav {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .nav-item {
+        position: relative;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+        color: var(--ash);
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        animation: navIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .nav-item:hover { color: var(--frost); }
+
+      /* Staggered entrance delays — matches header's 1.3s + 0.1*i pattern */
+      .nav-item:nth-child(1) { animation-delay: 0.15s; }
+      .nav-item:nth-child(2) { animation-delay: 0.25s; }
+      .nav-item:nth-child(3) { animation-delay: 0.35s; }
+      .nav-item:nth-child(4) { animation-delay: 0.45s; }
+      .nav-item:nth-child(5) { animation-delay: 0.55s; }
+      .nav-item:nth-child(6) { animation-delay: 0.65s; }
+
+      /* Active 404 item — red */
+      .nav-item--active {
+        color: #ff4444;
+      }
+      .nav-item--active:hover {
+        color: #ff6666;
+      }
+
+      .nav-item--active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: #ff4444;
+      }
+
+      /* Mobile: tighter spacing */
+      @media (max-width: 640px) {
+        .navbar nav { gap: 1.5rem; }
+        .nav-item { font-size: 0.8rem; }
+      }
+
+      /* 404 number */
+      .error-code {
+        font-family: 'Clash Display', system-ui, sans-serif;
+        font-weight: 700;
+        font-size: clamp(8rem, 22vw, 16rem);
+        line-height: 0.85;
+        letter-spacing: -0.04em;
+        color: white;
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        animation: fadeSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+        background: linear-gradient(180deg, #ffffff 40%, var(--zinc) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Subtitle */
+      .subtitle {
+        font-family: 'Satoshi', system-ui, sans-serif;
+        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+        font-weight: 500;
+        color: var(--frost);
+        margin-bottom: 0.5rem;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+      }
+
+      .description {
+        color: var(--ash);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 2.5rem;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+      }
+
+      /* Button — matches btn-primary: cyan bg, obsidian text, rounded-xl, hover glow */
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.75rem 1.75rem;
+        background: var(--cyan);
+        color: var(--obsidian);
+        text-decoration: none;
+        border-radius: 12px;
+        font-family: 'Satoshi', system-ui, sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+      }
+
+      .back-link:hover {
+        background: #ffffff;
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.25), 0 0 80px rgba(0, 212, 255, 0.08);
+      }
+
+      .back-link svg {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .back-link:hover svg {
+        transform: translateX(-3px);
+      }
+
+      /* ---- Ambient glow behind 404 ---- */
+      .glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        width: 500px;
+        height: 300px;
+        background: radial-gradient(ellipse, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+        pointer-events: none;
+        opacity: 0;
+        animation: glowPulse 4s ease-in-out 0.5s infinite;
+      }
+
+      /* ---- Keyframes ---- */
+      @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes cornerIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes navIn {
+        from { opacity: 0; transform: translateY(-12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes glowPulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+      }
+
+      /* ---- Selection ---- */
+      ::selection { background: var(--cyan); color: var(--obsidian); }
+    </style>
+  </head>
+  <body>
+    <div class="grid-bg"></div>
+    <div class="noise"></div>
+    <div class="vignette"></div>
+
+    <!-- Navbar -->
+    <header class="navbar">
+      <nav>
+        <a href="/#home" class="nav-item">00</a>
+        <a href="/#about" class="nav-item">01</a>
+        <a href="/#experience" class="nav-item">02</a>
+        <a href="/#testimonials" class="nav-item">03</a>
+        <a href="/#contact" class="nav-item">04</a>
+        <span class="nav-item nav-item--active">404</span>
+      </nav>
+    </header>
+
+    <div class="corner corner--tl"></div>
+    <div class="corner corner--tr"></div>
+    <div class="corner corner--bl"></div>
+    <div class="corner corner--br"></div>
+
+    <div class="container">
+      <div class="glow"></div>
+      <h1 class="error-code">404</h1>
+      <p class="subtitle">Page Not Found</p>
+      <p class="description">The page you're looking for doesn't exist or has been moved.</p>
+      <a href="/" class="back-link">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </body>
+</html>
