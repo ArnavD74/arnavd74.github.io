@@ -10,6 +10,7 @@ export const experiences: Experience[] = [
     role: 'Data Scientist',
     tagline: 'Build and support ML pricing models for commercial insurance products',
     points: [],
+    links: [{ label: 'Homepage', url: 'https://amtrustfinancial.com/' }],
   },
   {
     id: 'codeninjas-bridgewater',
@@ -20,6 +21,7 @@ export const experiences: Experience[] = [
     role: 'Center Director',
     points: [],
     technologies: ['Lua', 'C#', 'CRM', 'React', 'Unity'],
+    links: [{ label: 'Website', url: 'https://www.codeninjas.com/nj-bridgewater' }],
     subSections: [
       {
         title: 'Sr Instructor',
@@ -54,11 +56,12 @@ export const experiences: Experience[] = [
       'Deployed web interface with SQLite backend for re-indexing and swapping embeddings',
     ],
     technologies: ['Python', 'RAG', 'Exploratory Data Analysis', 'Git', 'SQLite', 'Streamlit'],
+    links: [{ label: 'Website', url: 'https://gotusers.com/' }],
   },
   {
-    id: 'stealth',
+    id: 'carevion',
     title: 'Software Engineer',
-    company: 'Stealth AI Startup',
+    company: 'Carevion',
     location: 'Remote',
     period: 'Mar 2025 - Jan 2026',
     role: 'First Engineering Hire',
@@ -69,6 +72,7 @@ export const experiences: Experience[] = [
       'Automated Python workflows for data ingestion, resource generation, and database synchronization',
     ],
     technologies: ['FHIR', 'AWS', 'React', 'Python', 'Streamlit', 'Figma', 'Docker', 'DevOps', 'Git'],
+    links: [{ label: 'Website', url: 'https://carevion.ai/' }],
   },
   {
     id: 'phillipvn',
@@ -84,6 +88,7 @@ export const experiences: Experience[] = [
       'Configured IaC (SAM/CloudFormation), CloudWatch, and DevOps pipelines for low-maintenance operation',
     ],
     technologies: ['AWS', 'Python', 'React', 'Docker', 'Cloudflare', 'Stripe', 'Git'],
+    links: [{ label: 'Website', url: 'https://phillipvn.com/' }],
   },
   {
     id: 'rutgers-oit',
@@ -123,6 +128,7 @@ export const experiences: Experience[] = [
       'Led full production of chapter composite boards including photography/editing and assembly',
       'Designed custom branding in Photoshop and established consistent standards for digital communications',
     ],
+    links: [{ label: 'Chapter Website', url: 'https://www.sigepnjbeta.org/' }],
   },
   {
     id: 'tangerine',
@@ -138,6 +144,7 @@ export const experiences: Experience[] = [
       'Created product landing page (Bootstrap/JS) and collaborated with designers for branding and visual assets (Photoshop)',
     ],
     technologies: ['Node.js', 'Discord.js', 'Cloudflare', 'Photoshop', 'Git'],
+    links: [{ label: 'Website', url: 'https://tangerinebot.com/' }],
   },
   {
     id: 'codeninjas-other',
@@ -174,6 +181,10 @@ export const experiences: Experience[] = [
     role: 'Logistics Manager',
     points: [],
     technologies: ['PHP', 'WordPress', 'Photoshop'],
+    links: [
+      { label: 'Team Website', url: 'https://cougarrobotics.com/' },
+      { label: 'The Blue Alliance', url: 'https://www.thebluealliance.com/team/1403/history' },
+    ],
     subSections: [
       {
         title: 'Logistics Manager',
@@ -209,5 +220,6 @@ export const experiences: Experience[] = [
       'Facilitated "unplugged" activities and projects designed to build foundational skills and interest in STEAM fields',
       'Co-authored successful application for the "Women at NASA" speaking panel; coordinated event logistics for the program held at Montgomery High School of Skillman, NJ',
     ],
+    links: [{ label: 'Website', url: 'https://thetechsters.wordpress.com/' }],
   },
 ];

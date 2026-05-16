@@ -23,6 +23,10 @@ export interface Experience {
   tagline?: string;
   points: string[];
   technologies?: string[];
+  links?: {
+    label: string;
+    url: string;
+  }[];
   subSections?: {
     title: string;
     period?: string;
