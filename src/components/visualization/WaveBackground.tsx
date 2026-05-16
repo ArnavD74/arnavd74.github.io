@@ -2,16 +2,6 @@ import React, { useMemo, useState, useEffect, useRef } from 'react';
 
 const PERIOD_W = 1800; // px — one full wave cycle; translateX animates exactly this far
 
-// Safari iOS caps GPU-backed compositor layers at 16 384 physical pixels.
-// At 3× retina the old 10 500 CSS px (= 31 500 device px) exceeded that limit,
-// causing Safari to silently clip some wave strips so they started mid-screen.
-const MAX_LAYER_PX = 16000; // leave margin below the 16 384 hard limit
-const DPR     = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
-// Round down to a multiple of PERIOD_W so background tiles align exactly at strip edges,
-// preventing sub-pixel gaps between SVG tiles that show as thin breaks in the wave.
-const STRIP_W_RAW = Math.min(10500, Math.floor(MAX_LAYER_PX / DPR));
-const STRIP_W = Math.floor(STRIP_W_RAW / PERIOD_W) * PERIOD_W;
-
 // Full site palette — split into warm-cyan and cool-steel tiers
 const BRIGHT = ['0,212,255', '56,189,248', '125,211,252'];          // cyan family
 const COOL   = ['37,99,235', '100,140,200', '140,170,215', '90,120,180']; // steel family
@@ -182,13 +172,14 @@ const WaveBackground: React.FC = () => {
     >
       <style>{keyframes}</style>
 
-      {/* Rotated stage — all strips at −12°; left overshoot uses min() so it scales with vh on tall narrow mobiles */}
+      {/* Rotated stage — all strips at −12°; generous overshoot on all sides
+          ensures the rotated rectangle fully covers the viewport at any aspect ratio */}
       <div style={{
         position: 'absolute',
-        top: '-35%',
-        right: '-15%',
-        bottom: '-35%',
-        left: 'min(-40%, calc(-80vh - 40vw))',
+        top: '-50%',
+        right: '-50%',
+        bottom: '-50%',
+        left: '-50%',
         transform: 'rotate(-12deg)',
         transformOrigin: 'center center',
       }}>
@@ -198,14 +189,21 @@ const WaveBackground: React.FC = () => {
             position: 'absolute',
             top: `${w.yPercent}%`,
             left: 0,
-            width:  `${STRIP_W}px`,
+            right: 0,
             height: `${H}px`,
+            overflow: 'hidden',
             transform: w.angle ? `rotate(${w.angle.toFixed(2)}deg)` : undefined,
             transformOrigin: 'center center',
           };
+          // Strip is wider than wrapper to allow seamless looping:
+          // needs at least wrapper-width + PERIOD_W so the translateX(-PERIOD_W)
+          // animation doesn't reveal a gap on the right edge.
           const strip: React.CSSProperties = {
             position: 'absolute',
-            inset: 0,
+            top: 0,
+            left: 0,
+            width: `calc(100% + ${PERIOD_W}px)`,
+            height: '100%',
             backgroundSize:   `${PERIOD_W}px 100%`,
             backgroundRepeat: 'repeat-x',
             willChange: 'transform',
