@@ -7,11 +7,10 @@ import ProjectModal from '../ui/ProjectModal';
 type Category = 'all' | 'projects' | 'coursework' | 'oss' | 'work';
 
 const blurUp = {
-  hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
+  hidden: { opacity: 0, y: 40 },
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as const },
   }),
 };
@@ -53,7 +52,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} id="projects" className="py-32 md:py-44 relative">
+    <section ref={sectionRef} id="projects" className="py-32 md:py-44 relative cv-auto">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <motion.div

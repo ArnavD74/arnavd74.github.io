@@ -4,11 +4,10 @@ import { experiences } from '../../data/experience';
 import ScrollReveal from '../ui/ScrollReveal';
 
 const blurUp = {
-  hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
+  hidden: { opacity: 0, y: 40 },
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as const },
   }),
 };
@@ -23,7 +22,7 @@ const Experience: React.FC = () => {
   const headerOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={sectionRef} id="experience" className="py-32 md:py-44 relative">
+    <section ref={sectionRef} id="experience" className="py-32 md:py-44 relative cv-auto">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <motion.div
@@ -87,14 +86,21 @@ const Experience: React.FC = () => {
                   {/* Timeline node */}
                   <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-7 z-10">
                     <div className="relative flex items-center justify-center">
-                      <div className={`w-3 h-3 rounded-full border-2 ${
-                        index === 0
-                          ? 'bg-cyan border-cyan'
-                          : 'bg-obsidian border-zinc/60'
-                      }`} />
-                      {index === 0 && (
-                        <div className="absolute w-6 h-6 rounded-full bg-cyan/20 animate-ping" />
-                      )}
+                      {(() => {
+                        const isPresent = exp.period.toLowerCase().includes('present');
+                        return (
+                          <>
+                            <div className={`w-3 h-3 rounded-full border-2 ${
+                              isPresent
+                                ? 'bg-cyan border-cyan'
+                                : 'bg-obsidian border-zinc/60'
+                            }`} />
+                            {/* {isPresent && (
+                              <div className="absolute w-6 h-6 rounded-full bg-cyan/20 animate-pulse" />
+                            )} */}
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
 
@@ -218,8 +224,6 @@ const Experience: React.FC = () => {
                         </div>
                       )}
 
-                      {/* Hover accent */}
-                      <div className={`absolute top-0 ${isLeft ? 'right-0' : 'left-0'} w-0 group-hover:w-12 h-px bg-cyan/30 transition-all duration-700`} />
                     </div>
                   </motion.div>
 

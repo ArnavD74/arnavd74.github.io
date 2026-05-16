@@ -7,7 +7,10 @@ const PERIOD_W = 1800; // px — one full wave cycle; translateX animates exactl
 // causing Safari to silently clip some wave strips so they started mid-screen.
 const MAX_LAYER_PX = 16000; // leave margin below the 16 384 hard limit
 const DPR     = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
-const STRIP_W = Math.min(10500, Math.floor(MAX_LAYER_PX / DPR));
+// Round down to a multiple of PERIOD_W so background tiles align exactly at strip edges,
+// preventing sub-pixel gaps between SVG tiles that show as thin breaks in the wave.
+const STRIP_W_RAW = Math.min(10500, Math.floor(MAX_LAYER_PX / DPR));
+const STRIP_W = Math.floor(STRIP_W_RAW / PERIOD_W) * PERIOD_W;
 
 // Full site palette — split into warm-cyan and cool-steel tiers
 const BRIGHT = ['0,212,255', '56,189,248', '125,211,252'];          // cyan family
@@ -42,17 +45,20 @@ const buildWaveURI = (
   const cy = amplitude + 10;
 
   let d = '';
-  for (let i = 0; i <= 80; i++) {
+  // Draw one extra point past the period boundary so the stroke bridges the
+  // tile seam when background-repeat tiles the SVG.  Without it the thick
+  // glow strokes (up to 12 px) get clipped at the viewBox edge, leaving a
+  // visible break between adjacent tiles.
+  for (let i = 0; i <= 84; i++) {
     const t   = (i / 80) * Math.PI * 2;
     const x   = ((i / 80) * PERIOD_W).toFixed(1);
-    // Blend primary sine + second harmonic; normalize so peak stays at ±amplitude
     const raw = Math.sin(t + phase) + harmonic * Math.sin(2 * t + phase * 1.3);
     const y   = (cy + (raw / (1 + harmonic)) * amplitude).toFixed(1);
     d += i === 0 ? `M${x},${y}` : ` L${x},${y}`;
   }
 
   const svg = [
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${PERIOD_W} ${H}">`,
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${PERIOD_W} ${H}" overflow="visible">`,
     `<path d="${d}" fill="none" stroke="rgb(${color})" stroke-opacity="${(opacity * 0.18).toFixed(3)}" stroke-width="12"/>`,
     `<path d="${d}" fill="none" stroke="rgb(${color})" stroke-opacity="${(opacity * 0.42).toFixed(3)}" stroke-width="4"/>`,
     `<path d="${d}" fill="none" stroke="rgb(${color})" stroke-opacity="${opacity.toFixed(3)}"           stroke-width="1.5"/>`,
@@ -89,9 +95,9 @@ const WaveBackground: React.FC = () => {
   const waves = useMemo<WaveConfig[]>(() => {
     const configs: WaveConfig[] = [];
 
-    // 20 surface waves — spread evenly across the height with jitter
-    for (let i = 0; i < 20; i++) {
-      const baseY    = 3 + (i / 19) * 87;                          // 3 → 90%
+    // 12 surface waves — reduced from 20 for lighter compositor load
+    for (let i = 0; i < 12; i++) {
+      const baseY    = 3 + (i / 11) * 87;                          // 3 → 90%
       const yPercent = Math.max(2, Math.min(93, baseY + (Math.random() - 0.5) * 10));
       const amplitude = 45 + Math.random() * 55;                   // 45–100 px
       const duration  = 55  + Math.random() * 55;                  // 55–110 s (faster)
@@ -112,13 +118,13 @@ const WaveBackground: React.FC = () => {
       });
     }
 
-    // 3 deep swells — barely-there background volume
-    for (let i = 0; i < 3; i++) {
-      const yPercent  = 10 + i * 35 + (Math.random() - 0.5) * 15; // ~10, 45, 80%
+    // 2 deep swells — reduced from 3 for lighter compositor load
+    for (let i = 0; i < 2; i++) {
+      const yPercent  = 15 + i * 55 + (Math.random() - 0.5) * 15; // ~15, 70%
       const amplitude = 95 + Math.random() * 50;                   // 95–145 px (wider)
       const duration  = 120 + Math.random() * 70;                  // 120–190 s (faster)
       configs.push({
-        id: 20 + i,
+        id: 12 + i,
         yPercent,
         amplitude,
         phase:         Math.random() * Math.PI * 2,
@@ -202,7 +208,7 @@ const WaveBackground: React.FC = () => {
             inset: 0,
             backgroundSize:   `${PERIOD_W}px 100%`,
             backgroundRepeat: 'repeat-x',
-            willChange: 'transform, opacity',
+            willChange: 'transform',
           };
 
           const drift = `waveDrift${w.id} ${w.duration}s linear -${w.delay}s infinite`;

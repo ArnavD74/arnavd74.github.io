@@ -134,41 +134,41 @@ const ParticleNetwork: React.FC = () => {
     }
   }, []);
 
-  const drawParticle = useCallback((ctx: CanvasRenderingContext2D, particle: Particle) => {
+  const drawParticle = useCallback((ctx: CanvasRenderingContext2D, particle: Particle, index: number) => {
     const alpha = particle.t * particle.currentFade;
     if (alpha <= 0) return;
 
-    // Draw lines to nearby particles - closer = more opaque
-    particlesRef.current.forEach(other => {
-      if (other === particle) return;
-      const distance = dist(particle.x, particle.y, other.x, other.y);
-      if (distance <= config.connectionDistance + config.fadeOut) {
-        // Calculate line transparency based on distance (darker lines)
-        const transparency = sigmoid(
-          (-6 / (2 * config.fadeOut)) * (distance - (config.connectionDistance + config.fadeOut))
-        );
-        const lineAlpha = Math.max(0, transparency * 0.15 * Math.min(alpha, other.t * other.currentFade));
+    // Draw lines to nearby particles - only check particles after this one to avoid drawing lines twice
+    const particles = particlesRef.current;
+    for (let j = index + 1; j < particles.length; j++) {
+      const other = particles[j];
+      const dx = particle.x - other.x;
+      const dy = particle.y - other.y;
+      const distSq = dx * dx + dy * dy;
+      const maxDist = config.connectionDistance + config.fadeOut;
+      if (distSq > maxDist * maxDist) continue;
 
-        // Blend the two particle colors for the line
-        const avgR = Math.round((particle.color.r + other.color.r) / 2);
-        const avgG = Math.round((particle.color.g + other.color.g) / 2);
-        const avgB = Math.round((particle.color.b + other.color.b) / 2);
+      const distance = Math.sqrt(distSq);
+      const otherAlpha = other.t * other.currentFade;
+      if (otherAlpha <= 0) continue;
 
-        ctx.strokeStyle = `rgba(${avgR}, ${avgG}, ${avgB}, ${lineAlpha})`;
-        ctx.lineWidth = Math.min(particle.r, other.r) / 3;
+      const transparency = sigmoid(
+        (-6 / (2 * config.fadeOut)) * (distance - maxDist)
+      );
+      const lineAlpha = Math.max(0, transparency * 0.15 * Math.min(alpha, otherAlpha));
 
-        const angle = getAngle(particle.x, particle.y, other.x, other.y);
-        const x1 = particle.x + particle.r * Math.cos(angle);
-        const y1 = particle.y + particle.r * Math.sin(angle);
-        const x2 = other.x + -other.r * Math.cos(angle);
-        const y2 = other.y + -other.r * Math.sin(angle);
+      const avgR = (particle.color.r + other.color.r) >> 1;
+      const avgG = (particle.color.g + other.color.g) >> 1;
+      const avgB = (particle.color.b + other.color.b) >> 1;
 
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.stroke();
-      }
-    });
+      ctx.strokeStyle = `rgba(${avgR}, ${avgG}, ${avgB}, ${lineAlpha})`;
+      ctx.lineWidth = Math.min(particle.r, other.r) / 3;
+
+      ctx.beginPath();
+      ctx.moveTo(particle.x, particle.y);
+      ctx.lineTo(other.x, other.y);
+      ctx.stroke();
+    }
 
     const { r, g, b } = particle.color;
 
@@ -282,23 +282,23 @@ const ParticleNetwork: React.FC = () => {
         attractionTimerRef.current--;
       }
 
-      particlesRef.current.forEach(p => drawParticle(ctx, p));
+      particlesRef.current.forEach((p, i) => drawParticle(ctx, p, i));
 
-      // Draw ripple effect on click
-      if (attractionTimerRef.current > 0) {
-        const rippleAlpha = (3 / config.pullLength) / attractionTimerRef.current;
-        ctx.strokeStyle = `rgba(0, 212, 255, ${Math.min(rippleAlpha, 0.5)})`;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.arc(
-          mouseRef.current.x,
-          mouseRef.current.y,
-          3 * Math.pow(attractionTimerRef.current + 1, 2),
-          0,
-          Math.PI * 2
-        );
-        ctx.stroke();
-      }
+      // // Draw ripple effect on click
+      // if (attractionTimerRef.current > 0) {
+      //   const rippleAlpha = (3 / config.pullLength) / attractionTimerRef.current;
+      //   ctx.strokeStyle = `rgba(0, 212, 255, ${Math.min(rippleAlpha, 0.5)})`;
+      //   ctx.lineWidth = 2;
+      //   ctx.beginPath();
+      //   ctx.arc(
+      //     mouseRef.current.x,
+      //     mouseRef.current.y,
+      //     3 * Math.pow(attractionTimerRef.current + 1, 2),
+      //     0,
+      //     Math.PI * 2
+      //   );
+      //   ctx.stroke();
+      // }
     };
 
     animationFrameRef.current = requestAnimationFrame(animate);

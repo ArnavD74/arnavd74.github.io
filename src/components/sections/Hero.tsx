@@ -249,9 +249,9 @@ const Hero: React.FC = () => {
       <AnimatePresence>
         {showHint && (
           <motion.div
-            initial={{ opacity: 0, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, filter: 'blur(8px)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
             className="absolute z-30 pointer-events-none flex items-center gap-3
                        left-6 top-[70%] text-frost/30

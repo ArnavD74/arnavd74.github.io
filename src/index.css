@@ -78,7 +78,7 @@
 
   /* Liquid glass navbar */
   .liquid-glass {
-    @apply backdrop-blur-2xl;
+    @apply backdrop-blur-xl;
     background: linear-gradient(
       135deg,
       rgba(18, 21, 27, 0.4) 0%,
@@ -270,5 +270,11 @@
     @apply fixed top-0 left-0 h-[2px] bg-cyan z-[100];
     transform-origin: left;
     will-change: transform;
+  }
+
+  /* Off-screen sections skip rendering until near viewport */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
   }
 }

@@ -22,6 +22,8 @@ const FPSCounter: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    if (!visible) return;
+
     let animationFrameId: number;
 
     const updateFPS = () => {
@@ -38,12 +40,14 @@ const FPSCounter: React.FC = () => {
       animationFrameId = requestAnimationFrame(updateFPS);
     };
 
+    lastTime.current = performance.now();
+    frameCount.current = 0;
     animationFrameId = requestAnimationFrame(updateFPS);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [visible]);
 
   if (!visible) return null;
 
