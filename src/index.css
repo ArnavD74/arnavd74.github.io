@@ -271,10 +271,4 @@
     transform-origin: left;
     will-change: transform;
   }
-
-  /* Off-screen sections skip rendering until near viewport */
-  .cv-auto {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 800px;
-  }
 }

@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="contact" className="py-32 md:py-44 relative cv-auto">
+    <section ref={sectionRef} id="contact" className="py-32 md:py-44 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 md:gap-24">
           {/* Left column */}

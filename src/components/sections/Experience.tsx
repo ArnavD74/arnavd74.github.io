@@ -22,7 +22,7 @@ const Experience: React.FC = () => {
   const headerOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={sectionRef} id="experience" className="py-32 md:py-44 relative cv-auto">
+    <section ref={sectionRef} id="experience" className="py-32 md:py-44 relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <motion.div

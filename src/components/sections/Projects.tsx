@@ -52,7 +52,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} id="projects" className="py-32 md:py-44 relative cv-auto">
+    <section ref={sectionRef} id="projects" className="py-32 md:py-44 relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <motion.div
