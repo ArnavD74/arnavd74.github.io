@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
 import { useRef } from 'react';
-import { EASE_OUT_EXPO } from '../../lib/motion';
+import { riseIn } from '../../lib/motion';
+import Reveal from '../ui/Reveal';
 import SectionHeader from '../ui/SectionHeader';
 
 interface Testimonial {
@@ -37,12 +37,12 @@ const Testimonials: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {testimonials.map((t, index) => (
-            <motion.figure
+            <Reveal
+              as="figure"
               key={t.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '100px 0px' }}
-              transition={{ duration: 0.8, delay: 0.4 + index * 0.15, ease: EASE_OUT_EXPO }}
+              variants={riseIn}
+              delay={0.4 + index * 0.15}
+              margin="100px 0px"
               className="group relative bento-card p-8 md:p-10 flex flex-col h-full"
             >
               {/* Quote mark */}
@@ -78,7 +78,7 @@ const Testimonials: React.FC = () => {
                   </p>
                 </div>
               </figcaption>
-            </motion.figure>
+            </Reveal>
           ))}
         </div>
       </div>

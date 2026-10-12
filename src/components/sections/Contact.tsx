@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { contact } from '../../data/contact';
-import { EASE_OUT_EXPO } from '../../lib/motion';
+import { riseIn } from '../../lib/motion';
+import Reveal from '../ui/Reveal';
 import SectionHeader from '../ui/SectionHeader';
 
 const MailIcon = () => (
@@ -65,12 +66,7 @@ const Contact: React.FC = () => {
               className="mb-12 md:mb-16"
             />
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '100px 0px' }}
-              transition={{ duration: 0.8, delay: 0.3, ease: EASE_OUT_EXPO }}
-            >
+            <Reveal variants={riseIn} delay={0.3} margin="100px 0px">
               <p className="text-frost text-lg md:text-xl leading-relaxed mb-10">
                 I'm always looking for new opportunities.
                 <br />
@@ -126,19 +122,19 @@ const Contact: React.FC = () => {
                   Resume
                 </motion.a>
               </div>
-            </motion.div>
+            </Reveal>
           </div>
 
           {/* Right column */}
           <div className="flex items-center">
             <ul className="space-y-4 w-full">
               {contactItems.map((item, index) => (
-                <motion.li
+                <Reveal
+                  as="li"
                   key={item.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '100px 0px' }}
-                  transition={{ duration: 0.8, delay: 0.4 + index * 0.15, ease: EASE_OUT_EXPO }}
+                  variants={riseIn}
+                  delay={0.4 + index * 0.15}
+                  margin="100px 0px"
                 >
                   <a
                     href={item.href}
@@ -179,7 +175,7 @@ const Contact: React.FC = () => {
                       />
                     </svg>
                   </a>
-                </motion.li>
+                </Reveal>
               ))}
             </ul>
           </div>

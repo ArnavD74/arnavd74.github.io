@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { experiences } from '../../data/experience';
-import { blurUp } from '../../lib/motion';
+import Reveal from '../ui/Reveal';
 import ScrollReveal from '../ui/ScrollReveal';
 import SectionHeader from '../ui/SectionHeader';
 
@@ -72,12 +71,9 @@ const Experience: React.FC = () => {
                     <div className="w-12 shrink-0 md:hidden" />
 
                     {/* Card */}
-                    <motion.div
-                      variants={blurUp}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: '-60px 0px' }}
-                      custom={0.05}
+                    <Reveal
+                      delay={0.05}
+                      margin="-60px 0px"
                       className={`flex-1 md:w-[calc(50%-3rem)] ${isLeft ? 'md:pr-14' : 'md:pl-14'}`}
                     >
                       <div className="group timeline-card relative">
@@ -220,7 +216,7 @@ const Experience: React.FC = () => {
                           </div>
                         )}
                       </div>
-                    </motion.div>
+                    </Reveal>
 
                     {/* Mirror column keeping the alternating layout balanced */}
                     <div aria-hidden="true" className="hidden md:block flex-1 md:w-[calc(50%-3rem)]" />

@@ -84,10 +84,10 @@ const Home: React.FC = () => {
             backgroundImage: NOISE_URL,
             backgroundSize: `${NOISE_TILE}px ${NOISE_TILE}px`,
             backgroundRepeat: 'repeat',
-            // The transform is set per frame from JS, which Chrome does not
-            // auto-promote the way it does a CSS animation. Without the hint
-            // every scroll frame repaints this full-viewport tiled texture.
-            willChange: 'transform',
+            // Deliberately no will-change here. Hinting it pins this
+            // full-viewport tiled texture into its own layer for the life of the
+            // page, and measured ~2x worse scroll jank than letting the
+            // compositor decide (33% vs 17% of frames over 32ms).
             y: noiseY,
           }}
         />

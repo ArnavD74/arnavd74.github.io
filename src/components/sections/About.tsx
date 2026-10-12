@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
-import { blurUp, revealViewport } from '../../lib/motion';
+import { revealMargin } from '../../lib/motion';
+import Reveal from '../ui/Reveal';
 import ScrollReveal from '../ui/ScrollReveal';
 import SectionHeader from '../ui/SectionHeader';
 
@@ -158,7 +158,7 @@ const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
   const prefersReducedMotion = usePrefersReducedMotion();
-  const viewport = revealViewport(isMobile);
+  const margin = revealMargin(isMobile);
 
   return (
     <section ref={sectionRef} id="about" className="py-28 md:py-44 relative">
@@ -168,13 +168,7 @@ const About: React.FC = () => {
         {/* Main content grid */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <ScrollReveal className="lg:col-span-7 order-2 lg:order-1">
-            <motion.div
-              variants={blurUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewport}
-              custom={0}
-            >
+            <Reveal margin={margin}>
               <div className="space-y-6 body-text">
                 <p className="text-frost text-lg leading-relaxed">Hey, thanks for visiting my site!</p>
                 <p>
@@ -189,17 +183,11 @@ const About: React.FC = () => {
                   records, skiing, and cats!
                 </p>
               </div>
-            </motion.div>
+            </Reveal>
           </ScrollReveal>
 
           <ScrollReveal className="lg:col-span-5 order-1 lg:order-2">
-            <motion.div
-              variants={blurUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewport}
-              custom={0.1}
-            >
+            <Reveal margin={margin} delay={0.1}>
               <div className="relative w-4/5 mx-auto group">
                 <div className="absolute -inset-3 border border-zinc/20 rounded-lg" />
                 <div className="absolute -top-3 -left-3 w-6 h-6 border-l-2 border-t-2 border-cyan" />
@@ -217,19 +205,13 @@ const About: React.FC = () => {
                   <div className="absolute inset-0 bg-obsidian/10" />
                 </div>
               </div>
-            </motion.div>
+            </Reveal>
           </ScrollReveal>
         </div>
 
         {/* Tech stack marquee */}
         <ScrollReveal className="mt-14 md:mt-28">
-          <motion.div
-            variants={blurUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={0}
-          >
+          <Reveal>
             <h3 className="font-mono text-[10px] text-ash uppercase tracking-[0.2em] mb-4 md:mb-6 text-center">
               Technologies I Work With
             </h3>
@@ -252,7 +234,7 @@ const About: React.FC = () => {
                 />
               ))}
             </div>
-          </motion.div>
+          </Reveal>
         </ScrollReveal>
       </div>
     </section>

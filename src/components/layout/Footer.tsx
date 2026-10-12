@@ -2,7 +2,8 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
-import { EASE_SOFT } from '../../lib/motion';
+import { EASE_SOFT, noReveal, softRise } from '../../lib/motion';
+import Reveal from '../ui/Reveal';
 
 const CREDITS = [
   { name: 'React 19', url: 'https://react.dev' },
@@ -97,15 +98,7 @@ const Footer: React.FC = () => {
 
   // Mobile skips the footer's entrance animation — on a short viewport the footer
   // is already on screen when the page settles, so it reads as a stutter.
-  const entrance = (delay: number) =>
-    isMobile || prefersReducedMotion
-      ? {}
-      : {
-          initial: { opacity: 0, y: 16 },
-          whileInView: { opacity: 1, y: 0 },
-          viewport: { once: true },
-          transition: { duration: 0.8, delay, ease: EASE_SOFT },
-        };
+  const entranceVariants = isMobile || prefersReducedMotion ? noReveal : softRise;
 
   const pill =
     'px-3 py-1.5 bg-slate/40 rounded-lg text-xs text-ash hover:text-cyan ' +
@@ -176,8 +169,9 @@ const Footer: React.FC = () => {
           {/* Stacks below sm: the two lines plus the divider do not fit on one
               row at 390px, and the flex row used to wrap both of them mid-phrase
               around a stranded separator. */}
-          <motion.div
-            {...entrance(0.3)}
+          <Reveal
+            variants={entranceVariants}
+            delay={0.3}
             className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3"
           >
             <p className="font-mono text-xs text-ash whitespace-nowrap">
@@ -187,20 +181,21 @@ const Footer: React.FC = () => {
               |
             </span>
             <p className="font-mono text-xs text-ash whitespace-nowrap">2019 - {currentYear}</p>
-          </motion.div>
+          </Reveal>
 
-          <motion.button
-            {...entrance(0.55)}
-            type="button"
-            onClick={toggleCredits}
-            aria-expanded={showCredits}
-            aria-controls={PANEL_ID}
-            className="font-mono text-xs text-ash hover:text-cyan transition-colors cursor-pointer
-                       rounded focus-visible:outline-2 focus-visible:outline-offset-4
-                       focus-visible:outline-cyan/70"
-          >
-            {showCredits ? 'Hide Credits' : 'Credits & Attributions'}
-          </motion.button>
+          <Reveal variants={entranceVariants} delay={0.55}>
+            <button
+              type="button"
+              onClick={toggleCredits}
+              aria-expanded={showCredits}
+              aria-controls={PANEL_ID}
+              className="font-mono text-xs text-ash hover:text-cyan transition-colors cursor-pointer
+                         rounded focus-visible:outline-2 focus-visible:outline-offset-4
+                         focus-visible:outline-cyan/70"
+            >
+              {showCredits ? 'Hide Credits' : 'Credits & Attributions'}
+            </button>
+          </Reveal>
         </div>
       </div>
     </footer>
