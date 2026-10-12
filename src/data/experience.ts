@@ -43,9 +43,9 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    id: 'stealth-ai',
+    id: 'medem',
     title: 'Lead Software Engineer',
-    company: 'Stealth AI Startup',
+    company: 'medem.ai',
     location: 'Remote',
     period: 'Mar 2025 - Apr 2026',
     tagline:
@@ -56,6 +56,7 @@ export const experiences: Experience[] = [
       'Built automations for data ingestion, synthetic resource generation, and database synchronization',
     ],
     technologies: ['FHIR', 'AWS', 'React', 'Python', 'Streamlit', 'Figma', 'Docker', 'DevOps', 'Git'],
+    links: [{ label: 'Website', url: 'https://medem.ai/' }],
   },
   {
     id: 'gotusers',

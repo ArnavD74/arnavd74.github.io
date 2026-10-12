@@ -178,11 +178,6 @@ const About: React.FC = () => {
               <div className="space-y-6 body-text">
                 <p className="text-frost text-lg leading-relaxed">Hey, thanks for visiting my site!</p>
                 <p>
-                  My background spans full-stack engineering (React, Node, Python), cloud
-                  infrastructure (AWS), and data science/ML workflows. I'm most engaged when I can
-                  move between these areas rather than stay siloed in one.
-                </p>
-                <p>
                   I'm currently working as a Data Scientist while continuing to build and ship
                   software projects on the side. I love to learn by building with new tools and
                   technologies, whether it be in data science, machine learning, or software
