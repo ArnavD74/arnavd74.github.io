@@ -4,19 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Arnav Dashaputra - Data Scientist & Full-Stack Engineer. Building elegant solutions with React, TypeScript, and cloud technologies." />
+    <meta name="author" content="Arnav Dashaputra" />
     <meta name="theme-color" content="#08090c" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Open Graph / social previews. Absolute URLs are required here: scrapers
+         do not resolve root-relative paths against the page. -->
     <meta property="og:title" content="Arnav Dashaputra | Data Scientist & Full-Stack Engineer" />
     <meta property="og:description" content="Data Scientist & Full-Stack Engineer specializing in React, TypeScript, Python, and cloud architecture." />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Arnav Dashaputra" />
     <meta property="og:url" content="https://dashaputra.net/" />
-    <meta property="og:image" content="/images/pfp2.png" />
-    <meta name="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com; script-src 'self'; img-src 'self' data:; connect-src 'self';" />
+    <meta property="og:image" content="https://dashaputra.net/images/pfp2.png" />
+    <meta property="og:image:alt" content="Arnav Dashaputra" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Arnav Dashaputra | Data Scientist & Full-Stack Engineer" />
+    <meta name="twitter:description" content="Data Scientist & Full-Stack Engineer specializing in React, TypeScript, Python, and cloud architecture." />
+    <meta name="twitter:image" content="https://dashaputra.net/images/pfp2.png" />
+
+    <!-- The Content-Security-Policy meta tag is injected at build time (see
+         vite.config.ts). It must use http-equiv rather than name to take effect,
+         and the dev server needs looser rules than the built site. -->
     <link rel="canonical" href="https://dashaputra.net/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <!-- Fontshare's stylesheet lives on api.*, but the font files it pulls are on
+         cdn.* — without this the second connection is only opened after the CSS
+         has already parsed. -->
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <!-- NOTE: the f[0]/f[1] indices are load-bearing. With repeated bare `f[]`
+         params Fontshare's API silently honours only the FIRST one and drops the
+         rest, so the previous `f[]=clash-display...&f[]=satoshi...` returned no
+         Satoshi at all and every `font-body` element fell back to system-ui. -->
+    <link href="https://api.fontshare.com/v2/css?f[0]=clash-display@400,500,600,700&f[1]=satoshi@400,500,700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <title>Arnav Dashaputra | Portfolio</title>
   </head>
