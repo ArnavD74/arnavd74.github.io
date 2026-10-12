@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { animate, type AnimationPlaybackControls } from 'framer-motion';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 import { EASE_SOFT, noReveal, softRise } from '../../lib/motion';
@@ -29,72 +29,113 @@ const Footer: React.FC = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const panelRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
-  /** Viewport y the footer bar should be held at while the panel resizes. */
+  /** Panel height currently written to the DOM, in px. */
+  const heightRef = useRef(0);
+  /** Viewport y the footer bar is being held at for this toggle. */
   const anchorTopRef = useRef(0);
-  /** While true, every panel size change re-anchors the bar. */
+  /** While true, each height step is cancelled out by an equal scroll. */
   const pinnedRef = useRef(false);
+  const playbackRef = useRef<AnimationPlaybackControls | null>(null);
 
   const releasePin = useCallback(() => {
     pinnedRef.current = false;
   }, []);
 
   /**
-   * Holds the footer bar perfectly still on screen while the credits panel
-   * changes height.
+   * Drives the panel's height, cancelling each step out with an equal scroll.
    *
-   * The panel is rendered *above* the bar, so growing it pushes the bar further
-   * down the document. Scrolling by exactly that much cancels the shift out: the
-   * bar — and the toggle button under the cursor — does not move a pixel, and the
-   * panel appears to unfurl upward out from behind it. The page therefore stays
+   * The panel is rendered *above* the bar, so growing it by N pushes the bar N
+   * further down the document; scrolling by the same N holds the bar — and the
+   * toggle button under the cursor — perfectly still, which is what makes the
+   * panel appear to unfurl upward out from behind it. The page therefore stays
    * pinned to its bottom, and collapsing runs the same path in reverse.
    *
-   * Anchoring on the bar's own viewport position rather than on
-   * `scrollHeight - innerHeight` matters: it is self-correcting (each frame
-   * re-measures instead of accumulating drift), and it introduces no jump when
-   * the click happened a little short of the absolute page bottom.
+   * Both writes happen here, in order, inside the animation's own update step:
+   * the height lands first, then the bar is re-measured against it and the
+   * scroll corrected. Doing it in one synchronous step is what keeps the two in
+   * the same frame. Driving the scroll from a ResizeObserver instead — which is
+   * where this started — runs it *after* layout, where scrolling can trigger a
+   * second observer pass that the browser defers to the next frame; the frame in
+   * between is painted with the panel already grown but the page not yet
+   * scrolled, which flashes content from higher up the page into view.
    *
-   * ResizeObserver is the right primitive here because it runs after layout but
-   * before paint, so the correction and the new height commit in the same frame
-   * and there is nothing to see mid-animation. The previous implementation drove
-   * this from a requestAnimationFrame loop on a fixed 700ms timer: it corrected a
-   * frame *late* (the visible jitter), kept hijacking the scroll position for
-   * 700ms whether the animation had finished or not, and could not be escaped.
+   * The correction is measured rather than derived from the height delta.
+   * Arithmetic looks equivalent and is not: collapsing at the page bottom also
+   * shrinks the document, so the browser clamps the scroll by the same amount
+   * and an open-loop correction double-counts it, landing ~25px short. Measuring
+   * re-closes the loop every frame.
    */
-  useEffect(() => {
+  const stepTo = useCallback((height: number) => {
     const panel = panelRef.current;
+    const bar = barRef.current;
     if (!panel) return;
 
-    const holdAnchor = () => {
-      const bar = barRef.current;
-      if (!pinnedRef.current || !bar) return;
-      const delta = bar.getBoundingClientRect().top - anchorTopRef.current;
-      if (Math.abs(delta) < 0.5) return;
-      // behavior:'instant' is required — an inherited smooth scroll-behavior
-      // would start a fresh easing animation per correction and stutter badly.
-      window.scrollBy({ top: delta, behavior: 'instant' });
-    };
+    heightRef.current = height;
+    panel.style.height = `${height}px`;
+    if (!pinnedRef.current || !bar) return;
 
-    const observer = new ResizeObserver(holdAnchor);
-    observer.observe(panel);
-
-    // Any deliberate scroll input hands control straight back to the user, so the
-    // anchor can never fight someone who starts scrolling mid-animation.
-    window.addEventListener('wheel', releasePin, { passive: true });
-    window.addEventListener('touchmove', releasePin, { passive: true });
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('wheel', releasePin);
-      window.removeEventListener('touchmove', releasePin);
-    };
-  }, [releasePin]);
+    // Reads back the layout that the write above just invalidated, so the delta
+    // already accounts for the new height and for any clamping.
+    const delta = bar.getBoundingClientRect().top - anchorTopRef.current;
+    if (Math.abs(delta) < 0.5) return;
+    // behavior:'instant' guards against an inherited smooth scroll-behavior
+    // turning each correction into its own easing animation.
+    window.scrollBy({ top: delta, behavior: 'instant' });
+  }, []);
 
   const toggleCredits = () => {
+    const open = !showCredits;
+    setShowCredits(open);
+
+    const target = open ? (contentRef.current?.offsetHeight ?? 0) : 0;
+    playbackRef.current?.stop();
     anchorTopRef.current = barRef.current?.getBoundingClientRect().top ?? 0;
     pinnedRef.current = true;
-    setShowCredits((open) => !open);
+
+    if (prefersReducedMotion) {
+      stepTo(target);
+      pinnedRef.current = false;
+      return;
+    }
+
+    playbackRef.current = animate(heightRef.current, target, {
+      duration: 0.55,
+      ease: EASE_SOFT,
+      onUpdate: stepTo,
+      onComplete: releasePin,
+    });
   };
+
+  // Reflow while open: match the content's new height without animating, and
+  // without touching the scroll position (the user did not ask to move).
+  useEffect(() => {
+    const content = contentRef.current;
+    if (!content) return;
+
+    const observer = new ResizeObserver(() => {
+      if (!showCredits || pinnedRef.current) return;
+      const panel = panelRef.current;
+      if (!panel) return;
+      heightRef.current = content.offsetHeight;
+      panel.style.height = `${heightRef.current}px`;
+    });
+    observer.observe(content);
+    return () => observer.disconnect();
+  }, [showCredits]);
+
+  // Any deliberate scroll input hands control straight back to the user, so the
+  // anchor can never fight someone who starts scrolling mid-animation.
+  useEffect(() => {
+    window.addEventListener('wheel', releasePin, { passive: true });
+    window.addEventListener('touchmove', releasePin, { passive: true });
+    return () => {
+      window.removeEventListener('wheel', releasePin);
+      window.removeEventListener('touchmove', releasePin);
+      playbackRef.current?.stop();
+    };
+  }, [releasePin]);
 
   // Mobile skips the footer's entrance animation — on a short viewport the footer
   // is already on screen when the page settles, so it reads as a stutter.
@@ -106,23 +147,31 @@ const Footer: React.FC = () => {
 
   return (
     // overflow-anchor:none stops the browser's own scroll anchoring from also
-    // compensating for the panel resize and fighting the anchor above.
+    // compensating for the panel resize and fighting the anchor below.
+    // Deliberately left transparent: the wave field renders behind the footer.
     <footer className="relative z-10 border-t border-zinc/10" style={{ overflowAnchor: 'none' }}>
-      {/* Credits panel — deliberately rendered before the bar so it opens upward. */}
-      <motion.div
+      {/* Credits panel — deliberately rendered before the bar so it opens upward.
+          A plain div: the height is driven imperatively by stepTo so that it and
+          the scroll correction commit together. */}
+      <div
         ref={panelRef}
         id={PANEL_ID}
-        // initial={false}: a freshly loaded page should render closed, not animate
-        // a collapse on mount.
-        initial={false}
-        animate={{ height: showCredits ? 'auto' : 0 }}
-        transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.55, ease: EASE_SOFT }}
-        onAnimationComplete={releasePin}
-        className="overflow-hidden"
+        // h-0 as a class, not an inline style: the height is owned imperatively
+        // by stepTo, and a React-managed inline height would be re-applied on any
+        // re-render and clobber it. The class only has to hold the closed state
+        // until the first toggle, after which the inline height always wins.
+        className="overflow-hidden h-0"
+        style={{
+          // contain:paint marks this clip as a self-contained paint unit, so the
+          // strip it reveals cannot be filled by anything painted outside it.
+          // Purely a rasterisation hint — the box is already overflow-hidden, so
+          // layout and visuals are unchanged.
+          contain: 'paint',
+        }}
         aria-hidden={!showCredits}
         inert={!showCredits}
       >
-        <div className="px-6 pt-10 pb-2">
+        <div ref={contentRef} className="px-6 pt-10 pb-2">
           <div className="max-w-2xl mx-auto">
             <p className="font-mono text-[10px] text-ash uppercase tracking-widest text-center mb-5">
               Built with
@@ -161,7 +210,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Footer bar — held still while the panel above it opens and closes. */}
       <div ref={barRef} className="py-8 px-6">
