@@ -6,6 +6,10 @@ interface ScrollRevealProps {
   className?: string;
 }
 
+/**
+ * Scroll-linked drift: content rises as it enters the viewport and lifts away as
+ * it leaves. Purely transform/opacity driven, so it stays on the compositor.
+ */
 const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({

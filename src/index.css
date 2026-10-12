@@ -39,8 +39,23 @@
 }
 
 @layer base {
+  /*
+   * No `scroll-behavior: smooth` here on purpose. react-scroll animates the
+   * window scroll itself with a per-frame window.scrollTo; a CSS smooth scroll
+   * on top of that re-eases every one of those steps, which made nav jumps feel
+   * rubbery and made any programmatic scroll correction stutter. Smoothness for
+   * the nav comes from react-scroll's own easing instead.
+   */
   html {
-    scroll-behavior: smooth;
+    /*
+     * Framer Motion walks the offsetParent chain from a useScroll target up to
+     * its scroll container. With a static <html> that chain terminates early and
+     * the computed target offset can be wrong — which is what its dev-mode
+     * "ensure that the container has a non-static position" warning is about.
+     * No offsets are set, so this is visually inert.
+     */
+    position: relative;
+    scroll-padding-top: 5rem;
   }
 
   body {
@@ -51,6 +66,14 @@
 
   ::selection {
     @apply bg-cyan text-obsidian;
+  }
+
+  /* Visible keyboard focus. The site previously had none at all, which made it
+     impossible to tell where you were when tabbing through. */
+  :focus-visible {
+    outline: 2px solid rgba(0, 212, 255, 0.7);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar {
@@ -68,14 +91,15 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-ash;
   }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(61, 69, 86, 0.5) var(--color-obsidian);
+  }
 }
 
 @layer components {
-  /* Sharp accent line */
-  .accent-line {
-    @apply h-px bg-cyan;
-  }
-
   /* Liquid glass navbar */
   .liquid-glass {
     @apply backdrop-blur-xl;
@@ -90,22 +114,23 @@
       0 8px 32px rgba(0, 0, 0, 0.25);
   }
 
-  /* Glass card with arctic feel */
-  .glass-card {
-    background: rgba(18, 21, 27, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .glass-card:hover {
-    background: rgba(26, 30, 39, 0.85);
-    border-color: rgba(0, 212, 255, 0.2);
-  }
-
+  /*
+   * Card hover transitions list their properties explicitly rather than using
+   * `transition-all`. `transition-all` also captures opacity and transform, so
+   * when Framer Motion finished a whileInView reveal and reconciled its inline
+   * styles, CSS would grab the final values and re-transition them over 500ms —
+   * the visible "blink" on the testimonial cards. Framer Motion owns
+   * opacity/transform; CSS owns colour.
+   */
   /* Bento card */
   .bento-card {
     background: rgba(18, 21, 27, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.04);
-    @apply rounded-2xl transition-all duration-500;
+    @apply rounded-2xl;
+    transition:
+      background-color 500ms var(--ease-smooth),
+      border-color 500ms var(--ease-smooth),
+      box-shadow 500ms var(--ease-smooth);
   }
 
   .bento-card:hover {
@@ -118,7 +143,9 @@
     @apply relative rounded-2xl overflow-hidden cursor-pointer;
     background: rgba(18, 21, 27, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.04);
-    transition: border-color 0.5s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      border-color 500ms var(--ease-smooth),
+      transform 500ms var(--ease-out-expo);
   }
 
   .project-tile:hover {
@@ -137,7 +164,10 @@
 
   /* Tag pill */
   .tag {
-    @apply px-3 py-1.5 bg-slate rounded-lg font-mono text-xs text-silver border border-zinc/30 transition-all duration-300;
+    @apply px-3 py-1.5 bg-slate rounded-lg font-mono text-xs text-silver border border-zinc/30;
+    transition:
+      color 300ms var(--ease-smooth),
+      border-color 300ms var(--ease-smooth);
   }
 
   .tag:hover {
@@ -146,7 +176,10 @@
 
   /* Button primary */
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-cyan text-obsidian font-semibold rounded-xl transition-all duration-300;
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-cyan text-obsidian font-semibold rounded-xl;
+    transition:
+      background-color 300ms var(--ease-smooth),
+      box-shadow 300ms var(--ease-smooth);
   }
 
   .btn-primary:hover {
@@ -156,7 +189,10 @@
 
   /* Button secondary */
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-slate text-frost font-medium rounded-xl border border-zinc/50 transition-all duration-300;
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-slate text-frost font-medium rounded-xl border border-zinc/50;
+    transition:
+      color 300ms var(--ease-smooth),
+      border-color 300ms var(--ease-smooth);
   }
 
   .btn-secondary:hover {
@@ -167,7 +203,10 @@
   .timeline-card {
     background: rgba(18, 21, 27, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    @apply rounded-2xl p-6 md:p-7 transition-all duration-500;
+    @apply rounded-2xl p-6 md:p-7;
+    transition:
+      background-color 500ms var(--ease-smooth),
+      border-color 500ms var(--ease-smooth);
   }
 
   .timeline-card:hover {
@@ -183,42 +222,6 @@
       linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
-  }
-
-  /* Glow effect */
-  .glow-cyan {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(0, 212, 255, 0.1);
-  }
-
-  /* Text glow */
-  .text-glow {
-    text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-  }
-
-  /* Scanlines */
-  .scanlines::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 0, 0, 0.1) 2px,
-      rgba(0, 0, 0, 0.1) 4px
-    );
-    z-index: 2;
-    opacity: 0.15;
-  }
-
-  /* Horizontal rule with fade */
-  .hr-fade {
-    @apply h-px w-full;
-    background: linear-gradient(90deg, transparent, rgba(61, 69, 86, 0.4), transparent);
   }
 
   /* Hero entrance animations — CSS @keyframes to bypass Framer Motion's
@@ -270,5 +273,33 @@
     @apply fixed top-0 left-0 h-[2px] bg-cyan z-[100];
     transform-origin: left;
     will-change: transform;
+  }
+}
+
+/*
+ * Reduced motion. The decorative animations that are purely ambient — the tech
+ * marquee, the hero entrance reveals, the bouncing scroll cue — are stopped
+ * outright; the wave field and particle canvas opt out in their components.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-reverse {
+    animation: none;
+  }
+
+  /* With the marquee parked, the duplicated second half just reads as a repeat. */
+  .marquee-fade {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .hero-line-anim,
+  .hero-subtitle-anim {
+    animation: none;
+  }
+
+  .hero-line-hidden,
+  .hero-subtitle-hidden {
+    transform: none;
   }
 }

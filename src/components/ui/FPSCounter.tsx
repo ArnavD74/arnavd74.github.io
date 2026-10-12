@@ -1,20 +1,28 @@
 import { useState, useEffect, useRef } from 'react';
 
+/** Dev overlay: press "F" to toggle a live frame-rate readout. */
 const FPSCounter: React.FC = () => {
   const [fps, setFps] = useState(0);
   const [visible, setVisible] = useState(false);
   const frameCount = useRef(0);
-  const lastTime = useRef(performance.now());
+  // Seeded in the effect, not here — performance.now() during render is impure.
+  const lastTime = useRef(0);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'f' || e.key === 'F') {
-        // Don't toggle if user is typing in an input
-        if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
-          return;
-        }
-        setVisible(v => !v);
+      if (e.key !== 'f' && e.key !== 'F') return;
+      // Ignore the shortcut while typing, or when it is part of a chord that
+      // means something else to the browser (Ctrl/Cmd+F, etc.).
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      const target = e.target as HTMLElement | null;
+      if (
+        target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target?.isContentEditable
+      ) {
+        return;
       }
+      setVisible((v) => !v);
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -44,15 +52,16 @@ const FPSCounter: React.FC = () => {
     frameCount.current = 0;
     animationFrameId = requestAnimationFrame(updateFPS);
 
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
+    return () => cancelAnimationFrame(animationFrameId);
   }, [visible]);
 
   if (!visible) return null;
 
   return (
-    <div className="fixed top-4 left-4 z-[9999] px-3 py-1.5 bg-obsidian/90 backdrop-blur-sm rounded border border-zinc/30">
+    <div
+      aria-hidden="true"
+      className="fixed top-4 left-4 z-[9999] px-3 py-1.5 bg-obsidian/90 backdrop-blur-sm rounded border border-zinc/30"
+    >
       <span className="font-mono text-xs text-cyan">{fps}</span>
       <span className="font-mono text-xs text-ash ml-1">FPS</span>
     </div>

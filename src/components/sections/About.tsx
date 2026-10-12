@@ -1,16 +1,10 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import { useIsMobile } from '../../hooks/useIsMobile';
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { revealMargin } from '../../lib/motion';
+import Reveal from '../ui/Reveal';
 import ScrollReveal from '../ui/ScrollReveal';
-
-const blurUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as const },
-  }),
-};
+import SectionHeader from '../ui/SectionHeader';
 
 type TechItem = { name: string; url: string };
 
@@ -29,7 +23,7 @@ const techRow1: TechItem[] = [
   { name: 'Cloudflare', url: 'https://www.cloudflare.com' },
   { name: 'SQL', url: 'https://en.wikipedia.org/wiki/SQL' },
   { name: 'Streamlit', url: 'https://streamlit.io' },
-  { name: 'C#', url: 'https://docs.microsoft.com/en-us/dotnet/csharp' },
+  { name: 'C#', url: 'https://learn.microsoft.com/en-us/dotnet/csharp/' },
   { name: 'Git', url: 'https://git-scm.com' },
   { name: 'RAG', url: 'https://en.wikipedia.org/wiki/Retrieval-augmented_generation' },
   { name: 'MongoDB', url: 'https://www.mongodb.com' },
@@ -65,21 +59,38 @@ const techRow2: TechItem[] = [
   { name: 'Excel', url: 'https://www.microsoft.com/en-us/microsoft-365/excel' },
 ];
 
-// For mobile: split into 4 rows from combined pool
+// For mobile: split into 4 shorter rows from the combined pool
 const allTech = [...techRow1, ...techRow2];
 const quarter = Math.ceil(allTech.length / 4);
-const mobileRow1 = allTech.slice(0, quarter);
-const mobileRow2 = allTech.slice(quarter, quarter * 2);
-const mobileRow3 = allTech.slice(quarter * 2, quarter * 3);
-const mobileRow4 = allTech.slice(quarter * 3);
+const mobileRows = [
+  allTech.slice(0, quarter),
+  allTech.slice(quarter, quarter * 2),
+  allTech.slice(quarter * 2, quarter * 3),
+  allTech.slice(quarter * 3),
+];
+const MOBILE_SPEEDS = ['60s', '66s', '57s', '63s'];
+
+const HOVER_RATE = 0.15;
+const RATE_EASE_MS = 1000;
 
 // Defined at module level so React preserves DOM across parent re-renders
-const MarqueeRow = ({ items, reverse, speed }: { items: TechItem[]; reverse?: boolean; speed?: string }) => {
+const MarqueeRow = ({
+  items,
+  reverse,
+  speed,
+  paused,
+}: {
+  items: TechItem[];
+  reverse?: boolean;
+  speed?: string;
+  paused?: boolean;
+}) => {
   const trackRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>(0);
+  const rafRef = useRef(0);
 
   useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
 
+  /** Eases the CSS animation's playbackRate instead of snapping it. */
   const easeRate = (target: number) => {
     const track = trackRef.current;
     if (!track) return;
@@ -88,42 +99,56 @@ const MarqueeRow = ({ items, reverse, speed }: { items: TechItem[]; reverse?: bo
     if (anims.length === 0) return;
     const start = anims[0].playbackRate;
     const t0 = performance.now();
-    const dur = 1000;
     const step = (now: number) => {
-      const t = Math.min((now - t0) / dur, 1);
-      const ease = 1 - (1 - t) * (1 - t) * (1 - t); // cubic ease-out
+      const t = Math.min((now - t0) / RATE_EASE_MS, 1);
+      const ease = 1 - (1 - t) ** 3; // cubic ease-out
       const rate = start + (target - start) * ease;
-      anims.forEach(a => { a.playbackRate = rate; });
+      anims.forEach((a) => {
+        a.playbackRate = rate;
+      });
       if (t < 1) rafRef.current = requestAnimationFrame(step);
     };
     rafRef.current = requestAnimationFrame(step);
   };
 
+  const slow = paused ? undefined : () => easeRate(HOVER_RATE);
+  const resume = paused ? undefined : () => easeRate(1);
+
   return (
     <div
       className="marquee-container relative overflow-hidden py-1 md:py-2 mb-1.5 md:mb-3 marquee-fade"
-      onMouseEnter={() => easeRate(0.15)}
-      onMouseLeave={() => easeRate(1)}
-      onTouchStart={() => easeRate(0.15)}
-      onTouchEnd={() => easeRate(1)}
-      onTouchCancel={() => easeRate(1)}
+      onMouseEnter={slow}
+      onMouseLeave={resume}
+      onTouchStart={slow}
+      onTouchEnd={resume}
+      onTouchCancel={resume}
     >
       <div
         ref={trackRef}
         className={`marquee-track flex w-max ${reverse ? 'marquee-reverse' : ''}`}
         style={speed ? { animationDuration: speed } : undefined}
       >
-        {[...items, ...items].map((tech, i) => (
-          <a
-            key={`${tech.name}-${i}`}
-            href={tech.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="tag mx-1 md:mx-1.5 inline-block cursor-pointer shrink-0 text-[10px] md:text-xs px-2 py-1 md:px-3 md:py-1.5"
-          >
-            {tech.name}
-          </a>
-        ))}
+        {/* The list is rendered twice so translateX(-50%) loops seamlessly — the
+            two halves must stay layout-identical, hence the same element and
+            classes for both. The second half is decorative, so it is hidden from
+            assistive tech and taken out of the tab order instead of being read
+            and tabbed through twice. */}
+        {[...items, ...items].map((tech, i) => {
+          const duplicate = i >= items.length;
+          return (
+            <a
+              key={`${tech.name}-${i}`}
+              href={tech.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-hidden={duplicate || undefined}
+              tabIndex={duplicate ? -1 : undefined}
+              className="tag mx-1 md:mx-1.5 inline-block cursor-pointer shrink-0 text-[10px] md:text-xs px-2 py-1 md:px-3 md:py-1.5"
+            >
+              {tech.name}
+            </a>
+          );
+        })}
       </div>
     </div>
   );
@@ -132,102 +157,37 @@ const MarqueeRow = ({ items, reverse, speed }: { items: TechItem[]; reverse?: bo
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
-  const headerY = useTransform(scrollYProgress, [0, 0.4, 0.85, 1], [60, 0, 0, -40]);
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.2, 0.85, 1], [0, 1, 1, 0]);
-
-  const mobileViewport = isMobile
-    ? { once: true, margin: '2000px' as const }
-    : undefined;
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const margin = revealMargin(isMobile);
 
   return (
-    <section ref={sectionRef} id="about" className="pt-32 pb-8 md:py-44 relative">
+    <section ref={sectionRef} id="about" className="py-28 md:py-44 relative">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Section header */}
-        <motion.div
-          style={{ y: headerY, opacity: headerOpacity }}
-          className="mb-20 md:mb-28"
-        >
-          <div className="flex items-center gap-4 mb-6">
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="font-mono text-xs text-cyan tracking-widest"
-            >01</motion.span>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="w-12 h-px bg-cyan"
-            />
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="font-mono text-xs text-ash tracking-widest uppercase"
-            >About</motion.span>
-          </div>
-          <div className="overflow-hidden">
-            <motion.h2
-              initial={{ y: '100%' }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="section-title text-white"
-            >
-              Background
-            </motion.h2>
-          </div>
-        </motion.div>
+        <SectionHeader index="01" label="About" title="Background" sectionRef={sectionRef} />
 
         {/* Main content grid */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <ScrollReveal className="lg:col-span-7 order-2 lg:order-1">
-            <motion.div
-              variants={blurUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={mobileViewport ?? { once: true, margin: '-80px' }}
-              custom={0}
-            >
+            <Reveal margin={margin}>
               <div className="space-y-6 body-text">
-                <p className="text-frost text-lg leading-relaxed">
-                  Hey, thanks for visiting my site!
+                <p className="text-frost text-lg leading-relaxed">Hey, thanks for visiting my site!</p>
+                <p>
+                  I'm currently working as a Data Scientist while continuing to build and ship
+                  software projects on the side. I love to learn by building with new tools and
+                  technologies, whether it be in data science, machine learning, or software
+                  development&nbsp;:]
                 </p>
                 <p>
-                  My background spans full-stack engineering (React, Node, Python), cloud infrastructure (AWS),
-                  and data science/ML workflows. I'm most engaged when I can move between these areas
-                  rather than stay siloed in one.
-                </p>
-                <p>
-                  I have a strong bias for action, translating business needs into dependable
-                  software through analytical processes and methodical execution. I'm currently
-                  working as a Data Scientist while continuing to build and ship software projects.
-                </p>
-                <p>
-                  Beyond development, some niche interests I have include Discord bot development,
-                  custom peripheral design (mechanical keyboards, enthusiast-grade mice),
-                  PC hardware, and DIY embedded systems projects.
+                  Beyond coding, some of my interests include custom computer peripheral design, PC
+                  hardware, and DIY embedded systems projects. I also love Pokemon, Minecraft, vinyl
+                  records, skiing, and cats!
                 </p>
               </div>
-            </motion.div>
+            </Reveal>
           </ScrollReveal>
 
           <ScrollReveal className="lg:col-span-5 order-1 lg:order-2">
-            <motion.div
-              variants={blurUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={mobileViewport ?? { once: true, margin: '-80px' }}
-              custom={0.1}
-            >
+            <Reveal margin={margin} delay={0.1}>
               <div className="relative w-4/5 mx-auto group">
                 <div className="absolute -inset-3 border border-zinc/20 rounded-lg" />
                 <div className="absolute -top-3 -left-3 w-6 h-6 border-l-2 border-t-2 border-cyan" />
@@ -236,42 +196,45 @@ const About: React.FC = () => {
                   <img
                     src="/images/pfp2.png"
                     alt="Arnav Dashaputra"
+                    width={512}
+                    height={512}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-obsidian/10" />
                 </div>
               </div>
-            </motion.div>
+            </Reveal>
           </ScrollReveal>
         </div>
 
-        {/* Tech Stack Marquee */}
+        {/* Tech stack marquee */}
         <ScrollReveal className="mt-14 md:mt-28">
-          <motion.div
-            variants={blurUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={0}
-          >
+          <Reveal>
             <h3 className="font-mono text-[10px] text-ash uppercase tracking-[0.2em] mb-4 md:mb-6 text-center">
               Technologies I Work With
             </h3>
 
-            {/* Desktop: 2 rows */}
+            {/* Desktop: 2 long rows */}
             <div className="hidden md:block">
-              <MarqueeRow items={techRow1} />
-              <MarqueeRow items={techRow2} reverse />
+              <MarqueeRow items={techRow1} paused={prefersReducedMotion} />
+              <MarqueeRow items={techRow2} reverse paused={prefersReducedMotion} />
             </div>
 
-            {/* Mobile: 4 rows, faster */}
+            {/* Mobile: 4 shorter rows, faster */}
             <div className="md:hidden">
-              <MarqueeRow items={mobileRow1} speed="60s" />
-              <MarqueeRow items={mobileRow2} speed="66s" reverse />
-              <MarqueeRow items={mobileRow3} speed="57s" />
-              <MarqueeRow items={mobileRow4} speed="63s" reverse />
+              {mobileRows.map((row, i) => (
+                <MarqueeRow
+                  key={i}
+                  items={row}
+                  speed={MOBILE_SPEEDS[i]}
+                  reverse={i % 2 === 1}
+                  paused={prefersReducedMotion}
+                />
+              ))}
             </div>
-          </motion.div>
+          </Reveal>
         </ScrollReveal>
       </div>
     </section>
