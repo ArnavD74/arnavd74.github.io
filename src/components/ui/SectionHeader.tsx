@@ -4,7 +4,7 @@ import { slideInLeft, slideUpReveal } from '../../lib/motion';
 import Reveal from './Reveal';
 
 interface SectionHeaderProps {
-  /** Two-digit index shown before the label, e.g. "01". */
+  /** Section index in binary, shown before the label, e.g. "10" for section 2. */
   index: string;
   /** Small uppercase eyebrow, e.g. "About". */
   label: string;

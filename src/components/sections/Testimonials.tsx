@@ -33,7 +33,7 @@ const Testimonials: React.FC = () => {
   return (
     <section ref={sectionRef} id="testimonials" className="py-28 md:py-44 relative">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader index="03" label="Testimonials" title="Kind Words" sectionRef={sectionRef} />
+        <SectionHeader index="11" label="Testimonials" title="Kind Words" sectionRef={sectionRef} />
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {testimonials.map((t, index) => (

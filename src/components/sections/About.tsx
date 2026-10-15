@@ -163,7 +163,7 @@ const About: React.FC = () => {
   return (
     <section ref={sectionRef} id="about" className="py-28 md:py-44 relative">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader index="01" label="About" title="Background" sectionRef={sectionRef} />
+        <SectionHeader index="1" label="About" title="Background" sectionRef={sectionRef} />
 
         {/* Main content grid */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">

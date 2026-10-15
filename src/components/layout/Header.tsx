@@ -7,12 +7,13 @@ interface HeaderProps {
   activeSection?: string;
 }
 
+// Labels are the section index in binary, so they vary in width (0, 1, 10, 11, 100).
 const NAV_ITEMS = [
-  { id: 'home', label: '00', name: 'Home' },
-  { id: 'about', label: '01', name: 'About' },
-  { id: 'experience', label: '02', name: 'Experience' },
-  { id: 'testimonials', label: '03', name: 'Testimonials' },
-  { id: 'contact', label: '04', name: 'Contact' },
+  { id: 'home', label: '0', name: 'Home' },
+  { id: 'about', label: '1', name: 'About' },
+  { id: 'experience', label: '10', name: 'Experience' },
+  { id: 'testimonials', label: '11', name: 'Testimonials' },
+  { id: 'contact', label: '100', name: 'Contact' },
 ];
 
 /** Entrance state resolved once, after the browser has restored scroll position. */

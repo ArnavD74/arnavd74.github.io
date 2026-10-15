@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
           {/* Left column */}
           <div>
             <SectionHeader
-              index="04"
+              index="100"
               label="Contact"
               title="Get in Touch"
               sectionRef={sectionRef}

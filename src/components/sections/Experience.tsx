@@ -29,7 +29,7 @@ const Experience: React.FC = () => {
   return (
     <section ref={sectionRef} id="experience" className="py-28 md:py-44 relative">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader index="02" label="Experience" title="Career" sectionRef={sectionRef} />
+        <SectionHeader index="10" label="Experience" title="Career" sectionRef={sectionRef} />
 
         {/* Timeline */}
         <div className="relative">
