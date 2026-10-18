@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
@@ -46,8 +47,46 @@ const cspPlugin = (): Plugin => ({
   },
 });
 
+/**
+ * Dev-only preview of the no-JS fallback, at /noscript.
+ *
+ * A browser only renders <noscript> when scripting is *disabled*, so dropping
+ * the app's script tag is not enough to reveal it — the wrappers themselves
+ * have to come off. This serves the real index.html with the <noscript> tags
+ * unwrapped and the app script and mount point removed, which means the
+ * preview is the markup that actually ships rather than a second copy of it
+ * that can drift. Serving it raw (no transformIndexHtml) keeps the dev client
+ * out of the page, so what renders is what a JS-less visitor would get.
+ *
+ * Dev-only on purpose: the live site should not carry a duplicate of its own
+ * fallback at a second URL for search engines to find.
+ */
+const noscriptPreviewPlugin = (): Plugin => ({
+  name: 'noscript-preview',
+  apply: 'serve',
+  configureServer(server) {
+    server.middlewares.use((req, res, next) => {
+      const path = (req.url ?? '').split('?')[0];
+      if (path !== '/noscript' && path !== '/noscript/') return next();
+
+      readFile(new URL('./index.html', import.meta.url), 'utf-8')
+        .then((html) => {
+          const unwrapped = html
+            .replaceAll('<noscript>', '')
+            .replaceAll('</noscript>', '')
+            .replace(/<script type="module"[^>]*>\s*<\/script>/g, '')
+            .replace('<div id="root"></div>', '');
+          res.setHeader('Content-Type', 'text/html; charset=utf-8');
+          res.setHeader('Cache-Control', 'no-store');
+          res.end(unwrapped);
+        })
+        .catch(next);
+    });
+  },
+});
+
 export default defineConfig({
-  plugins: [react(), tailwindcss(), cspPlugin()],
+  plugins: [react(), tailwindcss(), cspPlugin(), noscriptPreviewPlugin()],
   resolve: { alias: { '@': '/src' } },
   build: {
     target: 'es2022',

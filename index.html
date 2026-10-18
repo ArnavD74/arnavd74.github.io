@@ -41,9 +41,105 @@
     <link href="https://api.fontshare.com/v2/css?f[0]=clash-display@400,500,600,700&f[1]=satoshi@400,500,700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <title>Arnav Dashaputra | Portfolio</title>
+
+    <!-- Styles for the no-JS fallback below. A <noscript> in <head> may only
+         contain link/style/meta, which is exactly what this is; the matching
+         content lives in <body>. Browsers with JS on never parse either. -->
+    <noscript>
+      <style>
+        /* Keep in sync with public/noscript/index.html, which serves this same
+           markup at /noscript/ so it can be previewed without disabling JS. */
+        .ns {
+          min-height: 100dvh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 2rem;
+          background: #08090c;
+          color: #e8ecf2;
+          font-family: 'Satoshi', system-ui, sans-serif;
+          box-sizing: border-box;
+        }
+        .ns *, .ns *::before, .ns *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        .ns-inner { max-width: 32rem; width: 100%; }
+        .ns-eyebrow {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.75rem;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #00d4ff;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+        }
+        .ns-eyebrow::after { content: ''; flex: 1; height: 1px; background: #1a1e27; }
+        .ns h1 {
+          font-family: 'Clash Display', system-ui, sans-serif;
+          font-weight: 700;
+          font-size: clamp(2.25rem, 7vw, 3.5rem);
+          line-height: 1.05;
+          letter-spacing: -0.02em;
+          color: #fff;
+          margin-bottom: 0.5rem;
+        }
+        .ns-role { color: #8994a8; font-size: 1.05rem; margin-bottom: 2rem; }
+        .ns-note {
+          border-left: 2px solid #00d4ff;
+          padding-left: 1rem;
+          color: #c4cdd9;
+          font-size: 0.95rem;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+        }
+        .ns-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .ns-links a {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.9rem;
+          color: #e8ecf2;
+          text-decoration: none;
+          border-bottom: 1px solid #3d4556;
+          padding-bottom: 2px;
+        }
+        /* min-width:0 lets a long value shrink inside the flex row instead of
+           pushing past the viewport on a narrow screen. */
+        .ns-links a { min-width: 0; overflow-wrap: anywhere; }
+        .ns-links a:hover, .ns-links a:focus-visible { color: #00d4ff; border-color: #00d4ff; }
+        /* Fixed width rather than padding the label with spaces, so the values
+           line up in a column regardless of key length. */
+        .ns-links li { display: flex; align-items: baseline; gap: 0.75rem; }
+        .ns-links .ns-key {
+          color: #5a6478;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.8rem;
+          flex: 0 0 4.5rem;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
+
+    <noscript>
+      <div class="ns">
+        <div class="ns-inner">
+          <p class="ns-eyebrow">No JavaScript</p>
+          <h1>Arnav Dashaputra</h1>
+          <p class="ns-role">Data Scientist &amp; Full-Stack Engineer</p>
+          <p class="ns-note">
+            The full portfolio is interactive and needs JavaScript enabled. Here are
+            the essentials in the meantime.
+          </p>
+          <ul class="ns-links">
+            <li><span class="ns-key">email</span><a href="mailto:arnav@dashaputra.net">arnav@dashaputra.net</a></li>
+            <li><span class="ns-key">github</span><a href="https://github.com/ArnavD74">github.com/ArnavD74</a></li>
+            <li><span class="ns-key">linkedin</span><a href="https://linkedin.com/in/dashaputra">linkedin.com/in/dashaputra</a></li>
+            <li><span class="ns-key">resume</span><a href="/ArnavDashaputra_Resume2026.pdf">Resume 2026 (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

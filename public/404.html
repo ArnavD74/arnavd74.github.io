@@ -264,12 +264,16 @@
     <!-- Navbar -->
     <header class="navbar">
       <nav>
-        <a href="/#home" class="nav-item">00</a>
-        <a href="/#about" class="nav-item">01</a>
-        <a href="/#experience" class="nav-item">02</a>
-        <a href="/#testimonials" class="nav-item">03</a>
-        <a href="/#contact" class="nav-item">04</a>
-        <span class="nav-item nav-item--active">404</span>
+        <!-- Indices are binary, matching the site header. The visible label is
+             just a number, so the section name is supplied for screen readers
+             and for the browser's link preview. -->
+        <a href="/#home" class="nav-item" aria-label="Home" title="Home">0</a>
+        <a href="/#about" class="nav-item" aria-label="About" title="About">1</a>
+        <a href="/#experience" class="nav-item" aria-label="Experience" title="Experience">10</a>
+        <a href="/#testimonials" class="nav-item" aria-label="Testimonials" title="Testimonials">11</a>
+        <a href="/#contact" class="nav-item" aria-label="Contact" title="Contact">100</a>
+        <!-- 404 in binary. -->
+        <span class="nav-item nav-item--active" aria-label="Error 404" title="Error 404">110010100</span>
       </nav>
     </header>
 
