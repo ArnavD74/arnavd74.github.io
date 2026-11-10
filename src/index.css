@@ -138,20 +138,6 @@
     border-color: rgba(0, 212, 255, 0.12);
   }
 
-  /* Project card - fluid tile */
-  .project-tile {
-    @apply relative rounded-2xl overflow-hidden cursor-pointer;
-    background: rgba(18, 21, 27, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    transition:
-      border-color 500ms var(--ease-smooth),
-      transform 500ms var(--ease-out-expo);
-  }
-
-  .project-tile:hover {
-    border-color: rgba(0, 212, 255, 0.2);
-  }
-
   /* Section titles - bold, clean, exaggerated */
   .section-title {
     @apply font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none;

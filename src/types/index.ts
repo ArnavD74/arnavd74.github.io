@@ -1,15 +1,3 @@
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  longDescription: string;
-  category: 'projects' | 'coursework' | 'oss' | 'work';
-  image: string;
-  technologies: string[];
-  links: ExternalLink[];
-  archived?: boolean;
-}
-
 export interface ExternalLink {
   label: string;
   url: string;
