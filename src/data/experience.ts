@@ -74,7 +74,7 @@ export const experiences: Experience[] = [
     company: 'Got Users',
     location: 'San Rafael, CA',
     period: 'Sep 2025 - Mar 2026',
-    tagline: 'Deployed ML-based NLP platform for market research analysis.',
+    tagline: 'Launched ML-based NLP platform for market research analysis.',
     points: [
       'Applied unsupervised learning models to translate data features into natural language patterns',
       'Designed a semantic retrieval pipeline using faiss.ai and RAG workflows to refine generated content',
