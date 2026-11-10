@@ -36,7 +36,7 @@ export const experiences: Experience[] = [
         title: 'Sr Instructor',
         period: 'Aug 2025 - Present',
         tagline:
-          'Teaching private lessons for advanced topics in computer science, game development, 3D modeling, and vibe coding. Occasionally working on the CRM side.',
+          'Teaching private lessons for advanced topics in computer science, game development, 3D modeling, and AI-assisted coding. Occasionally work on the CRM side.',
         points: [],
       },
       {
