@@ -172,10 +172,9 @@ const About: React.FC = () => {
               <div className="space-y-6 body-text">
                 <p className="text-frost text-lg leading-relaxed">Hey, thanks for visiting my site!</p>
                 <p>
-                  I'm currently working as a Data Scientist while continuing to build and ship
-                  software projects on the side. I love to learn by building with new tools and
-                  technologies, whether it be in data science, machine learning, or software
-                  development&nbsp;:]
+                  I'm currently working as a Data Scientist while shipping software projects on
+                  the side. I love to learn by building with new tools and technologies, whether
+                  it be in data science, machine learning, or software development&nbsp;:]
                 </p>
                 <p>
                   Beyond coding, some of my interests include custom computer peripheral design, PC
