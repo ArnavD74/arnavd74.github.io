@@ -7,11 +7,20 @@ export const experiences: Experience[] = [
     company: 'AmTrust Financial Services, Inc.',
     location: 'Princeton, NJ',
     period: 'Jan 2026 - Present',
-    tagline:
-      'Building machine learning models for commercial insurance products (pricing and classification)',
+    tagline: 'Building end-to-end predictive pricing models for flagship commercial lines.',
     points: [],
     technologies: ['Python', 'Machine Learning', 'Predictive Modeling', 'SQL', 'Scikit-learn', 'SHAP'],
     links: [{ label: 'Homepage', url: 'https://amtrustfinancial.com/' }],
+  },
+  {
+    id: 'butterfly',
+    title: 'Senior Product Engineer',
+    company: 'Butterfly AI Tech Solutions',
+    location: 'Remote',
+    period: 'Nov 2025 - Present',
+    tagline: 'Designing cloud-native document infrastructure for regulated industries.',
+    points: [],
+    links: [{ label: 'Homepage', url: 'https://butterflyaitechsol.com/' }],
   },
   {
     id: 'codeninjas-bridgewater',
@@ -20,19 +29,19 @@ export const experiences: Experience[] = [
     period: 'Aug 2022 - Present',
     points: [],
     technologies: ['Lua', 'C#', 'CRM', 'React', 'Unity'],
-    links: [{ label: 'Website', url: 'https://www.codeninjas.com/nj-bridgewater' }],
+    links: [{ label: 'Homepage', url: 'https://www.codeninjas.com/nj-bridgewater' }],
     subSections: [
       {
         title: 'Sr Instructor',
         period: 'Aug 2025 - Present',
         tagline:
-          'Run private tutoring for advanced topics in computer science, game design, 3D modeling, and math. Still occasionally work on the CRM side.',
+          'Teaching private lessons for advanced topics in computer science, game development, 3D modeling, and vibe coding. Occasionally working on the CRM side.',
         points: [],
       },
       {
         title: 'Center Director',
         period: 'Aug 2022 - Aug 2025',
-        tagline: 'Directed business operations while supporting youth coding education programs',
+        tagline: 'Directed business operations while supporting youth coding education programs.',
         points: [
           'Recruited, interviewed, and trained 75+ employees and interns',
           'Led staff workshops to strengthen individual teaching skills',
@@ -45,7 +54,7 @@ export const experiences: Experience[] = [
   {
     id: 'medem',
     title: 'Lead Software Engineer',
-    company: 'medem.ai',
+    company: 'medem',
     location: 'Remote',
     period: 'Mar 2025 - Apr 2026',
     tagline:
@@ -56,39 +65,37 @@ export const experiences: Experience[] = [
       'Built automations for data ingestion, synthetic resource generation, and database synchronization',
     ],
     technologies: ['FHIR', 'AWS', 'React', 'Python', 'Streamlit', 'Figma', 'Docker', 'DevOps', 'Git'],
-    links: [{ label: 'Website', url: 'https://medem.ai/' }],
+    links: [{ label: 'Homepage', url: 'https://medem.ai/' }],
   },
   {
     id: 'gotusers',
-    title: 'AI/ML Engineer',
+    title: 'Data Engineer',
     company: 'Got Users',
     location: 'San Rafael, CA',
     period: 'Sep 2025 - Mar 2026',
-    tagline: 'Developed ML-based NLP platform for market research analysis',
+    tagline: 'Developed ML-based NLP platform for market research analysis.',
     points: [
       'Applied unsupervised learning models to translate data features into natural language patterns',
-      'Designed a semantic retrieval pipeline using faiss.ai and RAG workflows to refine drafted content',
-      'Deployed web interface with SQLite backend for re-indexing embeddings',
+      'Designed a semantic retrieval pipeline using faiss.ai and RAG workflows to refine generated content',
+      'Deployed Streamlit interface with SQLite backend',
     ],
     technologies: ['Python', 'RAG', 'Exploratory Data Analysis', 'Git', 'SQLite', 'Streamlit'],
-    links: [{ label: 'Website', url: 'https://gotusers.com/' }],
+    links: [{ label: 'Homepage', url: 'https://gotusers.com/' }],
   },
   {
     id: 'phillipvn',
-    title: 'Solutions Architect',
+    title: 'Full Stack Engineer',
     company: 'Phillipvn Photography LLC',
     location: 'New York, NY',
     period: 'Apr 2025 - Dec 2025',
     tagline:
-      'Delivered a cloud-agnostic microSaaS platform complete with user auth, payments, and AI-powered content workflows',
+      'Delivered a cloud-agnostic microSaaS platform complete with user auth, payments, and AI-powered content workflows.',
     points: [
-      'Shipped a custom AWS solution involving REST APIs and large-scale scheduled automation (React/Amplify, Cognito, End User Messaging, API Gateway, Lambda, EventBridge, DynamoDB)',
+      'Shipped custom AWS solution on CloudFormation involving REST APIs and large-scale scheduled automation (React/Amplify, Cognito, End User Messaging, API Gateway, Lambda, EventBridge, DynamoDB)',
       'Integrated Stripe Checkout and Billing Portal with webhook-driven subscription management',
       'Configured CloudWatch and CI/CD for low-maintenance operation',
-      'Built the entire platform on CloudFormation',
     ],
     technologies: ['AWS', 'Python', 'React', 'Docker', 'Cloudflare', 'Stripe', 'Git'],
-    links: [{ label: 'Website', url: 'https://phillipvn.com/' }],
   },
   {
     id: 'rutgers-oit',
@@ -97,7 +104,7 @@ export const experiences: Experience[] = [
     location: 'New Brunswick, NJ',
     period: 'May 2022 - Dec 2024',
     tagline:
-      'Provided frontline technical support for faculty, students, and guests across Rutgers computing labs; collaborated with management on process improvements and automation',
+      'Provided frontline technical support for faculty, students, and guests across Rutgers computing labs; collaborated with management on process improvements and automation.',
     points: [],
     technologies: ['IAM', 'Microsoft MDM', 'Microsoft Intune', 'ServiceNow'],
   },
@@ -107,7 +114,7 @@ export const experiences: Experience[] = [
     company: 'Rutgers University',
     location: 'New Brunswick, NJ',
     period: 'Sep 2021 - Dec 2024',
-    tagline: "Bachelor's in Computer Science with Minor in Data Science; Dean's List",
+    tagline: "Bachelor's in Computer Science with Minor in Data Science; Dean's List.",
     points: [
       'Coursework: Data Structures, Algorithms, Machine Learning, Statistical Inference, Computer Architecture',
       'Activities: Sigma Phi Epsilon, Rutgers Makerspace Club, HackRU, Rutgers Mobile App Development (RUMAD)',
@@ -120,7 +127,7 @@ export const experiences: Experience[] = [
     location: 'New Brunswick, NJ',
     period: 'Oct 2023 - Nov 2024',
     tagline:
-      'Led chapter communications and digital marketing, earning national recognition for excellence in communication and recruitment',
+      'Led chapter communications and digital marketing, earning national recognition for excellence in communication and recruitment.',
     points: [
       'Earned the Benjamin Hobson-Frayser Award for Excellence in Communication (2025)',
       'Managed official social media channels highlighting outreach and community impact',
@@ -135,14 +142,14 @@ export const experiences: Experience[] = [
     location: 'Remote',
     period: 'Jun 2021 - Oct 2023',
     tagline:
-      'Built and maintained an open-source project, developing my full-stack and live-service application skills',
+      'Built and maintained an open-source project, developing my full-stack and live-service application skills.',
     points: [
       'Developed a Discord API service in Node.js providing moderation and community growth tools for Discord server administrators',
       'Scaled cloud infrastructure (Heroku Dynos) to support 300K+ daily users across 1,000+ Discord servers at peak',
-      'Designed product landing page in Bootstrap and collaborated with graphic designers for branding assets',
+      'Collaborated with graphic designers to build product landing page in Bootstrap',
     ],
     technologies: ['Node.js', 'Discord.js', 'Cloudflare', 'Photoshop', 'Git'],
-    links: [{ label: 'Website', url: 'https://tangerinebot.com/' }],
+    links: [{ label: 'Homepage', url: 'https://tangerinebot.com/' }],
   },
   {
     id: 'codeninjas-other',
@@ -183,7 +190,7 @@ export const experiences: Experience[] = [
       {
         title: 'Logistics Manager',
         period: 'Jun 2020 - Jun 2021',
-        tagline: 'Management role overseeing cross-functional teams totaling over 100 members',
+        tagline: 'Management role overseeing cross-functional teams totaling over 100 members.',
         points: [
           "Ignited a multi-year winning streak of FIRST Mid-Atlantic's Impact Award and District Championship Regional Impact Award (2019–2021) — the most prestigious award at FIRST, honoring the team that best models the organization's mission for others to emulate",
           "Served as lead editor for Chairman's Essay and Executive Summaries, through which the team qualified for international competition eligibility",
@@ -209,11 +216,11 @@ export const experiences: Experience[] = [
     location: 'Skillman, NJ',
     period: 'Dec 2016 - Jun 2017',
     tagline:
-      'Guided students through various STEAM topics through interactive, hands-on learning experiences',
+      'Guided students through various STEAM topics through interactive, hands-on learning experiences.',
     points: [
       'Facilitated "unplugged" activities and projects designed to build foundational skills and interest in STEAM fields',
       'Co-authored successful application for the "Women at NASA" speaking panel; coordinated event logistics for the program held at Montgomery High School, Skillman, NJ',
     ],
-    links: [{ label: 'Website', url: 'https://thetechsters.wordpress.com/' }],
+    links: [{ label: 'Homepage', url: 'https://thetechsters.wordpress.com/' }],
   },
 ];
