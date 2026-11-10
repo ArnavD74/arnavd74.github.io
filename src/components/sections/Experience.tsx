@@ -45,7 +45,6 @@ const Experience: React.FC = () => {
             {experiences.map((exp, index) => {
               const isLeft = index % 2 === 0;
               const isPresent = exp.period.toLowerCase().includes('present');
-              const hasBody = exp.points.length > 0 || (exp.subSections?.length ?? 0) > 0;
               const hasTech = (exp.technologies?.length ?? 0) > 0;
 
               return (
@@ -160,11 +159,7 @@ const Experience: React.FC = () => {
 
                         {/* Technology badges */}
                         {hasTech && (
-                          <div
-                            className={`flex flex-wrap gap-1.5 ${
-                              hasBody ? 'mt-5 pt-5 border-t border-zinc/15' : ''
-                            }`}
-                          >
+                          <div className="flex flex-wrap gap-1.5 mt-5 pt-5 border-t border-zinc/15">
                             {exp.technologies!.map((tech) => (
                               <span
                                 key={tech}
@@ -180,7 +175,7 @@ const Experience: React.FC = () => {
                         {exp.links && exp.links.length > 0 && (
                           <div
                             className={`flex flex-wrap gap-2 ${
-                              hasTech ? 'mt-4' : hasBody ? 'mt-5 pt-5 border-t border-zinc/15' : ''
+                              hasTech ? 'mt-4' : 'mt-5 pt-5 border-t border-zinc/15'
                             }`}
                           >
                             {exp.links.map((link) => (
