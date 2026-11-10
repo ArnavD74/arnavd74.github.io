@@ -20,6 +20,7 @@ export const experiences: Experience[] = [
     period: 'Nov 2025 - Present',
     tagline: 'Designing cloud-native document infrastructure for regulated industries.',
     points: [],
+    technologies: ['AWS', 'Bedrock', 'Textract', 'React', 'Docker', 'DevOps', 'Git'],
     links: [{ label: 'Homepage', url: 'https://butterflyaitechsol.com/' }],
   },
   {
@@ -119,6 +120,7 @@ export const experiences: Experience[] = [
       'Coursework: Data Structures, Algorithms, Machine Learning, Statistical Inference, Computer Architecture',
       'Activities: Sigma Phi Epsilon, Rutgers Makerspace Club, HackRU, Rutgers Mobile App Development (RUMAD)',
     ],
+    technologies: ['Java', 'C', 'Assembly', 'LaTeX', 'Tableau', 'R', 'SQL', 'Python'],
   },
   {
     id: 'sigep',
@@ -133,6 +135,7 @@ export const experiences: Experience[] = [
       'Managed official social media channels highlighting outreach and community impact',
       'Handled full production of chapter composite boards including photography, editing, and assembly',
     ],
+    technologies: ['Photoshop', 'Lightroom'],
     links: [{ label: 'Chapter Website', url: 'https://www.sigepnjbeta.org/' }],
   },
   {
