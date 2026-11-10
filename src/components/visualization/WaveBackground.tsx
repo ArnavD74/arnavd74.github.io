@@ -3,8 +3,22 @@ import { useIsMobile } from '../../hooks/useIsMobile';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 const PERIOD_W = 1800; // px — one full sine cycle; translateX animates exactly this far
-const TILE_PERIODS = 8; // continuous periods per SVG tile — pushes tile boundary off-screen
-const TILE_W = PERIOD_W * TILE_PERIODS; // background-size; tile boundary at 14400px is never visible
+/**
+ * Continuous periods per SVG tile. Two is enough: `background-repeat: repeat-x`
+ * already hides the boundary, because both terms of the curve —
+ * sin(t + phase) and harmonic·sin(2t + 1.3·phase) — return to the same value
+ * AND the same slope at every multiple of 2π, so the joint is C¹-continuous at
+ * any integer count (measured: 0.0000px step, and the residual slope kink is
+ * a property of the 48-sample polyline, identical at 2 periods and at 8).
+ * The tile is also drawn unscaled — backgroundSize matches the viewBox 1:1 —
+ * so there is no resampling seam either.
+ *
+ * This used to be 8 "to push the tile boundary off-screen", which cost 4x the
+ * rasterized texture (14400px x ~200px ≈ 11.5MB per strip, ~28 strips) for a
+ * boundary that was never visible in the first place.
+ */
+const TILE_PERIODS = 2;
+const TILE_W = PERIOD_W * TILE_PERIODS; // background-size
 const BASE_TILT = -12; // deg — global wave tilt, applied per-wave (about each wave's own centre)
 
 /**
@@ -277,13 +291,37 @@ const WaveBackground: React.FC = () => {
               left: 0,
               right: 0,
               height: `${H}px`,
-              overflow: 'hidden',
               // The wave's full tilt = global −12° + its own small variance, applied here
               // about the wave's own centre (a 2W-wide strip rotated in place), so it always
               // overshoots both screen edges regardless of viewport size or page height.
               transform: `rotate(${(BASE_TILT + w.angle).toFixed(2)}deg)`,
               transformOrigin: 'center center',
+              /*
+               * Cull per wave, not per field. The container-level observer below
+               * spans top:100vh → bottom of the page, so it is *always*
+               * intersecting once you are past the hero — every strip kept
+               * animating no matter where you were scrolled. Skipped subtrees
+               * stop their animations outright, and only a few waves are ever
+               * on screen, so this drops most of the field's live animations.
+               *
+               * No contain-intrinsic-size: this box is absolutely positioned
+               * with left/right:0 and an explicit height, so its used size never
+               * depends on its contents and size containment cannot collapse it.
+               */
+              contentVisibility: 'auto',
             };
+            /*
+             * Deliberately NO `overflow: hidden` here. It was redundant — and a
+             * rotated (non-axis-aligned) clip wrapping an animating opacity is
+             * exactly what pushes Firefox's WebRender into an intermediate
+             * render surface per wave, resolved and resampled every frame.
+             *
+             * Nothing actually overflowed it. Vertically the curve spans
+             * [10, 2·amp+10] and a 12px stroke widens that to [4, 2·amp+16],
+             * inside the H = 2·amp+20 box. Horizontally the strip's +PERIOD_W
+             * overhang already falls outside the container, which paint-clips
+             * via `overflow: hidden` + `contain: strict`.
+             */
             // No will-change here on purpose: a running CSS transform animation is
             // already composited, and hinting it on every strip only pins a very
             // wide background tile into its own layer ahead of time.
