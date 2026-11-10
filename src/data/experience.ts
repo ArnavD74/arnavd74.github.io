@@ -59,7 +59,7 @@ export const experiences: Experience[] = [
     location: 'Remote',
     period: 'Mar 2025 - Apr 2026',
     tagline:
-      'First engineering hire at a health-tech startup focused on building an agentic-first platform transforming payer operations. Founded by ex-Cigna & Walgreens execs.',
+      'First engineering hire at a health-tech startup focused on building an agentic-first platform transforming payer operations.',
     points: [
       'Shipped prototypes showcased to leading healthcare payer execs, accelerating product buy-in and securing pilot commitments',
       'Led final-round SWE interviews; evaluated 20+ engineers and held final hiring authority for our core platform development team',
