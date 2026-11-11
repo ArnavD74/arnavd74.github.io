@@ -18,7 +18,8 @@ export const experiences: Experience[] = [
     company: 'Butterfly AI Tech Solutions',
     location: 'Remote',
     period: 'Nov 2025 - Present',
-    tagline: 'Designing cloud-native document infrastructure for regulated industries.',
+    tagline:
+      'Designing cloud-native document infrastructure for regulated industries; engineer n. 2.',
     points: [],
     technologies: ['AWS', 'Bedrock', 'Textract', 'React', 'Docker', 'DevOps', 'Git'],
     links: [{ label: 'Homepage', url: 'https://butterflyaitechsol.com/' }],
@@ -58,8 +59,7 @@ export const experiences: Experience[] = [
     company: 'medem',
     location: 'Remote',
     period: 'Mar 2025 - Apr 2026',
-    tagline:
-      'First engineering hire at a health-tech startup focused on building an agentic-first platform transforming payer operations.',
+    tagline: 'Building an agentic-first platform transforming payer operations; engineer n. 1.',
     points: [
       'Shipped prototypes showcased to leading healthcare payer execs, accelerating product buy-in and securing pilot commitments',
       'Led final-round SWE interviews; evaluated 20+ engineers and held final hiring authority for our core platform development team',
