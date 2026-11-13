@@ -5,6 +5,12 @@
   --font-display: "Clash Display", system-ui, sans-serif;
   --font-body: "Satoshi", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  /* For the ":]" in the About copy only. Satoshi's colon sits low — measured at
+     100px its dots centre 12px below the centre of the "]", the widest gap of
+     every face tried — so the eyes read as sliding off the bottom of the face.
+     Quicksand was the one that measured dead level (0px), because its bracket
+     descends below the baseline far enough to bracket both dots. */
+  --font-emoticon: "Quicksand", "Satoshi", system-ui, sans-serif;
 
   /* Arctic Noir palette - cool, sophisticated, no warm tones */
   --color-obsidian: #08090c;
