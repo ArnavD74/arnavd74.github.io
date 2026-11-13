@@ -175,7 +175,7 @@ const About: React.FC = () => {
                   I'm currently working as a Data Scientist while shipping software projects on
                   the side. I love to learn by building with new tools and technologies, whether
                   it be in data science, machine learning, or software
-                  development<span className="font-emoticon font-medium text-[0.9167em]">&nbsp;:]</span>
+                  development<span className="font-emoticon font-medium text-[0.9167em] relative -top-[2px]">&nbsp;:]</span>
                 </p>
                 <p>
                   Beyond coding, some of my interests include custom computer peripheral design, PC
