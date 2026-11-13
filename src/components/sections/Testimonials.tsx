@@ -13,7 +13,7 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     name: 'Paras Parekh',
-    title: 'Cofounder, Chief Technology and AI Officer',
+    title: 'Managing Director, State Street',
     image: '/images/testimonial-paras.jpg',
     quote:
       'I had the pleasure of working with Arnav in a fast-paced AI and digital healthcare startup, where he quickly proved himself to be a rare talent. He brings exceptional technical range, sharp instincts, and the ability to deliver fast without ever sacrificing quality.\n\nWhat sets Arnav apart is his versatility, whether it\'s infrastructure, frontend, backend, or systems integration, he jumps in, learns quickly, and gets things done. He thrives on complex challenges and consistently brings thoughtful, scalable solutions.\n\nFocused, collaborative, and committed, Arnav is the kind of developer every team wants when building something that matters. Any company would be fortunate to have him.',
