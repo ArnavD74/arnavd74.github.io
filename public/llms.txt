@@ -1,0 +1,32 @@
+# Arnav Dashaputra
+
+> Data Scientist and Full-Stack Engineer based in New Jersey. Builds predictive
+> pricing models in production, cloud-native document infrastructure, and
+> software projects spanning data science, machine learning, and web engineering.
+
+This site is a single-page portfolio. The sections below describe what it holds,
+so an agent does not need to render the JavaScript application to summarize it.
+
+## Current roles
+
+- Data Scientist, AmTrust Financial Services, Inc. (Princeton, NJ) — since January 2026. End-to-end predictive pricing models for flagship commercial lines.
+- Senior Product Engineer, Butterfly AI Tech Solutions (remote) — since November 2025. Cloud-native document infrastructure for regulated industries; second engineer.
+- Sr Instructor, Code Ninjas Bridgewater (Bridgewater, NJ) — since August 2022. Previously Center Director, 2022–2025.
+
+## Background
+
+- B.S. Computer Science, Rutgers University, 2021–2024.
+- Prior engineering roles: Lead Software Engineer at medem, Data Engineer at Got Users, Full Stack Engineer at Phillipvn Photography, Technology Labs Consultant at Rutgers Computing Services.
+
+## Focus areas
+
+Data science, machine learning, predictive modeling, Python, SQL, React,
+TypeScript, AWS, and cloud architecture.
+
+## Links
+
+- [Portfolio](https://dashaputra.net/): the full interactive site.
+- [Resume (PDF)](https://dashaputra.net/ArnavDashaputra_Resume2026.pdf): complete work history.
+- [GitHub](https://github.com/ArnavD74): open-source and personal projects.
+- [LinkedIn](https://linkedin.com/in/dashaputra): professional profile.
+- [Email](mailto:arnav@dashaputra.net): arnav@dashaputra.net
