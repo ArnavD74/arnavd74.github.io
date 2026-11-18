@@ -199,6 +199,10 @@ const Hero: React.FC = () => {
                   Arnav
                 </motion.span>
               </span>
+              {/* The space is load-bearing for text extraction, not for layout:
+                  the two spans are block-level, so it never renders, but without
+                  it the h1's textContent reads "ArnavDashaputra" to crawlers and
+                  screen readers. */}{' '}
               <span className="block overflow-hidden mt-1">
                 <motion.span
                   className="block"
