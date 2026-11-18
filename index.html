@@ -98,14 +98,15 @@
          content lives in <body>. Browsers with JS on never parse either. -->
     <noscript>
       <style>
-        /* Keep in sync with public/noscript/index.html, which serves this same
-           markup at /noscript/ so it can be previewed without disabling JS. */
+        /* Previewable at /noscript during `vite dev` — the noscript-preview
+           plugin in vite.config.ts serves this very markup with the <noscript>
+           wrappers stripped, so there is no second copy to keep in sync. */
         .ns {
           min-height: 100dvh;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 2rem;
+          padding: 2rem 2rem 4rem;
           background: #08090c;
           color: #e8ecf2;
           font-family: 'Satoshi', system-ui, sans-serif;
@@ -142,6 +143,45 @@
           font-size: 0.95rem;
           line-height: 1.6;
           margin-bottom: 2rem;
+        }
+        /* The prose and role history below are the only body text in the raw
+           HTML — the app renders everything else client-side, so fetchers that
+           do not run JavaScript see this and nothing more. */
+        .ns-h2 {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.7rem;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #5a6478;
+          font-weight: 400;
+          margin-bottom: 0.75rem;
+        }
+        .ns-prose { margin-bottom: 2rem; }
+        .ns-prose p {
+          color: #c4cdd9;
+          font-size: 0.95rem;
+          line-height: 1.7;
+        }
+        .ns-prose p + p { margin-top: 0.75rem; }
+        .ns-roles { list-style: none; margin-bottom: 2rem; }
+        .ns-roles li {
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          font-size: 0.9rem;
+          line-height: 1.5;
+          padding: 0.4rem 0;
+          border-bottom: 1px solid #141821;
+        }
+        .ns-roles .ns-where { color: #8994a8; }
+        .ns-roles .ns-when {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.75rem;
+          color: #5a6478;
+          white-space: nowrap;
+        }
+        @media (max-width: 30rem) {
+          .ns-roles li { flex-direction: column; gap: 0.15rem; }
         }
         .ns-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
         .ns-links a {
@@ -181,6 +221,33 @@
             The full portfolio is interactive and needs JavaScript enabled. Here are
             the essentials in the meantime.
           </p>
+
+          <h2 class="ns-h2">About</h2>
+          <div class="ns-prose">
+            <p>
+              I'm currently working as a Data Scientist while shipping software projects on
+              the side. I love to learn by building with new tools and technologies, whether
+              it be in data science, machine learning, or software development.
+            </p>
+            <p>
+              Beyond coding, some of my interests include custom computer peripheral design,
+              PC hardware, and DIY embedded systems projects. I also love Pokemon, Minecraft,
+              vinyl records, skiing, and cats!
+            </p>
+          </div>
+
+          <h2 class="ns-h2">Experience</h2>
+          <ul class="ns-roles">
+            <li><span>Data Scientist <span class="ns-where">&middot; AmTrust Financial Services</span></span><span class="ns-when">Jan 2026 &ndash; Present</span></li>
+            <li><span>Senior Product Engineer <span class="ns-where">&middot; Butterfly AI Tech Solutions</span></span><span class="ns-when">Nov 2025 &ndash; Present</span></li>
+            <li><span>Sr Instructor <span class="ns-where">&middot; Code Ninjas Bridgewater</span></span><span class="ns-when">Aug 2022 &ndash; Present</span></li>
+            <li><span>Lead Software Engineer <span class="ns-where">&middot; medem</span></span><span class="ns-when">2025 &ndash; 2026</span></li>
+            <li><span>Data Engineer <span class="ns-where">&middot; Got Users</span></span><span class="ns-when">2025 &ndash; 2026</span></li>
+            <li><span>Full Stack Engineer <span class="ns-where">&middot; Phillipvn Photography</span></span><span class="ns-when">2025</span></li>
+            <li><span>B.S. Computer Science <span class="ns-where">&middot; Rutgers University</span></span><span class="ns-when">2021 &ndash; 2024</span></li>
+          </ul>
+
+          <h2 class="ns-h2">Elsewhere</h2>
           <ul class="ns-links">
             <li><span class="ns-key">email</span><a href="mailto:arnav@dashaputra.net">arnav@dashaputra.net</a></li>
             <li><span class="ns-key">github</span><a href="https://github.com/ArnavD74">github.com/ArnavD74</a></li>
