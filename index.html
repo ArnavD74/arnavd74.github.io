@@ -22,6 +22,50 @@
     <meta name="twitter:description" content="Data Scientist & Full-Stack Engineer specializing in React, TypeScript, Python, and cloud architecture." />
     <meta name="twitter:image" content="https://dashaputra.net/images/pfp2.png" />
 
+    <!-- Structured data. The app is client-rendered, so the raw HTML a crawler
+         first receives carries no body text at all — this block is the only
+         machine-readable description of who the site is about that survives
+         without JavaScript. ProfilePage/Person is the type Google documents for
+         a personal site; sameAs is what links this domain to the GitHub and
+         LinkedIn identities.
+
+         Safe under the build-time CSP below despite `script-src 'self'`: the
+         HTML parser classifies a script whose type is not a JavaScript MIME
+         type as a data block and stops before the CSP inline check, so no
+         violation is raised. Verified in Chromium against the real policy. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "url": "https://dashaputra.net/",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Arnav Dashaputra",
+          "url": "https://dashaputra.net/",
+          "jobTitle": "Data Scientist",
+          "description": "Data Scientist & Full-Stack Engineer specializing in React, TypeScript, Python, and cloud architecture.",
+          "image": "https://dashaputra.net/images/pfp2.png",
+          "email": "mailto:arnav@dashaputra.net",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "AmTrust Financial Services, Inc."
+          },
+          "knowsAbout": [
+            "Data Science",
+            "Machine Learning",
+            "Python",
+            "React",
+            "TypeScript",
+            "Cloud Architecture"
+          ],
+          "sameAs": [
+            "https://github.com/ArnavD74",
+            "https://linkedin.com/in/dashaputra"
+          ]
+        }
+      }
+    </script>
+
     <!-- The Content-Security-Policy meta tag is injected at build time (see
          vite.config.ts). It must use http-equiv rather than name to take effect,
          and the dev server needs looser rules than the built site. -->
