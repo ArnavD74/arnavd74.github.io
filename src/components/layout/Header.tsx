@@ -7,6 +7,28 @@ interface HeaderProps {
   activeSection?: string;
 }
 
+/**
+ * Invisible hit area around each nav label.
+ *
+ * The labels are one to three monospace glyphs, so the anchor's own box is only
+ * ~8px wide for "1" — far under the 24x24 CSS px that WCAG 2.5.8 asks for. This
+ * grows the clickable region without touching layout: padding would widen the
+ * box itself, dragging the active-section underline (`left-0 right-0`) out to
+ * the padding edge instead of hugging the number.
+ *
+ * Each side reaches exactly half the flex gap, so neighbouring areas meet rather
+ * than leaving dead strips between the numbers: every pixel of the row belongs
+ * to one link or the next. Half is also the ceiling — reach any further and the
+ * areas overlap, at which point whichever anchor paints last silently swallows
+ * its neighbour's clicks. Desktop gap-10 (40px) gives 20px a side; mobile gap-6
+ * (24px) gives 12px.
+ *
+ * Vertical reach is 12px, which matches the header's own py-3 when scrolled, so
+ * the area never extends past the header onto the content behind it.
+ */
+const HIT_AREA = "before:absolute before:content-[''] before:-inset-y-3";
+const HIT_AREA_X = { desktop: 'before:-inset-x-5', mobile: 'before:-inset-x-3' };
+
 // Labels are the section index in binary, so they vary in width (0, 1, 10, 11, 100).
 const NAV_ITEMS = [
   { id: 'home', label: '0', name: 'Home' },
@@ -97,7 +119,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           aria-label={item.name}
           aria-current={activeSection === item.id ? 'true' : undefined}
           title={item.name}
-          className={`${linkClass(item.id)} ${isDesktop ? 'tracking-wide' : ''}`}
+          className={`${linkClass(item.id)} ${HIT_AREA} ${
+            HIT_AREA_X[variant]
+          } ${isDesktop ? 'tracking-wide' : ''}`}
         >
           {item.label}
           {activeSection === item.id && (
